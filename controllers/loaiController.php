@@ -46,4 +46,6 @@ function delete_loai() {
     header("location: ?ctl=loai-hang");
     die;
 }
+
+
 ?>

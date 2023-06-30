@@ -1,0 +1,10 @@
+.our_team .item_team:hover img {
+    opacity: .5;
+}
+.our_team .item_team:hover .social {
+    transform: translateY(0);
+    opacity: 1;
+}
+.our_services .item_service:hover i {
+    color: #62d2a2;
+}
