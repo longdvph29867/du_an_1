@@ -18,11 +18,10 @@
 
     <!-- banner 2 -->
     <section>
-        <div class="container mx-auto filter brightness-90">
+        <div class="filter brightness-90">
             <img src="<?=url_public?>/assets/images/banner14.webp" alt="">
         </div>
     </section>
-
     <!-- top products -->
     <?php require "top-10-home.php"?>
 

@@ -4,7 +4,8 @@
 }
 .banner img {
     filter: brightness(105%);
-    height: 550px;
+    /* height: 550px; */
+    max-height: 560px;
     object-fit: cover;
     width: 100%;
 }

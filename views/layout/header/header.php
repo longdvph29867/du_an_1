@@ -13,7 +13,7 @@
         lg:pt-0
         md:flex-row
         ">
-        <a href="<?= url_site ?>/trang-chinh/index.php">
+        <a href="<?=url ?>">
             <img class="w-56" src="<?= url_public ?>/assets/images/logo3.png" alt="">
         </a>
         <div class="flex items-center">
@@ -79,8 +79,10 @@
             lg:mt-0
             
             ">
-            <img class="logo_scroll w-56 mr-auto hidden lg:block" src="<?=url_public ?>/assets/images/logo3.png" alt="">
-            <h3 class="lg:hidden text-lg text-white font-semibold py-2">MENU</h3>
+            <a href="<?=url?>" class="mr-auto hidden lg:block">
+                <img class="logo_scroll w-56 hidden lg:block" src="<?=url_public ?>/assets/images/logo3.png" alt="">
+            </a>
+            <h3 class="lg:hidden text-lg text-white font-semibold py-2 mr-auto">MENU</h3>
             <nav class="hidden lg:flex items-center menu">
                 <ul class="flex">
                     <li><a href="<?= url_site ?>/trang-chinh/index.php">Trang chủ</a></li>
