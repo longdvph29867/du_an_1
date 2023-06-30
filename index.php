@@ -14,7 +14,10 @@ switch ($ctl) {
         home_page();
         break;
     case 'about':
-        echo "about";
+        about_page();
+        break;
+    case 'contact':
+        contact_page();
         break;
     default:
         echo "404 NOT FOUND!";

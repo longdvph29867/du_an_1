@@ -92,8 +92,8 @@
                         </ul>
                     </li>
                     <li><a href="#">Sản phẩm</a></li>
-                    <li><a href="#">Giới thiệu</a></li>
-                    <li><a href="#">Liên hệ</a></li>
+                    <li><a href="?ctl=about">Giới thiệu</a></li>
+                    <li><a href="?ctl=contact">Liên hệ</a></li>
                 </ul>
             </nav>
             <div class="btn_menu_mobile lg:hidden">
@@ -117,8 +117,8 @@
                     </ul>
                 </li>
                 <li><a href="#">Sản phẩm</a></li>
-                <li><a href="index.php?gioi-thieu">Giới thiệu</a></li>
-                <li><a href="index.php?lien-he">Liên hệ</a></li>
+                <li><a href="?ctl=about">Giới thiệu</a></li>
+                <li><a href="?ctl=contact">Liên hệ</a></li>
                 <li class="flex justify-center pb-2 items-center flex-wrap">
                     <!-- tai khoan mobile -->
                         <?php

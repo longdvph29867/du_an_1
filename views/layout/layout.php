@@ -60,8 +60,11 @@
         123
     </div> -->
 
-
-
+    <div id="back-to-top" class="fixed bottom-6 right-6 hidden">
+        <div class="w-12 h-12 text-white text-2xl bg-[#62d2a2] hover:opacity-70 cursor-pointer rounded-md flex items-center justify-center ">
+            <i class="fa-solid fa-chevron-up"></i>
+        </div>
+    </div>
     <!-- header js -->
     <script>
         const menuMobile = document.querySelector('.header_bottom');
@@ -256,6 +259,7 @@
         });
     </script>
 
+    <script src="<?=url_public?>/assets/js/js.js"></script>
 </body>
 
 </html>
