@@ -8,12 +8,13 @@
             $stt = 0;
             foreach ($top10 as $item) {
                 $stt += 1;
-                $link = $url_site . "/hang-hoa/chi-tiet.php?ma_hh=" . $item['ma_hh'];
+                // $link = $url_site . "/hang-hoa/chi-tiet.php?ma_hh=" . $item['ma_hh'];
+                $link = '#';
             ?>
                 <div class="px-3">
                     <div class="product_item">
                         <div class="product_img relative">
-                            <img src="<?= $url_content ?>/images/image_products/<?= $item['hinh'] ?>" alt="">
+                            <img src="<?=url_public ?>/images/products/<?= $item['hinh'] ?>" alt="">
                             <div class="overlay absolute w-full h-full bg-white/50 top-0 left-0 flex items-center justify-center">
                                 <div class="flex space-x-2">
                                     <a href="<?= $link ?>" class="btn2 min-w-[40px] w-11 h-11 flex items-center justify-center"><i class="fa-solid fa-eye"></i></a>

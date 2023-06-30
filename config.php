@@ -8,7 +8,7 @@ $config['password'] = '';
 session_start();
 //Message
 const url = "/du_an_1";
-const url_public = url . "public";
+const url_public = url . "/public";
 const url_views = url . "/views";
 const url_admin = url_views . "/admin";
 const url_site = url_views . "/site";
