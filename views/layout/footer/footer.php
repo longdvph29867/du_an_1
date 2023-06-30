@@ -3,7 +3,7 @@
     <div class="container mx-auto ">
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 py-8">
             <div>
-                <img class="w-48" src="<?= url_public ?>/assets/images/logo3.png" alt="">
+                <img class="w-60" src="<?= url_public ?>/assets/images/logo1.png" alt="">
                 <p class="text-sm mt-2 mb-5">
                     Địa chỉ mua thực phẩm online tại Hà Nội. Chuyên bán hải sản, thịt cá, rau sạch,
                     củ quả, trái cây, thực phẩm tươi sống.

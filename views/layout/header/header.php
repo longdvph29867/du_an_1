@@ -14,7 +14,7 @@
         md:flex-row
         ">
         <a href="<?=url ?>">
-            <img class="w-56" src="<?= url_public ?>/assets/images/logo3.png" alt="">
+            <img class="w-72" src="<?= url_public ?>/assets/images/logo1.png" alt="">
         </a>
         <div class="flex items-center">
             <!-- search -->
@@ -80,7 +80,7 @@
             
             ">
             <a href="<?=url?>" class="mr-auto hidden lg:block">
-                <img class="logo_scroll w-56 hidden lg:block" src="<?=url_public ?>/assets/images/logo3.png" alt="">
+                <img class="logo_scroll w-72 hidden lg:block" src="<?=url_public ?>/assets/images/logo1.png" alt="">
             </a>
             <h3 class="lg:hidden text-lg text-white font-semibold py-2 mr-auto">MENU</h3>
             <nav class="hidden lg:flex items-center menu">
