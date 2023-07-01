@@ -1,7 +1,8 @@
 <?php
-function view($path, $data = [])
+function view($path, $data = [], $errors = [], $value = [])
 {
     extract($data);
+    extract($value);
     include_once "views/" . $path . ".php";
 }
 function exsist_param($fieldName){

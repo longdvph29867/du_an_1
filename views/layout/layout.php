@@ -47,7 +47,7 @@
     <!-- header -->
     <?php require "header/header.php";?>
     
-    <div class="lg:h-[143px] md:h-[130px] h-[178px] "></div>
+    <div class="lg:h-[137px] md:h-[125px] h-[173px] "></div>
     <!-- trang home -->
     <?php include $view_name;?>
 

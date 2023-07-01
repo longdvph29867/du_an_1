@@ -27,18 +27,18 @@
                     session_destroy();
 
                     delete_cookie('info-user');
-                    header("location: $url_site/trang-chinh");
+                    header("location: ".url);
                 }
                 if (isset($_SESSION['user'])) {
                     $info_user = $_SESSION['user'];
                 ?>
                     <div class="user_header ml-2 relative hidden lg:block">
-                        <img class="h-12 w-12 object-cover" src="<?php echo "$url_content/images/image_user/$info_user[hinh]"; ?>" alt="">
+                        <img class="h-12 w-12 object-cover" src="<?=url_public."/images/users/$info_user[hinh]"; ?>" alt="">
                         <ul class="user_child">
-                            <li><a href="<?php echo "$url_site/info-user" ?>">Thông tin</a></li>
+                            <li><a href="#">Thông tin</a></li>
                             <?php
                             if ($info_user['vai_tro']) {
-                                echo "<li><a href='$url_admin" . "/trang-chinh'>Quản trị</a></li>";
+                                echo "<li><a href='#'>Quản trị</a></li>";
                             }
                             ?>
 
@@ -49,8 +49,8 @@
                 } else {
                 ?>
                 <div class="flex">
-                    <a href="<?= url_site ?>/tai-khoan/index.php?btn_form_login" class="btn1 text-center mx-2 hidden lg:block">Đăng nhập</a>
-                    <a href="<?= url_site ?>/tai-khoan" class="btn1 text-center hidden lg:block">Đăng Ký</a>
+                    <a href="<?= url_site ?>/login/?ctl=login" class="btn1 text-center mx-2 hidden lg:block">Đăng nhập</a>
+                    <a href="<?= url_site ?>/login/" class="btn1 text-center hidden lg:block">Đăng Ký</a>
                 </div>
                 <?php
                 }
@@ -129,13 +129,13 @@
 
                             session_destroy();
                             delete_cookie('info-user');
-                            header("location: $url_site/trang-chinh");
+                            header("location: ". url);
                         }
 
-                        if (!isset($_SESSION['user'])) {
+                        if (isset($_SESSION['user'])) {
                         ?>
                             <div class="user_header">
-                                <img class="h-12 w-12 object-cover" src="https://media.npr.org/assets/img/2023/05/24/gettyimages-1358149692-bf96c07fc26040785771044ba8470ff9d73a928c.jpg" alt="">
+                                <img class="h-12 w-12 object-cover" src="<?=url_public."/images/users/$info_user[hinh]"; ?>" alt="">
                             </div>
                             <a href="#" class="btn2 ml-2">Thông tin</a>
                             <?php

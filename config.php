@@ -7,12 +7,13 @@ $config['password'] = '';
 
 session_start();
 //Message
+define('url_documentRoot', $_SERVER['DOCUMENT_ROOT'] . '/du_an_1');
 const url = "/du_an_1";
 const url_public = url . "/public";
 const url_views = url . "/views";
 const url_admin = url_views . "/admin";
 const url_site = url_views . "/site";
-$image_dir = $_SERVER['DOCUMENT_ROOT']. url . "/content/images";
+$image_dir = url_documentRoot . "/public/images";
 $MESSAGE = "";
 $MESSAGE_SUCCESS = "";
 $MESSAGE_ERROR = "";
