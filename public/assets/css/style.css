@@ -266,5 +266,10 @@ header.scrollHeader .header_bottom .logo_scroll {
     opacity: 1;
 
 }
-
-
+.disabled-link {
+    color: gray;
+    background-color: rgb(246, 246, 246);
+    border-color: gray;
+    cursor: not-allowed;
+    pointer-events: none;
+}

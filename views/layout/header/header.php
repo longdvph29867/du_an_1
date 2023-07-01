@@ -41,7 +41,8 @@
                                 echo "<li><a href='#'>Quản trị</a></li>";
                             }
                             ?>
-
+                            
+                            <li><a href="<?=url_views.'/site/order'?>">Đơn hàng</a></li>
                             <li><a href="?btn_logout">Đăng xuất</a></li>
                         </ul>
                     </div>
@@ -143,6 +144,7 @@
                                 echo "<a href='#' class='btn2 mx-2 '>Quản lý</a>";
                             }
                             ?>
+                            <a href="<?=url_views.'/site/order'?>" class="btn2 ml-1">Đơn hàng</a>
                             <a href="?btn_logout" class="btn2 ml-1">Đăng xuất</a>
                         <?php
                         } else {
