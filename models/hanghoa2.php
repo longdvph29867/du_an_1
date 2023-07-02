@@ -15,7 +15,7 @@ function hanghoa_top_10()
 function hanghoa_dac_biet()
 {
     $conn = connection();
-    $sql = "SELECT * FROM hang_hoa JOIN don_vị ON don_vị.ma_dv = hang_hoa.ma_dv WHERE hang_hoa.dac_biet = 1";
+    $sql = "SELECT * FROM hang_hoa JOIN don_vi ON don_vi.ma_dv = hang_hoa.ma_dv WHERE hang_hoa.dac_biet = 1";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
