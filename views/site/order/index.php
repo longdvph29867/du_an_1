@@ -20,6 +20,9 @@ switch ($ctl) {
     case 'order-cancel':
         order_cancel();
         break;
+    case 'order-review':
+        order_review();
+        break;
     default:
         echo "404 NOT FOUND!";
 }

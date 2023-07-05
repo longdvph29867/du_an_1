@@ -4,7 +4,7 @@ function donhang_by_kh_all($ma_kh)
 {
     $arr = func_get_args();
     $conn = connection();
-    $sql = "SELECT don_hang.ma_dh, don_hang.ngay_dat, trang_thai.ma_trang_thai, trang_thai.ten_trang_thai, don_vi_van_chuyen.ten_van_chuyen, chi_tiet_don_hang.so_luong, hang_hoa.ten_hh, hang_hoa.giam_gia, hang_hoa.don_gia, hang_hoa.hinh, hang_hoa.hinh, don_vi.ten_dv 
+    $sql = "SELECT don_hang.ma_dh, don_hang.ngay_dat, don_hang.danh_gia_don_hang, trang_thai.ma_trang_thai, trang_thai.ten_trang_thai, don_vi_van_chuyen.ten_van_chuyen, chi_tiet_don_hang.so_luong, hang_hoa.ten_hh, hang_hoa.giam_gia, hang_hoa.don_gia, hang_hoa.hinh, hang_hoa.hinh, don_vi.ten_dv 
     FROM don_hang 
     JOIN chi_tiet_don_hang ON don_hang.ma_dh = chi_tiet_don_hang.ma_dh 
     JOIN trang_thai ON don_hang.ma_trang_thai = trang_thai.ma_trang_thai 
@@ -23,6 +23,8 @@ function donhang_by_kh_all($ma_kh)
             $orders[$orderID] = [
                 'ma_dh' => $row['ma_dh'],
                 'ngay_dat' => $row['ngay_dat'],
+                'ngay_dat' => $row['ngay_dat'],
+                'danh_gia_don_hang' => $row['danh_gia_don_hang'],
                 'ma_trang_thai' => $row['ma_trang_thai'],
                 'ten_trang_thai' => $row['ten_trang_thai'],
                 'ten_van_chuyen' => $row['ten_van_chuyen'],

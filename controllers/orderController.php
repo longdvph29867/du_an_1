@@ -25,4 +25,10 @@ function order_cancel()
     die;
 }
 
+function order_review() {
+    $content = "order_review.php";
+    $view_name = "../../layout/content-layout/content-layout.php";
+    view('layout/layout', ['view_name' => $view_name, 'content' => $content]);
+}
+
 ?>
