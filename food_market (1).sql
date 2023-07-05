@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost
--- Thời gian đã tạo: Th6 30, 2023 lúc 07:09 AM
+-- Thời gian đã tạo: Th7 05, 2023 lúc 03:37 PM
 -- Phiên bản máy phục vụ: 10.4.27-MariaDB
 -- Phiên bản PHP: 8.0.25
 
@@ -41,7 +41,7 @@ CREATE TABLE `binh_luan` (
 
 INSERT INTO `binh_luan` (`ma_bl`, `noi_dung`, `ma_hh`, `ma_kh`, `ngay_bl`) VALUES
 (15, 'good', 36, 'user', '2023-06-04'),
-(16, 'ngon re', 36, 'qekix', '2023-06-05'),
+(16, 'ngon re', 36, 'user2', '2023-06-05'),
 (22, 'okokoko', 28, 'admin', '2023-06-07'),
 (25, '123', 38, 'admin', '2023-06-10'),
 (26, '', 38, 'admin', '2023-06-10'),
@@ -68,7 +68,32 @@ INSERT INTO `chi_tiet_don_hang` (`ma_ctdh`, `ma_dh`, `ma_hh`, `so_luong`) VALUES
 (1, 1, 64, 2),
 (2, 1, 9, 3),
 (3, 2, 69, 5),
-(4, 2, 14, 4);
+(4, 2, 14, 4),
+(5, 3, 32, 1),
+(6, 3, 62, 2),
+(7, 3, 26, 2),
+(8, 3, 35, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `danh_gia`
+--
+
+CREATE TABLE `danh_gia` (
+  `ma_danh_gia` int(10) NOT NULL,
+  `noi_dung_danh_gia` varchar(100) NOT NULL,
+  `xep_hang` int(2) NOT NULL,
+  `ma_hh` int(11) NOT NULL,
+  `ma_kh` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `danh_gia`
+--
+
+INSERT INTO `danh_gia` (`ma_danh_gia`, `noi_dung_danh_gia`, `xep_hang`, `ma_hh`, `ma_kh`) VALUES
+(1, 'good good!', 5, 64, 'admin');
 
 -- --------------------------------------------------------
 
@@ -81,18 +106,47 @@ CREATE TABLE `don_hang` (
   `ma_kh` varchar(20) NOT NULL,
   `ngay_dat` date NOT NULL,
   `ma_trang_thai` int(10) NOT NULL,
-  `dia_chi` varchar(200) NOT NULL,
+  `ten_nguoi_nhan` varchar(50) NOT NULL,
+  `sdt_nguoi_nhan` varchar(11) NOT NULL,
+  `dia_chi_nhan` varchar(200) NOT NULL,
+  `tong_tien` int(10) NOT NULL,
   `ma_van_chuyen` int(10) NOT NULL,
-  `ghi_chu` varchar(200) NOT NULL
+  `ghi_chu` varchar(200) NOT NULL,
+  `danh_gia_don_hang` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `don_hang`
 --
 
-INSERT INTO `don_hang` (`ma_dh`, `ma_kh`, `ngay_dat`, `ma_trang_thai`, `dia_chi`, `ma_van_chuyen`, `ghi_chu`) VALUES
-(1, 'admin', '2023-06-29', 1, 'ha noi', 5, 'mau den'),
-(2, 'admin', '2023-06-29', 1, 'ha noi', 3, '12345678910jqka');
+INSERT INTO `don_hang` (`ma_dh`, `ma_kh`, `ngay_dat`, `ma_trang_thai`, `ten_nguoi_nhan`, `sdt_nguoi_nhan`, `dia_chi_nhan`, `tong_tien`, `ma_van_chuyen`, `ghi_chu`, `danh_gia_don_hang`) VALUES
+(1, 'admin', '2023-06-29', 4, 'Nguyễn Văn A', '0971111111', 'P. Trịnh Văn Bô, Xuân Phương, Nam Từ Liêm, Hà Nội', 302000, 5, 'mau den', 0),
+(2, 'admin', '2023-06-29', 5, 'Đỗ VĂn Long', '0999999999', 'Thanh Dương, Thành Đô, Tứ Xuyên, Trung Quốc', 1232000, 3, '12345678910jqka', 0),
+(3, 'user', '2023-07-01', 5, 'Nguyễn Khắc Cường', '0366666666', 'Liễu Giai, Phường Ngọc Khánh, Quận Ba Đình, Thành phố Hà Nội, Việt Nam.', 2321000, 5, 'Việt Nam', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `don_vi`
+--
+
+CREATE TABLE `don_vi` (
+  `ma_dv` int(11) NOT NULL,
+  `ten_dv` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `don_vi`
+--
+
+INSERT INTO `don_vi` (`ma_dv`, `ten_dv`) VALUES
+(1, 'Kg'),
+(2, 'Lít'),
+(3, 'Túi'),
+(4, 'Lốc'),
+(5, 'Thùng'),
+(6, 'Chai'),
+(7, 'Hộp');
 
 -- --------------------------------------------------------
 
@@ -120,30 +174,6 @@ INSERT INTO `don_vi_van_chuyen` (`ma_van_chuyen`, `ten_van_chuyen`, `gia_van_chu
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `don_vị`
---
-
-CREATE TABLE `don_vị` (
-  `ma_dv` int(11) NOT NULL,
-  `ten_dv` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `don_vị`
---
-
-INSERT INTO `don_vị` (`ma_dv`, `ten_dv`) VALUES
-(1, 'Kg'),
-(2, 'Lít'),
-(3, 'Túi'),
-(4, 'Lốc'),
-(5, 'Thùng'),
-(6, 'Chai'),
-(7, 'Hộp');
-
--- --------------------------------------------------------
-
---
 -- Cấu trúc bảng cho bảng `gio_hang`
 --
 
@@ -160,8 +190,8 @@ CREATE TABLE `gio_hang` (
 
 INSERT INTO `gio_hang` (`ma_gh`, `ma_kh`, `ma_hh`, `so_luong`) VALUES
 (1, 'admin', 9, 32),
-(2, 'qekix', 64, 2),
-(3, 'qekix', 61, 2),
+(2, 'user2', 64, 2),
+(3, 'user2', 61, 2),
 (4, 'user', 25, 4),
 (5, 'user', 32, 2);
 
@@ -198,7 +228,7 @@ INSERT INTO `hang_hoa` (`ma_hh`, `ten_hh`, `don_gia`, `giam_gia`, `hinh`, `ngay_
 (6, 'Đuôi heo', 75000.00, 3000.00, 'thit_duoi-heo.png', '2023-06-03', 'Đuôi heo bao gồm cả phần xương đuôi. Phần đuôi gồm chủ yếu là thịt và mỡ, được bao quanh bởi da. Xương và các mẩu sụn nhỏ ở các đầu khớp nối tạo độ giòn khi thưởng thức. Trong thực đơn gia đình thì đây là nguyên liệu lý tưởng cho các món hầm, ninh nhừ để đem lại những món ăn thơm ngon, hương vị đậm đà nhưng không hề béo', 0, 1, 1, 1),
 (7, 'Nạc vai heo', 105000.00, 1000.00, 'thit_vai-heo.png', '2023-06-03', 'Nạc vai heo là phần thịt đặc trưng được lấy từ đùi trước (vai) của heo. Nạc vai còn bao gồm một phần đầu của thăn ngoại heo (đầu mềm). Chất lượng thịt heo đạt chất lượng cao nhất, thịt heo đều được Cơ quan thú y nhà nước kiểm tra, đóng dấu trước khi đưa ra thị trường tiêu thụ', 1, 0, 1, 1),
 (8, 'Bắp bò Úc', 355000.00, 19000.00, 'thit_bap-bo-uc.png', '2023-06-03', 'Bắp bò Úc luôn là được xếp trong danh sách dòng sản phẩm best seller ở mọi cửa hàng trong hệ thống. Với thực đơn chế biến đa dạng như bò kho, bò hầm, bò sốt vang, bò luộc, bò xào, bò nướng, bò hấp, sản phẩm đáp ứng nhu cầu ẩm thực phong phú của nhiều gia đình Việt. Hãy đến với Food Market ngay hôm nay để được mua hàng với mức giá tốt nhất', 1, 1, 1, 1),
-(9, 'Ba chỉ bò nhập khẩu', 515000.00, 29000.00, 'thit_ba-chi-bo.png', '2023-06-03', 'Ba chỉ bò là phần thịt được lấy từ phần bụng của con bò, là phần thịt với những dải thịt nạc và thịt mỡ xen kẽ nhau tạo nên độ mềm, ngậy, ngọt nhưng hoàn toàn không ngấy. Bò nhập khẩu rất dễ chế biến. Những món ăn nấu từ thịt ba chỉ bò cũng rất đơn giản như xào, lẩu, cuốn cải nướng, cuốn nấm kim châm nướng, nhúng giấm hay làm salat', 1, 33, 1, NULL),
+(9, 'Ba chỉ bò nhập khẩu', 515000.00, 29000.00, 'thit_ba-chi-bo.png', '2023-06-03', 'Ba chỉ bò là phần thịt được lấy từ phần bụng của con bò, là phần thịt với những dải thịt nạc và thịt mỡ xen kẽ nhau tạo nên độ mềm, ngậy, ngọt nhưng hoàn toàn không ngấy. Bò nhập khẩu rất dễ chế biến. Những món ăn nấu từ thịt ba chỉ bò cũng rất đơn giản như xào, lẩu, cuốn cải nướng, cuốn nấm kim châm nướng, nhúng giấm hay làm salat', 1, 33, 1, 1),
 (10, 'Thăn ngoại bò Úc', 489000.00, 12000.00, 'thit_than-ngoai-bo-uc.png', '2023-06-03', 'Là sự xen kẽ hoàn hảo giữa lớp thịt và lớp mỡ trên miếng thịt bò tạo nên những hình vân cẩm thạch đẹp mắt.Thịt bò mềm, mọng nước, hợp để làm steak hoặc nhúng lẩu. Thăn ngoại bò vốn nổi tiếng là loại thịt bò cao cấp nhất trên thế giới. Các đường vân mỡ – nạc đan xen đều đặn tựa như đường vân cẩm thạch', 0, 3, 1, 1),
 (11, 'Gầu bò Úc', 348000.00, 0.00, 'thit_gau-bo-uc.png', '2023-06-03', 'Gầu bò Úc hay còn gọi là nạm bò, ức bò (Brisket) là sản phẩm nhập khẩu trực tiếp từ các thương hiệu thịt bò hàng đầu của Úc với đầy đủ tem nhãn của nhà sản xuất và dấu kiểm định của Chi Cục Thú Y. Quá trình sơ chế, đóng khay, cấp đông Bò Úc vệ sinh sạch sẽ đảm bảo chất lượng, an toàn cho sức khỏe người tiêu dùng. Gầu Bò Úc được pha cắt bằng máy bào công nghiệp, bào lẩu theo tiêu chuẩn độ dày 1,5mm cho món lẩu.', 1, 13, 1, 1),
 (12, 'Gà đồi cao lãnh', 132000.00, 11000.00, 'thit_ga-doi.png', '2023-06-03', 'Thịt gà đồi thường có cấu trúc cơ bắp chắc chắn và mềm mại, với một lượng mỡ ít hơn so với các loại gà nuôi công nghiệp. Do được nuôi trong môi trường tự nhiên, gà đồi thường có cơ bắp phát triển tự nhiên hơn và thường được cho ăn các nguồn thức ăn tự nhiên như cỏ, hạt, sâu, giun và côn trùng. Thịt gà đồi là một nguồn cung cấp protein chất lượng cao, vitamin B6, vitamin B12, selen và các khoáng chất khác. Nó là một lựa chọn ăn uống lành mạnh và giàu dinh dưỡng', 0, 1, 1, 1),
@@ -273,8 +303,8 @@ CREATE TABLE `khach_hang` (
   `ma_kh` varchar(20) NOT NULL COMMENT 'mã đăng nhập',
   `mat_khau` varchar(50) NOT NULL COMMENT 'mật khẩu',
   `ho_ten` varchar(50) NOT NULL COMMENT 'họ và tên',
-  `kich_hoat` tinyint(1) NOT NULL COMMENT 'trang thái kích hoạt',
   `hinh` varchar(50) NOT NULL COMMENT 'tên hình ảnh',
+  `sdt` varchar(11) NOT NULL,
   `email` varchar(50) NOT NULL COMMENT 'địa chỉ email',
   `vai_tro` tinyint(1) NOT NULL COMMENT 'vai trò true là nhân viên'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -283,10 +313,14 @@ CREATE TABLE `khach_hang` (
 -- Đang đổ dữ liệu cho bảng `khach_hang`
 --
 
-INSERT INTO `khach_hang` (`ma_kh`, `mat_khau`, `ho_ten`, `kich_hoat`, `hinh`, `email`, `vai_tro`) VALUES
-('admin', 'admin', 'adminsssssss', 1, 'user2.jpeg', 'admin@gmail.coms', 1),
-('qekix', 'Pa$$w0rd!', 'hien', 0, 'Avatar Image (1).png', 'folobyk@mailinator.com', 1),
-('user', 'user', 'mungloli', 1, 'Avatar Image (3).png', 'mykikox@mailinator.com', 0);
+INSERT INTO `khach_hang` (`ma_kh`, `mat_khau`, `ho_ten`, `hinh`, `sdt`, `email`, `vai_tro`) VALUES
+('111111', '111111', 'Aliquid praesentium ', '2_1.png', '77', 'hijuga@mailinator.com', 0),
+('222222', '222222', '222222', '1.1-removebg-preview.png', '222222', 'longdvph29867@fpt.edu.vn', 0),
+('22222222', 'Pa$$w0rd!', 'Itaque nihil culpa d', '1.1-removebg-preview.png', '7', 'femotul@mailinator.com', 0),
+('333333', 'Pa$$w0rd!', 'Accusantium autem ir', '3_1.png', '51', 'wocopifu@mailinator.com', 0),
+('admin', 'admin', 'adminsssssss', 'user2.jpeg', '0123456789', 'admin@gmail.coms', 1),
+('user', 'user', 'mungloli', 'Avatar Image (3).png', '0999999999', 'mykikox@mailinator.com', 0),
+('user2', 'user2', 'hien', 'Avatar Image (1).png', '0978888888', 'user2@gmail.com', 1);
 
 -- --------------------------------------------------------
 
@@ -296,22 +330,23 @@ INSERT INTO `khach_hang` (`ma_kh`, `mat_khau`, `ho_ten`, `kich_hoat`, `hinh`, `e
 
 CREATE TABLE `loai` (
   `ma_loai` int(10) NOT NULL COMMENT 'mã loại hàng',
-  `ten_loai` varchar(50) NOT NULL COMMENT 'tên loại hàng'
+  `ten_loai` varchar(50) NOT NULL COMMENT 'tên loại hàng',
+  `hinh_loai` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `loai`
 --
 
-INSERT INTO `loai` (`ma_loai`, `ten_loai`) VALUES
-(1, 'Thịt'),
-(2, 'Cá'),
-(3, 'Hải sản'),
-(4, 'Rau'),
-(5, 'Hoa quả'),
-(6, 'Sữa'),
-(7, 'Gia vị'),
-(8, 'Đồ uống');
+INSERT INTO `loai` (`ma_loai`, `ten_loai`, `hinh_loai`) VALUES
+(1, 'Thịt', 'category-meat.png'),
+(2, 'Cá', 'category-fish.png'),
+(3, 'Hải sản', 'categoty-seafood.png'),
+(4, 'Rau', 'category-vegetable.png'),
+(5, 'Hoa quả', 'category-fruit.png'),
+(6, 'Sữa', 'category-milk.png'),
+(7, 'Gia vị', 'category-spice.png'),
+(8, 'Đồ uống', 'category-water.png');
 
 -- --------------------------------------------------------
 
@@ -357,6 +392,14 @@ ALTER TABLE `chi_tiet_don_hang`
   ADD KEY `ma_hh` (`ma_hh`);
 
 --
+-- Chỉ mục cho bảng `danh_gia`
+--
+ALTER TABLE `danh_gia`
+  ADD PRIMARY KEY (`ma_danh_gia`),
+  ADD KEY `ma_hh` (`ma_hh`),
+  ADD KEY `ma_kh` (`ma_kh`);
+
+--
 -- Chỉ mục cho bảng `don_hang`
 --
 ALTER TABLE `don_hang`
@@ -366,24 +409,24 @@ ALTER TABLE `don_hang`
   ADD KEY `ma_trang_thai` (`ma_trang_thai`);
 
 --
+-- Chỉ mục cho bảng `don_vi`
+--
+ALTER TABLE `don_vi`
+  ADD PRIMARY KEY (`ma_dv`);
+
+--
 -- Chỉ mục cho bảng `don_vi_van_chuyen`
 --
 ALTER TABLE `don_vi_van_chuyen`
   ADD PRIMARY KEY (`ma_van_chuyen`);
 
 --
--- Chỉ mục cho bảng `don_vị`
---
-ALTER TABLE `don_vị`
-  ADD PRIMARY KEY (`ma_dv`);
-
---
 -- Chỉ mục cho bảng `gio_hang`
 --
 ALTER TABLE `gio_hang`
   ADD PRIMARY KEY (`ma_gh`),
-  ADD KEY `ma_kh` (`ma_kh`),
-  ADD KEY `ma_hh` (`ma_hh`);
+  ADD KEY `ma_hh` (`ma_hh`),
+  ADD KEY `gio_hang_ibfk_1` (`ma_kh`);
 
 --
 -- Chỉ mục cho bảng `hang_hoa`
@@ -425,25 +468,31 @@ ALTER TABLE `binh_luan`
 -- AUTO_INCREMENT cho bảng `chi_tiet_don_hang`
 --
 ALTER TABLE `chi_tiet_don_hang`
-  MODIFY `ma_ctdh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ma_ctdh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT cho bảng `danh_gia`
+--
+ALTER TABLE `danh_gia`
+  MODIFY `ma_danh_gia` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `don_hang`
 --
 ALTER TABLE `don_hang`
-  MODIFY `ma_dh` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ma_dh` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT cho bảng `don_vi`
+--
+ALTER TABLE `don_vi`
+  MODIFY `ma_dv` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `don_vi_van_chuyen`
 --
 ALTER TABLE `don_vi_van_chuyen`
   MODIFY `ma_van_chuyen` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT cho bảng `don_vị`
---
-ALTER TABLE `don_vị`
-  MODIFY `ma_dv` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `gio_hang`
@@ -488,6 +537,13 @@ ALTER TABLE `chi_tiet_don_hang`
   ADD CONSTRAINT `ma_hh` FOREIGN KEY (`ma_hh`) REFERENCES `hang_hoa` (`ma_hh`);
 
 --
+-- Các ràng buộc cho bảng `danh_gia`
+--
+ALTER TABLE `danh_gia`
+  ADD CONSTRAINT `danh_gia_ibfk_1` FOREIGN KEY (`ma_hh`) REFERENCES `hang_hoa` (`ma_hh`),
+  ADD CONSTRAINT `danh_gia_ibfk_2` FOREIGN KEY (`ma_kh`) REFERENCES `khach_hang` (`ma_kh`);
+
+--
 -- Các ràng buộc cho bảng `don_hang`
 --
 ALTER TABLE `don_hang`
@@ -499,7 +555,7 @@ ALTER TABLE `don_hang`
 -- Các ràng buộc cho bảng `gio_hang`
 --
 ALTER TABLE `gio_hang`
-  ADD CONSTRAINT `gio_hang_ibfk_1` FOREIGN KEY (`ma_kh`) REFERENCES `khach_hang` (`ma_kh`),
+  ADD CONSTRAINT `gio_hang_ibfk_1` FOREIGN KEY (`ma_kh`) REFERENCES `khach_hang` (`ma_kh`) ON UPDATE CASCADE,
   ADD CONSTRAINT `gio_hang_ibfk_2` FOREIGN KEY (`ma_hh`) REFERENCES `hang_hoa` (`ma_hh`);
 
 --
@@ -507,7 +563,7 @@ ALTER TABLE `gio_hang`
 --
 ALTER TABLE `hang_hoa`
   ADD CONSTRAINT `ma loai` FOREIGN KEY (`ma_loai`) REFERENCES `loai` (`ma_loai`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `ma_dv` FOREIGN KEY (`ma_dv`) REFERENCES `don_vị` (`ma_dv`);
+  ADD CONSTRAINT `ma_dv` FOREIGN KEY (`ma_dv`) REFERENCES `don_vi` (`ma_dv`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
