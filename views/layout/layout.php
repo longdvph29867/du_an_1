@@ -260,6 +260,36 @@
     </script>
 
     <script src="<?=url_public?>/assets/js/js.js"></script>
+
+    <script>
+        let formReview = document.getElementById('insert_review');
+        let inputs = formReview.querySelectorAll('input');
+        let selects= formReview.querySelectorAll('select'); 
+        formReview.addEventListener('submit', function(event) {
+            event.preventDefault();
+            let isValid = true;
+            for (var i = 0; i < inputs.length; i++) {
+                if (inputs[i].value.trim() === '') {
+                    isValid = false;
+                    inputs[i].nextElementSibling.innerText = "Vui lòng nhập trường này!";
+                } else {
+                    inputs[i].nextElementSibling.innerText = "";
+                }
+            }
+            for (var i = 0; i < selects.length; i++) {
+                if (selects[i].value.trim() === '') {
+                    isValid = false;
+                    selects[i].nextElementSibling.innerText = "Vui lòng nhập trường này!";
+                } else {
+                    selects[i].nextElementSibling.innerText = "";
+                }
+            }
+            if (isValid) {
+                this.submit();
+            }
+
+        });
+    </script>
 </body>
 
 </html>

@@ -49,7 +49,7 @@
                         <?php
                         if ($order['ma_trang_thai'] == 4) {
                         ?>
-                            <a href='#' class='<?php if (!empty($order['danh_gia_don_hang'])) echo 'disabled-link'; ?> btn1 block text-center rounded min-w-[150px] py-2' style='border-width: 1px;'><?php if (!empty($order['danh_gia_don_hang'])) echo 'Đã'; ?> Đánh giá</a>
+                            <a href='?ctl=order-review&ma_dh=<?= $order['ma_dh'] ?>' class='<?php if (!empty($order['danh_gia_don_hang'])) echo 'disabled-link'; ?> btn1 block text-center rounded min-w-[150px] py-2' style='border-width: 1px;'><?php if (!empty($order['danh_gia_don_hang'])) echo 'Đã'; ?> Đánh giá</a>
                         <?php
                         }
                         ?>

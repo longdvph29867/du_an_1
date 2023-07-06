@@ -49,11 +49,11 @@ function donhang_by_kh_all($ma_kh)
     return $orders;
 }
 
-function donhang_detail_by_id($ma_dh)
+function donhang_by_id($ma_dh)
 {
     $arr = func_get_args();
     $conn = connection();
-    $sql = "SELECT don_hang.ma_dh, don_hang.ngay_dat, don_hang.ten_nguoi_nhan, don_hang.sdt_nguoi_nhan, don_hang.dia_chi_nhan, don_hang.tong_tien, don_hang.ghi_chu, trang_thai.ten_trang_thai, don_vi_van_chuyen.ten_van_chuyen, don_vi_van_chuyen.gia_van_chuyen, hang_hoa.ten_hh, hang_hoa.don_gia, hang_hoa.giam_gia, hang_hoa.hinh, chi_tiet_don_hang.so_luong, don_vi.ten_dv
+    $sql = "SELECT don_hang.ma_dh, don_hang.ngay_dat, don_hang.ten_nguoi_nhan, don_hang.sdt_nguoi_nhan, don_hang.dia_chi_nhan, don_hang.tong_tien, don_hang.ghi_chu, trang_thai.ten_trang_thai, don_vi_van_chuyen.ten_van_chuyen, don_vi_van_chuyen.gia_van_chuyen, hang_hoa.ten_hh, hang_hoa.ma_hh, hang_hoa.don_gia, hang_hoa.giam_gia, hang_hoa.hinh, chi_tiet_don_hang.so_luong, don_vi.ten_dv
     FROM don_hang 
     JOIN chi_tiet_don_hang ON don_hang.ma_dh = chi_tiet_don_hang.ma_dh 
     JOIN trang_thai ON don_hang.ma_trang_thai = trang_thai.ma_trang_thai 
@@ -80,59 +80,33 @@ function donhang_detail_by_id($ma_dh)
     ];
     foreach ($result as $item) {
         array_push($orderDetail['products'], [
+            'ma_hh' => $item['ma_hh'],
             'ten_hh' => $item['ten_hh'],
             'giam_gia' => $item['giam_gia'],
             'don_gia' => $item['don_gia'],
             'hinh' => $item['hinh'],
             'so_luong' => $item['so_luong'],
             'ten_dv' => $item['ten_dv'],
-
         ]);
     }
-
-
-
-    // while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-    //     $orderID = $row['ma_dh'];
-    //     if(!isset($orderDetail[$orderID])) {
-    //         $orderDetail[$orderID] = [
-    //             'ma_dh' => $row['ma_dh'],
-    //             'ngay_dat' => $row['ngay_dat'],
-    //             'ten_nguoi_nhan' => $row['ten_nguoi_nhan'],
-    //             'sdt_nguoi_nhan' => $row['sdt_nguoi_nhan'],
-    //             'dia_chi_nhan' => $row['dia_chi_nhan'],
-    //             'tong_tien' => $row['tong_tien'],
-    //             'ghi_chu' => $row['ghi_chu'],
-    //             'ten_trang_thai' => $row['ten_trang_thai'],
-    //             'ten_van_chuyen' => $row['ten_van_chuyen'],
-    //             'gia_van_chuyen' => $row['gia_van_chuyen'],
-    //             'products' => [],
-    //         ];
-    //     }
-    //     array_push($orderDetail[$orderID]['products'], 
-    //     [
-    //         'ten_hh' => $row['ten_hh'],
-    //         'giam_gia' => $row['giam_gia'],
-    //         'don_gia' => $row['don_gia'],
-    //         'hinh' => $row['hinh'],
-    //         'so_luong' => $row['so_luong'],
-    //         'ten_dv' => $row['ten_dv'],
-    //     ]);
-    // }
-
-    // echo "<pre>";
-    // print_r($orderDetail);
-    // echo "</pre>";
-
     return $orderDetail;
 }
 
-
-function order_cancel_by_id($ma_dh)
+function donhang_cancel_by_id($ma_dh)
 {
     $arr = func_get_args();
     $conn = connection();
     $sql = "UPDATE don_hang SET ma_trang_thai = '5' WHERE don_hang.ma_dh = ?";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->execute($arr);
+}
+
+function donhang_update_review($ma_dh)
+{
+    $arr = func_get_args();
+    $conn = connection();
+    $sql = "UPDATE `don_hang` SET `danh_gia_don_hang` = '1' WHERE `don_hang`.`ma_dh` = ?";
 
     $stmt = $conn->prepare($sql);
     $stmt->execute($arr);

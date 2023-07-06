@@ -1,3 +1,5 @@
+
+
 $(document).ready(function (){
     $("#check-all").click(function (){
         $(":checkbox").prop("checked", true);
@@ -25,3 +27,5 @@ $('#back-to-top').click(function(e) {
     e.preventDefault();
     $('html, body').animate({ scrollTop: 0 }, 'slow');
 });
+
+
