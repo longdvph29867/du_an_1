@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,35 +5,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="<?=url_public?>/assets/images/logo-icon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="<?= url_public ?>/assets/images/logo-icon.png" type="image/x-icon">
     <title>Food Market</title>
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Lora:wght@500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Lora:wght@500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- fontawesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- slick slide -->
-    <link rel="stylesheet" type="text/css" href="<?=url_public?>/assets/css/slick/slick.css" />
-    <link rel="stylesheet" type="text/css" href="<?=url_public?>/assets/css/slick/slick-theme.css" />
+    <link rel="stylesheet" type="text/css" href="<?= url_public ?>/assets/css/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="<?= url_public ?>/assets/css/slick/slick-theme.css" />
     <!-- jquery cdn -->
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js" integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- my css -->
-    
-    <link rel="stylesheet" href="<?=url_public?>/assets/css/style.css">
-    <link rel="stylesheet" href="<?=url_public?>/assets/css/banner.css">
-    <link rel="stylesheet" href="<?=url_public?>/assets/css/title.css">
-    <link rel="stylesheet" href="<?=url_public?>/assets/css/categorys.css">
-    <link rel="stylesheet" href="<?=url_public?>/assets/css/topproducts.css">
-    <link rel="stylesheet" href="<?=url_public?>/assets/css/aboutus.css">
+
+    <link rel="stylesheet" href="<?= url_public ?>/assets/css/style.css">
+    <link rel="stylesheet" href="<?= url_public ?>/assets/css/banner.css">
+    <link rel="stylesheet" href="<?= url_public ?>/assets/css/title.css">
+    <link rel="stylesheet" href="<?= url_public ?>/assets/css/categorys.css">
+    <link rel="stylesheet" href="<?= url_public ?>/assets/css/topproducts.css">
+    <link rel="stylesheet" href="<?= url_public ?>/assets/css/aboutus.css">
     <style>
         .error {
             font-size: 14px;
@@ -45,15 +40,15 @@
 
 <body class="font-['Raleway']">
     <!-- header -->
-    <?php require "header/header.php";?>
-    
+    <?php require "header/header.php"; ?>
+
     <div class="lg:h-[137px] md:h-[125px] h-[173px] "></div>
     <!-- trang home -->
-    <?php include $view_name;?>
+    <?php include $view_name; ?>
 
 
-    
-    <?php require "footer/footer.php";?>
+
+    <?php require "footer/footer.php"; ?>
 
     <!--  -->
     <!-- <div class="h-[500px]">
@@ -86,8 +81,7 @@
         window.addEventListener('scroll', () => {
             if (window.scrollY > 80) {
                 headerEl.classList.add('scrollHeader')
-            }
-            else {
+            } else {
                 headerEl.classList.remove('scrollHeader')
             }
         })
@@ -95,9 +89,9 @@
 
     <!-- slick banner -->
     <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
-    <script type="text/javascript" src="<?=url_public?>/assets/js/slick.min.js"></script>
+    <script type="text/javascript" src="<?= url_public ?>/assets/js/slick.min.js"></script>
     <script type="text/javascript">
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('.banner_slide').slick({
                 infinite: true,
                 slidesToShow: 1,
@@ -115,8 +109,7 @@
                 dots: true,
                 // autoplay: true,
                 autoplaySpeed: 2000,
-                responsive: [
-                    {
+                responsive: [{
                         breakpoint: 1024,
                         settings: {
                             slidesToShow: 5,
@@ -144,8 +137,7 @@
                 dots: true,
                 // autoplay: true,
                 autoplaySpeed: 2000,
-                responsive: [
-                    {
+                responsive: [{
                         breakpoint: 1024,
                         settings: {
                             slidesToShow: 3,
@@ -259,12 +251,12 @@
         });
     </script>
 
-    <script src="<?=url_public?>/assets/js/js.js"></script>
+    <script src="<?= url_public ?>/assets/js/js.js"></script>
 
     <script>
+        // 
         let formReview = document.getElementById('insert_review');
         let inputs = formReview.querySelectorAll('input');
-        let selects= formReview.querySelectorAll('select'); 
         formReview.addEventListener('submit', function(event) {
             event.preventDefault();
             let isValid = true;
@@ -276,19 +268,62 @@
                     inputs[i].nextElementSibling.innerText = "";
                 }
             }
-            for (var i = 0; i < selects.length; i++) {
-                if (selects[i].value.trim() === '') {
-                    isValid = false;
-                    selects[i].nextElementSibling.innerText = "Vui lòng nhập trường này!";
-                } else {
-                    selects[i].nextElementSibling.innerText = "";
+
+            var ratingRadiosAll = formReview.querySelectorAll('input[type="radio"]');
+            var groupNames = [];
+
+            ratingRadiosAll.forEach((item) => {
+                if (!groupNames.includes(item.name)) {
+                    groupNames.push(item.name);
                 }
-            }
+            })
+
+            groupNames.forEach((item) => {
+                let error = false;
+                let ratingRadios = formReview.querySelectorAll(`input[name="${item}"]`);
+                for (var i = 0; i < ratingRadios.length; i++) {
+                    if (ratingRadios[i].checked) {
+                        error = true;
+                    }
+                }
+                if (error) {
+                    document.getElementById(`error-${item}`).innerText = "";
+                } else {
+                    isValid = false;
+                    document.getElementById(`error-${item}`).innerText = "Vui lòng chọn trường này!";
+                }
+            })
+
             if (isValid) {
                 this.submit();
             }
-
         });
+
+
+        // rating
+
+        function handleRadioChange(id) {
+            let ratingRadios = document.querySelectorAll(`input[name="rating[${id}]"]`);
+            let inputChecker = document.querySelector(`input[name="rating[${id}]"]:checked`);
+
+            let selectedRating = 0;
+            for (let i = 0; i < ratingRadios.length; i++) {
+                if (ratingRadios[i].checked) {
+                    selectedRating = ratingRadios[i].value;
+                }
+                starIcon = ratingRadios[i].nextElementSibling;
+                starIcon.classList.remove('text-yellow-400');
+            }
+
+            for (let i = 0; i < ratingRadios.length; i++) {
+                starIcon = ratingRadios[i].nextElementSibling;
+                if (i < selectedRating) {
+                    starIcon.classList.add('text-yellow-400');
+                }
+            }
+
+
+        }
     </script>
 </body>
 

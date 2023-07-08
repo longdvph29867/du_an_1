@@ -34,6 +34,8 @@ function order_review() {
 
 function order_review_insert()
 {
+    $errors = validateReview();
+
     $id = $_GET['ma_dh'];
     $errors = validateReview();
     if(empty($errors)) {
@@ -56,7 +58,7 @@ function order_review_insert()
         $orderDetail =  donhang_by_id($id);
         $content = "order_review.php";
         $view_name = "../../layout/content-layout/content-layout.php";
-        view('layout/layout', ['view_name' => $view_name, 'content' => $content, 'orderDetail' => $orderDetail], $errors);
+        view('layout/layout', ['view_name' => $view_name, 'content' => $content, 'orderDetail' => $orderDetail], $errors, $_POST);
     }
 }
 

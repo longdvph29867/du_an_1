@@ -158,8 +158,8 @@ function validateChangePassword($mat_khau, $mat_khau2, $mat_khau3) {
 
 function validateReview () {
     $errors = [];
-    foreach($_POST['rating'] as $key => $value) {
-        if(strlen( $_POST['rating'][$key]) ==0) {
+    foreach($_POST['comment'] as $key => $value) {
+        if(empty( $_POST['rating'][$key])) {
             $errors['rating'][$key] = "Vui lòng nhập trường này!";
         }
         if(strlen( $_POST['comment'][$key]) ==0) {

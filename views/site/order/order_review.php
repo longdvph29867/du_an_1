@@ -36,16 +36,33 @@
                     </p>
                 </div>
                 <div class="flex">
-                    <div class="w-1/4 pr-2">
-                        <select name="rating[<?= $item['ma_hh'] ?>]" id="rating" class="block w-full min-h-[48px] bg-[#f3f6f5] text-base p-3 outline-none">
-                            <option hidden value="">---Chose---</option>
-                            <option value="5">Rất tốt</option>
-                            <option value="4">Tốt</option>
-                            <option value="3">Trung bình</option>
-                            <option value="2">Tệ</option>
-                            <option value="1">Rất tệ</option>
-                        </select>
-                        <small class=" text-sm text-red-500">
+                    <div class="w-1/4 pr-2 flex flex-col justify-center text-2xl text-gray-400">
+
+                        <!--  -->
+                        <div>
+                            <label>
+                                <input type="radio" name="rating[<?= $item['ma_hh'] ?>]" value="1" class="appearance-none" onchange="handleRadioChange(<?= $item['ma_hh'] ?>)">
+                                <i class="fa-solid fa-star"></i>
+                            </label>
+                            <label>
+                                <input type="radio" name="rating[<?= $item['ma_hh'] ?>]" value="2" class="appearance-none" onchange="handleRadioChange(<?= $item['ma_hh'] ?>)">
+                                <i class="fa-solid fa-star"></i>
+                            </label>
+                            <label>
+                                <input type="radio" name="rating[<?= $item['ma_hh'] ?>]" value="3" class="appearance-none" onchange="handleRadioChange(<?= $item['ma_hh'] ?>)">
+                                <i class="fa-solid fa-star"></i>
+                            </label>
+                            <label>
+                                <input type="radio" name="rating[<?= $item['ma_hh'] ?>]" value="4" class="appearance-none" onchange="handleRadioChange(<?= $item['ma_hh'] ?>)">
+                                <i class="fa-solid fa-star"></i>
+                            </label>
+                            <label>
+                                <input type="radio" name="rating[<?= $item['ma_hh'] ?>]" value="5" class="appearance-none" onchange="handleRadioChange(<?= $item['ma_hh'] ?>)">
+                                <i class="fa-solid fa-star"></i>
+                            </label>
+                        </div>
+                        <!--  -->
+                        <small id="error-rating[<?= $item['ma_hh'] ?>]" class=" text-sm text-red-500">
                             <?php
                             if (!empty($errors['rating'][$item['ma_hh']])) {
                                 echo $errors['rating'][$item['ma_hh']];
@@ -53,8 +70,9 @@
                             ?>
                         </small>
                     </div>
+
                     <div class="flex-grow">
-                        <input name="comment[<?= $item['ma_hh'] ?>]" id="comment" type="text" class="block w-full bg-[#f3f6f5] text-base p-3 outline-none" placeholder="Nội dung...">
+                        <input name="comment[<?= $item['ma_hh'] ?>]" id="comment" type="text" class="block w-full bg-[#f3f6f5] text-base p-3 outline-none" placeholder="Nội dung..." value="<?php if(isset($comment[$item['ma_hh']])) echo $comment[$item['ma_hh']]?>">
                         <small class="text-sm text-red-500">
                             <?php
                             if (!empty($errors['comment'][$item['ma_hh']])) {
