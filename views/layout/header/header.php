@@ -41,7 +41,8 @@
                                 echo "<li><a href='#'>Quản trị</a></li>";
                             }
                             ?>
-
+                            
+                            <li><a href="<?=url_views.'/site/order'?>">Đơn hàng</a></li>
                             <li><a href="?btn_logout">Đăng xuất</a></li>
                         </ul>
                     </div>
@@ -85,7 +86,7 @@
             <h3 class="lg:hidden text-lg text-white font-semibold py-2 mr-auto">MENU</h3>
             <nav class="hidden lg:flex items-center menu">
                 <ul class="flex">
-                    <li><a href="<?= url_site ?>/trang-chinh/index.php">Trang chủ</a></li>
+                    <li><a href="<?=url?>?ctl=home">Trang chủ</a></li>
                     <li class="menu_item ">
                         <a href="#">Danh mục <i class="fa-solid fa-chevron-down"></i></a>
                         <ul class="child_menu">
@@ -94,8 +95,8 @@
                         </ul>
                     </li>
                     <li><a href="#">Sản phẩm</a></li>
-                    <li><a href="?ctl=about">Giới thiệu</a></li>
-                    <li><a href="?ctl=contact">Liên hệ</a></li>
+                    <li><a href="<?=url?>?ctl=about">Giới thiệu</a></li>
+                    <li><a href="<?=url?>?ctl=contact">Liên hệ</a></li>
                 </ul>
             </nav>
             <div class="btn_menu_mobile lg:hidden">
@@ -143,6 +144,7 @@
                                 echo "<a href='#' class='btn2 mx-2 '>Quản lý</a>";
                             }
                             ?>
+                            <a href="<?=url_views.'/site/order'?>" class="btn2 ml-1">Đơn hàng</a>
                             <a href="?btn_logout" class="btn2 ml-1">Đăng xuất</a>
                         <?php
                         } else {
