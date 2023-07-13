@@ -60,8 +60,10 @@
 
             <!--  -->
             <div class="cart_header relative">
-                <i class="fa-solid fa-cart-shopping"></i>
-                <span class="quantity_cart">16</span>
+                <a href="<?=url_views . "/site/giohang"?>">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="quantity_cart">16</span>
+                </a>
             </div>
         </div>
     </div>

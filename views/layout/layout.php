@@ -35,6 +35,7 @@
     <link rel="stylesheet" href="<?=url_public?>/assets/css/categorys.css">
     <link rel="stylesheet" href="<?=url_public?>/assets/css/topproducts.css">
     <link rel="stylesheet" href="<?=url_public?>/assets/css/aboutus.css">
+    <link rel="stylesheet" href="<?=url_public?>/assets/css/giohang.css">
     <style>
         .error {
             font-size: 14px;

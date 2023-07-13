@@ -1,0 +1,75 @@
+*{
+    box-sizing: border-box;
+    
+}
+.giohang{
+    width: 100%;
+    text-align: center;
+    padding: 10px 15px;
+
+
+}
+.giohang table {
+    border-collapse: collapse;
+    width: 80%;
+    padding: 20px;
+    margin: 0 auto;
+}
+.giohang thead tr{
+border-radius: 1px #ccc solid;
+}
+.giohang thead tr th {
+    padding: 15px;
+    background-color: #62d2a2;
+}
+.giohang thead {
+     border-collapse: collapse; 
+}
+table td{
+    border: #ccc 1px solid;
+    text-align: center;
+    padding: 10px 20px;
+    vertical-align: middle;
+    font-weight: 600;
+    color: #333333;
+
+}
+.giohang table tr th{
+    font-size:22px ;
+    color: white;
+}
+.giohang table tr td{
+    font-size: 22px;
+}
+.giohang img {
+    height: 99px;
+   object-fit: cover;
+}
+.giohang tbody td input {
+ width: 50px;
+ padding: 5px;
+}
+.btn__bg {
+    color: #fff;
+    font-size: 16px;
+    border-radius: 4px;
+    background-color: #62d2a2;
+}
+.btn {
+    border-radius: 0;
+    font-size: 14px;
+    font-weight: 600;
+   
+    text-transform: uppercase;
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    display: inline-block;
+    padding: 8px 25px 5px;
+    border: 1px solid #62d2a2;
+}
+.d-block {
+    display: block!important;
+}
