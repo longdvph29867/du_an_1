@@ -94,7 +94,7 @@
                             <?php require "danh-muc-header.php" ?>
                         </ul>
                     </li>
-                    <li><a href="#">Sản phẩm</a></li>
+                    <li><a href="<?=url_site?>/listProduct/">Sản phẩm</a></li>
                     <li><a href="<?=url?>?ctl=about">Giới thiệu</a></li>
                     <li><a href="<?=url?>?ctl=contact">Liên hệ</a></li>
                 </ul>
