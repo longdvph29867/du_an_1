@@ -3,7 +3,7 @@
     <ul>
         <?php
         foreach ($dsloai as $loai) {
-        $link = '../hang-hoa/liet-ke.php?ma_loai='.$loai['ma_loai'];
+        $link = url_site.'/listProduct/?ctl=category&ma_loai='.$loai['ma_loai'];
         ?>
             <li>
                 <a href="<?=$link?>" class="block px-3 py-3 bg-[#f8f8f8] border-b-2 border-white duration-300 hover:text-white hover:bg-[#62d2a2]"><?= $loai['ten_loai'] ?></a>
