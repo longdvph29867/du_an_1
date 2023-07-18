@@ -156,4 +156,5 @@ function hanghoa_by_ma_loai($ma_loai)
     // print_r($hangHoaArr);
     return $hangHoaArr;
 }
+
 ?>

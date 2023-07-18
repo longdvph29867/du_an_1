@@ -1,6 +1,6 @@
 
 <!-- header -->
-<header class="py-0 lg:py-4 bg-white z-50">
+<header class=" py-0 lg:py-4 bg-white z-50">
     <div class="
         header_top 
         container 

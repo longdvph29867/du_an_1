@@ -4,7 +4,6 @@
     <?php
     // echo "<pre>";
     // print_r($orders);
-    // echo "</pre>";
     foreach ($orders as $order) {
         $total = 0;
     ?>
@@ -16,11 +15,11 @@
                 <div class="flex justify-between items-center mb-2">
                     <div class="flex">
                         <div class="border-gray-400 mr-3" style="border-width: 1px;">
-                            <img class="w-20 h-20 object-cover" src="<?= url_public . "/images/products/$product[hinh]" ?>" alt="">
+                            <img class="w-20 h-20 object-cover" src="<?= url_public . "/images/products/". reset($product['hinhArr']) ?>" alt="">
                         </div>
                         <div>
                             <h3 class="text-lg"><?= $product['ten_hh'] ?></h3>
-                            <p class="normal-case">x <span class="text-xl"><?= $product['so_luong'] ?></span> <?= $product['ten_dv'] ?></p>
+                            <p class="normal-case">Số lượng: <span class="text-xl"><?= $product['so_luong'] ?> x </span> <?= $product['don_vi'] ?></p>
                         </div>
                     </div>
                     <p class="normal-case">
