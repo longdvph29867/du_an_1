@@ -89,6 +89,7 @@ function donhang_by_id($ma_dh)
         $ma_hinh = $item['ma_hinh'];
         if(!isset($orderDetail['products'][$ma_hh])) {
             $orderDetail['products'][$ma_hh] = [
+                'ma_hh' => $item['ma_hh'],
                 'ten_hh' => $item['ten_hh'],
                 'giam_gia' => $item['giam_gia'],
                 'don_gia' => $item['don_gia'],
