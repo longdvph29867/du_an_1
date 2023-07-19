@@ -60,6 +60,9 @@
             <i class="fa-solid fa-chevron-up"></i>
         </div>
     </div>
+
+    <!-- cdn axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js" integrity="sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- header js -->
     <script>
         const menuMobile = document.querySelector('.header_bottom');
@@ -163,6 +166,10 @@
     
     <script src="<?= url_public ?>/assets/js/js.js"></script>
     <script src="<?= url_public ?>/assets/js/validate.js"></script>
+    <script src="<?= url_public ?>/assets/js/script.js"></script>
+    <script>
+        getQuantityCart('<?=$_SESSION['user']['ma_kh']?>');
+    </script>
 </body>
 
 </html>
