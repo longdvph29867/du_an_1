@@ -260,6 +260,7 @@
     </script>
 
     <script src="<?=url_public?>/assets/js/js.js"></script>
+    <script src="<?=url_public?>/assets/js/chitietsp.js"></script>
 </body>
 
 </html>

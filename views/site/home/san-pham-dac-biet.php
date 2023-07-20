@@ -9,8 +9,8 @@
         $stt = 0;
         foreach ($dac_biet as $item) {
             $stt += 1;
-            // $link = $url_site . "/hang-hoa/chi-tiet.php?ma_hh=" . $item['ma_hh'];
-            $link = "#";
+             $link = url_site . "/chitiet/?ma_hh=" . $item['ma_hh'];
+         
         ?>
             <!-- <a href="<?=$link?>" class="block"> -->
                 <div class="product_item">
