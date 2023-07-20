@@ -51,3 +51,4 @@ function addCartItem(ma_kh, ma_cthh, quantity) {
       console.log(err);
     });
 }
+
