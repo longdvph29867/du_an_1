@@ -213,19 +213,29 @@
 <!-- related product-->
  <section class="related_pro my-9 w-[90%] mx-auto ">
         <h3 class="text-3xl font-['Berkshire_Swash'] mb-7">Sản phẩm cùng loại</h3>
-        <div class="grid gap-7 xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">         
-    <div class="flex items-around   font-['Raleway']   ">
+        <div class="grid gap-7 xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">   
+            <?php foreach($sanphamcl as $spcl)      {
+                  $chitiet_dongia = reset($spcl['chi_tiet_sp']);
+            
+            ?>
+
+    <div class="flex items-center  font-['Raleway']   ">
         <div class="w-[78px] rounded overflow-hidden border-[1.5px] border-solid border-gray-500   group transition-all duration-300 ease-in-out">
-            <img class="cursor-pointer transform hover:scale-110 transition-all duration-500" src="./img/image 15.jpg" alt="">
+            <img class="cursor-pointer transform hover:scale-110 transition-all duration-500" src="<?=url_public?>/images/products/<?=reset($spcl['hinhArr'])?>" alt="">
         </div>
         <div class="pl-5">
-            <h4 class="text-lg hover:text-[#62d2a2]">Thịt ba rọi heo</h4>
+            <h4 class="text-lg hover:text-[#62d2a2] items-center"><?= $spcl['ten_hh']?></h4>
             <div class="w-14 h-[1px] bg-gray-300 my-2"></div>
-            <p class="text-[#62d2a2] font-bold ">130,000 đ/1kg</p>
-       <div class="text-[14px]"> <span class="line-through text-gray-400">140,000 đ/1kg</span>-8%</div>
+            <p class="text-[#62d2a2] font-bold "><?=number_format($chitiet_dongia['don_gia'] - $chitiet_dongia['giam_gia'])?> đ</p>
+       <!-- <div class="text-[14px]"> <span class="line-through text-gray-400"><?=number_format($chitiet_dongia['don_gia'] )?>đ/<?=$chitiet_dongia['don_vi']?></span></div> -->
     </div>
+    
     </div>
-    <div class="flex items-around   font-['Raleway']   ">
+    <?php
+
+     }
+     ?>
+    <!-- <div class="flex items-around   font-['Raleway']   ">
         <div class="w-[78px] rounded overflow-hidden border-[1.5px] border-solid border-gray-500   group transition-all duration-300 ease-in-out">
             <img class="cursor-pointer transform hover:scale-110 transition-all duration-500" src="./img/image 15.jpg" alt="">
         </div>
@@ -323,29 +333,9 @@
             <p class="text-[#62d2a2] font-bold ">130,000 đ/1kg</p>
        <div class="text-[14px]"> <span class="line-through text-gray-400">140,000 đ/1kg</span>-8%</div>
     </div>
-    </div>
-    <div class="flex items-around   font-['Raleway']   ">
-        <div class="w-[78px] rounded overflow-hidden border-[1.5px] border-solid border-gray-500   group transition-all duration-300 ease-in-out">
-            <img class="cursor-pointer transform hover:scale-110 transition-all duration-500" src="./img/image 15.jpg" alt="">
-        </div>
-        <div class="pl-5">
-            <h4 class="text-lg hover:text-[#62d2a2]">Thịt ba rọi heo</h4>
-            <div class="w-14 h-[1px] bg-gray-300 my-2"></div>
-            <p class="text-[#62d2a2] font-bold ">130,000 đ/1kg</p>
-       <div class="text-[14px]"> <span class="line-through text-gray-400">140,000 đ/1kg</span>-8%</div>
-    </div>
-    </div>
-    <div class="flex items-around   font-['Raleway']   ">
-        <div class="w-[78px] rounded overflow-hidden border-[1.5px] border-solid border-gray-500   group transition-all duration-300 ease-in-out">
-            <img class="cursor-pointer transform hover:scale-110 transition-all duration-500" src="./img/image 15.jpg" alt="">
-        </div>
-        <div class="pl-5">
-            <h4 class="text-lg hover:text-[#62d2a2]">Thịt ba rọi heo</h4>
-            <div class="w-14 h-[1px] bg-gray-300 my-2"></div>
-            <p class="text-[#62d2a2] font-bold ">130,000 đ/1kg</p>
-       <div class="text-[14px]"> <span class="line-through text-gray-400">140,000 đ/1kg</span>-8%</div>
-    </div>
-    </div>
+    </div> -->
+    
+ 
 
     </div>
  </section>
