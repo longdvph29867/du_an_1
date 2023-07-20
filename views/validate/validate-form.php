@@ -155,4 +155,17 @@ function validateChangePassword($mat_khau, $mat_khau2, $mat_khau3) {
     }
     return $errors;
 }
+
+function validateReview () {
+    $errors = [];
+    foreach($_POST['comment'] as $key => $value) {
+        if(empty( $_POST['rating'][$key])) {
+            $errors['rating'][$key] = "Vui lòng nhập trường này!";
+        }
+        if(strlen( $_POST['comment'][$key]) ==0) {
+            $errors['comment'][$key] = "Vui lòng nhập trường này!";
+        }
+    }
+    return $errors;
+}
 ?>
