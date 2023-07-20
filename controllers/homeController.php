@@ -8,7 +8,6 @@ function home_page() {
 
 }
 
-
 function about_page() {
     $view_name = "views/site/about/gioi-thieu.php";
     view('layout/layout', ['view_name' => $view_name]);

@@ -1,13 +1,4 @@
 <?php
-function home_page() {
-    $top10 = hanghoa_top_10();
-    $dac_biet = hanghoa_dac_biet();
-    $list_loai = loai_all();
-    $view_name =  "views/site/home/homePage.php";
-    view('layout/layout', ['view_name' => $view_name, 'top10' => $top10, 'dac_biet' => $dac_biet, 'list_loai' => $list_loai]);
-
-}
-
 
 // 
 function register_page() {
@@ -51,10 +42,7 @@ function register_khachhang() {
     else {
         $view_name="register.php";
         view('site/login/layout', ['view_name' => $view_name], $errors, $_POST );
-
     }
-
-
 }
 
 function login_khachhang() {
@@ -88,8 +76,6 @@ function login_khachhang() {
             $view_name="login.php";
             view('site/login/layout', ['view_name' => $view_name], $errors, $_POST);
         }
-
-
 }
 
 function get_pass() {
@@ -122,7 +108,5 @@ function get_pass() {
             $view_name="quen-mat-khau.php";
             view('site/login/layout', ['view_name' => $view_name], $errors, $_POST);
         }
-
-
 }
 ?>

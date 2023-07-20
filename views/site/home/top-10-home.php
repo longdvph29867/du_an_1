@@ -7,6 +7,7 @@
             <?php
             $stt = 0;
             foreach ($top10 as $item) {
+                $chitiet_dongia = reset($item['chi_tiet_sp']);
                 $stt += 1;
                 // $link = $url_site . "/hang-hoa/chi-tiet.php?ma_hh=" . $item['ma_hh'];
                 $link = '#';
@@ -14,7 +15,7 @@
                 <div class="px-3">
                     <div class="product_item">
                         <div class="product_img relative">
-                            <img src="<?=url_public ?>/images/products/<?= $item['hinh'] ?>" alt="">
+                            <img src="<?=url_public ?>/images/products/<?= reset($item['hinhArr']) ?>" alt="">
                             <div class="overlay absolute w-full h-full bg-white/50 top-0 left-0 flex items-center justify-center">
                                 <div class="flex space-x-2">
                                     <a href="<?= $link ?>" class="btn2 min-w-[40px] w-11 h-11 flex items-center justify-center"><i class="fa-solid fa-eye"></i></a>
@@ -27,15 +28,18 @@
                                 <h3><?= $item['ten_hh'] ?></h3>
                             </a>
                             <hr>
-                            <p><span><?= number_format($item['don_gia'] - $item['giam_gia']) ?> đ</span>/1kg</p>
-                            <?php
-                                if($item['giam_gia'] > 0) {
-                            ?>
-                                    <div><span class="line-through text-gray-400"><?= number_format($item['don_gia']) ?> đ/1kg</span> -<?=ceil(discountPrecent ($item['don_gia'], $item['giam_gia']))?>%</div>
-                            <?php
+                            <p><span><?= number_format($chitiet_dongia['don_gia'] - $chitiet_dongia['giam_gia']) ?> đ</span>/<?=$chitiet_dongia['don_vi']?></p>
+                            <div class="min-h-[24px]">
+
+                                <?php
+                                if($chitiet_dongia['giam_gia'] > 0) {
+                                    ?>
+                                    <div><span class="line-through text-gray-400"><?= number_format($chitiet_dongia['don_gia']) ?> đ</span> -<?=ceil(discountPrecent ($chitiet_dongia['don_gia'], $chitiet_dongia['giam_gia']))?>%</div>
+                                    <?php
                                     
                                 }
-                            ?>
+                                ?>
+                            </div>
                         </div>
                         <div class="top_order_number 
 
