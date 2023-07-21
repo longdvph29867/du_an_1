@@ -44,7 +44,7 @@ function validateRegister($ma_kh, $mat_khau, $re_mat_khau, $ho_ten, $sdt, $email
     if (strlen($ma_kh) == 0) {
         $errors['ma_kh'] = "Vui lòng nhập tài khoản!";
     } else if (strlen($ma_kh) > 16 || strlen($ma_kh) < 6) {
-        $errors['ma_kh'] = "Tài khoản phải 6 - 20 ký tự!";
+        $errors['ma_kh'] = "Tài khoản phải 6 - 16 ký tự!";
     }
 
     // mat_khau

@@ -1,4 +1,3 @@
-console.log("321");
 
 $().ready(function () {
   // file đuôi file
