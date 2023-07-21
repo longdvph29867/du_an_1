@@ -9,14 +9,9 @@
         $stt = 0;
         foreach ($dac_biet as $item) {
             $stt += 1;
-<<<<<<< HEAD
-             $link = url_site . "/chitiet/?ma_hh=" . $item['ma_hh'];
-         
-=======
             $chitiet_dongia = reset($item['chi_tiet_sp']);
             // $link = $url_site . "/hang-hoa/chi-tiet.php?ma_hh=" . $item['ma_hh'];
             $link = "#";
->>>>>>> b0c5959c3ec820b7ce2f1885a2c29eaed0ae1501
         ?>
             <!-- <a href="<?=$link?>" class="block"> -->
                 <div class="product_item">
