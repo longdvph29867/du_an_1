@@ -21,19 +21,12 @@
             foreach ($orderDetail['products'] as $item) {
             ?>
                 <div class="flex justify-between items-center mb-2">
-                    <div class="flex">
+                    <div class="flex items-center">
                         <div class="border-gray-400 mr-3" style="border-width: 1px;">
-                            <img class="w-20 h-20 object-cover" src="<?= url_public . "/images/products/$item[hinh]" ?>" alt="">
+                            <img class="w-20 h-20 object-cover" src="<?= url_public . "/images/products/". reset($item['hinhArr']) ?>" alt="">
                         </div>
-                        <div>
-                            <h3 class="text-lg"><?= $item['ten_hh'] ?></h3>
-                            <p class="normal-case">x <span class="text-xl"><?= $item['so_luong'] ?></span></p>
-                        </div>
+                        <h3 class="text-lg"><?= $item['ten_hh'] ?></h3>
                     </div>
-                    <p class="normal-case">
-                        <span class="line-through">₫<?= number_format($item['don_gia']) ?></span>
-                        <span class="text-lg text-[#62d2a2]">₫<?= number_format($item['don_gia'] - $item['giam_gia']) ?></span>
-                    </p>
                 </div>
                 <div class="flex">
                     <div class="w-1/4 pr-2 flex flex-col justify-center text-2xl text-gray-400">

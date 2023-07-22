@@ -6,7 +6,7 @@
     }
     ?>
 </div>
-<form action="?ctl=insert-khachhang" method="post" enctype="multipart/form-data" class="flex flex-col text-[#333]" id="form-register">
+<form action="?ctl=register-khachhang" method="post" enctype="multipart/form-data" class="flex flex-col text-[#333]" id="form-register">
     <div class="flex flex-col mb-3">
         <label for="ma_kh">Tài khoản</label>
         <input type="text" name="ma_kh" id="ma_kh" 
