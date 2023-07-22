@@ -61,8 +61,27 @@
 
             <!--  -->
             <div class="cart_header relative">
-                <i class="fa-solid fa-cart-shopping"></i>
-                <span class="quantity_cart">16</span>
+                <a href="<?php 
+                if(isset($_SESSION['user'])) {
+                    echo url_views . "/site/giohang";
+                }
+                else {
+                    echo 'javascript:void(0);';
+                }
+                ?>"
+                <?php 
+                if(!isset($_SESSION['user'])) {
+                    ?>
+                    onclick="alert('Vui lòng đăng nhập!')";
+                    <?php
+                }
+                
+                
+                ?>
+                >
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="quantity_cart">0</span>
+                </a>
             </div>
         </div>
     </div>

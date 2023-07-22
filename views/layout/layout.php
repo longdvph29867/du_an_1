@@ -23,13 +23,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js" integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- my css -->
-
-    <link rel="stylesheet" href="<?= url_public ?>/assets/css/style.css">
-    <link rel="stylesheet" href="<?= url_public ?>/assets/css/banner.css">
-    <link rel="stylesheet" href="<?= url_public ?>/assets/css/title.css">
-    <link rel="stylesheet" href="<?= url_public ?>/assets/css/categorys.css">
-    <link rel="stylesheet" href="<?= url_public ?>/assets/css/topproducts.css">
-    <link rel="stylesheet" href="<?= url_public ?>/assets/css/aboutus.css">
+    
+    <link rel="stylesheet" href="<?=url_public?>/assets/css/style.css">
+    <link rel="stylesheet" href="<?=url_public?>/assets/css/banner.css">
+    <link rel="stylesheet" href="<?=url_public?>/assets/css/title.css">
+    <link rel="stylesheet" href="<?=url_public?>/assets/css/categorys.css">
+    <link rel="stylesheet" href="<?=url_public?>/assets/css/topproducts.css">
+    <link rel="stylesheet" href="<?=url_public?>/assets/css/aboutus.css">
+    <link rel="stylesheet" href="<?=url_public?>/assets/css/giohang.css">
     <style>
         .error {
             font-size: 14px;
