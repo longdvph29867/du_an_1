@@ -3,6 +3,12 @@
 
     <?php
     foreach ($items as $item) {
+        if(isset($_SESSION['user'])) {
+            $ma_kh = $_SESSION['user']['ma_kh'];
+        }
+        else {
+            $ma_kh = false;
+        }
         $chitiet_dongia = reset($item['chi_tiet_sp']);
         // $link = $url_site . "/hang-hoa/chi-tiet.php?ma_hh=" . $item['ma_hh'];
         $link = '#';
@@ -13,7 +19,20 @@
                 <div class="overlay absolute w-full h-full bg-white/50 top-0 left-0 flex items-center justify-center">
                     <div class="flex space-x-2">
                         <a href="<?= $link ?>" class="btn2 !min-w-[40px] w-11 h-11 flex items-center justify-center"><i class="fa-solid fa-eye"></i></a>
-                        <a href="javascript:void(0);" class="btn2 !min-w-[40px] w-11 h-11 flex items-center justify-center"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <a href="javascript:void(0);" 
+                        <?php
+                            if($ma_kh) {
+                        ?>
+                                onclick= "addCartItem('<?=$ma_kh?>',<?=$chitiet_dongia['ma_cthh']?>, 1)";
+                        <?php
+                            }
+                            else {
+                        ?>
+                            onclick = "alert('Vui lòng đăng nhập!')";
+                        <?php
+                            }
+                        ?>
+                        class="btn2 !min-w-[40px] w-11 h-11 flex items-center justify-center"><i class="fa-solid fa-cart-shopping"></i></a>
                     </div>
                 </div>
             </div>

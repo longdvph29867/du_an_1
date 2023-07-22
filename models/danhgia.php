@@ -7,7 +7,6 @@ function danhgia_insert($arrReview)
         $sql = $sql. "('$review[comment]', '$review[rating]', '$review[ma_hh]', '$review[ma_kh]'),";
     };
     $newSQl = substr($sql, 0 , -1);
-    echo $newSQl;
     $stmt = $conn->prepare($newSQl);
     $stmt->execute();
 }

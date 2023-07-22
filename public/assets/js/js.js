@@ -1,5 +1,4 @@
 
-
 $(document).ready(function (){
     $("#check-all").click(function (){
         $(":checkbox").prop("checked", true);

@@ -69,7 +69,7 @@
                 rules: {
                     ma_kh: {
                         required: true,
-                        maxlength: 20,
+                        maxlength: 16,
                         minlength: 6,
                     },
                     mat_khau: {
@@ -88,7 +88,7 @@
                     },
                     sdt: {
                         required: true,
-                        maxlength: 11,
+                        maxlength: 10,
                         minlength: 10,
                     },
                     email: {
@@ -105,8 +105,8 @@
                 messages: {
                     ma_kh: {
                         required: 'Vui lòng nhập tài khoản!',
-                        maxlength: 'Tài khoản phải 6 - 20 ký tự!',
-                        minlength: 'Tài khoản phải 6 - 20 ký tự!'
+                        maxlength: 'Tài khoản phải 6 - 16 ký tự!',
+                        minlength: 'Tài khoản phải 6 - 16 ký tự!'
                     },
                     mat_khau: {
                         required: 'Vui lòng nhập mật khẩu!',
@@ -124,8 +124,8 @@
                     },
                     sdt: {
                         required: 'Vui lòng nhập số điện thoại!',
-                        maxlength: 'Số điện thoại chỉ 10-11 số!',
-                        minlength: 'Số điện thoại phải 10-11 số!'
+                        maxlength: 'Số điện thoại chỉ 10 số!',
+                        minlength: 'Số điện thoại phải 10 số!'
                     },
                     email: {
                         required: 'Vui lòng nhập Email!',
