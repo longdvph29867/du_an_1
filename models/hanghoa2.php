@@ -27,6 +27,7 @@ function hanghoa_top_10()
         }
         if(!isset($hangHoaArr[$maHH]['chi_tiet_sp'][$maCthh])) {
             $hangHoaArr[$maHH]['chi_tiet_sp'][$maCthh] = [
+                'ma_cthh' => $row['ma_cthh'],
                 'don_vi' => $row['don_vi'],
                 'don_gia' => $row['don_gia'],
                 'giam_gia' => $row['giam_gia'],
@@ -66,6 +67,7 @@ function hanghoa_dac_biet()
         }
         if(!isset($hangHoaArr[$maHH]['chi_tiet_sp'][$maCthh])) {
             $hangHoaArr[$maHH]['chi_tiet_sp'][$maCthh] = [
+                'ma_cthh' => $row['ma_cthh'],
                 'don_vi' => $row['don_vi'],
                 'don_gia' => $row['don_gia'],
                 'giam_gia' => $row['giam_gia'],
@@ -104,6 +106,7 @@ function hanghoa_all()
         }
         if(!isset($hangHoaArr[$maHH]['chi_tiet_sp'][$maCthh])) {
             $hangHoaArr[$maHH]['chi_tiet_sp'][$maCthh] = [
+                'ma_cthh' => $row['ma_cthh'],
                 'don_vi' => $row['don_vi'],
                 'don_gia' => $row['don_gia'],
                 'giam_gia' => $row['giam_gia'],
@@ -145,6 +148,7 @@ function hanghoa_by_ma_loai($ma_loai)
         }
         if(!isset($hangHoaArr[$maHH]['chi_tiet_sp'][$maCthh])) {
             $hangHoaArr[$maHH]['chi_tiet_sp'][$maCthh] = [
+                'ma_cthh' => $row['ma_cthh'],
                 'don_vi' => $row['don_vi'],
                 'don_gia' => $row['don_gia'],
                 'giam_gia' => $row['giam_gia'],

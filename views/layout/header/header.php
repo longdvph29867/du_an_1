@@ -80,7 +80,7 @@
                 ?>
                 >
                     <i class="fa-solid fa-cart-shopping"></i>
-                    <span class="quantity_cart">16</span>
+                    <span class="quantity_cart">0</span>
                 </a>
             </div>
         </div>
