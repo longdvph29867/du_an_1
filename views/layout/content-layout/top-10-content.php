@@ -11,8 +11,7 @@
         foreach ($top10 as $item) {
             $chitiet_dongia = reset($item['chi_tiet_sp']);
             $stt += 1;
-            // $link = url_site . "/hang-hoa/chi-tiet.php?ma_hh=" . $item['ma_hh'];
-            $link = "#";
+            $link = url_site . "/chitiet/?ma_hh=" . $item['ma_hh'];
         ?>
             <a href="<?= $link ?>">
                 <li class="flex items-center mt-2">

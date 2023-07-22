@@ -41,7 +41,6 @@ function hanghoa_by_ma_hanghoa($ma_hh)
     $hangHoaChiTiet = [
 
         'ma_hh' => $result[0]['ma_hh'],
-       
         'ten_hh' => $result[0]['ten_hh'],
         'mo_ta' => $result[0]['mo_ta'],
         'dac_biet' => $result[0]['dac_biet'],
@@ -58,6 +57,7 @@ function hanghoa_by_ma_hanghoa($ma_hh)
         }
         if(!isset($hangHoaChiTiet['chi_tiet_sp'][$maCthh])) {
             $hangHoaChiTiet['chi_tiet_sp'][$maCthh] = [
+                'ma_cthh' => $row['ma_cthh'],
                 'don_vi' => $row['don_vi'],
                 'don_gia' => $row['don_gia'],
                 'giam_gia' => $row['giam_gia'],

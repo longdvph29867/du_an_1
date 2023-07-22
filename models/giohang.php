@@ -9,7 +9,7 @@ function giohang_by_ma_kh($ma_kh) {
     WHERE gio_hang.ma_kh = ? ORDER BY gio_hang.ma_gh DESC";
     $stmt = $conn->prepare($sql);
     $stmt->execute($data);
-    
+
     $hangHoaArr = [];
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         $maHinh = $row['ma_hinh'];
@@ -33,38 +33,39 @@ function giohang_by_ma_kh($ma_kh) {
     }
     return $hangHoaArr;
 }
-/**
- * thêm loại hàng
- * @param $data mảng chưa dữ liệu loại có key và value
- * Ví dụ: $data=['ten_loai'=>'Máy tính Dell']
- */
-function giohang_insert($ma_gh)
-{
-    $data = [$ma_gh];
-    $conn = connection();
-    $sql = "Insert Into gio_hang(ma_gh) Values(?)";
-    $stmt = $conn->prepare($sql);
-    $stmt->execute($data);
-}
-/**
- * cập nhật loại hàng theo ma_loai
- * @param $data mảng chưa dữ liệu cập nhật có key và value
- * Ví dụ: $data=['ten_loai'=>'Máy tính Dell']
- * * @param $ma_loai cần cập nhật
- */
-function gh_update($ma_gh, $ma_kh, $ma_hh)
-{
-    $arr = func_get_args();
-    $conn = connection();
-    $sql = "UPDATE gio_hang SET ma_gh=? WHERE ma_gh=?";
 
+function giohang_insert($data)
+{
+    $ma_kh = $_SESSION['user']['ma_kh'];
+    $conn = connection();
+    $sql = "SELECT * FROM gio_hang WHERE ma_kh = '$ma_kh'";
     $stmt = $conn->prepare($sql);
-    $stmt->execute($arr);
+    $stmt->execute();
+    $listGioHang = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $temp = false;
+    $quantity = 0;
+    $ma_gh = 0;
+    foreach($listGioHang as $item) {
+        if($item['ma_cthh'] == $data['ma_cthh']) {
+            $temp = true;
+            $ma_gh = $item['ma_gh'];
+            $quantity = $item['so_luong'];
+        };
+    }
+
+    if(!empty($listGioHang) && $temp) {
+        $newQuantity = $quantity + $data['so_luong'];
+        $sql_Update = "UPDATE `gio_hang` SET `so_luong` = '$newQuantity' WHERE `gio_hang`.`ma_gh` = $ma_gh";
+        $stmt = $conn->prepare($sql_Update);
+        $stmt->execute();
+    }
+    else {
+        $sql_Create = "INSERT INTO gio_hang (ma_kh, ma_cthh, so_luong) VALUES ('$ma_kh', $data[ma_cthh], $data[so_luong])";
+        $stmt = $conn->prepare($sql_Create);
+        $stmt->execute();
+    }
 }
-/**
- * Xóa loại hàng
- * @param $ma_loai cần xóa
- */
+
 function gh_delete($ma_gh)
 {
     $data = func_get_args();

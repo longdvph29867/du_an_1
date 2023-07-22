@@ -11,6 +11,13 @@ function hanghoact() {
     $view_name = "chitietsp.php";
     view('layout/layout', ['view_name' => $view_name,'binhluan' => $binhluan,'danhgia' => $danhgia, 'hanghoact' => $hanghoact,'sanphamcl' =>  $sanphamcl]);
 }
+
+function hanghoact_add_cart() {
+    $ma_hh = $_GET['ma_hh'];
+    giohang_insert($_POST);
+    
+    header("location: ?ma_hh=$ma_hh");
+}
 function abc() {
     $view_name = "views/layout/nhap.php";
     view('layout/layout', ['view_name' => $view_name]);
