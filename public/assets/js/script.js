@@ -60,8 +60,6 @@ function updateCartItem(ma_gh, thayDoi) {
       getQuantityCart(ma_kh);
       quantityEl.innerText = so_luong
       tongTienItemEl.innerText = (don_gia - giam_gia)*so_luong
-      console.log("🚀 ~ file: script.js:63 ~ .then ~ tongTienItemEl:", tongTienItemEl)
-      console.log("🚀 ~ file: script.js:63 ~ .then ~ (don_gia - giam_gia)*so_luong:", (don_gia - giam_gia)*so_luong)
       
       tongTienItemEls.forEach((item) => {
         tongTien += item.innerText*1;
