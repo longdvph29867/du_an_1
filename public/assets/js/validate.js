@@ -95,6 +95,21 @@ $().ready(function () {
       form.submit();
     },
   });
+  $("#add_dateil_comment").validate({
+    rules: {
+      noi_dung: {
+        required: true,
+      },
+    },
+    messages: {
+      noi_dung: {
+        required: "Vui lòng nhập mật khẩu!",
+      },
+    },
+    submitHandler: function (form) {
+      form.submit();
+    },
+  });
 });
 
 // validate add cart

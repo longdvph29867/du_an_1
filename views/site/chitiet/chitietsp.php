@@ -148,7 +148,7 @@
             <div class="relative">
                 <h3 class="w-72 text-white text-xl bg-[#62d2a2] px-4 py-3 rounded-tr-2xl">Bình Luận(<?= count($binhluan) ?>)</h3>
                 <!-- 123 -->
-                <div class="px-12 py-8 border-[#62d2a2] space-y-6 max-h-[600px] overflow-y-scroll" style="border-width: 1px;">
+                <div class="px-12 pt-8 pb-20 border-[#62d2a2] space-y-6 max-h-[600px] overflow-y-scroll" style="border-width: 1px;">
                     <?php
 
                     foreach ($binhluan as $bl) {
@@ -172,7 +172,32 @@
                 </div>
 
                 <div class="absolute bottom-0 left-0 w-full px-12 py-3  bg-green-100 border-[#62d2a2] border-t-transparent" style="border-width: 1px;">
+                <?php
+                if (isset($_SESSION['user'])) {
+                ?>
+                    <form id="add_dateil_comment" action="?ma_hh=<?= $hanghoact['ma_hh'] ?>&ctl=add-comment" method="post" class="w-full flex items-start">
+                    <div class="w-full">
+                        <input type="text" name="noi_dung" id="username" placeholder="Nhập bình luận" class="w-full text-[#666] border-gray-300 bg-[#f7f7f7] text-base px-2 py-2 outline-none focus:border-[#62d2a2] mt-1 focus:bg-white rounded" style="border-width: 1px;">
+                        <small class="text-sm text-red-500">
+                            <?php
+                            if(!empty($errors['noi_dung'])) {
+                                echo $errors['noi_dung'];
+                            }
+                            ?>
+                        </small>
+                    </div>
+                    <button name="btn_binh_luan" class="btn1 ml-2">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+
+                    </form>
+                <?php
+                } else {
+                ?>
                     <h3 class="font-medium">Vui lòng đăng nhập để bình luận về sản phẩm này</h3>
+                <?php
+                }
+                ?>
                 </div>
             </div>
         </div>
@@ -256,18 +281,21 @@
         <div class="grid gap-7 xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
             <?php foreach ($sanphamcl as $spcl) {
                 $chitiet_dongia = reset($spcl['chi_tiet_sp']);
+                $link = url_site . "/chitiet/?ma_hh=" . $spcl['ma_hh'];
             ?>
-                <div class="flex items-center">
-                    <div class="w-20 h-20 border-gray-200 rounded border">
-                        <img class="" src="<?= url_public ?>/images/products/<?= reset($spcl['hinhArr']) ?>" alt="">
+                <a href="<?=$link?>">
+
+                    <div class="flex items-center">
+                        <div class="w-20 h-20 border-gray-200 rounded border">
+                            <img class="" src="<?= url_public ?>/images/products/<?= reset($spcl['hinhArr']) ?>" alt="">
+                        </div>
+                        <div class="pl-4 w-auto">
+                            <h4 class="text-lg hover:text-[#62d2a2]"><?= $spcl['ten_hh'] ?></h4>
+                            <div class="w-14 h-[1px] bg-gray-300 my-1"></div>
+                            <p class="text-[#62d2a2] font-bold "><?= number_format($chitiet_dongia['don_gia'] - $chitiet_dongia['giam_gia']) ?> đ</p>
+                        </div>
                     </div>
-                    <div class="pl-4 w-auto">
-                        <h4 class="text-lg hover:text-[#62d2a2]"><?= $spcl['ten_hh'] ?></h4>
-                        <div class="w-14 h-[1px] bg-gray-300 my-1"></div>
-                        <p class="text-[#62d2a2] font-bold "><?= number_format($chitiet_dongia['don_gia'] - $chitiet_dongia['giam_gia']) ?> đ</p>
-                        <!-- <div class="text-[14px]"> <span class="line-through text-gray-400"><?= number_format($chitiet_dongia['don_gia']) ?>đ/<?= $chitiet_dongia['don_vi'] ?></span></div> -->
-                    </div>
-                </div>
+                </a>
 
             <?php
             }

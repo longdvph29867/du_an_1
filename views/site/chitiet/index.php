@@ -19,6 +19,9 @@ switch ($ctl) {
     case 'add-cart':
         hanghoact_add_cart();
         break;
+    case 'add-comment':
+        hanghoact_add_comment();
+        break;
     default:
         echo "404 NOT FOUND!";
 }

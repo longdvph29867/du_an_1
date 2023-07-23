@@ -183,4 +183,13 @@ function validateAddCart($data) {
     }
     return $errors;
 }
+
+function validateAddComment($data) {
+    $errors = [];
+    // ma kh
+    if (strlen($data['noi_dung']) == 0) {
+        $errors['noi_dung'] = "Vui lòng nhập nội dung!";
+    }
+    return $errors;
+}
 ?>
