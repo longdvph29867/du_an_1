@@ -170,7 +170,14 @@
     <script src="<?= url_public ?>/assets/js/validate.js"></script>
     <script src="<?= url_public ?>/assets/js/script.js"></script>
     <script>
+        <?php
+        if(isset($_SESSION['user'])) {
+        ?>
         getQuantityCart('<?=$_SESSION['user']['ma_kh']?>');
+        <?php
+        }
+        ?>
+        
     </script>
 </body>
 

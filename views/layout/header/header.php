@@ -168,8 +168,8 @@
                         <?php
                         } else {
                         ?>
-                            <a href="#" class="btn1 mx-2 ">Đăng nhập</a>
-                            <a href="#" class="btn1 ">Đăng Ký</a>
+                            <a href="<?= url_site ?>/login/?ctl=login" class="btn1 mx-2 ">Đăng nhập</a>
+                            <a href="<?= url_site ?>/login/" class="btn1 ">Đăng Ký</a>
                         <?php
                         }
                         ?>
