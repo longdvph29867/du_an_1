@@ -168,4 +168,28 @@ function validateReview () {
     }
     return $errors;
 }
+
+
+function validateAddCart($data) {
+    $errors = [];
+    // ma kh
+    if ($data['so_luong'] < 1) {
+        $errors['so_luong'] = "Vui lòng nhập Số lượng!";
+    }
+    
+    // mat_khau
+    if (!isset($data['ma_cthh'])) {
+        $errors['ma_cthh'] = "Vui lòng chọn loại hàng!";
+    }
+    return $errors;
+}
+
+function validateAddComment($data) {
+    $errors = [];
+    // ma kh
+    if (strlen($data['noi_dung']) == 0) {
+        $errors['noi_dung'] = "Vui lòng nhập nội dung!";
+    }
+    return $errors;
+}
 ?>

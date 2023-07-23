@@ -10,8 +10,8 @@
             $ma_kh = false;
         }
         $chitiet_dongia = reset($item['chi_tiet_sp']);
-        // $link = $url_site . "/hang-hoa/chi-tiet.php?ma_hh=" . $item['ma_hh'];
-        $link = '#';
+        $link = url_site . "/chitiet/?ma_hh=" . $item['ma_hh'];
+
     ?>
         <div class="product_item">
             <div class="product_img relative">

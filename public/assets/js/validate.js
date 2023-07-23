@@ -95,7 +95,46 @@ $().ready(function () {
       form.submit();
     },
   });
+  $("#add_dateil_comment").validate({
+    rules: {
+      noi_dung: {
+        required: true,
+      },
+    },
+    messages: {
+      noi_dung: {
+        required: "Vui lòng nhập mật khẩu!",
+      },
+    },
+    submitHandler: function (form) {
+      form.submit();
+    },
+  });
 });
+
+// validate add cart
+let formAddCart = document.getElementById("add-cart-detailPage");
+formAddCart.addEventListener("submit", function (event) {
+  event.preventDefault();
+  let isValid = false;
+
+  var loaiRadiosAll = formAddCart.querySelectorAll('input[type="radio"]');
+  for (var i = 0; i < loaiRadiosAll.length; i++) {
+    if (loaiRadiosAll[i].checked) {
+      isValid = true;
+      break;
+    }
+  }
+  
+  if (isValid) {
+    document.querySelector('.error-add-cart').innerText = "";
+    this.submit();
+  }
+  else {
+    document.querySelector('.error-add-cart').innerText = "Vui lòng chọn loại hàng!";
+  }
+});
+
 
 //
 let formReview = document.getElementById("insert_review");

@@ -43,7 +43,7 @@
                             ?>
                             
                             <li><a href="<?=url_views.'/site/order'?>">Đơn hàng</a></li>
-                            <li><a href="?btn_logout">Đăng xuất</a></li>
+                            <li><a href="<?=url.'/?btn_logout'?>">Đăng xuất</a></li>
                         </ul>
                     </div>
                 <?php

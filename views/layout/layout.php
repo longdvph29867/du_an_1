@@ -166,6 +166,7 @@
 
     
     <script src="<?= url_public ?>/assets/js/js.js"></script>
+    <script src="<?= url_public ?>/assets/js/chitietsp.js"></script>
     <script src="<?= url_public ?>/assets/js/validate.js"></script>
     <script src="<?= url_public ?>/assets/js/script.js"></script>
     <script>
