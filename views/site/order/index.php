@@ -28,6 +28,9 @@ switch ($ctl) {
     case 'order-review-insert':
         order_review_insert();
         break;
+    case 'order':
+        order();
+        break;
     default:
         echo "404 NOT FOUND!";
 }

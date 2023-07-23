@@ -1,4 +1,9 @@
 <?php
+function order() {
+    $ma_kh = $_SESSION['user']['ma_kh'];
+    $view_name = "order.php";
+    view('layout/layout', ['view_name' => $view_name]);
+}
 
 function order_list() {
     $ma_kh = $_SESSION['user']['ma_kh'];
