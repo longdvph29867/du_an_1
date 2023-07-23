@@ -1,7 +1,7 @@
-function chitiet(don_gia, so_luong) {
+function chitiet(don_gia, giam_gia, so_luong) {
   let don_giaEl = document.querySelector(".don_gia_ct");
   let so_luongEl = document.querySelector(".tong_so_luong");
-  don_giaEl.innerText = don_gia;
+  don_giaEl.innerText = don_gia-giam_gia;
   so_luongEl.innerText = so_luong;
   activeKhoiLuong();
 }
@@ -9,7 +9,6 @@ function chitiet(don_gia, so_luong) {
 function activeKhoiLuong() {
   let inputRadioEls = document.querySelectorAll(".don_vi");
   inputRadioEls.forEach(item => {
-    console.log("🚀 ~ file: chitietsp.js:12 ~ activeKhoiLuong ~ item:", item)
     if(item.checked) {
       item.parentElement.classList.add('border-[#62d2a2]')
       item.nextElementSibling.classList.remove('hidden')
@@ -22,4 +21,26 @@ function activeKhoiLuong() {
     }
     
   })
+}
+
+function changeImage(e,url) {
+  let btnImg = document.querySelectorAll('.btn-img-detail')
+  let imgDetailEl = document.querySelector("#img-detail");
+  let imgDetailClass = imgDetailEl.classList;
+  let imgDetailURL = '';
+  imgDetailClass.forEach(item => {
+    if(item.includes('bg-[url(')) {
+      imgDetailURL = item;
+    }
+  })
+  imgDetailEl.classList.remove(imgDetailURL);
+  imgDetailEl.classList.add(`bg-[url(${url})]`);
+
+
+  btnImg.forEach(item => {
+    item.classList.remove('border-[#62d2a2]');
+    item.classList.add('border-gray-200');
+  })
+  e.classList.remove('border-gray-200');
+  e.classList.add('border-[#62d2a2]');
 }

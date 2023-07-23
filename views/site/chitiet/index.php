@@ -8,6 +8,7 @@ require_once "../../../models/danhgia.php";
 require_once "../../../models/hanghoa.php";
 require_once "../../../models/giohang.php";
 require_once "../../../controllers/hanghoact.php";
+require_once "../../validate/validate-form.php";
 
 $ctl = $_GET['ctl'] ?? '';
 
