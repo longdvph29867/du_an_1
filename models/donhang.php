@@ -143,7 +143,7 @@ function donhang_insert($data)
     extract($data);
     $conn = connection();
     $sql = "INSERT INTO don_hang (ma_kh, ngay_dat, ma_trang_thai, ten_nguoi_nhan, sdt_nguoi_nhan, dia_chi_nhan, tong_tien, ma_van_chuyen, ghi_chu, danh_gia_don_hang) 
-    VALUES ('$ma_kh', '$ngay_dat', '1', '$ten_nguoi_nhan', $sdt_nguoi_nhan, '$dia_chi_nhan', $tong_tien, $ma_van_chuyen, '$ghi_chu', '0')";
+    VALUES ('$ma_kh', '$ngay_dat', '1', '$ten_nguoi_nhan', '$sdt_nguoi_nhan', '$dia_chi_nhan', $tong_tien, $ma_van_chuyen, '$ghi_chu', '0')";
 
     $stmt = $conn->prepare($sql);
     $stmt->execute();
