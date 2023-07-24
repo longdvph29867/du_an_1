@@ -7,6 +7,8 @@ require_once "../../../models/loai.php";
 require_once "../../../models/hanghoa2.php";
 require_once "../../../models/donhang.php";
 require_once "../../../models/danhgia.php";
+require_once "../../../models/giohang.php";
+require_once "../../../models/vanchuyen.php";
 require_once "../../../controllers/orderController.php";
 
 $ctl = $_GET['ctl'] ?? '';
@@ -30,6 +32,12 @@ switch ($ctl) {
         break;
     case 'order':
         order();
+        break;
+    case 'order-insert':
+        order_insert();
+        break;
+    case 'order-da-nhan-hang':
+        order_da_nhan_hang();
         break;
     default:
         echo "404 NOT FOUND!";

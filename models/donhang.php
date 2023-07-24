@@ -4,7 +4,7 @@ function donhang_by_kh_all($ma_kh)
 {
     $arr = func_get_args();
     $conn = connection();
-    $sql = "SELECT don_hang.ma_dh, don_hang.ngay_dat, don_hang.danh_gia_don_hang, trang_thai.ma_trang_thai, trang_thai.ten_trang_thai, don_vi_van_chuyen.ten_van_chuyen, chi_tiet_don_hang.so_luong, hang_hoa.ten_hh, chi_tiet_hang_hoa.ma_cthh, chi_tiet_hang_hoa.giam_gia, chi_tiet_hang_hoa.don_gia, chi_tiet_hang_hoa.don_vi, hinh_hang_hoa.ma_hinh, hinh_hang_hoa.ten_hinh
+    $sql = "SELECT don_hang.ma_dh, don_hang.ngay_dat, don_hang.tong_tien, don_hang.danh_gia_don_hang, trang_thai.ma_trang_thai, trang_thai.ten_trang_thai, don_vi_van_chuyen.ten_van_chuyen, chi_tiet_don_hang.so_luong, hang_hoa.ten_hh, chi_tiet_hang_hoa.ma_cthh, chi_tiet_hang_hoa.giam_gia, chi_tiet_hang_hoa.don_gia, chi_tiet_hang_hoa.don_vi, hinh_hang_hoa.ma_hinh, hinh_hang_hoa.ten_hinh
     FROM don_hang 
     JOIN chi_tiet_don_hang ON don_hang.ma_dh = chi_tiet_don_hang.ma_dh 
     JOIN trang_thai ON don_hang.ma_trang_thai = trang_thai.ma_trang_thai 
@@ -12,7 +12,7 @@ function donhang_by_kh_all($ma_kh)
     JOIN chi_tiet_hang_hoa ON chi_tiet_don_hang.ma_cthh = chi_tiet_hang_hoa.ma_cthh
     JOIN hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh
     JOIN hinh_hang_hoa ON hang_hoa.ma_hh = hinh_hang_hoa.ma_hh
-    WHERE ma_kh = ?";
+    WHERE ma_kh = ? ORDER BY don_hang.ma_dh DESC";
     $stmt = $conn->prepare($sql);
     $stmt->execute($arr);
     // $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -26,7 +26,7 @@ function donhang_by_kh_all($ma_kh)
             $orders[$orderID] = [
                 'ma_dh' => $row['ma_dh'],
                 'ngay_dat' => $row['ngay_dat'],
-                'ngay_dat' => $row['ngay_dat'],
+                'tong_tien' => $row['tong_tien'],
                 'danh_gia_don_hang' => $row['danh_gia_don_hang'],
                 'ma_trang_thai' => $row['ma_trang_thai'],
                 'ten_trang_thai' => $row['ten_trang_thai'],
@@ -126,5 +126,39 @@ function donhang_update_review($ma_dh)
 
     $stmt = $conn->prepare($sql);
     $stmt->execute($arr);
+}
+
+function donhang_update_da_nhan_hang($ma_dh)
+{
+    $arr = func_get_args();
+    $conn = connection();
+    $sql = "UPDATE don_hang SET ma_trang_thai = '8' WHERE don_hang.ma_dh = ?";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->execute($arr);
+}
+
+function donhang_insert($data)
+{
+    extract($data);
+    $conn = connection();
+    $sql = "INSERT INTO don_hang (ma_kh, ngay_dat, ma_trang_thai, ten_nguoi_nhan, sdt_nguoi_nhan, dia_chi_nhan, tong_tien, ma_van_chuyen, ghi_chu, danh_gia_don_hang) 
+    VALUES ('$ma_kh', '$ngay_dat', '1', '$ten_nguoi_nhan', $sdt_nguoi_nhan, '$dia_chi_nhan', $tong_tien, $ma_van_chuyen, '$ghi_chu', '0')";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    return $conn->lastInsertId();
+}
+
+function donhang_chitiet_insert($ma_dh, $data)
+{
+    $sql = "INSERT INTO chi_tiet_don_hang (ma_dh, ma_cthh, so_luong) VALUES ";
+    $conn = connection();
+    foreach($data as $item) {
+        $sql = $sql. "($ma_dh, '$item[ma_cthh]', '$item[so_luong]'),";
+    };
+    $newSQl = substr($sql, 0 , -1);
+    $stmt = $conn->prepare($newSQl);
+    $stmt->execute();
 }
 ?>

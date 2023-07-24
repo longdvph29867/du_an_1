@@ -79,7 +79,7 @@
             <div class="w-3/5 pl-5 text-sm text-gray-500 normal-case">
                 <div class="flex justify-between items-center py-3 border-gray-200" style="border-bottom-width: 1px;">
                     <p>Tổng tiền hàng</p>
-                    <p>₫<?= number_format($orderDetail['tong_tien']) ?></p>
+                    <p>₫<?= number_format($orderDetail['tong_tien'] - $orderDetail['gia_van_chuyen']) ?></p>
                 </div>
                 <div class="flex justify-between items-center py-3 border-gray-200" style="border-bottom-width: 1px;">
                     <p>Phí vận chuyển</p>
@@ -87,7 +87,7 @@
                 </div>
                 <div class="flex justify-between items-center py-3 border-gray-200" style="border-bottom-width: 1px;">
                     <p>Giảm giá phí vận chuyển</p>
-                    <p>- ₫<?= number_format($orderDetail['gia_van_chuyen']) ?></p>
+                    <p>- 0₫</p>
                 </div>
                 <div class="flex justify-between items-center py-2 border-gray-300" style="border-bottom-width: 1px;">
                     <p>Thành tiền</p>
