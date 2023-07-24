@@ -110,6 +110,55 @@ $().ready(function () {
       form.submit();
     },
   });
+  $('#form-insert-order').validate({
+    rules: {
+      ten_nguoi_nhan: {
+        required: true,
+        maxlength: 49,
+        minlength: 4,
+      },
+      sdt: {
+        required: true,
+        pattern: /^(0[3|5|7|8|9])+([0-9]{8})$/
+      },
+      dia_chi_nhan: {
+        required: true,
+        maxlength: 200,
+        minlength: 4,
+      },
+      ma_van_chuyen: {
+        required: true,
+      },
+      ghi_chu: {
+        maxlength: 200,
+      }
+    },
+    messages: {
+      ten_nguoi_nhan: {
+        required: 'Vui lòng nhập tên!',
+        maxlength: 'Tài khoản phải 4 - 50 ký tự!',
+        minlength: 'Tài khoản phải 4 - 50 ký tự!'
+      },
+      sdt: {
+        required: 'Vui lòng nhập số điện thoại!',
+        pattern: 'Số điện thoại không hợp lệ!',
+      },
+      dia_chi_nhan: {
+        required: 'Vui lòng nhập tài khoản!',
+        maxlength: 'Tài khoản phải 4 - 200 ký tự!',
+        minlength: 'Tài khoản phải 4 - 200 ký tự!'
+      },
+      ma_van_chuyen: {
+        required: 'Vui lòng chọn đơn vị vận chuyển!',
+      },
+      ghi_chu: {
+        maxlength: 'Ghi chú tối đa 200 ký tự!',
+      },
+    },
+    submitHandler: function(form) {
+        form.submit();
+    }
+});
 });
 
 // validate add cart

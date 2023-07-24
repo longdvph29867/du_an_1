@@ -9,7 +9,7 @@
     </section>
 
     <!-- pay Details-->
-    <form action="?ctl=order-insert" method="post">
+    <form action="?ctl=order-insert" method="post" id="form-insert-order">
         <div class="container mx-auto grid md:grid-cols-2 sm:grid-cols-1 gap-10 mt-10">
             <div>
                 <h2
@@ -23,7 +23,11 @@
                             value="<?=$data['ten_nguoi_nhan']?>"
                             class="text-[#666] border border-gray-300 bg-[#f7f7f7] text-base px-3 py-2 outline-none focus:border-[#62d2a2] mt-1 focus:bg-white rounded">
                             <small class="min-h-[20px] text-sm text-red-500">
-                                123
+                            <?php
+                                if(!empty($errors['ten_nguoi_nhan'])) {
+                                    echo $errors['ten_nguoi_nhan'];
+                                }
+                            ?>
                             </small>
                         </div>
                         <div class="flex flex-col mb-3">
@@ -32,16 +36,24 @@
                             value="<?=$data['sdt']?>"
                             class="text-[#666] border border-gray-300 bg-[#f7f7f7] text-base px-3 py-2 outline-none focus:border-[#62d2a2] mt-1 focus:bg-white rounded">
                             <small class="min-h-[20px] text-sm text-red-500">
-                                123
+                            <?php
+                                if(!empty($errors['sdt'])) {
+                                    echo $errors['sdt'];
+                                }
+                            ?>
                             </small>
                         </div>
                         <div class="flex flex-col mb-3">
                             <label for="dia_chi_nhan">Địa chỉ Nhận hàng</label>
                             <input type="text" name="dia_chi_nhan" id="dia_chi_nhan" 
-                            value="123"
+                            value="<?php if(!empty($dia_chi_nhan)) echo $dia_chi_nhan; ?>"
                             class="text-[#666] border border-gray-300 bg-[#f7f7f7] text-base px-3 py-2 outline-none focus:border-[#62d2a2] mt-1 focus:bg-white rounded">
                             <small class="min-h-[20px] text-sm text-red-500">
-                                123
+                            <?php
+                                if(!empty($errors['dia_chi_nhan'])) {
+                                    echo $errors['dia_chi_nhan'];
+                                }
+                            ?>
                             </small>
                         </div>
                         <div class="flex flex-col mb-3">
@@ -54,22 +66,36 @@
                                 <?php
                                 foreach ($listVanChuyen as $item) {
                                 ?>
-                                    <option value="<?=$item['ma_van_chuyen']?>"><?=$item['ten_van_chuyen']?> - <?=$item['gia_van_chuyen']?>đ</option>
+                                    <option 
+                                    <?php 
+                                    if(!empty($ma_van_chuyen) && $ma_van_chuyen == $item['ma_van_chuyen']) {
+                                        echo 'selected';
+                                    } 
+                                    ?>
+                                    value="<?=$item['ma_van_chuyen']?>"><?=$item['ten_van_chuyen']?> - <?=$item['gia_van_chuyen']?>đ</option>
                                 <?php
                                 }
                                 ?>
                             </select>
                             <small class="min-h-[20px] text-sm text-red-500">
-                                123
+                            <?php
+                                if(!empty($errors['ma_van_chuyen'])) {
+                                    echo $errors['ma_van_chuyen'];
+                                }
+                            ?>
                             </small>
                         </div>
                         <div class="flex flex-col mb-3">
                             <label for="ghi_chu">Ghi chú</label>
                             <textarea name="ghi_chu" id="ghi_chu" cols="30" rows="5" placeholder="Nhập ghi chú..."
                             class="text-[#666] border border-gray-300 bg-[#f7f7f7] text-base px-3 py-2 outline-none focus:border-[#62d2a2] mt-1 focus:bg-white rounded"
-                            ></textarea>
+                            ><?php if(!empty($ghi_chu)) echo $ghi_chu; ?></textarea>
                             <small class="min-h-[20px] text-sm text-red-500">
-                                123
+                            <?php
+                                if(!empty($errors['ghi_chu'])) {
+                                    echo $errors['ghi_chu'];
+                                }
+                            ?>
                             </small>
                         </div>
                     </form>
@@ -95,6 +121,7 @@
                                     $tongTienSP = ($item['don_gia'] - $item['giam_gia']) * $item['so_luong'];
                                     $tongTien += $tongTienSP;
                                 ?>
+                                <input type="text" name="ma_gh[]" value="<?=$item['ma_gh']?>" class="hidden">
                                 <input type="text" name="ma_cthh[<?=$item['ma_cthh']?>]" value="<?=$item['so_luong']?>" class="hidden">
                                 <tr>
                                     <td class="border py-3 px-2 font-normal">
