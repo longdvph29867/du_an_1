@@ -74,16 +74,50 @@ function gh_delete($ma_gh)
     $stmt = $conn->prepare($sql);
     $stmt->execute($data);
 }
-//Lấy ra 1 loại hàng
-function gh_select_by_id($ma_gh)
+
+
+function gh_delete_all()
 {
-    $data[] = $ma_gh;
     $conn = connection();
-    $sql = "SELECT * FROM gio_hang WHERE ma_gh=?";
+    $sql = "DELETE FROM gio_hang";
     $stmt = $conn->prepare($sql);
-    $stmt->execute($data);
-    $loai = $stmt->fetch(PDO::FETCH_ASSOC);
-    return $loai;
+    $stmt->execute();
+}
+
+//Lấy ra 1 sp trong gio hàng
+function giohang_by_id($ma_gh)
+{
+    $arr = func_get_args();
+    $conn = connection();
+    $sql = "SELECT gio_hang.ma_gh, gio_hang.so_luong, chi_tiet_hang_hoa.ma_cthh, chi_tiet_hang_hoa.don_vi, chi_tiet_hang_hoa.don_gia, chi_tiet_hang_hoa.giam_gia, hang_hoa.ma_hh, hang_hoa.ten_hh, hinh_hang_hoa.ma_hinh, hinh_hang_hoa.ten_hinh FROM gio_hang 
+	INNER JOIN chi_tiet_hang_hoa ON gio_hang.ma_cthh = chi_tiet_hang_hoa.ma_cthh
+    INNER JOIN hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh
+    INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh
+	WHERE gio_hang.ma_gh = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute($arr);
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    $itemDetail = [
+        'ma_gh' => $result[0]['ma_gh'],
+        'so_luong' => $result[0]['so_luong'],
+        'ma_cthh' => $result[0]['ma_cthh'],
+        'ten_hh' => $result[0]['ten_hh'],
+        'don_vi' => $result[0]['don_vi'],
+        'don_gia' => $result[0]['don_gia'],
+        'giam_gia' => $result[0]['giam_gia'],
+        'hinhArr' => [],
+    ];
+    foreach ($result as $item) {
+        $ma_hinh = $item['ma_hinh'];
+        if(!isset($itemDetail['hinhArr'][$ma_hinh])) {
+            $itemDetail['hinhArr'][$ma_hinh] = $item['ten_hinh'];
+        }
+    }
+    
+    // echo "<pre>";
+    // print_r($orderDetail);
+    return $itemDetail;
 }
 
 ?>

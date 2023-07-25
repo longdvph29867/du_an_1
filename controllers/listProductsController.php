@@ -15,4 +15,12 @@ function products_category() {
     view('layout/layout', ['view_name' => $view_name, 'content' => $content, 'items' => $items]);
 }
 
+function products_search() {
+    $key = $_GET['keywords'];
+    $items = hanghoa_search($key);
+    $content = "liet-ke.php";
+    $view_name = "../../layout/content-layout/content-layout.php";
+    view('layout/layout', ['view_name' => $view_name, 'content' => $content, 'items' => $items]);
+}
+
 ?>

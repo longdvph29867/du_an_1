@@ -1,4 +1,5 @@
 <div class="giohang mt-3">
+    <form action="<?=url_site?>/order/?ctl=order" method="POST">
         <table class="container">
             <thead>
                 <tr>
@@ -19,20 +20,21 @@
                 $tongDonHang += $tongTienSp;
             ?>
                 <tr>
+                    <input type="text" name="ma_gh[]" value="<?=$item['ma_gh']?>" class="hidden" readonly>
                     <td><img src="<?= url_public . '/images/products/' . reset($item['hinhArr']) ?>" alt=""></td>
                     <td><?=$item['ten_hh']?></td>
                     <td><?=$item['don_vi']?></td>
                     <td><?=$item['don_gia'] - $item['giam_gia']?></td>
                     <td> 
                         <div class="flex h-full justify-between md:flex-row flex-col">
-                            <button id="giam_so_luong_<?=$item['ma_gh']?>" onclick="updateCartItem(<?=$item['ma_gh']?>, -1)"
+                            <button type="button" id="giam_so_luong_<?=$item['ma_gh']?>" onclick="updateCartItem(<?=$item['ma_gh']?>, -1)"
                             class="<?php if($item['so_luong'] < 2) echo 'text-gray-400'?>"
                             <?php if($item['so_luong'] < 2) echo "disabled='true'"?>
                             >
                                 <i class="fa-solid fa-minus"></i>
                             </button>
                             <span id="quantity_item_cart_<?=$item['ma_gh']?>"><?=$item['so_luong']?></span>
-                            <button onclick="updateCartItem(<?=$item['ma_gh']?>, 1)">
+                            <button type="button" onclick="updateCartItem(<?=$item['ma_gh']?>, 1)">
                                 <i class="fa-solid fa-plus"></i>
                             </button>
 
@@ -54,8 +56,9 @@
                     <h3>Tổng tiền</h3>
                 </td>
                 <td id="tong_tien">$ <?=$tongDonHang?></td>
-                <td><a href="checkout.html" class="btn btn__bg d-block">Đặt Hàng</a></td>
+                <td><button class="btn btn__bg d-block mx-auto">Đặt Hàng</button></td>
             </tr>
            </tfoot>
         </table>
+    </form>
 </div>

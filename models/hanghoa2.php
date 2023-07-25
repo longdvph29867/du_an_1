@@ -161,4 +161,46 @@ function hanghoa_by_ma_loai($ma_loai)
     return $hangHoaArr;
 }
 
+function hanghoa_search($keyword)
+{
+    $conn = connection();
+    $sql = "SELECT * FROM hang_hoa 
+    INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
+    INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
+    INNER JOIN loai ON loai.ma_loai = hang_hoa.ma_loai
+    WHERE hang_hoa.ten_hh LIKE '%$keyword%' OR loai.ten_loai LIKE '%$keyword%'
+    ORDER BY hang_hoa.ma_hh ASC";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    // $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $hangHoaArr = [];
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $maHH = $row['ma_hh'];
+        $maHinh = $row['ma_hinh'];
+        $maCthh = $row['ma_cthh'];
+        if(!isset($hangHoaArr[$maHH])) {
+            $hangHoaArr[$maHH] = [
+                'ma_hh' => $row['ma_hh'],
+                'ten_hh' => $row['ten_hh'],
+                'hinhArr' => [],
+                'chi_tiet_sp' => []
+            ];
+        }
+        if(!isset($hangHoaArr[$maHH]['hinhArr'][$maHinh])) {
+            $hangHoaArr[$maHH]['hinhArr'][$maHinh] = $row['ten_hinh'];
+        }
+        if(!isset($hangHoaArr[$maHH]['chi_tiet_sp'][$maCthh])) {
+            $hangHoaArr[$maHH]['chi_tiet_sp'][$maCthh] = [
+                'ma_cthh' => $row['ma_cthh'],
+                'don_vi' => $row['don_vi'],
+                'don_gia' => $row['don_gia'],
+                'giam_gia' => $row['giam_gia'],
+                'so_luong' => $row['so_luong'],
+            ];
+        }
+    }
+    // echo "<pre>";
+    // print_r($hangHoaArr);
+    return $hangHoaArr;
+}
 ?>

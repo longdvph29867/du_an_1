@@ -192,4 +192,43 @@ function validateAddComment($data) {
     }
     return $errors;
 }
+
+
+function validateAddOrder($data) {
+    $errors = [];
+    extract($data);
+    // ma kh
+    if (strlen($ten_nguoi_nhan) == 0) {
+        $errors['ten_nguoi_nhan'] = "Vui lòng nhập tên!";
+    } else if (strlen($ten_nguoi_nhan) > 49 || strlen($ten_nguoi_nhan) < 4) {
+        $errors['ten_nguoi_nhan'] = "Họ tên phải 4 - 50 ký tự!";
+    }
+
+    // sdt
+    $phoneNumberPattern = "/(84|0[3|5|7|8|9])+([0-9]{8})\b/";
+    if (strlen($sdt) == 0) {
+        $errors['sdt'] = "Vui lòng nhập số điện thoại!";
+    } else if (!preg_match($phoneNumberPattern, $sdt)) {
+        $errors['sdt'] = "Số điện thoại không hợp lệ!";
+    }
+
+    // dia chi
+    if (strlen($dia_chi_nhan) == 0) {
+        $errors['dia_chi_nhan'] = "Vui lòng nhập địa chỉ!";
+    } else if (strlen($dia_chi_nhan) > 200 || strlen($dia_chi_nhan) < 4) {
+        $errors['dia_chi_nhan'] = "Địa chỉ phải 4 - 200 ký tự!";
+    }
+
+    // van chuyen
+    if (strlen($ma_van_chuyen) == 0) {
+        $errors['ma_van_chuyen'] = "Vui lòng chọn đơn vị vận chuyển!";
+    }
+
+    // dia chi
+    if (strlen($ghi_chu) > 200) {
+        $errors['ghi_chu'] = "Ghi chú tối đa 200 ký tự!";
+    }
+
+    return $errors;
+}
 ?>

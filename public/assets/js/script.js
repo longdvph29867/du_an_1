@@ -60,7 +60,7 @@ function updateCartItem(ma_gh, thayDoi) {
       getQuantityCart(ma_kh);
       quantityEl.innerText = so_luong
       tongTienItemEl.innerText = (don_gia - giam_gia)*so_luong
-      
+    
       tongTienItemEls.forEach((item) => {
         tongTien += item.innerText*1;
         
@@ -81,6 +81,28 @@ function updateCartItem(ma_gh, thayDoi) {
       alert("Lỗi!")
       console.log(err);
     });
+}
+
+
+function changeVanChuyen (data) {
+  let phiShipEl = document.getElementById('phi-ship');
+  let idVanChuyen = document.getElementById('ma_van_chuyen').value;
+  let tongTien = document.getElementById('tong-tien-sp').innerText;
+  let giaVanChuyen = 0
+  console.log("🚀 ~ file: script.js:92 ~ changeVanChuyen ~ giaVanChuyen:", giaVanChuyen)
+  for(let i = 0; i < data.length; i++) {
+    if(data[i].ma_van_chuyen == idVanChuyen) {
+      giaVanChuyen = data[i].gia_van_chuyen*1
+      phiShipEl.innerText = giaVanChuyen;
+      break;
+    }
+    else {
+      phiShipEl.innerText = giaVanChuyen
+    }
+  }
+  document.getElementById('input-thanh-toan').value = (tongTien*1) + giaVanChuyen;
+  document.getElementById('thanh-toan').innerText = (tongTien*1) + giaVanChuyen;
+
 }
 
 

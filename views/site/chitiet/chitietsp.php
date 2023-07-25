@@ -71,7 +71,7 @@
                             <label onclick="chitiet(<?= $item['don_gia'] ?>,<?= $item['giam_gia']?>, <?= $item['so_luong'] ?>)" class=" group  cursor-pointer py-2 text-[rgb(36, 36, 36)] relative rounded border border-solid bg-[#F5F5F5]  hover:border-[#62d2a2] ">
                                 <span class="text-center px-2"><?= $item['don_vi'] ?></span>
                                 <input type="radio" name="ma_cthh" value="<?= $item['ma_cthh'] ?>" class="don_vi appearance-none">
-                                <img class=" absolute hidden group-hover:inline-block right-[-2px]  top-[-2px] w-[20px] h-[20px]" src="../chitiet/tich.png" alt="Selected">
+                                <img class=" absolute hidden group-hover:inline-block right-0  top-0 w-[20px] h-[20px]" src="<?= url_public ?>/assets/images/img-check.png" alt="Selected">
                             </label>
                         <?php
                         }
