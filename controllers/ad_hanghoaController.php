@@ -3,8 +3,8 @@
     // echo '<pre>';
     // print_r($_POST);
     // echo '</pre>';
-function ad_loai_list() {
-    $listLoai = loai_all();
+function ad_hanghoa_list() {
+    $listLoai = hanghoa_all();
     $view_name = "list.php";
     view('layout/layout-admin', ['view_name' => $view_name, 'listLoai' => $listLoai]);
 }

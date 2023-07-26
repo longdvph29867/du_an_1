@@ -110,4 +110,36 @@ function hanghoa_by_ma_loai($ma_loai)
     // print_r($hangHoaArr);
     return $hangHoaArr;
 }
+
+//Truy vấn tất cả loại hàng
+function hanghoa_all()
+{
+    $conn = connection();
+    $sql = "SELECT * FROM hang_hoa INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    // $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $hangHoaArr = [];
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $maHH = $row['ma_hh'];
+        $maHinh = $row['ma_hinh'];
+        if(!isset($hangHoaArr[$maHH])) {
+            $hangHoaArr[$maHH] = [
+                'ma_hh' => $row['ma_hh'],
+                'ten_hh' => $row['ten_hh'],
+                'so_luot_xem' => $row['so_luot_xem'],
+                'mo_ta' => $row['mo_ta'],
+                'hinhArr' => [],
+            ];
+        }
+        if(!isset($hangHoaArr[$maHH]['hinhArr'][$maHinh])) {
+            $hangHoaArr[$maHH]['hinhArr'][$maHinh] = $row['ten_hinh'];
+        }
+    }
+    // echo "<pre>";
+    // print_r($hangHoaArr);
+    // echo "</pre>";
+
+    return $hangHoaArr;
+}
 ?>
