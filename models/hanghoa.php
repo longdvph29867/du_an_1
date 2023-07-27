@@ -110,4 +110,68 @@ function hanghoa_by_ma_loai($ma_loai)
     // print_r($hangHoaArr);
     return $hangHoaArr;
 }
+
+//Truy vấn tất cả loại hàng
+function hanghoa_all()
+{
+    $conn = connection();
+    $sql = "SELECT * FROM hang_hoa INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    // $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $hangHoaArr = [];
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $maHH = $row['ma_hh'];
+        $maHinh = $row['ma_hinh'];
+        if(!isset($hangHoaArr[$maHH])) {
+            $hangHoaArr[$maHH] = [
+                'ma_hh' => $row['ma_hh'],
+                'ten_hh' => $row['ten_hh'],
+                'so_luot_xem' => $row['so_luot_xem'],
+                'mo_ta' => $row['mo_ta'],
+                'hinhArr' => [],
+            ];
+        }
+        if(!isset($hangHoaArr[$maHH]['hinhArr'][$maHinh])) {
+            $hangHoaArr[$maHH]['hinhArr'][$maHinh] = $row['ten_hinh'];
+        }
+    }
+    // echo "<pre>";
+    // print_r($hangHoaArr);
+    // echo "</pre>";
+
+    return $hangHoaArr;
+}
+
+function hanghoa_insert($data)
+{
+    extract($data);
+    
+    $conn = connection();
+    $sql = "INSERT INTO hang_hoa (ten_hh, ngay_nhap, mo_ta, dac_biet, so_luot_xem, ma_loai) 
+    VALUES ('$ten_hh', '$ngay_nhap', '$mo_ta', '$dac_biet', '0', '$ma_loai')";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $new_ma_hh = $conn->lastInsertId();
+
+    $sqlHinhHH = "INSERT INTO hinh_hang_hoa (ma_hh, ten_hinh) VALUES ";
+    foreach($hinhArr as $item) {
+        $sqlHinhHH = $sqlHinhHH. "($new_ma_hh, '$item'),";
+    };
+    $new_SQLHinhHH = substr($sqlHinhHH, 0 , -1);
+    $stmt = $conn->prepare($new_SQLHinhHH);
+    $stmt->execute();
+
+    $sqlThuocTinh = "INSERT INTO chi_tiet_hang_hoa (ma_hh, don_vi, don_gia, giam_gia, so_luong) VALUES ";
+    foreach($thuoc_tinh as $item) {
+        $sqlThuocTinh = $sqlThuocTinh. "($new_ma_hh, '$item[don_vi]', $item[don_gia], $item[giam_gia], $item[so_luong]),";
+    };
+    $new_SQLThuocTinh = substr($sqlThuocTinh, 0 , -1);
+    $stmt = $conn->prepare($new_SQLThuocTinh);
+    $stmt->execute();
+    // echo "<pre>";
+    // print_r($hangHoaArr);
+    // echo "</pre>";
+
+}
 ?>

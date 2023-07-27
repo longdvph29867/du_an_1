@@ -46,7 +46,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="<?=url_admin?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Thống kê</span></a>
             </li>
@@ -61,14 +61,14 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="<?=url_admin.'/loai'?>">
                     <i class="fa-solid fa-list"></i>
                     <span>Danh mục</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="<?=url_admin.'/products'?>">
                     <i class="fa-solid fa-box-open"></i>
                     <span>Hàng hoá</span></a>
             </li>
@@ -164,27 +164,8 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <div>
-                            <form
-                                class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                                <div class="input-group">
-                                    <input type="text" class="form-control bg-white border-1 small"
-                                        placeholder="Search..." aria-label="Search" aria-describedby="basic-addon2">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" type="button">
-                                            <i class="fas fa-search fa-sm"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
-                    <div>
-                        <?php include $view_name; ?>
-                    </div>
+                    <?php include $view_name; ?>
+                    
 
                 </div>
                 <!-- /.container-fluid -->
@@ -244,7 +225,23 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
+        <script>
+        function displaySelectedFiles() {
+            const fileInput = document.getElementById('files');
+            const fileNamesDiv = document.getElementById('fileNames');
+            const files = fileInput.files;
 
+            let fileNamesText = '';
+
+            for (let i = 0; i < files.length; i++) {
+                fileNamesText += files[i].name + '<br>';
+            }
+
+            fileNamesDiv.innerHTML = fileNamesText;
+        }
+    </script>
+
+    <script src="<?=url_public?>/assets/js/ad-script.js"></script>
 </body>
 
 </html>
