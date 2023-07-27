@@ -142,4 +142,17 @@ function hanghoa_all()
 
     return $hangHoaArr;
 }
+
+function hanghoa_insert($data)
+{
+    $conn = connection();
+    $sql = "INSERT INTO `hang_hoa` (`ma_hh`, `ten_hh`, `ngay_nhap`, `mo_ta`, `dac_biet`, `so_luot_xem`, `ma_loai`) VALUES (NULL, 'vsb', '2023-07-05', 'sc', '1', '0', '2')";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+
+    // echo "<pre>";
+    // print_r($hangHoaArr);
+    // echo "</pre>";
+
+}
 ?>

@@ -14,13 +14,13 @@ switch ($ctl) {
         ad_hanghoa_list();
         break;
     case 'ad-add':
-        ad_add_loai();
+        ad_add_hanghoa();
         break;
     case 'ad-update':
         ad_update_loai();
         break;
-    case 'loai-insert':
-        ad_insert_loai();
+    case 'hh-insert':
+        ad_insert_hanghoa();
         break;
     case 'loai-update':
         ad_loai_update();

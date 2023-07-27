@@ -4,12 +4,12 @@
     // print_r($_POST);
     // echo '</pre>';
 function ad_hanghoa_list() {
-    $listLoai = hanghoa_all();
+    $listSanPham = hanghoa_all();
     $view_name = "list.php";
-    view('layout/layout-admin', ['view_name' => $view_name, 'listLoai' => $listLoai]);
+    view('layout/layout-admin', ['view_name' => $view_name, 'listSanPham' => $listSanPham]);
 }
 
-function ad_add_loai() {
+function ad_add_hanghoa() {
     $view_name = "add.php";
     view('layout/layout-admin', ['view_name' => $view_name]);
 }
@@ -21,24 +21,52 @@ function ad_update_loai() {
     view('layout/layout-admin', ['view_name' => $view_name, 'data' => $data]);
 }
 
-function ad_insert_loai() {
+function ad_insert_hanghoa() {
     global $image_dir;
-    $errors = validateFileImg('img_loai') + validateInsertLoai($_POST['ten_loai']);
-    if(empty($errors)) {
-        $hinh_loai = save_file('img_loai', "$image_dir/category/");
-        $data = [
-            'ten_loai' => $_POST['ten_loai'],
-            'hinh_loai' => $hinh_loai,
+    global $TODAY;
+    // echo '<pre>';
+    // print_r($_FILES);
+    // echo '</pre>';
+
+    $arrFileHinh = save_files('files', "$image_dir/products/");
+    
+    $arrtDonVi = [];
+    for ($i = 0; $i < count($_POST["don_vi"]); $i++) {
+        $arrtDonVi[] = [
+            'don_vi' => $_POST["don_vi"][$i],
+            'don_gia' => $_POST["don_gia"][$i],
+            'giam_gia' => $_POST["giam_gia"][$i],
+            'so_luong' => $_POST["so_luong"][$i]
         ];
-        loai_insert($data);
-        header('location: ?ctl=ad-list');
-    }
-    else {
-        $listLoai = loai_all();
-        $view_name = "add.php";
-        view('layout/layout-admin', ['view_name' => $view_name, 'listLoai' => $listLoai], $errors, $_POST);
-    }
-}
+    };
+    $data = [
+        'ten_hh' => $_POST['ten_hh'],
+        'ngay_nhap' => $TODAY,
+        'mo_ta' => $_POST['mo_ta'],
+        'dac_biet' => $_POST['dac_biet'],
+        'ma_loai' => $_POST['ma_loai'],
+        'hinh' => $arrFileHinh,
+        'thuoc_tinh' => $arrtDonVi,
+    ];
+    echo '<pre>';
+    print_r($data);
+    echo '</pre>';
+    // $errors = validateFileImg('img_loai') + validateInsertLoai($_POST['ten_loai']);
+    // if(empty($errors)) {
+    //     $hinh_loai = save_file('img_loai', "$image_dir/category/");
+    //     $data = [
+    //         'ten_loai' => $_POST['ten_loai'],
+    //         'hinh_loai' => $hinh_loai,
+    //     ];
+    //     loai_insert($data);
+    //     header('location: ?ctl=ad-list');
+    // }
+    // else {
+    //     $listLoai = loai_all();
+    //     $view_name = "add.php";
+    //     view('layout/layout-admin', ['view_name' => $view_name, 'listLoai' => $listLoai], $errors, $_POST);
+    // }
+};
 
 function ad_loai_update() {
     global $image_dir;

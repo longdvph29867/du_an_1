@@ -42,7 +42,7 @@
 
         <tbody>
             <?php
-            foreach ($listLoai as $item) {
+            foreach ($listSanPham as $item) {
             ?>
                 <tr>
                     <td><input type="checkbox" name="ma_hh[]" value="<?= $item['ma_hh'] ?>"></td>
