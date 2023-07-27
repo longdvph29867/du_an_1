@@ -145,11 +145,30 @@ function hanghoa_all()
 
 function hanghoa_insert($data)
 {
+    extract($data);
+    
     $conn = connection();
-    $sql = "INSERT INTO `hang_hoa` (`ma_hh`, `ten_hh`, `ngay_nhap`, `mo_ta`, `dac_biet`, `so_luot_xem`, `ma_loai`) VALUES (NULL, 'vsb', '2023-07-05', 'sc', '1', '0', '2')";
+    $sql = "INSERT INTO hang_hoa (ten_hh, ngay_nhap, mo_ta, dac_biet, so_luot_xem, ma_loai) 
+    VALUES ('$ten_hh', '$ngay_nhap', '$mo_ta', '$dac_biet', '0', '$ma_loai')";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
+    $new_ma_hh = $conn->lastInsertId();
 
+    $sqlHinhHH = "INSERT INTO hinh_hang_hoa (ma_hh, ten_hinh) VALUES ";
+    foreach($hinhArr as $item) {
+        $sqlHinhHH = $sqlHinhHH. "($new_ma_hh, '$item'),";
+    };
+    $new_SQLHinhHH = substr($sqlHinhHH, 0 , -1);
+    $stmt = $conn->prepare($new_SQLHinhHH);
+    $stmt->execute();
+
+    $sqlThuocTinh = "INSERT INTO chi_tiet_hang_hoa (ma_hh, don_vi, don_gia, giam_gia, so_luong) VALUES ";
+    foreach($thuoc_tinh as $item) {
+        $sqlThuocTinh = $sqlThuocTinh. "($new_ma_hh, '$item[don_vi]', $item[don_gia], $item[giam_gia], $item[so_luong]),";
+    };
+    $new_SQLThuocTinh = substr($sqlThuocTinh, 0 , -1);
+    $stmt = $conn->prepare($new_SQLThuocTinh);
+    $stmt->execute();
     // echo "<pre>";
     // print_r($hangHoaArr);
     // echo "</pre>";

@@ -2,6 +2,7 @@
 require_once '../../../config.php';
 require_once "../../../function.php";
 require_once "../../../models/connection.php";
+require_once "../../../models/loai.php";
 require_once "../../../models/hanghoa.php";
 require_once "../../../controllers/ad_hanghoaController.php";
 require_once "../../validate/validate-form-admin.php";
@@ -16,8 +17,8 @@ switch ($ctl) {
     case 'ad-add':
         ad_add_hanghoa();
         break;
-    case 'ad-update':
-        ad_update_loai();
+    case 'ad-detail-hh':
+        ad_chitet_hh();
         break;
     case 'hh-insert':
         ad_insert_hanghoa();

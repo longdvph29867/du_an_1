@@ -10,8 +10,9 @@ function ad_hanghoa_list() {
 }
 
 function ad_add_hanghoa() {
+    $listLoai = loai_all();
     $view_name = "add.php";
-    view('layout/layout-admin', ['view_name' => $view_name]);
+    view('layout/layout-admin', ['view_name' => $view_name, 'listLoai' => $listLoai]);
 }
 
 function ad_update_loai() {
@@ -29,6 +30,7 @@ function ad_insert_hanghoa() {
     // echo '</pre>';
 
     $arrFileHinh = save_files('files', "$image_dir/products/");
+    // $arrFileHinh = '';
     
     $arrtDonVi = [];
     for ($i = 0; $i < count($_POST["don_vi"]); $i++) {
@@ -45,12 +47,12 @@ function ad_insert_hanghoa() {
         'mo_ta' => $_POST['mo_ta'],
         'dac_biet' => $_POST['dac_biet'],
         'ma_loai' => $_POST['ma_loai'],
-        'hinh' => $arrFileHinh,
+        'hinhArr' => $arrFileHinh,
         'thuoc_tinh' => $arrtDonVi,
     ];
-    echo '<pre>';
-    print_r($data);
-    echo '</pre>';
+    hanghoa_insert($data);
+    header('location: ?ctl=ad-list');
+    
     // $errors = validateFileImg('img_loai') + validateInsertLoai($_POST['ten_loai']);
     // if(empty($errors)) {
     //     $hinh_loai = save_file('img_loai', "$image_dir/category/");
@@ -67,6 +69,11 @@ function ad_insert_hanghoa() {
     //     view('layout/layout-admin', ['view_name' => $view_name, 'listLoai' => $listLoai], $errors, $_POST);
     // }
 };
+
+function ad_chitet_hh() {
+    $view_name = "detail.php";
+    view('layout/layout-admin', ['view_name' => $view_name]);
+}
 
 function ad_loai_update() {
     global $image_dir;

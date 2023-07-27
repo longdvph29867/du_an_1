@@ -35,18 +35,16 @@
                         <select name="ma_loai" class="custom-select" id="inputGroupSelect04">
                             <option selected hidden value="">Choose...</option>
                             <?php
-                            foreach ($lisDanhMuc as $danhMuc) {
+                            foreach ($listLoai as $loai) {
                             ?>
                                 <option <?php
-                                        if (isset($ma_loai) && $ma_loai == $danhMuc['ma_loai']) {
+                                        if (isset($ma_loai) && $ma_loai == $loai['ma_loai']) {
                                             echo 'selected';
                                         }
-                                        ?> value="<?= $danhMuc["ma_loai"] ?>"><?= $danhMuc["ten_loai"] ?></option>
+                                        ?> value="<?= $loai["ma_loai"] ?>"><?= $loai["ten_loai"] ?></option>
                             <?php
                             }
                             ?>
-                            <option value="1">123</option>
-                            <option value="2">123</option>
                         </select>
                     </div>
                     <small id="fileHelpId" class="form-text text-danger">

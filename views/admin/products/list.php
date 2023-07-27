@@ -52,7 +52,7 @@
                     <td><?=substr($item['mo_ta'], 0, 170). '...'?></td>
                     <td><?=$item['so_luot_xem'] ?></td>
                     <th>
-                        <a class="btn btn-warning" href="?ctl=ad-update&ma_hh=<?=$item['ma_hh'] ?>">Sửa</a>
+                        <a class="btn btn-primary" href="?ctl=ad-detail-hh&ma_hh=<?=$item['ma_hh'] ?>">Chi tiết</a>
                         <a onclick="return confirm('Bạn có chắc chắn xoá không?')" class="btn btn-danger" href="?ctl=loai-delete&ma_loai=<?=$item['ma_hh'] ?>">Xóa</a>
                     </th>
                 </tr>
