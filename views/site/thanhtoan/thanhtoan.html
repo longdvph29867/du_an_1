@@ -19,16 +19,7 @@
     background-color: #62d2a2;
     border-color: #62d2a2;
     }
-    .text-box.active {
-            opacity: 1;
-            margin: 10px auto;
-        }
-        body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-          
-        }
+   
         .container {
             margin: 0 auto;
             max-width: 400px;
@@ -36,32 +27,7 @@
             background-color: #fff;
         }
         
-        .check-modal__input label {
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 24px;
-        }
-
-        .text-box {
-            overflow: hidden;
-            width: 90%;
-            margin: 0 auto;
-            height: 0;
-            opacity: 0;
-            transition: all 0.3s ease;
-        }
-
-        .text-box.active {
-            opacity: 1;
-            margin: 10px auto;
-        }
-
-        .text-box p {
-            display: block;
-            background-color: rgb(199, 199, 199);
-            padding: 12px;
-            border-radius: 10px;
-            margin: 0;
-        }
+      
 
 
         /* The container must be positioned relative: */
@@ -128,7 +94,7 @@
 </head>
 <body>
     <!-- banner_slide -->
-     <section class="banner  relative bg-gradient-to-tr  from-green-500 to-red-400 hover:bg-gradient-to-tl hover:from-red-400 hover:to-green-300 transition-all  duration-300 flex items-center justify-center h-40 w-full bg-cover bg-center">
+     <section class="banner mb-10 relative bg-gradient-to-tr  from-green-500 to-red-400 hover:bg-gradient-to-tl hover:from-red-400 hover:to-green-300 transition-all  duration-300 flex items-center justify-center h-40 w-full bg-cover bg-center">
         <img class="w-full h-full object-cover absolute  mix-blend-overlay" src="./img/banner_ctsp.webp" alt="">
     <div class="text-center text-black py-24">
         <h2 class="pb-5  font-['Berkshire_Swash'] text-4xl">Cửa hàng</h2>
@@ -136,64 +102,9 @@
     </div>
      </section>
 
-   <!-- collectionS -->
-     <section class="checkout font-['Raleway']  w-[85%] mx-auto mt-[54px]" id="checkOut">
-        <div class="card">
-            <h3 class=" relative uppercase px-[20px] py-[15px] mb-[30px] bg-[#f7f7f7] border-t-[3px]  border-solid border-[#62d2a2] font-semibold font-[14px] text-[#333333]">Returning Customer? 
-            <span class="text-[#62d2a2] cursor-pointer transition duration-150 ease-out hover:ease-in hover:text-[#333333] ml-[10px] " data-bs-toggle="collapse" data-bs-target="#logInaccordion">Click
-                    Here To Login</span></h3>
-            
-                <div class="card-body border-[1px] border-[#ccc] border-solid text-[14px] p-[20px] mb-[30px]">
-                    <p>If you have shopped with us before, please enter your details in the boxes
-                        below. If you are a new customer, please proceed to the Billing &amp;
-                        Shipping section.</p>
-                    <div class="pt-[23px] px-[30px] pb-[30px] mt-20 bg-white border-[1px]  shadow-md shadow-[rgba(0, 0, 0, 0.1)] pt-[23px]">
-                       
-                            <div class="w-[58%] m-auto">
-                                <form action="#" method="post">                        
-                                            <div class="single-input-item  mt-[20px]">
-                                                <input class=" text-[14px] bg-[#f7f7f7] [text-[ #666666] border-[1px] border-solid border-[#ccc] w-[100%] py-[12px] px-[10px]" type="email" placeholder="Enter your Email" required="">
-                                            </div>
-                                        <div class="col-md-12">
-                                            <div class="single-input-item mt-[20px]">
-                                                <input class=" text-[14px] bg-[#f7f7f7] [text-[ #666666] border-[1px] border-solid border-[#ccc] w-[100%] py-[12px] px-[10px]" type="password" placeholder="Enter your Password" required="">
-                                            </div>
-                                        </div>
-                                    <div class="flex justify-between  mt-[20px]">
-                                        <div class="login-reg-form-meta flex align-items-center justify-content-between">    
-                                                    <input type="checkbox" class="custom-control-input" id="rememberMe" required="">
-                                                    <label class="text-[14px] pl-[10px] cursor-pointer relative block font-normal" for="rememberMe">Remember
-                                                        Me</label>
-                                                    </div>
-                                            <a href="#" class="block text-[#62d2a2] text-[12px] hover:underline">Forget Password?</a>
-                                    </div>
-                                        <button class=" text-white font-semibold cursor-pointer uppercase inline-block transition duration-300 pt-[8px] px-[25px] pb-[8px] text-[16px] rounded-lg bg-[#62d2a2] hover:bg-[#fd7e14] mt-[20px]">Login</button>
-                                 
-                                </form>
-                               </div>
-                      </div>
-                   </div>
-                </div>
-        <div class="card ">
-            <h3 class=" relative uppercase px-[20px] py-[15px] my-[30px] bg-[#f7f7f7] border-t-[3px]  border-solid border-[#62d2a2] font-semibold font-[14px] text-[#333333]">Have A Coupon? 
-                <span class="text-[#62d2a2] cursor-pointer transition duration-150 ease-out hover:ease-in hover:text-[#333333] ml-[10px] "  data-bs-toggle="collapse" data-bs-target="#couponaccordion">Click
-                    Here To Enter Your Code</span></h3>
-            <div id="couponaccordion" class="" data-bs-parent="#checkOutAccordion">
-                <div class="card-body border-[1px] border-solid border-[#ccc] p-[20px] text-[14px] mb-[30px]">
-
-                            <form action="#" method="post" class="flex justify-items-center items-center gap-x-[15px]">
-                                <input class=" w-[40%] h-[50px] text-[12px] bg-[#f7f7f7]  text-[#666666] border-[1px] border-solid border-[#ccc]   px-[12px]" type="text" placeholder="Enter Your Coupon Code" required="">
-                                <button class=" text-white font-semibold cursor-pointer uppercase inline-block transition duration-300 pt-[8px] px-[25px] pb-[8px] text-[16px] rounded-lg bg-[#62d2a2] hover:bg-[#fd7e14] ">Apply Coupon</button>
-                            </form>
-                     
-                
-                </div>
-            </div>
-        </div>
-    </section>
     <!-- pay Details-->
-   <div class=" container w-[85%] mx-auto grid md:grid-cols-2 sm:grid-cols-1 gap-10">
-    <div class="billing-details">
+   <div class=" container pt-4 w-[85%] mx-auto grid md:grid-cols-2 sm:grid-cols-1 gap-10">
+    <div class="billing-details mb-6">
         <h2 class="text-[#333333] pb-[15px] border-b-[1px] mb-[30px] font-bold border-solid border-[#ccc] text-[20px]">Billing Details</h2>
         <div class="billing-form-wrap">
             <form action="#">
@@ -212,20 +123,20 @@
                        </div>
                 
 
-                <div class="single-input-item ]">
+                <div class="single-input-item">
                     <label for="email" class="required  capitalize text-[14px] text-[#333333]">Email Address</label>
                     <input class="bg-[#f7f7f7] text-[14px] px-10 border-[1px] border-[#ccc] border-solid py-[12px] text-[#666666] w-[100%]"  type="email" id="email" placeholder="Email Address" required="">
                 </div>
 
                 <div class="single-input-item mt-[20px]">
-                    <label for="com-name required   capitalize text-[14px] text-[#333333]">Company Name</label>
+                    <label class="required   capitalize text-[14px] text-[#333333]">Company Name</label>
                     <input class="bg-[#f7f7f7] text-[14px] px-10 border-[1px] border-[#ccc] border-solid py-[12px] text-[#666666] w-[100%]"  type="text" id="com-name" placeholder="Company Name">
                 </div>
 
                 <div class="custom-select mt-[20px] w-full" >
-                    <label for="email" class="required  capitalize text-[14px] text-[#333333]">Email Address</label>
+                    <label for="email" class="required  capitalize text-[14px] text-[#333333]">Country</label>
                     <select>
-                      <option value="0">Afghanistan</option>
+                      <option value="0" selected>Afghanistan</option>
                       <option value="1">Albania</option>
                       <option value="2">Algeria</option>
                       <option value="3">Armenia</option>
@@ -279,7 +190,7 @@
         </div>
     </div>
     <!-- order_summary -->
-    <div class="order_summary">
+    <div class="order_summary mb-4">
         <h2 class="text-[ #333333] pb-[15px] border-b-[1px] mb-[30px] font-bold border-solid border-[#ccc] text-[20px]">Billing Details</h2>
         <div class="order-summary-table table-responsive text-center">
             <table class="table w-full">
@@ -335,65 +246,7 @@
                 </tfoot>
             </table>
         </div>
-          <!-- order payment -->
-          <form class="order-payment-method bg-[ #f7f7f7] pt-[40px] px-[20px] pb-[30px]">
-            
-            <div class="check-modal show mb-[20px]">
-              
-                    <div class="check-modal__input ml-4">
-                        <input type="radio"  id="checkRadio1" name="paymentmethod" value="cash" class="custom-control-input outline-none " checked="">
-                        <label class="custom-control-label" for="checkRadio1">Cash On Delivery</label>
-                    </div>
-                <div class="text-box" data-method="cash">
-                    <p>Pay with cash upon delivery.</p>
-                </div>
-            </div>
-            <div class="check-modal mb-[20px]">
-                <div class="payment-method-name">
-                    <div class="custom-control  check-modal__input ml-4">
-                        <input type="radio" id="checkRadio2" name="paymentmethod" value="bank" class="custom-control-input">
-                        <label class="custom-control-label text-[14px] pl-[10px] font-normal block cursor-pointer relative" for="checkRadio2">Direct Bank</label>
-                    </div>
-                </div>
-                <div class="text-box" data-method="bank">
-                    <p>Make your payment directly into our bank account. Please use your Order
-                        ID as the payment reference. Your order will not be shipped until the
-                        funds have cleared in our account..</p>
-                </div>
-            </div>
-            <div class="check-modal mb-[20px]">
-             
-                    <div class="custom-control custom-radio  check-modal__input ml-4">
-                        <input type="radio" id="checkpayment" name="paymentmethod" value="check" class="custom-control-input">
-                        <label class="custom-control-label text-[14px] pl-[10px] font-normal block cursor-pointer relative" for="checkpayment">Pay with Check</label>
-                    </div>
-                
-                <div class="text-box" data-method="check">
-                    <p>Please send a check to Store Name, Store Street, Store Town, Store State
-                        / County, Store Postcode.</p>
-                </div>
-            </div>
-            <div class="check-modal mb-[20px]">
-                
-                    <div class="custom-control custom-radio  check-modal__input ml-4">
-                        <input type="radio" id="paypalpayment" name="paymentmethod" value="paypal" class="custom-control-input">
-                        <label class="custom-control-label text-[14px] pl-[10px] font-normal block cursor-pointer relative" for="paypalpayment">Paypal <img src="https://htmldemo.net/selena/selena/assets/img/paypal-card.jpg" class="img-fluid paypal-card" alt="Paypal"></label>
-                    </div>
-              
-                <div class="text-box" data-method="paypal">
-                    <p>Pay via PayPal; you can pay with your credit card if you don’t have a
-                        PayPal account.</p>
-                </div>
-            </div>
-            <div class="summary-footer-area">
-                <div class="custom-control custom-checkbox mb-14">
-                    <input type="checkbox" class="custom-control-input" id="terms" required="">
-                    <label class="custom-control-label text-[14px] pl-[10px] font-normal block cursor-pointer relative" for="terms">I have read and agree to
-                        the website <a href="index.html">terms and conditions.</a></label>
-                </div>
-                <button type="submit" class="btn btn__bg font-semibold transition border-[1px] border-solid border-[#62d2a2] pt-[8px] px-[25px] pb-[8px] duration-400  cursor-pointer text-[16px] text-[#fff] rounded-lg bg-[#62d2a2]  rounded-lg bg-[#62d2a2] hover:bg-[#fd7e14]">Place Order</button>
-            </div>
-        </form>
+   
 
     </div>
    </div>
@@ -482,50 +335,6 @@ document.addEventListener("click", closeAllSelect);
 
 
 
-    let textBoxs = document.querySelectorAll(".text-box");
-    let checkModals = document.querySelectorAll(".check-modal");
-    /*
-    Không biết có cách khác không nhưng mà tớ hay dùng 
-    window.requestAnimationFrame để tạo vòng lạp vô hạn
-    để kiểm tra cách phần tử tại từng thời điểm.
-    */
-    function update(){
-        window.requestAnimationFrame(update);
-        /*
-        Kiểm tra xem cái class text-box nào có chứa 
-        thêm tên class là active thì set height của nó 
-        bằng height của thẻ p bên trong nếu không thì
-        set height của class text-box bằng 0
-         - set height như này vì mình đâu chắc chắn được
-         mỗi thẻ p có chiều cao như nào. để như này thì 
-         thay đổi số lượng chữ trong thẻ p thì height nó 
-         không bị lỗi.
-        */
-        textBoxs.forEach(textBox => {
-            if(textBox.classList.contains("active")){
-                textBox.style.height = textBox.querySelector("p").offsetHeight + "px";
-            }else{
-                textBox.style.height = 0;
-            }
-        });
-
-        /*
-        Cái này đẻ check xem cái class check-modal nào có 
-        input được checked thì thêm class active vào thẻ
-        div có class text-bõ trong đó, Nếu k đc checked thì
-        xóa class active
-        */
-        checkModals.forEach(item => {
-            let checkModalInput = item.querySelector(".check-modal__input input");
-            let checkModalTextBox = item.querySelector(".text-box");
-            if(checkModalInput.checked){
-                checkModalTextBox.classList.add("active");
-            }else{
-                checkModalTextBox.classList.remove("active");
-            }
-        })
-    }
-    update();
 </script>
 </body>
 </html>
