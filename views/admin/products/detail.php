@@ -8,6 +8,9 @@
                 <p>Lượt xem: <span><?= $hh_detail['so_luot_xem'] ?></span></p>
                 <p>Loại: <span><?= $hh_detail['ten_loai'] ?></span></p>
                 <p>Mô tả: <span><?= $hh_detail['mo_ta'] ?></span></p>
+                <p>
+                    <a class="btn btn-warning" href="?ctl=ad-sua-thongtin&ma_hh=<?= $hh_detail['ma_hh'] ?>">Sửa thông tin</a>
+                </p>
                 <div>
                     <p class="">Hình ảnh:</p>
                     <div class="row">
@@ -40,7 +43,10 @@
                     </div>
                 </div>
                 <div class="mt-3">
-                    <h5>Thuộc tính:</h5>
+                    <div class="d-flex align-items-center mb-3">
+                        <h5 class="mb-0 mr-2">Thuộc tính:</h5>
+                        <a class="btn btn-success" href="?ctl=ad-add-thuoctinh&ma_hh=<?= $hh_detail['ma_hh'] ?>">Thêm thuộc tính</a>
+                    </div>
                     <table class="table">
                         <thead class="bg-primary text-white">
                             <tr>
@@ -62,8 +68,8 @@
                                     <td><?=$item['giam_gia']?></td>
                                     <td><?=$item['so_luong']?></td>
                                     <td>
-                                    <a class="btn btn-warning" href="#">Sửa</a>
-                                    <a onclick="return confirm('Bạn có chắc chắn xoá không?')" class="btn btn-danger" href="#">Xóa</a>
+                                    <a class="btn btn-warning" href="?ctl=ad-sua-thuoctinh&ma_hh=<?= $hh_detail['ma_hh'] ?>&ma_cthh=<?= $item['ma_cthh']?>">Sửa</a>
+                                    <a onclick="return confirm('Bạn có chắc chắn xoá không?')" class="btn btn-danger" href="?ctl=ad-delete-thuoctinh&ma_hh=<?= $hh_detail['ma_hh'] ?>&ma_cthh=<?= $item['ma_cthh']?>">Xóa</a>
                                     </td>
                                 </tr>
                             <?php

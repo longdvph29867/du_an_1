@@ -17,10 +17,10 @@
                 <div class="form-group">
                     <label for="ten_hh">Tên sản phẩm <span class="text-danger">*</span></label>
                     <input id="ten_hh" type="text" name="ten_hh" class="form-control" value="">
-                    <small id="helpId" class="text-danger">122
+                    <small id="helpId" class="text-danger">
                         <?php
-                        if (!empty($errors['ten_loai'])) {
-                            echo $errors['ten_loai'];
+                        if (!empty($errors['ten_hh'])) {
+                            echo $errors['ten_hh'];
                         }
                         ?>
                     </small>
@@ -94,9 +94,16 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="files">Hình hàng hoá <span class="text-danger">*</span></label>
-                    <input  onchange="displaySelectedFiles()" type="file" class="form-control-file" id="files" name="files[]" multiple>
+                    <input onchange="displaySelectedFiles()" type="file" class="form-control-file" id="files" name="files[]" multiple>
                     <div id="fileNames"></div>
                 </div>
+                <small id="helpId" class="text-danger">
+                    <?php
+                    if (!empty($errors['hinh'])) {
+                        echo $errors['hinh'];
+                    }
+                    ?>
+                </small>
             </div>
         </div>
         <div id="list-thuoc-tinh">
@@ -110,57 +117,37 @@
                         <div class="form-group">
                             <label for="don_vi">Đơn vị <span class="text-danger">*</span></label>
                             <input id="don_vi" type="text" name="don_vi[]" class="form-control" value="">
-                            <small id="helpId" class="text-danger">122
-                                <?php
-                                if (!empty($errors['ten_loai'])) {
-                                    echo $errors['ten_loai'];
-                                }
-                                ?>
-                            </small>
+
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="don_gia">Đơn giá <span class="text-danger">*</span></label>
-                            <input id="don_gia" type="text" name="don_gia[]" class="form-control" value="">
-                            <small id="helpId" class="text-danger">122
-                                <?php
-                                if (!empty($errors['ten_loai'])) {
-                                    echo $errors['ten_loai'];
-                                }
-                                ?>
-                            </small>
+                            <input id="don_gia" type="number" name="don_gia[]" class="form-control" value="">
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="giam_gia">Giảm giá <span class="text-danger">*</span></label>
-                            <input id="giam_gia" type="text" name="giam_gia[]" class="form-control" value="">
-                            <small id="helpId" class="text-danger">122
-                                <?php
-                                if (!empty($errors['ten_loai'])) {
-                                    echo $errors['ten_loai'];
-                                }
-                                ?>
-                            </small>
+                            <input id="giam_gia" type="number" name="giam_gia[]" class="form-control" value="">
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="so_luong">Số lượng hàng <span class="text-danger">*</span></label>
-                            <input id="so_luong" type="text" name="so_luong[]" class="form-control" value="">
-                            <small id="helpId" class="text-danger">122
-                                <?php
-                                if (!empty($errors['ten_loai'])) {
-                                    echo $errors['ten_loai'];
-                                }
-                                ?>
-                            </small>
+                            <input id="so_luong" type="number" name="so_luong[]" class="form-control" value="">
                         </div>
                     </div>
                 </div>
+                <small id="helpId" class="text-danger">
+                    <?php
+                    if (!empty($errors['thuoc_tinh'])) {
+                        echo $errors['thuoc_tinh'];
+                    }
+                    ?>
+                </small>
             </div>
-            
+
         </div>
         <div class="row">
             <div class="col-md-12">
