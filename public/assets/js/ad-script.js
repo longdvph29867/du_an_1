@@ -82,3 +82,7 @@ function removeFormThuocTinh(el) {
         count--;
     }
 }
+console.log('123')
+function submitForm(id) {
+    document.getElementById(id).submit();
+}

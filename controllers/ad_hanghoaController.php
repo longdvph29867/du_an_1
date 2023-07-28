@@ -15,12 +15,26 @@ function ad_add_hanghoa() {
     view('layout/layout-admin', ['view_name' => $view_name, 'listLoai' => $listLoai]);
 }
 
-function ad_update_loai() {
-    $ma_loai = $_GET['ma_loai'];
-    $data = loai_select_by_id($ma_loai);
-    $view_name = "update.php";
-    view('layout/layout-admin', ['view_name' => $view_name, 'data' => $data]);
-}
+function ad_hanghoa_add_hinh() {
+    global $image_dir;
+    echo '<pre>';
+    print_r($_FILES);
+    echo '</pre>';
+    $ma_hh = $_GET['ma_hh'];
+    $ten_hinh = save_file('file', "$image_dir/products/");
+    $data = [
+        'ma_hh' => $ma_hh,
+        'ten_hinh' => $ten_hinh,
+    ];
+    echo '<pre>';
+    print_r($data);
+    echo '</pre>';
+    hanghoa_insert_hinh($data);
+    header("location: ?ctl=ad-detail-hh&ma_hh=$ma_hh");
+
+    // $view_name = "update.php";
+    // view('layout/layout-admin', ['view_name' => $view_name, 'data' => $data]);
+};
 
 function ad_insert_hanghoa() {
     global $image_dir;
@@ -71,55 +85,33 @@ function ad_insert_hanghoa() {
 };
 
 function ad_chitet_hh() {
+    $ma_hh = $_GET['ma_hh'];
+    $hh_detail = hanghoa_by_ma_hanghoa($ma_hh);
     $view_name = "detail.php";
-    view('layout/layout-admin', ['view_name' => $view_name]);
+    view('layout/layout-admin', ['view_name' => $view_name, 'hh_detail' => $hh_detail]);
 }
 
-function ad_loai_update() {
-    global $image_dir;
-    $errors = validateInsertLoai($_POST['ten_loai']);
-    if(!empty($_FILES['img_loai']['name'])) {
-        $errors += validateFileImg('img_loai');
-    }
-    if(empty($errors)) {
-        if(!empty($_FILES['img_loai']['name'])) {
-            $hinh_loai = save_file('img_loai', "$image_dir/category/");
-            $data = [
-                'ma_loai' => $_POST['ma_loai'],
-                'ten_loai' => $_POST['ten_loai'],
-                'hinh_loai' => $hinh_loai,
-            ];
-                loai_update($data);
-                header('location: ?ctl=ad-list');
-        }
-        else {
-            $data = [
-                'ma_loai' => $_POST['ma_loai'],
-                'ten_loai' => $_POST['ten_loai'],
-                'hinh_loai' => $_POST['img_loai_old'],
-            ];
-                loai_update($data);
-                header('location: ?ctl=ad-list');
-        }
-    }
-    else {
-        $ma_loai = $_GET['ma_loai'];
-        $data = loai_select_by_id($ma_loai);
-        $view_name = "update.php";
-        view('layout/layout-admin', ['view_name' => $view_name, 'data' => $data], $errors);
-    }
-}
 
-function ad_loai_delete() {
-    $ma_loai = $_GET['ma_loai'];
-    loai_delete($ma_loai);
+function ad_delete_hinh() {
+    $ma_hh = $_GET['ma_hh'];
+    
     header('location: ?ctl=ad-list');
-}
+    
+    // $errors = validateFileImg('img_loai') + validateInsertLoai($_POST['ten_loai']);
+    // if(empty($errors)) {
+    //     $hinh_loai = save_file('img_loai', "$image_dir/category/");
+    //     $data = [
+    //         'ten_loai' => $_POST['ten_loai'],
+    //         'hinh_loai' => $hinh_loai,
+    //     ];
+    //     loai_insert($data);
+    //     header('location: ?ctl=ad-list');
+    // }
+    // else {
+    //     $listLoai = loai_all();
+    //     $view_name = "add.php";
+    //     view('layout/layout-admin', ['view_name' => $view_name, 'listLoai' => $listLoai], $errors, $_POST);
+    // }
+};
 
-function ad_loai_search() {
-    $key = $_POST['search'];
-    $listLoai = loai_search($key);
-    $view_name = "list.php";
-    view('layout/layout-admin', ['view_name' => $view_name, 'listLoai' => $listLoai, 'key' => $key]);
-}
 ?>
