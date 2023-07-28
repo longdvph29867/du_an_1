@@ -23,15 +23,13 @@ switch ($ctl) {
     case 'hh-insert':
         ad_insert_hanghoa();
         break;
-    case 'loai-update':
-        ad_loai_update();
+    case 'hh-insert-hinh':
+        ad_hanghoa_add_hinh();
         break;
-    case 'loai-delete':
-        ad_loai_delete();
+    case 'hh-delete-hinh':
+        ad_delete_hinh();
         break;
-    case 'ad-search':
-        ad_loai_search();
-        break;
+    
     default:
         echo "404 NOT FOUND!";
 }
