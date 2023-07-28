@@ -27,7 +27,7 @@ switch ($ctl) {
         ad_hanghoa_add_hinh();
         break;
     case 'hh-delete-hinh':
-        ad_hanghoa_add_hinh();
+        ad_delete_hinh();
         break;
     
     default:

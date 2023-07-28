@@ -12,7 +12,6 @@
                     <p class="">Hình ảnh:</p>
                     <div class="row">
                         <?php
-
                         foreach ($hh_detail['hinhArr'] as $key => $item) {
 
                         ?>
@@ -20,7 +19,7 @@
                                 <div class="d-flex justify-content-center align-items-center h-100">
                                     <div class="position-relative border">
                                         <img class="w-100" src="<?= url_public . "/images/products/" . $item ?>" alt="">
-                                        <a href="?ctl=hh-delete-hinh&ma_hinh=<?= $key ?>" class="btn btn-danger btn-circle btn-sm position-absolute top-0 end-0" style="transform: translate(-60%, -40%);"><i class="fa-solid fa-xmark"></i></a>
+                                        <a onclick="return confirm('Bạn có chắc chắn xoá không?')" href="?ctl=hh-delete-hinh&ma_hh=<?=$hh_detail['ma_hh'] ?>&ma_hinh=<?= $key ?>" class="btn btn-danger btn-circle btn-sm position-absolute top-0 end-0" style="transform: translate(-60%, -40%);"><i class="fa-solid fa-xmark"></i></a>
                                     </div>
                                 </div>
                             </div>

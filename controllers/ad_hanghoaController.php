@@ -93,9 +93,10 @@ function ad_chitet_hh() {
 
 
 function ad_delete_hinh() {
+    $ma_hinh = $_GET['ma_hinh'];
     $ma_hh = $_GET['ma_hh'];
-    
-    header('location: ?ctl=ad-list');
+    hanghoa_delete_hinh($ma_hinh);
+    header("location: ?ctl=ad-detail-hh&ma_hh=$ma_hh");
     
     // $errors = validateFileImg('img_loai') + validateInsertLoai($_POST['ten_loai']);
     // if(empty($errors)) {
