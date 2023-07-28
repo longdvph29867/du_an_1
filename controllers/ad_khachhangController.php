@@ -122,4 +122,26 @@ function ad_loai_search() {
     $view_name = "list.php";
     view('layout/layout-admin', ['view_name' => $view_name, 'listLoai' => $listLoai, 'key' => $key]);
 }
-?>
+function ad_insert_khachang() {
+    global $image_dir;
+    // echo '<pre>';
+    // print_r($_FILES);
+    // echo '</pre>';
+
+    $Fileusers = save_files('files', "$image_dir/users/");
+    // $arrFileHinh = '';
+    
+
+    $data = [
+        'ma_kh' =>$_GET['ma_kh'],
+        'mat_khau' =>$_GET['mat_khau'], ,
+        'ho_ten' => $_GET['ho_ten'],
+        'hinh' => $Fileusers,
+        'sdt' => $_GET['sdt'],
+        'email' => $_GET['email'],
+        
+    ];
+    khachhang_insert($data);
+    header('location: ?ctl=ad-list');
+};
+    ?>

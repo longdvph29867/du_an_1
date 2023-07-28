@@ -5,6 +5,8 @@ require_once "../../../models/connection.php";
 require_once "../../../models/loai.php";
 require_once "../../../models/hanghoa.php";
 require_once "../../../controllers/ad_hanghoaController.php";
+require_once "../../../models/khachhang.php";
+require_once "../../../controllers/ad_khachhangController.php";
 require_once "../../validate/validate-form-admin.php";
 
 $ctl = $_GET['ctl'] ?? '';

@@ -1,9 +1,9 @@
 <?php
 //Truy vấn tất cả loại hàng
-function loai_all()
+function khachhang_all()
 {
     $conn = connection();
-    $sql = "SELECT * FROM loai";
+    $sql = "SELECT * FROM khach_hang";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
