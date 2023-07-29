@@ -22,7 +22,21 @@
                                 <div class="d-flex justify-content-center align-items-center h-100">
                                     <div class="position-relative border">
                                         <img class="w-100" src="<?= url_public . "/images/products/" . $item ?>" alt="">
-                                        <a onclick="return confirm('Bạn có chắc chắn xoá không?')" href="?ctl=hh-delete-hinh&ma_hh=<?=$hh_detail['ma_hh'] ?>&ma_hinh=<?= $key ?>" class="btn btn-danger btn-circle btn-sm position-absolute top-0 end-0" style="transform: translate(-60%, -40%);"><i class="fa-solid fa-xmark"></i></a>
+                                        <a
+                                        <?php 
+                                        if(count($hh_detail['hinhArr']) > 1) {
+                                        ?>
+                                            onclick="return confirm('Bạn có chắc chắn xoá không?')" href="?ctl=hh-delete-hinh&ma_hh=<?= $hh_detail['ma_hh'] ?>&ma_hinh=<?= $key ?>"
+                                        <?php 
+                                        }
+                                        else {
+                                        ?>
+                                            onclick="return alert('Phải có it nhất 1 ảnh?')" href="javascript:void(0);"
+                                        
+                                        <?php
+                                        }
+                                        ?>
+                                        class="btn btn-danger btn-circle btn-sm position-absolute top-0 end-0" style="transform: translate(-60%, -40%);"><i class="fa-solid fa-xmark"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -32,10 +46,17 @@
                         <div class="col-2">
                             <div class="h-100 d-flex justify-content-start align-items-center">
                                 <form action="?ctl=hh-insert-hinh&ma_hh=<?= $hh_detail['ma_hh'] ?>" method="POST" enctype="multipart/form-data" id="add-img-hang-hoa">
-                                    <label>
-                                        <input onchange="submitForm('add-img-hang-hoa')" type="file" name="file" class="d-none">
+                                    <label <?php if(count($hh_detail['hinhArr']) >= 5) {?> onclick="alert('sản phẩm tối đa 5 ảnh')"   <?php }?>>
+                                        <input onchange="submitForm('add-img-hang-hoa')" type="file" name="file" class="d-none" <?php if(count($hh_detail['hinhArr']) >= 5) echo 'disabled'?>>
                                         <span class="btn btn-success btn-circle btn-lg"><i class="fa-solid fa-plus"></i></span>
                                     </label>
+                                    <small id="helpId" class="text-danger d-block">
+                                        <?php
+                                        if (!empty($errors['hinh'])) {
+                                            echo $errors['hinh'];
+                                        }
+                                        ?>
+                                    </small>
                                 </form>
                             </div>
                         </div>
@@ -63,13 +84,13 @@
 
                             ?>
                                 <tr>
-                                    <td><?=$item['don_vi']?></td>
-                                    <td><?=$item['don_gia']?></td>
-                                    <td><?=$item['giam_gia']?></td>
-                                    <td><?=$item['so_luong']?></td>
+                                    <td><?= $item['don_vi'] ?></td>
+                                    <td><?= $item['don_gia'] ?></td>
+                                    <td><?= $item['giam_gia'] ?></td>
+                                    <td><?= $item['so_luong'] ?></td>
                                     <td>
-                                    <a class="btn btn-warning" href="?ctl=ad-sua-thuoctinh&ma_hh=<?= $hh_detail['ma_hh'] ?>&ma_cthh=<?= $item['ma_cthh']?>">Sửa</a>
-                                    <a onclick="return confirm('Bạn có chắc chắn xoá không?')" class="btn btn-danger" href="?ctl=ad-delete-thuoctinh&ma_hh=<?= $hh_detail['ma_hh'] ?>&ma_cthh=<?= $item['ma_cthh']?>">Xóa</a>
+                                        <a class="btn btn-warning" href="?ctl=ad-sua-thuoctinh&ma_hh=<?= $hh_detail['ma_hh'] ?>&ma_cthh=<?= $item['ma_cthh'] ?>">Sửa</a>
+                                        <a onclick="return confirm('Bạn có chắc chắn xoá không?')" class="btn btn-danger" href="?ctl=ad-delete-thuoctinh&ma_hh=<?= $hh_detail['ma_hh'] ?>&ma_cthh=<?= $item['ma_cthh'] ?>">Xóa</a>
                                     </td>
                                 </tr>
                             <?php

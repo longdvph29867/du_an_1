@@ -17,20 +17,26 @@ function ad_add_hanghoa() {
 
 function ad_hanghoa_add_hinh() {
     global $image_dir;
-    echo '<pre>';
-    print_r($_FILES);
-    echo '</pre>';
     $ma_hh = $_GET['ma_hh'];
-    $ten_hinh = save_file('file', "$image_dir/products/");
-    $data = [
-        'ma_hh' => $ma_hh,
-        'ten_hinh' => $ten_hinh,
-    ];
-    echo '<pre>';
-    print_r($data);
-    echo '</pre>';
-    hanghoa_insert_hinh($data);
-    header("location: ?ctl=ad-detail-hh&ma_hh=$ma_hh");
+    
+    $errors = validateFileImg('file');
+    if(empty($errors)) {
+        $ten_hinh = save_file('file', "$image_dir/products/");
+        $data = [
+            'ma_hh' => $ma_hh,
+            'ten_hinh' => $ten_hinh,
+        ];
+        echo '<pre>';
+        print_r($data);
+        echo '</pre>';
+        hanghoa_insert_hinh($data);
+        header("location: ?ctl=ad-detail-hh&ma_hh=$ma_hh");
+    }
+    else {
+        $hh_detail = hanghoa_by_ma_hanghoa($ma_hh);
+        $view_name = "detail.php";
+        view('layout/layout-admin', ['view_name' => $view_name, 'hh_detail' => $hh_detail], $errors);
+    }
 
     // $view_name = "update.php";
     // view('layout/layout-admin', ['view_name' => $view_name, 'data' => $data]);
@@ -40,12 +46,6 @@ function ad_insert_hanghoa() {
     global $image_dir;
     global $TODAY;
     $errors = validateInsertHH($_POST) + validateFiles('files');
-    echo '<pre>';
-    print_r($errors);
-    echo '</pre>';
-    echo '<pre>';
-    print_r($_POST);
-    echo '</pre>';
 
     if(empty($errors)) {
         $arrFileHinh = save_files('files', "$image_dir/products/");
@@ -204,6 +204,12 @@ function ad_update_thongtin() {
         $view_name = "updateThongTin.php";
         view('layout/layout-admin', ['view_name' => $view_name, 'listLoai' => $listLoai, 'data' => $data], $errors);
     }
+}
+
+function ad_delete_hh() {
+    $ma_hh = $_GET['ma_hh'];
+    hanghoa_delete_hh($ma_hh);
+    header("location: ?ctl=ad-list");
 }
 
 ?>

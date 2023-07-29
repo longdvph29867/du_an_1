@@ -241,4 +241,12 @@ function hanghoa_update_thongin($data)
     $stmt->execute();
 }
 
+function hanghoa_delete_hh($ma_hh)
+{
+    $conn = connection();
+    $sql = "DELETE FROM hang_hoa WHERE `hang_hoa`.`ma_hh` = $ma_hh";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+}
+
 ?>

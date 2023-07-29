@@ -240,8 +240,13 @@
             fileNamesDiv.innerHTML = fileNamesText;
         }
     </script>
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js" integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="<?=url_public?>/assets/js/ad-script.js"></script>
+    <!-- <script src="<?=url_public?>/assets/js/validate.js"></script> -->
+    <script src="<?=url_public?>/assets/js/ad-validate.js"></script>
 </body>
 
 </html>

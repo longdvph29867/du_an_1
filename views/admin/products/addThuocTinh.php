@@ -5,7 +5,7 @@
     </div>
 </div>
 <div class="row">
-    <form action="?ctl=ad-insert-thuoctinh&ma_hh=<?=$_GET['ma_hh']?>" method="POST" enctype="multipart/form-data" class="col-md-6 mx-auto">
+    <form id="ad-form-add-thuoctinh" action="?ctl=ad-insert-thuoctinh&ma_hh=<?=$_GET['ma_hh']?>" method="POST" enctype="multipart/form-data" class="col-md-6 mx-auto">
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">

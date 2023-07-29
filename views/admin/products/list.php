@@ -53,7 +53,7 @@
                     <td><?=$item['so_luot_xem'] ?></td>
                     <th>
                         <a class="btn btn-primary" href="?ctl=ad-detail-hh&ma_hh=<?=$item['ma_hh'] ?>">Chi tiết</a>
-                        <a onclick="return confirm('Bạn có chắc chắn xoá không?')" class="btn btn-danger" href="?ctl=loai-delete&ma_loai=<?=$item['ma_hh'] ?>">Xóa</a>
+                        <a onclick="return confirm('Bạn có chắc chắn xoá không?')" class="btn btn-danger" href="?ctl=ad-delete-hh&ma_hh=<?=$item['ma_hh'] ?>">Xóa</a>
                     </th>
                 </tr>
             <?php

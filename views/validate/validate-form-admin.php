@@ -25,6 +25,9 @@ function validateFiles($hinh) {
     if (strlen($_FILES[$hinh]['name'][0]) == 0) {
         $errors['hinh'] = 'Vui lòng chọn file!';
     } 
+    else if (count($_FILES[$hinh]['name']) > 5) {
+        $errors['hinh'] = 'Tối đa 5 file!';
+    }
     else {
         for($i = 0; $i < count($_FILES[$hinh]['name']); $i++) {
             $typeFile = pathinfo($_FILES[$hinh]['name'][$i], PATHINFO_EXTENSION);

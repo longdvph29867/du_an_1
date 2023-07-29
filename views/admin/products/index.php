@@ -50,7 +50,9 @@ switch ($ctl) {
     case 'ad-update-thongtin':
         ad_update_thongtin();
         break;
-        
+    case 'ad-delete-hh':
+        ad_delete_hh();
+        break;
     default:
         echo "404 NOT FOUND!";
 }
