@@ -1,5 +1,14 @@
 <?php
 //Truy vấn tất cả loại hàng
+function khachhang_search($key)
+{
+    $conn = connection();
+    $sql = "SELECT * FROM khach_hang WHERE ho_ten LIKE '%$key%'";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
+}
 function khachhang_all()
 {
     $conn = connection();

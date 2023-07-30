@@ -13,7 +13,17 @@ function ad_add_khachhang() {
     $view_name = "add.php";
     view('layout/layout-admin', ['view_name' => $view_name]);
 }
-
+function ad_khachhang_delete() {
+    $ma_kh= $_GET['ma_kh'];
+    khachhang_delete($ma_kh);
+    header('location: ?ctl=ad-list-kh');
+}
+function ad_khachhang_search() {
+    $key = $_POST['search'];
+    $listkh = khachhang_search($key);
+    $view_name = "list.php";
+    view('layout/layout-admin', ['view_name' => $view_name, 'listkh' => $listkh, 'key' => $key]);
+}
 function ad_update_khachhang() {
     $ma_kh = $_GET['ma_kh'];
     $data = khachhang_select_by_id($ma_kh);
@@ -43,24 +53,24 @@ function ad_insert_khachhang() {
 function ad_khachhang_update() {
     global $image_dir;
     $errors = validateInsertLoai($_POST['ten_loai']);
-    if(!empty($_FILES['img_loai']['name'])) {
+    if(!empty($_FILES['img']['name'])) {
         $errors += validateFileImg('img_loai');
     }
     if(empty($errors)) {
-        if(!empty($_FILES['img_loai']['name'])) {
-            $hinh_loai = save_file('img_loai', "$image_dir/category/");
+        if(!empty($_FILES['img']['name'])) {
+            $hinh_loai = save_file('img', "$image_dir/users/");
             $data = [
-                'ma_loai' => $_POST['ma_loai'],
-                'ten_loai' => $_POST['ten_loai'],
-                'hinh_loai' => $hinh_loai,
+                'ma_kh' => $_POST['ma_kh'],
+                'ho_ten' => $_POST['ho_ten'],
+                'hinh' => $hinh,
             ];
                 loai_update($data);
                 header('location: ?ctl=ad-list-kh');
         }
         else {
             $data = [
-                'ma_loai' => $_POST['ma_loai'],
-                'ten_loai' => $_POST['ten_loai'],
+                'ma_kh' => $_POST['ma_kh'],
+                'ho_ten' => $_POST['ho_ten'],
                 'hinh_loai' => $_POST['img_loai_old'],
             ];
                 loai_update($data);
@@ -75,16 +85,7 @@ function ad_khachhang_update() {
     }
 }
 
-function ad_khachhang_delete() {
-    $ma_kh= $_GET['ma_kh'];
-    khachhang_delete($ma_kh);
-    header('location: ?ctl=ad-list-kh');
-}
 
-function ad_loai_search() {
-    $key = $_POST['search'];
-    $listLoai = loai_search($key);
-    $view_name = "list.php";
-    view('layout/layout-admin', ['view_name' => $view_name, 'listLoai' => $listLoai, 'key' => $key]);
-}
+
+
 ?>
