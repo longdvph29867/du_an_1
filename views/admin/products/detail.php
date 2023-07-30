@@ -66,7 +66,21 @@
                 <div class="mt-3">
                     <div class="d-flex align-items-center mb-3">
                         <h5 class="mb-0 mr-2">Thuộc tính:</h5>
-                        <a class="btn btn-success" href="?ctl=ad-add-thuoctinh&ma_hh=<?= $hh_detail['ma_hh'] ?>">Thêm thuộc tính</a>
+                        <a class="btn btn-success"
+                        <?php 
+                        if(count($hh_detail['chi_tiet_sp']) < 5) {
+                        ?>
+                            href="?ctl=ad-add-thuoctinh&ma_hh=<?= $hh_detail['ma_hh'] ?>"
+                        <?php 
+                        }
+                        else {
+                        ?>
+                            onclick="return alert('Không quá 5 thuộc tính?')" href="javascript:void(0);"
+                        
+                        <?php
+                        }
+                        ?>
+                        >Thêm thuộc tính</a>
                     </div>
                     <table class="table">
                         <thead class="bg-primary text-white">
@@ -90,7 +104,21 @@
                                     <td><?= $item['so_luong'] ?></td>
                                     <td>
                                         <a class="btn btn-warning" href="?ctl=ad-sua-thuoctinh&ma_hh=<?= $hh_detail['ma_hh'] ?>&ma_cthh=<?= $item['ma_cthh'] ?>">Sửa</a>
-                                        <a onclick="return confirm('Bạn có chắc chắn xoá không?')" class="btn btn-danger" href="?ctl=ad-delete-thuoctinh&ma_hh=<?= $hh_detail['ma_hh'] ?>&ma_cthh=<?= $item['ma_cthh'] ?>">Xóa</a>
+                                        <a class="btn btn-danger" 
+                                        <?php 
+                                        if(count($hh_detail['chi_tiet_sp']) > 1) {
+                                        ?>
+                                            onclick="return confirm('Bạn có chắc chắn xoá không?')" href="?ctl=ad-delete-thuoctinh&ma_hh=<?= $hh_detail['ma_hh'] ?>&ma_cthh=<?= $item['ma_cthh'] ?>"
+                                        <?php 
+                                        }
+                                        else {
+                                        ?>
+                                            onclick="return alert('Hàng hoá ít nhất 1 thuộc tính?')" href="javascript:void(0);"
+                                        <?php
+                                        }
+                                        ?>
+                                        
+                                        >Xóa</a>
                                     </td>
                                 </tr>
                             <?php
