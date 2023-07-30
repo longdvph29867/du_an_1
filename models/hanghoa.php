@@ -194,4 +194,59 @@ function hanghoa_delete_hinh($ma_hinh)
     $stmt = $conn->prepare($sql);
     $stmt->execute();
 }
+
+function hanghoa_insert_thuoctinh($data)
+{
+    extract($data);
+    $conn = connection();
+    $sql = "INSERT INTO chi_tiet_hang_hoa (ma_hh, don_vi, don_gia, giam_gia, so_luong) VALUES ('$ma_hh', '$don_vi', '$don_gia', '$giam_gia', '$so_luong')";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+}
+
+function hanghoa_thuoctinh_by_macthh($ma_cthh)
+{
+    $conn = connection();
+    $sql = "SELECT * FROM `chi_tiet_hang_hoa` WHERE ma_cthh = $ma_cthh";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $result;
+}
+
+function hanghoa_update_thuoctinh($data)
+{
+    extract($data);
+    $conn = connection();
+    $sql = "UPDATE `chi_tiet_hang_hoa` SET `don_vi` = '$don_vi', `don_gia` = '$don_gia', `giam_gia` = '$giam_gia', `so_luong` = '$so_luong' WHERE `chi_tiet_hang_hoa`.`ma_cthh` = $ma_cthh";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+}
+
+
+function hanghoa_delete_thuoctinh($ma_cthh)
+{
+    $conn = connection();
+    $sql = "DELETE FROM chi_tiet_hang_hoa WHERE `chi_tiet_hang_hoa`.`ma_cthh` = $ma_cthh";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+}
+
+function hanghoa_update_thongin($data)
+{
+    extract($data);
+    $conn = connection();
+    $sql = "UPDATE hang_hoa SET ten_hh = '$ten_hh', mo_ta = '$mo_ta', dac_biet = '$dac_biet', ma_loai = '$ma_loai' WHERE hang_hoa.ma_hh = $ma_hh";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+}
+
+function hanghoa_delete_hh($ma_hh)
+{
+    $conn = connection();
+    $sql = "DELETE FROM hang_hoa WHERE `hang_hoa`.`ma_hh` = $ma_hh";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+}
+
 ?>

@@ -129,32 +129,9 @@
                         <div class="topbar-divider d-none d-sm-block"></div>
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                <img class="img-profile rounded-circle" src="<?=url_public?>/assets/images/undraw_profile.svg">
+                            <a class="btn btn-primary" href="<?=url?>?ctl=home">
+                                Trở về trang bán hàng
                             </a>
-                            <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </a>
-                            </div>
                         </li>
                     </ul>
                 </nav>
@@ -240,8 +217,13 @@
             fileNamesDiv.innerHTML = fileNamesText;
         }
     </script>
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js" integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="<?=url_public?>/assets/js/ad-script.js"></script>
+    <!-- <script src="<?=url_public?>/assets/js/validate.js"></script> -->
+    <script src="<?=url_public?>/assets/js/ad-validate.js"></script>
 </body>
 
 </html>
