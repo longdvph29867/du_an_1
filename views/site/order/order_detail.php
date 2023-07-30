@@ -25,11 +25,11 @@
             <div class="flex justify-between items-center mb-2">
                 <div class="flex">
                     <div class="border-gray-400 mr-3" style="border-width: 1px;">
-                        <img class="w-20 h-20 object-cover" src="<?=url_public."/images/products/$product[hinh]"?>" alt="">
+                        <img class="w-20 h-20 object-cover" src="<?=url_public."/images/products/". reset($product['hinhArr'])?>" alt="">
                     </div>
                     <div>
                         <h3 class="text-lg"><?=$product['ten_hh']?></h3>
-                        <p class="normal-case">x <span class="text-xl"><?=$product['so_luong']?></span> <?=$product['ten_dv']?></p>
+                        <p class="normal-case">Số lượng: <span class="text-xl"><?=$product['so_luong']?> x </span> <?=$product['don_vi']?></p>
                     </div>
                 </div>
                 <p class="normal-case">
@@ -56,23 +56,30 @@
         </div>
         <div class="flex pt-4">
             <div class="w-2/5 pr-5 border-gray-300" style="border-right-width: 1px;">
-                <h4 class="font-medium"><?= $orderDetail['ten_nguoi_nhan'] ?></h4>
-                <div class="text-sm text-gray-500 space-y-1 normal-case">
-                    <p>
-                        <?= $orderDetail['sdt_nguoi_nhan'] ?>
-                    </p>
-                    <p>
-                        <?= $orderDetail['dia_chi_nhan'] ?>
-                    </p>
-                    <p>
-                        Ghi chú: <?= $orderDetail['ghi_chu'] ?>
-                    </p>
+                <div class="flex flex-col justify-between h-full">
+                    <div>
+                        <h4 class="font-medium"><?= $orderDetail['ten_nguoi_nhan'] ?></h4>
+                        <div class="text-sm text-gray-500 space-y-1 normal-case">
+                            <p>
+                                <?= $orderDetail['sdt_nguoi_nhan'] ?>
+                            </p>
+                            <p>
+                                <?= $orderDetail['dia_chi_nhan'] ?>
+                            </p>
+                            <p>
+                                Ghi chú: <?= $orderDetail['ghi_chu'] ?>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="text-[#62d2a2]">
+                        <?= $orderDetail['ten_trang_thai'] ?>
+                    </div>
                 </div>
             </div>
             <div class="w-3/5 pl-5 text-sm text-gray-500 normal-case">
                 <div class="flex justify-between items-center py-3 border-gray-200" style="border-bottom-width: 1px;">
                     <p>Tổng tiền hàng</p>
-                    <p>₫<?= number_format($orderDetail['tong_tien']) ?></p>
+                    <p>₫<?= number_format($orderDetail['tong_tien'] - $orderDetail['gia_van_chuyen']) ?></p>
                 </div>
                 <div class="flex justify-between items-center py-3 border-gray-200" style="border-bottom-width: 1px;">
                     <p>Phí vận chuyển</p>
@@ -80,7 +87,7 @@
                 </div>
                 <div class="flex justify-between items-center py-3 border-gray-200" style="border-bottom-width: 1px;">
                     <p>Giảm giá phí vận chuyển</p>
-                    <p>- ₫<?= number_format($orderDetail['gia_van_chuyen']) ?></p>
+                    <p>- 0₫</p>
                 </div>
                 <div class="flex justify-between items-center py-2 border-gray-300" style="border-bottom-width: 1px;">
                     <p>Thành tiền</p>

@@ -6,18 +6,22 @@ require_once "../../../models/loai.php";
 require_once "../../../models/binhluan.php";
 require_once "../../../models/danhgia.php";
 require_once "../../../models/hanghoa.php";
+require_once "../../../models/giohang.php";
 require_once "../../../controllers/hanghoact.php";
+require_once "../../validate/validate-form.php";
 
 $ctl = $_GET['ctl'] ?? '';
 
 switch ($ctl) {
     case '':
-    case 'chitiet':
         hanghoact();
         break;
-        case 'about':
-            echo "about";
-            break;
+    case 'add-cart':
+        hanghoact_add_cart();
+        break;
+    case 'add-comment':
+        hanghoact_add_comment();
+        break;
     default:
         echo "404 NOT FOUND!";
 }

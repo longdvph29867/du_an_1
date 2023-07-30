@@ -1,6 +1,6 @@
 
 <!-- header -->
-<header class=" hidden py-0 lg:py-4 bg-white z-50">
+<header class=" py-0 lg:py-4 bg-white z-50">
     <div class="
         header_top 
         container 
@@ -43,7 +43,7 @@
                             ?>
                             
                             <li><a href="<?=url_views.'/site/order'?>">Đơn hàng</a></li>
-                            <li><a href="?btn_logout">Đăng xuất</a></li>
+                            <li><a href="<?=url.'/?btn_logout'?>">Đăng xuất</a></li>
                         </ul>
                     </div>
                 <?php
@@ -61,8 +61,27 @@
 
             <!--  -->
             <div class="cart_header relative">
-                <i class="fa-solid fa-cart-shopping"></i>
-                <span class="quantity_cart">16</span>
+                <a href="<?php 
+                if(isset($_SESSION['user'])) {
+                    echo url_views . "/site/giohang";
+                }
+                else {
+                    echo 'javascript:void(0);';
+                }
+                ?>"
+                <?php 
+                if(!isset($_SESSION['user'])) {
+                    ?>
+                    onclick="alert('Vui lòng đăng nhập!')";
+                    <?php
+                }
+                
+                
+                ?>
+                >
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="quantity_cart">0</span>
+                </a>
             </div>
         </div>
     </div>
@@ -149,8 +168,8 @@
                         <?php
                         } else {
                         ?>
-                            <a href="#" class="btn1 mx-2 ">Đăng nhập</a>
-                            <a href="#" class="btn1 ">Đăng Ký</a>
+                            <a href="<?= url_site ?>/login/?ctl=login" class="btn1 mx-2 ">Đăng nhập</a>
+                            <a href="<?= url_site ?>/login/" class="btn1 ">Đăng Ký</a>
                         <?php
                         }
                         ?>

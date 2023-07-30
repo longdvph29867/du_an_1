@@ -10,6 +10,9 @@ require_once "../../../models/danhgia.php";
 require_once "../../../controllers/listProductsController.php";
 
 $ctl = $_GET['ctl'] ?? '';
+if(isset($_GET['keywords'])) {
+    $ctl = 'keywords';
+};
 
 switch ($ctl) {
     case '':
@@ -18,6 +21,9 @@ switch ($ctl) {
         break;
     case 'category':
         products_category();
+        break;
+    case 'keywords':
+        products_search();
         break;
     default:
         echo "404 NOT FOUND!";

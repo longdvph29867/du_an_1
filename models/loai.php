@@ -9,55 +9,49 @@ function loai_all()
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $result;
 }
-/**
- * thêm loại hàng
- * @param $data mảng chưa dữ liệu loại có key và value
- * Ví dụ: $data=['ten_loai'=>'Máy tính Dell']
- */
-function loai_insert($ten_loai)
+
+function loai_insert($data)
 {
-    $data = [$ten_loai];
+    extract($data);
     $conn = connection();
-    $sql = "Insert Into loai(ten_loai) Values(?)";
+    $sql = "INSERT INTO loai (ten_loai, hinh_loai, hoat_dong_loai) VALUES ('$ten_loai', '$hinh_loai', '1')";
     $stmt = $conn->prepare($sql);
-    $stmt->execute($data);
+    $stmt->execute();
 }
-/**
- * cập nhật loại hàng theo ma_loai
- * @param $data mảng chưa dữ liệu cập nhật có key và value
- * Ví dụ: $data=['ten_loai'=>'Máy tính Dell']
- * * @param $ma_loai cần cập nhật
- */
-function loai_update($ten_loai, $ma_loai)
+
+function loai_update($data)
 {
-    $arr = func_get_args();
+    extract($data);
     $conn = connection();
-    $sql = "UPDATE loai SET ten_loai=? WHERE ma_loai=?";
+    $sql = "UPDATE loai SET ten_loai = '$ten_loai', hinh_loai = '$hinh_loai' WHERE loai.ma_loai = $ma_loai";
 
     $stmt = $conn->prepare($sql);
-    $stmt->execute($arr);
+    $stmt->execute();
 }
-/**
- * Xóa loại hàng
- * @param $ma_loai cần xóa
- */
+
 function loai_delete($ma_loai)
 {
-    $data = func_get_args();
     $conn = connection();
-    $sql = "DELETE FROM loai WHERE ma_loai=?";
-
+    $sql = "DELETE FROM loai WHERE ma_loai=$ma_loai";
     $stmt = $conn->prepare($sql);
-    $stmt->execute($data);
+    $stmt->execute();
 }
 //Lấy ra 1 loại hàng
 function loai_select_by_id($ma_loai)
 {
-    $data[] = $ma_loai;
     $conn = connection();
-    $sql = "SELECT * FROM loai WHERE ma_loai=?";
+    $sql = "SELECT * FROM loai WHERE ma_loai=$ma_loai";
     $stmt = $conn->prepare($sql);
-    $stmt->execute($data);
+    $stmt->execute();
     $loai = $stmt->fetch(PDO::FETCH_ASSOC);
     return $loai;
+}
+function loai_search($key)
+{
+    $conn = connection();
+    $sql = "SELECT * FROM loai WHERE ten_loai LIKE '%$key%'";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
 }

@@ -1,9 +1,9 @@
 <?php
 //Truy vấn tất cả loại hàng
-function loai_all()
+function khachhang_all()
 {
     $conn = connection();
-    $sql = "SELECT * FROM loai";
+    $sql = "SELECT * FROM khach_hang";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -57,11 +57,11 @@ function loai_update($ten_loai, $ma_loai)
  * Xóa loại hàng
  * @param $ma_loai cần xóa
  */
-function loai_delete($ma_loai)
+function khachhang_delete($ma_kh)
 {
     $data = func_get_args();
     $conn = connection();
-    $sql = "DELETE FROM loai WHERE ma_loai=?";
+    $sql = "DELETE FROM khach_hang WHERE ma_kh=?";
 
     $stmt = $conn->prepare($sql);
     $stmt->execute($data);

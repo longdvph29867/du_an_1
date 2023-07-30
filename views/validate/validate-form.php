@@ -44,7 +44,7 @@ function validateRegister($ma_kh, $mat_khau, $re_mat_khau, $ho_ten, $sdt, $email
     if (strlen($ma_kh) == 0) {
         $errors['ma_kh'] = "Vui lòng nhập tài khoản!";
     } else if (strlen($ma_kh) > 16 || strlen($ma_kh) < 6) {
-        $errors['ma_kh'] = "Tài khoản phải 6 - 20 ký tự!";
+        $errors['ma_kh'] = "Tài khoản phải 6 - 16 ký tự!";
     }
 
     // mat_khau
@@ -166,6 +166,69 @@ function validateReview () {
             $errors['comment'][$key] = "Vui lòng nhập trường này!";
         }
     }
+    return $errors;
+}
+
+
+function validateAddCart($data) {
+    $errors = [];
+    // ma kh
+    if ($data['so_luong'] < 1) {
+        $errors['so_luong'] = "Vui lòng nhập Số lượng!";
+    }
+    
+    // mat_khau
+    if (!isset($data['ma_cthh'])) {
+        $errors['ma_cthh'] = "Vui lòng chọn loại hàng!";
+    }
+    return $errors;
+}
+
+function validateAddComment($data) {
+    $errors = [];
+    // ma kh
+    if (strlen($data['noi_dung']) == 0) {
+        $errors['noi_dung'] = "Vui lòng nhập nội dung!";
+    }
+    return $errors;
+}
+
+
+function validateAddOrder($data) {
+    $errors = [];
+    extract($data);
+    // ma kh
+    if (strlen($ten_nguoi_nhan) == 0) {
+        $errors['ten_nguoi_nhan'] = "Vui lòng nhập tên!";
+    } else if (strlen($ten_nguoi_nhan) > 49 || strlen($ten_nguoi_nhan) < 4) {
+        $errors['ten_nguoi_nhan'] = "Họ tên phải 4 - 50 ký tự!";
+    }
+
+    // sdt
+    $phoneNumberPattern = "/(84|0[3|5|7|8|9])+([0-9]{8})\b/";
+    if (strlen($sdt) == 0) {
+        $errors['sdt'] = "Vui lòng nhập số điện thoại!";
+    } else if (!preg_match($phoneNumberPattern, $sdt)) {
+        $errors['sdt'] = "Số điện thoại không hợp lệ!";
+    }
+
+    // dia chi
+    if (strlen($dia_chi_nhan) == 0) {
+        $errors['dia_chi_nhan'] = "Vui lòng nhập địa chỉ!";
+    } else if (strlen($dia_chi_nhan) > 200 || strlen($dia_chi_nhan) < 4) {
+        $errors['dia_chi_nhan'] = "Địa chỉ phải 4 - 200 ký tự!";
+    }
+
+    // van chuyen
+    if (strlen($ma_van_chuyen) == 0) {
+        $errors['ma_van_chuyen'] = "Vui lòng chọn đơn vị vận chuyển!";
+    }
+
+    // dia chi
+    if (strlen($ghi_chu) > 200) {
+        $errors['ghi_chu'] = "Ghi chú tối đa 200 ký tự!";
+    }
+
     return $errors;
 }
 ?>
