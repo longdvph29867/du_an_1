@@ -38,7 +38,9 @@
                             <li><a href="#">Thông tin</a></li>
                             <?php
                             if ($info_user['vai_tro']) {
-                                echo "<li><a href='#'>Quản trị</a></li>";
+                                ?>
+                                <li><a href='<?=url_views."/admin"; ?>'>Quản trị</a></li>
+                                <?php
                             }
                             ?>
                             
@@ -161,6 +163,13 @@
                             <?php
                             if (true) {
                                 echo "<a href='#' class='btn2 mx-2 '>Quản lý</a>";
+                            }
+                            ?>
+                            <?php
+                            if ($info_user['vai_tro']) {
+                                ?>
+                            <a href="<?=url_views."/admin"; ?>" class="btn2 ml-1">Quản trị</a>
+                                <?php
                             }
                             ?>
                             <a href="<?=url_views.'/site/order'?>" class="btn2 ml-1">Đơn hàng</a>

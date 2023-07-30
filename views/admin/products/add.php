@@ -16,7 +16,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="ten_hh">Tên sản phẩm <span class="text-danger">*</span></label>
-                    <input id="ten_hh" type="text" name="ten_hh" class="form-control" value="">
+                    <input id="ten_hh" type="text" name="ten_hh" class="form-control" value="<?php if (isset($ten_hh)) echo $ten_hh ?>">
                     <small id="helpId" class="text-danger">
                         <?php
                         if (!empty($errors['ten_hh'])) {
