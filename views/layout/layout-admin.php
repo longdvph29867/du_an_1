@@ -75,7 +75,7 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="<?=url_admin.'/khachhang'?>">
                     <i class="fa-solid fa-user"></i>
                     <span>Khách hàng</span></a>
             </li>

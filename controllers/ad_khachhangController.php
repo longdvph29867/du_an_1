@@ -24,7 +24,7 @@ function ad_khachhang_search() {
     $view_name = "list.php";
     view('layout/layout-admin', ['view_name' => $view_name, 'listkh' => $listkh, 'key' => $key]);
 }
-function ad_update_khachhang() {
+function ad_sua_khachhang() {
     $ma_kh = $_GET['ma_kh'];
     $data = khachhang_select_by_id($ma_kh);
     $view_name = "update.php";
@@ -33,14 +33,20 @@ function ad_update_khachhang() {
 
 function ad_insert_khachhang() {
     global $image_dir;
-    $errors = validateFileImg('img') + validateInsertLoai($_POST['ho_ten']);
+    $errors = validateInsertKH_ad($_POST) + validateFileImg('file');
+    
     if(empty($errors)) {
-        $hinh = save_file('img', "$image_dir/users/");
+        $hinh = save_file('file', "$image_dir/users/");
         $data = [
+            'ma_kh' => $_POST['ma_kh'],
             'ho_ten' => $_POST['ho_ten'],
+            'mat_khau' => $_POST['mat_khau'],
+            'sdt' => $_POST['sdt'],
+            'email' => $_POST['email'],
+            'vai_tro' => $_POST['vai_tro'],
             'hinh' => $hinh,
         ];
-        loai_insert($data);
+        khachhang_insert_ad($data);
         header('location: ?ctl=ad-list-kh');
     }
     else {
@@ -52,37 +58,66 @@ function ad_insert_khachhang() {
 
 function ad_khachhang_update() {
     global $image_dir;
-    $errors = validateInsertLoai($_POST['ten_loai']);
-    if(!empty($_FILES['img']['name'])) {
-        $errors += validateFileImg('img_loai');
+    $ma_kh = $_GET['ma_kh'];
+    $dataInfo = khachhang_select_by_id($ma_kh);
+
+    // echo '<pre>';
+    // print_r($dataInfo);
+    // echo '</pre>';
+
+    $errors = validateUpdateKH_ad($_POST, $dataInfo['mat_khau']);
+
+
+    if(!empty($_FILES['file']['name'])) {
+        $errors += validateFileImg('file');
     }
     if(empty($errors)) {
-        if(!empty($_FILES['img']['name'])) {
-            $hinh_loai = save_file('img', "$image_dir/users/");
+        if(!empty($_FILES['file']['name'])) {
+            $hinh = save_file('file', "$image_dir/users/");
             $data = [
-                'ma_kh' => $_POST['ma_kh'],
+                'ma_kh' => $ma_kh,
                 'ho_ten' => $_POST['ho_ten'],
+                'mat_khau' => $_POST['mat_khau'],
+                'sdt' => $_POST['sdt'],
+                'email' => $_POST['email'],
+                'vai_tro' => $_POST['vai_tro'],
                 'hinh' => $hinh,
             ];
-                loai_update($data);
-                header('location: ?ctl=ad-list-kh');
         }
         else {
             $data = [
-                'ma_kh' => $_POST['ma_kh'],
+                'ma_kh' => $ma_kh,
                 'ho_ten' => $_POST['ho_ten'],
-                'hinh_loai' => $_POST['img_loai_old'],
+                'mat_khau' => $_POST['mat_khau'],
+                'sdt' => $_POST['sdt'],
+                'email' => $_POST['email'],
+                'vai_tro' => $_POST['vai_tro'],
+                'hinh' => $_POST['img_old'],
             ];
-                loai_update($data);
-                header('location: ?ctl=ad-list-kh');
         }
+
+        khachhang_update_ad($data);
+        header('location: ?ctl=ad-list-kh');
     }
     else {
-        $ma_loai = $_GET['ma_loai'];
-        $data = loai_select_by_id($ma_loai);
         $view_name = "update.php";
-        view('layout/layout-admin', ['view_name' => $view_name, 'data' => $data], $errors);
+        view('layout/layout-admin', ['view_name' => $view_name, 'data' => $dataInfo], $errors);
+
     }
+
+
+    // if(!empty($_FILES['img']['name'])) {
+    //     $errors += validateFileImg('img_loai');
+    // }
+    // if(empty($errors)) {
+        
+    // }
+    // else {
+    //     $ma_loai = $_GET['ma_loai'];
+    //     $data = loai_select_by_id($ma_loai);
+    //     $view_name = "update.php";
+    //     view('layout/layout-admin', ['view_name' => $view_name, 'data' => $data], $errors);
+    // }
 }
 
 

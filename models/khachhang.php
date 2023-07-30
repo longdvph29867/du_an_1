@@ -76,3 +76,23 @@ function khachhang_delete($ma_kh)
     $stmt->execute($data);
 }
 
+function khachhang_insert_ad($data)
+{
+    extract($data);
+    $conn = connection();
+    $sql = "INSERT INTO khach_hang (ma_kh, mat_khau, ho_ten, hinh, sdt, email, vai_tro) 
+    VALUES ('$ma_kh', '$mat_khau', '$ho_ten', '$hinh', '$sdt', '$email', '$vai_tro')";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+}
+function khachhang_update_ad($data)
+{
+    extract($data);
+    $conn = connection();
+    $sql = "UPDATE khach_hang 
+    SET mat_khau = '$mat_khau', ho_ten = '$ho_ten', hinh = '$hinh', sdt = '$sdt', email = '$email', vai_tro = '$vai_tro' 
+    WHERE khach_hang.ma_kh = '$ma_kh'";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+}
+

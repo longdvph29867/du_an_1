@@ -13,11 +13,11 @@ switch ($ctl) {
     case 'ad-list-kh':
         ad_list_kh();
         break;
-    case 'ad-add-kh':
+    case 'ad-add':
         ad_add_khachhang();
         break;
     case 'ad-update-kh':
-        ad_update_khachhang();
+        ad_sua_khachhang();
         break;
     case 'khachhang-insert':
         ad_insert_khachhang();
