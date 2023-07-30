@@ -1,9 +1,18 @@
 <?php
 //Truy vấn tất cả loại hàng
-function loai_all()
+function khachhang_search($key)
 {
     $conn = connection();
-    $sql = "SELECT * FROM loai";
+    $sql = "SELECT * FROM khach_hang WHERE ho_ten LIKE '%$key%'";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
+}
+function khachhang_all()
+{
+    $conn = connection();
+    $sql = "SELECT * FROM khach_hang";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -57,13 +66,33 @@ function loai_update($ten_loai, $ma_loai)
  * Xóa loại hàng
  * @param $ma_loai cần xóa
  */
-function loai_delete($ma_loai)
+function khachhang_delete($ma_kh)
 {
     $data = func_get_args();
     $conn = connection();
-    $sql = "DELETE FROM loai WHERE ma_loai=?";
+    $sql = "DELETE FROM khach_hang WHERE ma_kh=?";
 
     $stmt = $conn->prepare($sql);
     $stmt->execute($data);
+}
+
+function khachhang_insert_ad($data)
+{
+    extract($data);
+    $conn = connection();
+    $sql = "INSERT INTO khach_hang (ma_kh, mat_khau, ho_ten, hinh, sdt, email, vai_tro) 
+    VALUES ('$ma_kh', '$mat_khau', '$ho_ten', '$hinh', '$sdt', '$email', '$vai_tro')";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+}
+function khachhang_update_ad($data)
+{
+    extract($data);
+    $conn = connection();
+    $sql = "UPDATE khach_hang 
+    SET mat_khau = '$mat_khau', ho_ten = '$ho_ten', hinh = '$hinh', sdt = '$sdt', email = '$email', vai_tro = '$vai_tro' 
+    WHERE khach_hang.ma_kh = '$ma_kh'";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
 }
 
