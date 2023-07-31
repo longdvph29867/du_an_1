@@ -8,7 +8,7 @@
             foreach ($list_loai as $loai) {
                 ?>
                 <div class="px-3">
-                    <a href="#">
+                    <a href="<?=url_site.'/listProduct/?ctl=category&ma_loai='.$loai['ma_loai']?>">
                         <div class="flex flex-col items-center cursor-pointer ">
                             <img src="<?= url_public . '/images/category/' . $loai['hinh_loai'] ?>" alt="">
                             <h4 class="pt-2"><?=$loai['ten_loai']?></h4>

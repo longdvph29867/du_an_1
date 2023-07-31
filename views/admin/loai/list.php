@@ -1,11 +1,7 @@
-<?php
-// echo '<pre>';
-// print_r($listLoai);
-// echo '</pre>';
-?>
+
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Danh sáchh loại</h1>
+    <h1 class="h3 mb-0 text-gray-800">Danh sách loại</h1>
     <div>
         <form action="?ctl=ad-search" method="POST" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
