@@ -4,9 +4,13 @@
     // print_r($_POST);
     // echo '</pre>';
 function ad_hanghoa_list() {
-    $listSanPham = hanghoa_all();
+    $listSanPhamAll = hanghoa_all();
+    $thisPage= $_GET['page'] ?? 1;
+    $arrListByPage = array_chunk($listSanPhamAll, 10);
+    $pageTotal = ceil(count($arrListByPage));
+    $listSanPham = $arrListByPage[$thisPage-1];
     $view_name = "list.php";
-    view('layout/layout-admin', ['view_name' => $view_name, 'listSanPham' => $listSanPham]);
+    view('layout/layout-admin', ['view_name' => $view_name, 'listSanPham' => $listSanPham, 'pageTotal' => $pageTotal]);
 }
 
 function ad_add_hanghoa() {
@@ -77,22 +81,6 @@ function ad_insert_hanghoa() {
         $view_name = "add.php";
         view('layout/layout-admin', ['view_name' => $view_name, 'listLoai' => $listLoai], $errors, $_POST);
     }
-    
-    // $errors = validateFileImg('img_loai') + validateInsertLoai($_POST['ten_loai']);
-    // if(empty($errors)) {
-    //     $hinh_loai = save_file('img_loai', "$image_dir/category/");
-    //     $data = [
-    //         'ten_loai' => $_POST['ten_loai'],
-    //         'hinh_loai' => $hinh_loai,
-    //     ];
-    //     loai_insert($data);
-    //     header('location: ?ctl=ad-list');
-    // }
-    // else {
-    //     $listLoai = loai_all();
-    //     $view_name = "add.php";
-    //     view('layout/layout-admin', ['view_name' => $view_name, 'listLoai' => $listLoai], $errors, $_POST);
-    // }
 };
 
 function ad_chitet_hh() {
@@ -108,22 +96,6 @@ function ad_delete_hinh() {
     $ma_hh = $_GET['ma_hh'];
     hanghoa_delete_hinh($ma_hinh);
     header("location: ?ctl=ad-detail-hh&ma_hh=$ma_hh");
-    
-    // $errors = validateFileImg('img_loai') + validateInsertLoai($_POST['ten_loai']);
-    // if(empty($errors)) {
-    //     $hinh_loai = save_file('img_loai', "$image_dir/category/");
-    //     $data = [
-    //         'ten_loai' => $_POST['ten_loai'],
-    //         'hinh_loai' => $hinh_loai,
-    //     ];
-    //     loai_insert($data);
-    //     header('location: ?ctl=ad-list');
-    // }
-    // else {
-    //     $listLoai = loai_all();
-    //     $view_name = "add.php";
-    //     view('layout/layout-admin', ['view_name' => $view_name, 'listLoai' => $listLoai], $errors, $_POST);
-    // }
 };
 
 function ad_add_thuoctinh() {
@@ -210,6 +182,18 @@ function ad_delete_hh() {
     $ma_hh = $_GET['ma_hh'];
     hanghoa_delete_hh($ma_hh);
     header("location: ?ctl=ad-list");
+}
+
+function ad_hanghoa_search() {
+    $key = $_GET['search'];
+    if(empty($key)) {
+        header('location: ?ctl=ad-list');
+    }
+    else {
+        $listSanPham = hanghoa_search($key);
+        $view_name = "list.php";
+        view('layout/layout-admin', ['view_name' => $view_name, 'listSanPham' => $listSanPham, 'key' => $key]);
+    }
 }
 
 ?>

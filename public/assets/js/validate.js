@@ -156,11 +156,11 @@ $().ready(function () {
       },
     },
     submitHandler: function(form) {
-        form.submit();
+      form.submit();
     }
 });
 });
-
+console.log('12sss3');
 // validate add cart
 let formAddCart = document.getElementById("add-cart-detailPage");
 formAddCart.addEventListener("submit", function (event) {

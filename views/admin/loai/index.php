@@ -7,7 +7,9 @@ require_once "../../../controllers/ad_loaiController.php";
 require_once "../../validate/validate-form-admin.php";
 
 $ctl = $_GET['ctl'] ?? '';
-
+if(isset($_GET['search'])) {
+    $ctl = 'search';
+};
 switch ($ctl) {
     case '':
     case 'ad-list':
@@ -28,7 +30,7 @@ switch ($ctl) {
     case 'loai-delete':
         ad_loai_delete();
         break;
-    case 'ad-search':
+    case 'search':
         ad_loai_search();
         break;
     default:

@@ -3,13 +3,13 @@
         <table class="container">
             <thead>
                 <tr>
-                    <th>Ảnh</th>
-                    <th>Tên</th>
-                    <th>Loại</th>
-                    <th>Giá</th>
-                    <th>Số lượng</th>
-                    <th>Tổng</th>
-                    <th>Thao tác</th>
+                    <th class="w-[12%]">Ảnh</th>
+                    <th class="w-[22%]">Tên</th>
+                    <th class="w-[10%]">Loại</th>
+                    <th class="w-[10%]">Giá</th>
+                    <th class="w-[13%]">Số lượng</th>
+                    <th class="w-[17%]">Tổng</th>
+                    <th class="w-[15%]">Thao tác</th>
                 </tr>
             </thead>
            <tbody>

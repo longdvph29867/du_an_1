@@ -82,9 +82,14 @@ function ad_loai_delete() {
 }
 
 function ad_loai_search() {
-    $key = $_POST['search'];
-    $listLoai = loai_search($key);
-    $view_name = "list.php";
-    view('layout/layout-admin', ['view_name' => $view_name, 'listLoai' => $listLoai, 'key' => $key]);
+    $key = $_GET['search'];
+    if(empty($key)) {
+        header('location: ?ctl=ad-list');
+    }
+    else {
+        $listLoai = loai_search($key);
+        $view_name = "list.php";
+        view('layout/layout-admin', ['view_name' => $view_name, 'listLoai' => $listLoai, 'key' => $key]);
+    }
 }
 ?>

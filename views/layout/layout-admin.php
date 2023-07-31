@@ -23,6 +23,16 @@
     <!-- Custom styles for this template-->
     <link href="<?=url_public?>/assets/css/style-admin.css" rel="stylesheet">
 
+    <style>
+        .text-container {
+            padding-bottom: 0 !important;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+    </style>
 </head>
 
 <body id="page-top">

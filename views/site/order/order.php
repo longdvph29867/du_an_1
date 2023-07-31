@@ -110,8 +110,8 @@
                     <table class="table w-full">
                         <thead class="">
                             <tr>
-                                <th class="w-2/3 border py-3 px-2">Products</th>
-                                <th class="w-1/3 border py-3 px-2">Total</th>
+                                <th class="w-2/3 border py-3 px-2">Sản phẩm</th>
+                                <th class="w-1/3 border py-3 px-2">Giá tiền</th>
                             </tr>
                         </thead>
                         <tbody>

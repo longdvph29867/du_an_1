@@ -36,6 +36,11 @@
             font-size: 14px;
             color: red;
         }
+        .btn_page { 
+            background-color: #62d2a2 !important;
+            color: #fff !important;
+            font-weight: 700;
+        }
     </style>
 </head>
 

@@ -7,7 +7,9 @@ require_once "../../../controllers/ad_khachhangController.php";
 require_once "../../validate/validate-form-admin.php";
 
 $ctl = $_GET['ctl'] ?? '';
-
+if(isset($_GET['search'])) {
+    $ctl = 'search';
+};
 switch ($ctl) {
     case '':
     case 'ad-list-kh':
@@ -28,7 +30,7 @@ switch ($ctl) {
     case 'khachhang-delete':
         ad_khachhang_delete();
         break;
-    case 'ad-search':
+    case 'search':
         ad_khachhang_search();
         break;
     default:

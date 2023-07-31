@@ -19,10 +19,15 @@ function ad_khachhang_delete() {
     header('location: ?ctl=ad-list-kh');
 }
 function ad_khachhang_search() {
-    $key = $_POST['search'];
-    $listkh = khachhang_search($key);
-    $view_name = "list.php";
-    view('layout/layout-admin', ['view_name' => $view_name, 'listkh' => $listkh, 'key' => $key]);
+    $key = $_GET['search'];
+    if(empty($key)) {
+        header('location: ?ctl=ad-list-kh');
+    }
+    else {
+        $listkhachhang = khachhang_search($key);
+        $view_name = "list.php";
+        view('layout/layout-admin', ['view_name' => $view_name, 'listkhachhang' => $listkhachhang, 'key' => $key]);
+    }
 }
 function ad_sua_khachhang() {
     $ma_kh = $_GET['ma_kh'];

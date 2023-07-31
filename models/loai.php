@@ -32,7 +32,7 @@ function loai_update($data)
 function loai_delete($ma_loai)
 {
     $conn = connection();
-    $sql = "DELETE FROM loai WHERE ma_loai=$ma_loai";
+    $sql = "UPDATE loai SET hoat_dong_loai = '0' WHERE loai.ma_loai = $ma_loai";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
 }

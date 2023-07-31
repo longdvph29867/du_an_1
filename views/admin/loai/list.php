@@ -3,7 +3,7 @@
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Danh sách loại</h1>
     <div>
-        <form action="?ctl=ad-search" method="POST" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+        <form action="" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
                 <input type="text" class="form-control bg-white border-1 small" name="search" placeholder="Search..."
                 value="<?php if(!empty($key)) echo $key; ?>">
@@ -37,6 +37,7 @@
         <tbody>
             <?php
             foreach ($listLoai as $item) {
+                if($item['hoat_dong_loai'] != 0) {
             ?>
                 <tr>
                     <td><input type="checkbox" name="ma_loai[]" value="<?= $item['ma_loai'] ?>"></td>
@@ -49,6 +50,7 @@
                     </th>
                 </tr>
             <?php
+                }
             }
             ?>
         </tbody>

@@ -8,7 +8,9 @@ require_once "../../../controllers/ad_hanghoaController.php";
 require_once "../../validate/validate-form-admin.php";
 
 $ctl = $_GET['ctl'] ?? '';
-
+if(isset($_GET['search'])) {
+    $ctl = 'search';
+};
 switch ($ctl) {
     case '':
     case 'ad-list':
@@ -52,6 +54,9 @@ switch ($ctl) {
         break;
     case 'ad-delete-hh':
         ad_delete_hh();
+        break;
+    case 'search':
+        ad_hanghoa_search();
         break;
     default:
         echo "404 NOT FOUND!";

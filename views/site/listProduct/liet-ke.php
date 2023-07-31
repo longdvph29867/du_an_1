@@ -57,3 +57,29 @@
     ?>
 
 </div>
+<div>
+<div class="container mx-auto px-4">
+  <nav class="flex flex-row flex-nowrap justify-between md:justify-center items-center" aria-label="Pagination">
+
+    <?php
+        if(!isset($_GET['ctl']) || $_GET['ctl'] == 'products') {
+            for($i = 0; $i < $pageTotal; $i++) {
+            ?>
+                <a class="<?php 
+                    if(!isset($_GET['page']) && $i == 0) {
+                        echo 'btn_page';
+                    };
+                    if((isset($_GET['page']) && $_GET['page']==$i+1)) {
+                        echo 'btn_page';
+                    }
+                ?> hidden md:flex w-10 h-10 mx-1 justify-center items-center rounded-full border border-[#62d2a2] text-[#62d2a2] hover:bg-[#62d2a2] hover:text-white" href="?ctl=products&page=<?=$i+1?>">
+                <?=$i+1?>
+                </a>
+            <?php
+            }
+        }
+    ?>
+
+  </nav>
+</div>
+</div>
