@@ -54,7 +54,14 @@
                     <td><?=$item['email'] ?></td>
                     <th>
                         <a class="btn btn-warning" href="?ctl=ad-update-kh&ma_kh=<?=$item['ma_kh'] ?>">Sửa</a>
-                        <a onclick="return confirm('Bạn có chắc chắn xoá không?')" class="btn btn-danger" href="?ctl=khachhang-delete&ma_kh=<?=$item['ma_kh'] ?>">Xóa</a>
+                        <?php
+                        if($item['ma_kh'] != $_SESSION['user']['ma_kh']) {
+                            ?>
+                            <a onclick="return confirm('Bạn có chắc chắn xoá không?')" class="btn btn-danger" href="?ctl=khachhang-delete&ma_kh=<?=$item['ma_kh'] ?>">Xóa</a>
+
+                            <?php
+                        }
+                        ?>
                     </th>
                 </tr>
             <?php
