@@ -34,6 +34,7 @@ function hanghoa_by_ma_hanghoa($ma_hh)
     $sql = "SELECT * FROM hang_hoa 
     INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
     INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
+    INNER JOIN loai ON hang_hoa.ma_loai = loai.ma_loai 
     WHERE hang_hoa.ma_hh = $ma_hh";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
@@ -46,6 +47,8 @@ function hanghoa_by_ma_hanghoa($ma_hh)
         'dac_biet' => $result[0]['dac_biet'],
         'so_luot_xem' => $result[0]['so_luot_xem'],
         'ma_loai' => $result[0]['ma_loai'],
+        'ten_loai' => $result[0]['ten_loai'],
+        'ngay_nhap' => $result[0]['ngay_nhap'],
         'hinhArr' => [],
         'chi_tiet_sp' => [],
     ];
@@ -173,5 +176,22 @@ function hanghoa_insert($data)
     // print_r($hangHoaArr);
     // echo "</pre>";
 
+}
+
+function hanghoa_insert_hinh($data)
+{
+    extract($data);
+    $conn = connection();
+    $sql = "INSERT INTO hinh_hang_hoa (ma_hh, ten_hinh) VALUES ('$ma_hh', '$ten_hinh')";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+}
+
+function hanghoa_delete_hinh($ma_hinh)
+{
+    $conn = connection();
+    $sql = "DELETE FROM hinh_hang_hoa WHERE hinh_hang_hoa.ma_hinh = $ma_hinh";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
 }
 ?>
