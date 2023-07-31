@@ -91,7 +91,7 @@ function validateUpdateThongTin($data) {
         $errors['ten_hh'] = "Vui lòng nhập trường này!";
     }
 
-    if (!isset($dac_biet) == 0) {
+    if (!isset($dac_biet)) {
         $errors['dac_biet'] = "Vui lòng nhập trường này!";
     }
 
