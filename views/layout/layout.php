@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="<?=url_public?>/assets/css/topproducts.css">
     <link rel="stylesheet" href="<?=url_public?>/assets/css/aboutus.css">
     <link rel="stylesheet" href="<?=url_public?>/assets/css/giohang.css">
+    <link rel="stylesheet" href="<?=url_public?>/assets/css/mesages.css">
     <style>
         .error {
             font-size: 14px;
@@ -66,7 +67,14 @@
             <i class="fa-solid fa-chevron-up"></i>
         </div>
     </div>
-
+    <!-- mess -->
+    <div id="toast" class="">
+        <div id="img">
+            <i class="fa-solid fa-circle-check"></i>
+            <i class="fa-solid fa-circle-exclamation"></i>
+        </div>
+        <div id="desc">A notification message..</div>
+    </div>
     <!-- cdn axios -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js" integrity="sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- header js -->
@@ -174,6 +182,7 @@
     <script src="<?= url_public ?>/assets/js/chitietsp.js"></script>
     <script src="<?= url_public ?>/assets/js/validate.js"></script>
     <script src="<?= url_public ?>/assets/js/script.js"></script>
+    <script src="<?= url_public ?>/assets/js/message.js"></script>
     <script>
         <?php
         if(isset($_SESSION['user'])) {
@@ -184,6 +193,12 @@
         ?>
         
     </script>
+    <?php
+        if (isset($_COOKIE['message'])) {
+            echo $_COOKIE['message'];
+        }
+
+    ?>
 </body>
 
 </html>

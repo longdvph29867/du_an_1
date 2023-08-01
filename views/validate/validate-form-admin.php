@@ -258,4 +258,53 @@ function validateUpdateKH_ad($data, $isPass) {
     }
     return $errors;
 }
+
+function validateChangePassword($data) {
+    extract($data);
+    $errors = [];
+    // mat_khau
+    if (strlen($mat_khau) == 0) {
+        $errors['mat_khau'] = "Vui lòng nhập mật khẩu cũ!";
+    }
+
+    // mat_khau moi
+    if (strlen($mat_khau2) == 0) {
+        $errors['mat_khau2'] = "Vui lòng nhập mật khẩu mới!";
+    } else if (strlen($mat_khau2) > 16 || strlen($mat_khau2) < 6) {
+        $errors['mat_khau2'] = "Mật khẩu mới phải 6 - 16 ký tự!";
+    }
+
+    // re mat_khau moi
+    if (strlen($mat_khau3) == 0) {
+        $errors['mat_khau3'] = "Vui lòng nhập lại mật khẩu mới!";
+    } else if ($mat_khau3 != $mat_khau2) {
+        $errors['mat_khau3'] = "Mật khẩu mới không khớp!";
+    }
+    return $errors;
+}
+
+function validateChangeInfo($data) {
+    extract($data);
+    $errors = [];
+    // ho ten
+    if (strlen($ho_ten) == 0) {
+        $errors['ho_ten'] = "Vui lòng nhập họ tên!";
+    } else if (strlen($ho_ten) > 30 || strlen($ho_ten) < 6) {
+        $errors['ho_ten'] = "Họ tên phải 6 - 30 ký tự!";
+    }
+    //sdt
+    $phoneNumberPattern = "/(84|0[3|5|7|8|9])+([0-9]{8})\b/";
+    if (strlen($sdt) == 0) {
+        $errors['sdt'] = "Vui lòng nhập số điện thoại!";
+    } else if (!preg_match($phoneNumberPattern, $sdt)) {
+        $errors['sdt'] = "Số điện thoại không hợp lệ!";
+    }
+    // email
+    if (strlen($email) == 0) {
+        $errors['email'] = "Vui lòng nhập Email!";
+    } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors['email'] = "Email chưa đúng định dạng!";
+    }
+    return $errors;
+}
 ?>

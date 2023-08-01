@@ -63,7 +63,7 @@
     <nav aria-label="Page navigation example">
         <ul class="pagination">
             <?php
-                if(isset($_GET['ctl'])) {
+                if((!isset($_GET['ctl']) || $_GET['ctl'] == 'ad-list') && !isset($_GET['search'])) {
                     for($i = 0; $i < $pageTotal; $i++) {
                     ?>
                         <li class="page-item"><a class="page-link <?php 
@@ -78,8 +78,6 @@
                     }
                 }
             ?>
-            <!-- <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li> -->
         </ul>
     </nav>
 </div>

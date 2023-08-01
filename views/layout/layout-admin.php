@@ -22,6 +22,7 @@
 
     <!-- Custom styles for this template-->
     <link href="<?=url_public?>/assets/css/style-admin.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?=url_public?>/assets/css/mesages.css">
 
     <style>
         .text-container {
@@ -92,7 +93,7 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="<?=url_admin.'/donhang'?>">
                     <i class="fa-solid fa-truck"></i>
                     <span>Đơn hàng</span></a>
             </li>
@@ -201,6 +202,14 @@
         </div>
     </div>
 
+    <div id="toast" class="">
+        <div id="img">
+            <i class="fa-solid fa-circle-check"></i>
+            <i class="fa-solid fa-circle-exclamation"></i>
+        </div>
+        <div id="desc">Message..</div>
+    </div>
+
     <!-- Bootstrap core JavaScript-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -234,6 +243,13 @@
     <script src="<?=url_public?>/assets/js/ad-script.js"></script>
     <!-- <script src="<?=url_public?>/assets/js/validate.js"></script> -->
     <script src="<?=url_public?>/assets/js/ad-validate.js"></script>
+    <script src="<?= url_public ?>/assets/js/message.js"></script>
+    <?php
+        if (isset($_COOKIE['message'])) {
+            echo $_COOKIE['message'];
+        }
+
+    ?>
 </body>
 
 </html>

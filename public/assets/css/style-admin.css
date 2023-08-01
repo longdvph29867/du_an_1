@@ -6570,6 +6570,17 @@ button.bg-dark:focus {
   border-radius: 0.35rem !important;
 }
 
+.rounded-md {
+  border-radius: 0.5rem !important;
+}
+
+.rounded-lg {
+  border-radius: 0.75rem !important;
+}
+.rounded-xl {
+  border-radius: 1rem !important;
+}
+
 .rounded-top {
   border-top-left-radius: 0.35rem !important;
   border-top-right-radius: 0.35rem !important;
@@ -7571,6 +7582,10 @@ button.bg-dark:focus {
 
 .w-25 {
   width: 25% !important;
+}
+
+.w-30 {
+  width: 30% !important;
 }
 
 .w-50 {

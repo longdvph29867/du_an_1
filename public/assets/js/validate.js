@@ -32,6 +32,10 @@ $().ready(function () {
         maxlength: 30,
         minlength: 6,
       },
+      sdt: {
+        required: true,
+        pattern: /^(0[3|5|7|8|9])+([0-9]{8})$/
+      },
       email: {
         required: true,
         email: true,
@@ -47,6 +51,10 @@ $().ready(function () {
         required: "Vui lòng nhập họ tên!",
         maxlength: "Họ tên phải 6 - 30 ký tự!",
         minlength: "Họ tên phải 6 - 30 ký tự!",
+      },
+      sdt: {
+        required: 'Vui lòng nhập số điện thoại!',
+        pattern: 'Số điện thoại không hợp lệ!',
       },
       email: {
         required: "Vui lòng nhập Email!",
@@ -110,6 +118,7 @@ $().ready(function () {
       form.submit();
     },
   });
+  console.log(document.getElementById('form-insert-order'));
   $('#form-insert-order').validate({
     rules: {
       ten_nguoi_nhan: {
@@ -144,9 +153,9 @@ $().ready(function () {
         pattern: 'Số điện thoại không hợp lệ!',
       },
       dia_chi_nhan: {
-        required: 'Vui lòng nhập tài khoản!',
-        maxlength: 'Tài khoản phải 4 - 200 ký tự!',
-        minlength: 'Tài khoản phải 4 - 200 ký tự!'
+        required: 'Vui lòng nhập địa chỉ!',
+        maxlength: 'Địa chỉ phải 4 - 200 ký tự!',
+        minlength: 'Địa chỉ phải 4 - 200 ký tự!'
       },
       ma_van_chuyen: {
         required: 'Vui lòng chọn đơn vị vận chuyển!',
@@ -160,76 +169,80 @@ $().ready(function () {
     }
 });
 });
-console.log('12sss3');
-// validate add cart
-let formAddCart = document.getElementById("add-cart-detailPage");
-formAddCart.addEventListener("submit", function (event) {
-  event.preventDefault();
-  let isValid = false;
 
-  var loaiRadiosAll = formAddCart.querySelectorAll('input[type="radio"]');
-  for (var i = 0; i < loaiRadiosAll.length; i++) {
-    if (loaiRadiosAll[i].checked) {
-      isValid = true;
-      break;
-    }
-  }
+// validate add cart
+if(document.getElementById("add-cart-detailPage")) {
+  let formAddCart = document.getElementById("add-cart-detailPage");
+  formAddCart.addEventListener("submit", function (event) {
+    event.preventDefault();
+    let isValid = false;
   
-  if (isValid) {
-    document.querySelector('.error-add-cart').innerText = "";
-    this.submit();
-  }
-  else {
-    document.querySelector('.error-add-cart').innerText = "Vui lòng chọn loại hàng!";
-  }
-});
+    var loaiRadiosAll = formAddCart.querySelectorAll('input[type="radio"]');
+    for (var i = 0; i < loaiRadiosAll.length; i++) {
+      if (loaiRadiosAll[i].checked) {
+        isValid = true;
+        break;
+      }
+    }
+    
+    if (isValid) {
+      document.querySelector('.error-add-cart').innerText = "";
+      this.submit();
+    }
+    else {
+      document.querySelector('.error-add-cart').innerText = "Vui lòng chọn loại hàng!";
+    }
+  });
+}
 
 
 //
-let formReview = document.getElementById("insert_review");
-let inputs = formReview.querySelectorAll("input");
-formReview.addEventListener("submit", function (event) {
-  event.preventDefault();
-  let isValid = true;
-  for (var i = 0; i < inputs.length; i++) {
-    if (inputs[i].value.trim() === "") {
-      isValid = false;
-      inputs[i].nextElementSibling.innerText = "Vui lòng nhập trường này!";
-    } else {
-      inputs[i].nextElementSibling.innerText = "";
-    }
-  }
-
-  var ratingRadiosAll = formReview.querySelectorAll('input[type="radio"]');
-  var groupNames = [];
-
-  ratingRadiosAll.forEach((item) => {
-    if (!groupNames.includes(item.name)) {
-      groupNames.push(item.name);
-    }
-  });
-
-  groupNames.forEach((item) => {
-    let error = false;
-    let ratingRadios = formReview.querySelectorAll(`input[name="${item}"]`);
-    for (var i = 0; i < ratingRadios.length; i++) {
-      if (ratingRadios[i].checked) {
-        error = true;
+if(document.getElementById("insert_review")) {
+  let formReview = document.getElementById("insert_review");
+  let inputs = formReview.querySelectorAll("input");
+  formReview.addEventListener("submit", function (event) {
+    event.preventDefault();
+    let isValid = true;
+    for (var i = 0; i < inputs.length; i++) {
+      if (inputs[i].value.trim() === "") {
+        isValid = false;
+        inputs[i].nextElementSibling.innerText = "Vui lòng nhập trường này!";
+      } else {
+        inputs[i].nextElementSibling.innerText = "";
       }
     }
-    if (error) {
-      document.getElementById(`error-${item}`).innerText = "";
-    } else {
-      isValid = false;
-      document.getElementById(`error-${item}`).innerText =
-        "Vui lòng chọn trường này!";
+  
+    var ratingRadiosAll = formReview.querySelectorAll('input[type="radio"]');
+    var groupNames = [];
+  
+    ratingRadiosAll.forEach((item) => {
+      if (!groupNames.includes(item.name)) {
+        groupNames.push(item.name);
+      }
+    });
+  
+    groupNames.forEach((item) => {
+      let error = false;
+      let ratingRadios = formReview.querySelectorAll(`input[name="${item}"]`);
+      for (var i = 0; i < ratingRadios.length; i++) {
+        if (ratingRadios[i].checked) {
+          error = true;
+        }
+      }
+      if (error) {
+        document.getElementById(`error-${item}`).innerText = "";
+      } else {
+        isValid = false;
+        document.getElementById(`error-${item}`).innerText =
+          "Vui lòng chọn trường này!";
+      }
+    });
+  
+    if (isValid) {
+      this.submit();
     }
   });
-
-  if (isValid) {
-    this.submit();
-  }
-});
+}
 
 // rating
 

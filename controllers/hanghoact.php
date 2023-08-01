@@ -30,7 +30,7 @@ function hanghoact_add_cart()
     // print_r($errors);
     if (empty($errors)) {
         giohang_insert($_POST);
-
+        addMesssage(true, "Thêm sản phẩm thành công");
         header("location: ?ma_hh=$ma_hh");
     } else {
         $hanghoact =  hanghoa_by_ma_hanghoa($ma_hh);
@@ -68,6 +68,7 @@ function hanghoact_add_comment()
             'ngay_bl' => $TODAY,
         ];
         binhluan_insert($data);
+        addMesssage(true, "Bình luận thành công");
         header("location: ?ma_hh=$ma_hh");
     } else {
         $hanghoact =  hanghoa_by_ma_hanghoa($ma_hh);

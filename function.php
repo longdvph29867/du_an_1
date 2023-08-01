@@ -71,4 +71,27 @@ if(get_cookie('info-user')) {
 function discountPrecent ($price, $discount) {
     return $discount/($price/100);
 }
+
+function addMesssage($status, $messageContent) {
+    if($status) {
+        $statusStr = 'true';
+    }
+    else {
+        $statusStr = 'false';
+
+    }
+    setcookie('message', "<script>showMesssage($statusStr, '$messageContent')</script>", time() + 2, '/');
+}
+function echoMesssage($status, $messageContent) {
+    if($status) {
+        $statusStr = 'true';
+    }
+    else {
+        $statusStr = 'false';
+
+    }
+    echo "<script>showMesssage($statusStr, '$messageContent')</script>";
+}
+// addMesssage(true, "Bình luận thành công");
 ?>
+

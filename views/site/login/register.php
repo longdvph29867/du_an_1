@@ -1,11 +1,5 @@
 <h3 class=" text-2xl">Đăng ký</h3>
-<div class="min-h-[16px]">
-    <?php
-    if (!empty($MESSAGE_ERROR)) {
-        echo "<p><i class='fa-sharp fa-solid fa-circle-exclamation text-red-500'></i> $MESSAGE_ERROR</p>";
-    }
-    ?>
-</div>
+
 <form action="?ctl=register-khachhang" method="post" enctype="multipart/form-data" class="flex flex-col text-[#333]" id="form-register">
     <div class="flex flex-col mb-3">
         <label for="ma_kh">Tài khoản</label>

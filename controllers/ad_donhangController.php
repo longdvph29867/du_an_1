@@ -3,11 +3,21 @@
     // echo '<pre>';
     // print_r($_POST);
     // echo '</pre>';
-function ad_loai_list() {
-    $listLoai = loai_all();
+function ad_donhang_list() {
+    $listDonHang = donhang_all();
+
     $view_name = "list.php";
-    view('layout/layout-admin', ['view_name' => $view_name, 'listLoai' => $listLoai]);
+    view('layout/layout-admin', ['view_name' => $view_name, 'listDonHang' => $listDonHang]);
 }
+
+function ad_update_trangthai() {
+    $ma_dh = $_GET['ma_dh'];
+    $data = donhang_by_id($ma_dh);
+    
+    $view_name = "update.php";
+    view('layout/layout-admin', ['view_name' => $view_name, 'data' => $data]);
+}
+
 
 function ad_add_loai() {
     $view_name = "add.php";

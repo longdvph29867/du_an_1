@@ -19,6 +19,10 @@
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js" integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    <!-- cdn Lottie web -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.11/lottie.min.js"></script>
+
+    <link rel="stylesheet" href="<?=url_public?>/assets/css/mesages.css">
     <style>
         .error {
             font-size: 14px;
@@ -34,8 +38,11 @@
     bg-center
     relative
     ">
-        <div class="p-7 bg-white rounded w-full max-w-md max-h-screen overflow-x-auto relative z-10">
-            <?php include $view_name; ?>
+        <div class="p-5 bg-white rounded w-full md:max-w-3xl max-w-md max-h-screen min-h-[45%] overflow-x-auto relative z-10 grid md:grid-cols-2 grid-cols-1 items-center">
+            <div id="animation" class="hidden md:block"></div>
+            <div>
+                <?php include $view_name; ?>
+            </div>
         </div>
         <div class="
         absolute
@@ -47,7 +54,16 @@
         ">
         </div>
     </div>
+    <div id="toast" class="">
+        <div id="img">
+            <i class="fa-solid fa-circle-check"></i>
+            <i class="fa-solid fa-circle-exclamation"></i>
+        </div>
+        <div id="desc">A notification message..</div>
+    </div>
+    <div id="animation"></div>
 
+    <script src="<?= url_public ?>/assets/js/message.js"></script>
     <script>
         $().ready(function() {
             // file đuôi file
@@ -186,6 +202,36 @@
                     form.submit();
                 }
             });
+        });
+    </script>
+
+    <?php
+        if (isset($_COOKIE['message'])) {
+            echo $_COOKIE['message'];
+        }
+
+    ?>
+
+    <script>
+        <?php
+            if($_GET['ctl'] == 'login' || $_GET['ctl'] == 'login-khachhang') {
+                ?>
+                    const jsonFilePath = '<?= url_public ?>/assets/json/animation_lkr0e7ob.json';
+                <?php
+            }
+            else {
+                ?>
+                    const jsonFilePath = '<?= url_public ?>/assets/json/animation_lks6w5ib.json';
+                <?php
+            }
+        ?>
+
+        const animation = lottie.loadAnimation({
+            container: document.getElementById('animation'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: jsonFilePath
         });
     </script>
 

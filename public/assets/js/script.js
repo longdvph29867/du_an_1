@@ -33,6 +33,7 @@ function addCartItem(ma_kh, ma_cthh, quantity) {
     .then((res) => {
       // console.log(res);
       getQuantityCart(ma_kh);
+      showMesssage(true, 'Thêm sản phẩm thành công');
     })
     .catch((err) => {
       console.log(err);

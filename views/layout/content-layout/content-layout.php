@@ -7,7 +7,7 @@
     ">
         <div class="text-center py-9">
             <h2 class="pb-5 font-['Berkshire_Swash'] text-4xl">Cửa hàng</h2>
-            <p>Trang chủ / 123</p>
+            <p>Trang chủ / Danh Sách Đơn Hàng</p>
         </div>
     </section>
 

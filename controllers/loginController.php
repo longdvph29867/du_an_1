@@ -25,16 +25,16 @@ function register_khachhang() {
     $errors = validateRegister ($ma_kh, $mat_khau,$re_password, $ho_ten, $sdt, $email) + validateFileImg('hinh');
     if(empty($errors)) {
         if (khachHang_select_by_id($ma_kh)) {
-            $MESSAGE_ERROR = 'Tài khoản đã tồn tại!';
             $view_name = "register.php";
-            view('site/login/layout', ['view_name' => $view_name, 'MESSAGE_ERROR' => $MESSAGE_ERROR], [], $_POST);
+            view('site/login/layout', ['view_name' => $view_name], [], $_POST);
+            echoMesssage(false, "Tài khoản đã tồn tại!");
             
         }
         else {
             $up_hinh = save_file('hinh', "$image_dir/users/");
             $hinh = $up_hinh;
-            setcookie('MESSAGE_SUCCESS', 'Đăng ký thành công', time() + 1);
             khachhang_insert($ma_kh, $mat_khau, $ho_ten, $hinh, $sdt, $email);
+            addMesssage(true, "Đăng ký thành công vui lòng đăng nhập!");
             header("location: ?ctl=login");
             die;
         }
@@ -58,18 +58,19 @@ function login_khachhang() {
                         add_cookie('info-user', serialize($user), 30);
                     }
                     $_SESSION['user'] = $user;
+                    addMesssage(true, "Đăng nhập thành công!");
                     header("location: ".url);
                 }
                 else {
-                    $MESSAGE_ERROR = 'Sai mật khẩu!';
                     $view_name="login.php";
-                    view('site/login/layout', ['view_name' => $view_name, 'MESSAGE_ERROR' => $MESSAGE_ERROR], [], $_POST);
+                    view('site/login/layout', ['view_name' => $view_name], [], $_POST);
+                    echoMesssage(false, "Tài khoản hoặc mật khẩu không đúng!");
                 }
             }
             else {
-                $MESSAGE_ERROR = 'Sai tài khoản!';
                 $view_name="login.php";
-                view('site/login/layout', ['view_name' => $view_name, 'MESSAGE_ERROR' => $MESSAGE_ERROR], [], $_POST);
+                view('site/login/layout', ['view_name' => $view_name], [], $_POST);
+                echoMesssage(false, "Tài khoản hoặc mật khẩu không đúng!");
             }
         }
         else {
@@ -109,4 +110,5 @@ function get_pass() {
             view('site/login/layout', ['view_name' => $view_name], $errors, $_POST);
         }
 }
+
 ?>

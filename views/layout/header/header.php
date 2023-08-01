@@ -35,7 +35,7 @@
                     <div class="user_header ml-2 relative hidden lg:block">
                         <img class="h-12 w-12 object-cover" src="<?=url_public."/images/users/$info_user[hinh]"; ?>" alt="">
                         <ul class="user_child">
-                            <li><a href="#">Thông tin</a></li>
+                            <li><a href="<?=url_views.'/site/infoUser'?>">Thông tin</a></li>
                             <?php
                             if ($info_user['vai_tro']) {
                                 ?>

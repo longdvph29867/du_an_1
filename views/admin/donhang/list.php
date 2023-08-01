@@ -1,7 +1,7 @@
 
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Danh sách loại</h1>
+    <h1 class="h3 mb-0 text-gray-800">Danh sách đơn hàng</h1>
     <div>
         <form action="" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
@@ -26,31 +26,34 @@
     <table class="table bg-white">
         <thead class="bg-primary text-white">
             <tr>
-                <th></th>
-                <th>Mã loại</th>
-                <th>Tên loại</th>
-                <th>Hình ảnh</th>
-                <th>Thao tác</th>
+                <th style="width: 2%;"></th>
+                <th style="width: 10%;">Mã đơn hàng</th>
+                <th style="width: 13%;">Ngày đặt</th>
+                <th style="width: 15%;">Tổng tiền</th>
+                <th style="width: 30%;">Địa chỉ nhận</th>
+                <th style="width: 15%;">Trạng thái</th>
+                <th style="width: 15%;">Thao tác</th>
             </tr>
         </thead>
 
         <tbody>
             <?php
-            foreach ($listLoai as $item) {
-                if($item['hoat_dong_loai'] != 0) {
+            foreach ($listDonHang as $item) {
+                $dia_chi = "$item[ten_nguoi_nhan], SĐT: $item[sdt_nguoi_nhan], $item[dia_chi_nhan]";
             ?>
                 <tr>
-                    <td><input type="checkbox" name="ma_loai[]" value="<?= $item['ma_loai'] ?>"></td>
-                    <td><?=$item['ma_loai'] ?></td>
-                    <td><?=$item['ten_loai'] ?></td>
-                    <td><img style="width: 80px;" src="<?=url_public . "/images/category/" . $item['hinh_loai'] ?>" alt=""></td>
+                    <td><input type="checkbox" name="ma_dh[]" value="<?= $item['ma_dh'] ?>"></td>
+                    <td><?=$item['ma_dh'] ?></td>
+                    <td><?=$item['ngay_dat'] ?></td>
+                    <td><?=$item['tong_tien'] ?> đ</td>
+                    <td><?=$dia_chi ?></td>
+                    <td><?=$item['ten_trang_thai'] ?></td>
                     <th>
-                        <a class="btn btn-warning" href="?ctl=ad-update&ma_loai=<?=$item['ma_loai'] ?>">Sửa</a>
-                        <a onclick="return confirm('Bạn có chắc chắn xoá không?')" class="btn btn-danger" href="?ctl=loai-delete&ma_loai=<?=$item['ma_loai'] ?>">Xóa</a>
+                        <a class="btn btn-warning" href="?ctl=ad-update&ma_dh=<?=$item['ma_dh'] ?>">Cập nhật trạng thái</a>
+                        <!-- <a onclick="return confirm('Bạn có chắc chắn xoá không?')" class="btn btn-danger" href="?ctl=loai-delete&ma_dh=<?=$item['ma_dh'] ?>">Xóa</a> -->
                     </th>
                 </tr>
             <?php
-                }
             }
             ?>
         </tbody>

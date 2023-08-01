@@ -16,6 +16,7 @@ function ad_add_khachhang() {
 function ad_khachhang_delete() {
     $ma_kh= $_GET['ma_kh'];
     khachhang_delete($ma_kh);
+    addMesssage(true, "Xoá thành công");
     header('location: ?ctl=ad-list-kh');
 }
 function ad_khachhang_search() {
@@ -52,6 +53,7 @@ function ad_insert_khachhang() {
             'hinh' => $hinh,
         ];
         khachhang_insert_ad($data);
+        addMesssage(true, "Thêm thành công");
         header('location: ?ctl=ad-list-kh');
     }
     else {
@@ -102,6 +104,7 @@ function ad_khachhang_update() {
         }
 
         khachhang_update_ad($data);
+        addMesssage(true, "Cập nhật thành công");
         header('location: ?ctl=ad-list-kh');
     }
     else {

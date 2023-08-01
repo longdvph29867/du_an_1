@@ -40,6 +40,7 @@ function order_cancel()
 {
     $ma_dh = $_GET['ma_dh'];
     donhang_cancel_by_id($ma_dh);
+    addMesssage(true, "Đã huỷ đơn hàng");
     header("location: ?ctl=order-list");
     die;
 }
@@ -55,6 +56,7 @@ function order_review() {
 function order_da_nhan_hang() {
     $ma_dh = $_GET['ma_dh'];
     donhang_update_da_nhan_hang($ma_dh);
+    addMesssage(true, "Cảm ơn bạn đã mua hàng");
     header("location: ?ctl=order-list");
     die;
 }
@@ -78,6 +80,7 @@ function order_review_insert()
     
         danhgia_insert($arrReview);
         donhang_update_review($id);
+        addMesssage(true, "Đánh giá thành công");
         header("location: ?ctl=order-list");
         die;
     }
@@ -120,6 +123,7 @@ function order_insert() {
         $new_ma_dh = donhang_insert($data);
         donhang_chitiet_insert($new_ma_dh, $products);
         gh_delete_all();
+        addMesssage(true, "Đặt hàng thành công");
         header("location: ?ctl=order-list");
         die;
     }

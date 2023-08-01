@@ -161,4 +161,65 @@ function donhang_chitiet_insert($ma_dh, $data)
     $stmt = $conn->prepare($newSQl);
     $stmt->execute();
 }
+
+
+
+function donhang_all()
+{
+    $arr = func_get_args();
+    $conn = connection();
+    $sql = "SELECT don_hang.ma_dh, don_hang.ngay_dat, don_hang.tong_tien, don_hang.ma_kh as 'tk_dat', don_hang.ten_nguoi_nhan, don_hang.sdt_nguoi_nhan, don_hang.dia_chi_nhan, don_hang.danh_gia_don_hang, trang_thai.ma_trang_thai, trang_thai.ten_trang_thai, don_vi_van_chuyen.ten_van_chuyen, chi_tiet_don_hang.so_luong, hang_hoa.ten_hh, chi_tiet_hang_hoa.ma_cthh, chi_tiet_hang_hoa.giam_gia, chi_tiet_hang_hoa.don_gia, chi_tiet_hang_hoa.don_vi, hinh_hang_hoa.ma_hinh, hinh_hang_hoa.ten_hinh
+    FROM don_hang 
+    JOIN chi_tiet_don_hang ON don_hang.ma_dh = chi_tiet_don_hang.ma_dh 
+    JOIN trang_thai ON don_hang.ma_trang_thai = trang_thai.ma_trang_thai 
+    JOIN don_vi_van_chuyen ON don_hang.ma_van_chuyen = don_vi_van_chuyen.ma_van_chuyen 
+    JOIN chi_tiet_hang_hoa ON chi_tiet_don_hang.ma_cthh = chi_tiet_hang_hoa.ma_cthh
+    JOIN hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh
+    JOIN hinh_hang_hoa ON hang_hoa.ma_hh = hinh_hang_hoa.ma_hh
+    ORDER BY don_hang.ma_dh DESC";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute($arr);
+    // $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    $orders = [];
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $orderID = $row['ma_dh'];
+        $ma_cthh = $row['ma_cthh'];
+        $ma_hinh = $row['ma_hinh'];
+        if(!isset($orders[$orderID])) {
+            $orders[$orderID] = [
+                'ma_dh' => $row['ma_dh'],
+                'ngay_dat' => $row['ngay_dat'],
+                'tong_tien' => $row['tong_tien'],
+                'tong_tien' => $row['tong_tien'],
+                'tk_dat' => $row['tk_dat'],
+                'ten_nguoi_nhan' => $row['ten_nguoi_nhan'],
+                'sdt_nguoi_nhan' => $row['sdt_nguoi_nhan'],
+                'tong_tien' => $row['tong_tien'],
+                'dia_chi_nhan' => $row['dia_chi_nhan'],
+                'ma_trang_thai' => $row['ma_trang_thai'],
+                'ten_trang_thai' => $row['ten_trang_thai'],
+                'ten_van_chuyen' => $row['ten_van_chuyen'],
+                'products' => [],
+            ];
+        }
+        if(!isset($orders[$orderID]['products'][$ma_cthh])) {
+            $orders[$orderID]['products'][$ma_cthh] = [
+                'ten_hh' => $row['ten_hh'],
+                'giam_gia' => $row['giam_gia'],
+                'don_gia' => $row['don_gia'],
+                'don_vi' => $row['don_vi'],
+                'so_luong' => $row['so_luong'],
+                'hinhArr' => [],
+            ];
+        }
+        if(!isset($orders[$orderID]['products'][$ma_cthh]['hinhArr'][$ma_hinh])) {
+            $orders[$orderID]['products'][$ma_cthh]['hinhArr'][$ma_hinh] = $row['ten_hinh'];
+        }
+    }
+
+    // echo "<pre>";
+    // print_r($orders);
+    return $orders;
+}
 ?>

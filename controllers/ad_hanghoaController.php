@@ -34,6 +34,7 @@ function ad_hanghoa_add_hinh() {
         print_r($data);
         echo '</pre>';
         hanghoa_insert_hinh($data);
+        addMesssage(true, "Thêm thành công");
         header("location: ?ctl=ad-detail-hh&ma_hh=$ma_hh");
     }
     else {
@@ -74,6 +75,7 @@ function ad_insert_hanghoa() {
             'thuoc_tinh' => $arrtDonVi,
         ];
         hanghoa_insert($data);
+        addMesssage(true, "Thêm thành công");
         header('location: ?ctl=ad-list');
     }
     else {
@@ -115,6 +117,7 @@ function ad_insert_thuoctinh() {
             'so_luong' => $_POST['so_luong'],
         ];
         hanghoa_insert_thuoctinh($data);
+        addMesssage(true, "Thêm thành công");
         header("location: ?ctl=ad-detail-hh&ma_hh=$ma_hh");
     }
     else {
@@ -135,6 +138,7 @@ function ad_update_thuoctinh() {
     $errors = validateInsertThuocTinh($_POST);
     if(empty($errors)) {
         hanghoa_update_thuoctinh($_POST);
+        addMesssage(true, "Cập nhật thành công");
         header("location: ?ctl=ad-detail-hh&ma_hh=$_POST[ma_hh]");
     }
     else {
@@ -149,6 +153,7 @@ function ad_delete_thuoctinh() {
     $ma_hh = $_GET['ma_hh'];
     $ma_cthh = $_GET['ma_cthh'];
     hanghoa_delete_thuoctinh($ma_cthh);
+    addMesssage(true, "Xoá thành công");
     header("location: ?ctl=ad-detail-hh&ma_hh=$ma_hh");
     
 }
@@ -168,6 +173,7 @@ function ad_update_thongtin() {
     if(empty($errors)) {
         $data = $_POST;
         hanghoa_update_thongin($data);
+        addMesssage(true, "Cập nhật thành công");
         header("location: ?ctl=ad-detail-hh&ma_hh=$data[ma_hh]");
     }
     else {
@@ -181,6 +187,7 @@ function ad_update_thongtin() {
 function ad_delete_hh() {
     $ma_hh = $_GET['ma_hh'];
     hanghoa_delete_hh($ma_hh);
+    addMesssage(true, "Xoá thành công");
     header("location: ?ctl=ad-list");
 }
 
