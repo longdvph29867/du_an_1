@@ -38,7 +38,7 @@
     bg-center
     relative
     ">
-        <div class="p-5 bg-white rounded w-full md:max-w-3xl max-w-md max-h-screen min-h-[45%] overflow-x-auto relative z-10 grid md:grid-cols-2 grid-cols-1 items-center">
+        <div class="p-5 bg-white rounded-xl w-full md:max-w-3xl max-w-md max-h-screen min-h-[45%] overflow-x-auto relative z-10 grid md:grid-cols-2 grid-cols-1 items-center">
             <div id="animation" class="hidden md:block"></div>
             <div>
                 <?php include $view_name; ?>

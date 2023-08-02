@@ -17,8 +17,12 @@ switch ($ctl) {
         ad_donhang_list();
         break;
     case 'ad-update':
+        ad_form_trangthai();
+        break;
+    case 'ad-update-trangthai':
         ad_update_trangthai();
         break;
+
 
     case 'ad-add':
         ad_add_loai();

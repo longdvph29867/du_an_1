@@ -21,15 +21,15 @@
 </div>
 <div>
     <div class="mb-3">
-        <button class="btn btn-primary" id="check-all" type="button">Chọn tất cả</button>
+        <!-- <button class="btn btn-primary" id="check-all" type="button">Chọn tất cả</button>
         <button class="btn btn-secondary" id="clear-all" type="button">Bỏ chọn tất cả</button>
-        <button class="btn btn-danger" name="btn-delete-all" onclick="return confirm('Bạn có chắc chắn xoá không?')">Xóa các mục đã chọn</button>
+        <button class="btn btn-danger" name="btn-delete-all" onclick="return confirm('Bạn có chắc chắn xoá không?')">Xóa các mục đã chọn</button> -->
         <a href="?ctl=ad-add" class="btn btn-success">Thêm mới</a>
     </div>
     <table class="table bg-white">
         <thead class="bg-primary text-white">
             <tr>
-                <th style="width: 5%;"></th>
+                <!-- <th style="width: 5%;"></th> -->
                 <th style="width: 10%;">Mã sản phẩm</th>
                 <th style="width: 15%;">Tên sản phẩm</th>
                 <th style="width: 15%;">Hình hàng hoá</th>
@@ -44,7 +44,7 @@
             foreach ($listSanPham as $item) {
             ?>
                 <tr>
-                    <td><input type="checkbox" name="ma_hh[]" value="<?= $item['ma_hh'] ?>"></td>
+                    <!-- <td><input type="checkbox" name="ma_hh[]" value="<?= $item['ma_hh'] ?>"></td> -->
                     <td><?= $item['ma_hh'] ?></td>
                     <td><?= $item['ten_hh'] ?></td>
                     <td><img style="width: 80px;" src="<?= url_public . "/images/products/" . reset($item['hinhArr']) ?>" alt=""></td>

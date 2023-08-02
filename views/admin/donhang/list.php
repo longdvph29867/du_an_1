@@ -18,15 +18,15 @@
 </div>
 <div>
     <div class="mb-3">
-        <button class="btn btn-primary" id="check-all" type="button">Chọn tất cả</button>
+        <!-- <button class="btn btn-primary" id="check-all" type="button">Chọn tất cả</button>
         <button class="btn btn-secondary" id="clear-all" type="button">Bỏ chọn tất cả</button>
-        <button class="btn btn-danger" name="btn-delete-all" onclick="return confirm('Bạn có chắc chắn xoá không?')">Xóa các mục đã chọn</button>
+        <button class="btn btn-danger" name="btn-delete-all" onclick="return confirm('Bạn có chắc chắn xoá không?')">Xóa các mục đã chọn</button> -->
         <a href="?ctl=ad-add" class="btn btn-success">Thêm mới</a>
     </div>
     <table class="table bg-white">
         <thead class="bg-primary text-white">
             <tr>
-                <th style="width: 2%;"></th>
+                <!-- <th style="width: 2%;"></th> -->
                 <th style="width: 10%;">Mã đơn hàng</th>
                 <th style="width: 13%;">Ngày đặt</th>
                 <th style="width: 15%;">Tổng tiền</th>
@@ -42,12 +42,39 @@
                 $dia_chi = "$item[ten_nguoi_nhan], SĐT: $item[sdt_nguoi_nhan], $item[dia_chi_nhan]";
             ?>
                 <tr>
-                    <td><input type="checkbox" name="ma_dh[]" value="<?= $item['ma_dh'] ?>"></td>
+                    <!-- <td><input type="checkbox" name="ma_dh[]" value="<?= $item['ma_dh'] ?>"></td> -->
                     <td><?=$item['ma_dh'] ?></td>
                     <td><?=$item['ngay_dat'] ?></td>
                     <td><?=$item['tong_tien'] ?> đ</td>
                     <td><?=$dia_chi ?></td>
-                    <td><?=$item['ten_trang_thai'] ?></td>
+                    <td class="d-flex justify-content-center align-items-center">
+                        <span class="p-1 rounded"
+                        <?php
+                        switch($item['ma_trang_thai']) {
+                            case '5':
+                                echo "style='color: #d62728; background-color: rgba(214, 39, 40, 0.2);'";
+                                break;
+                            case '1':
+                                echo "style='color: #ff7f0e; background-color: rgba(255, 127, 14, 0.2);'";
+                                break;
+                            case '2':
+                                echo "style='color: #f6c23e; background-color: rgba(246, 194, 62, 0.2);'";
+                                break;
+                            case '3':
+                                echo "style='color: #2ca02c; background-color: rgba(44, 160, 44, 0.2);'";
+                                break;
+                            case '4':
+                                echo "style='color: #1f77b4; background-color: rgba(31, 119, 180, 0.2);'";
+                                break;
+                            case '8':
+                                echo "style='color: #fff; background-color: #1f77b4;'";
+                                break;
+                        }
+                        ?>
+                        
+                        
+                        ><?=$item['ten_trang_thai'] ?></span>
+                    </td>
                     <th>
                         <a class="btn btn-warning" href="?ctl=ad-update&ma_dh=<?=$item['ma_dh'] ?>">Cập nhật trạng thái</a>
                         <!-- <a onclick="return confirm('Bạn có chắc chắn xoá không?')" class="btn btn-danger" href="?ctl=loai-delete&ma_dh=<?=$item['ma_dh'] ?>">Xóa</a> -->

@@ -10,26 +10,27 @@ function ad_donhang_list() {
     view('layout/layout-admin', ['view_name' => $view_name, 'listDonHang' => $listDonHang]);
 }
 
-function ad_update_trangthai() {
+function ad_form_trangthai() {
     $ma_dh = $_GET['ma_dh'];
     $data = donhang_by_id($ma_dh);
+
+    $listTrangThai = trangthai_all();
+    $view_name = "update.php";
+    view('layout/layout-admin', ['view_name' => $view_name, 'data' => $data, 'listTrangThai' => $listTrangThai]);
+}
+
+
+function ad_update_trangthai() {
+    echo '<pre>';
+    print_r($_POST);
+    echo '</pre>';
+    $data = $_POST;
+    donhang_update_trangthai($data);
     
-    $view_name = "update.php";
-    view('layout/layout-admin', ['view_name' => $view_name, 'data' => $data]);
+    addMesssage(true, "Cập nhật trạng thái thành công");
+    header("location: ?ctl=ad-update&ma_dh=$data[ma_dh]");
 }
 
-
-function ad_add_loai() {
-    $view_name = "add.php";
-    view('layout/layout-admin', ['view_name' => $view_name]);
-}
-
-function ad_update_loai() {
-    $ma_loai = $_GET['ma_loai'];
-    $data = loai_select_by_id($ma_loai);
-    $view_name = "update.php";
-    view('layout/layout-admin', ['view_name' => $view_name, 'data' => $data]);
-}
 
 function ad_insert_loai() {
     global $image_dir;

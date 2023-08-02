@@ -58,7 +58,7 @@ function donhang_by_id($ma_dh)
 {
     $arr = func_get_args();
     $conn = connection();
-    $sql = "SELECT don_hang.ma_dh, don_hang.ngay_dat, don_hang.ten_nguoi_nhan, don_hang.sdt_nguoi_nhan, don_hang.dia_chi_nhan, don_hang.tong_tien, don_hang.ghi_chu, trang_thai.ten_trang_thai, don_vi_van_chuyen.ten_van_chuyen, don_vi_van_chuyen.gia_van_chuyen, hang_hoa.ma_hh, hang_hoa.ten_hh, chi_tiet_hang_hoa.don_gia, chi_tiet_hang_hoa.giam_gia, chi_tiet_hang_hoa.don_vi, hinh_hang_hoa.ma_hinh, hinh_hang_hoa.ten_hinh, chi_tiet_don_hang.so_luong
+    $sql = "SELECT don_hang.ma_dh, don_hang.ngay_dat, don_hang.ten_nguoi_nhan, don_hang.sdt_nguoi_nhan, don_hang.dia_chi_nhan, don_hang.tong_tien, don_hang.ghi_chu, trang_thai.ma_trang_thai, trang_thai.ten_trang_thai, don_vi_van_chuyen.ten_van_chuyen, don_vi_van_chuyen.gia_van_chuyen, hang_hoa.ma_hh, hang_hoa.ten_hh, chi_tiet_hang_hoa.don_gia, chi_tiet_hang_hoa.giam_gia, chi_tiet_hang_hoa.don_vi, hinh_hang_hoa.ma_hinh, hinh_hang_hoa.ten_hinh, chi_tiet_don_hang.so_luong
     FROM don_hang 
     JOIN chi_tiet_don_hang ON don_hang.ma_dh = chi_tiet_don_hang.ma_dh 
     JOIN trang_thai ON don_hang.ma_trang_thai = trang_thai.ma_trang_thai 
@@ -79,6 +79,7 @@ function donhang_by_id($ma_dh)
         'dia_chi_nhan' => $result[0]['dia_chi_nhan'],
         'tong_tien' => $result[0]['tong_tien'],
         'ghi_chu' => $result[0]['ghi_chu'],
+        'ma_trang_thai' => $result[0]['ma_trang_thai'],
         'ten_trang_thai' => $result[0]['ten_trang_thai'],
         'ten_van_chuyen' => $result[0]['ten_van_chuyen'],
         'gia_van_chuyen' => $result[0]['gia_van_chuyen'],
@@ -222,4 +223,28 @@ function donhang_all()
     // print_r($orders);
     return $orders;
 }
+
+
+function trangthai_all()
+{
+    $conn = connection();
+    $sql = "SELECT * FROM trang_thai";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
+}
+
+function donhang_update_trangthai($data)
+{
+    extract($data);
+    $conn = connection();
+    $sql = "UPDATE don_hang SET ma_trang_thai = '$ma_trang_thai' WHERE don_hang.ma_dh = $ma_dh";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+}
+
+
 ?>
+
+
