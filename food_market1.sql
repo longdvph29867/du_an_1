@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost
--- Thời gian đã tạo: Th7 28, 2023 lúc 07:14 AM
+-- Thời gian đã tạo: Th8 02, 2023 lúc 06:54 AM
 -- Phiên bản máy phục vụ: 10.4.27-MariaDB
 -- Phiên bản PHP: 8.0.25
 
@@ -52,7 +52,17 @@ INSERT INTO `binh_luan` (`ma_bl`, `noi_dung`, `ma_hh`, `ma_kh`, `ngay_bl`) VALUE
 (31, 'dvdsvd', 1, 'admin', '2023-07-23'),
 (32, 'vesv', 71, 'admin', '2023-07-23'),
 (33, 'scasvds', 41, 'admin', '2023-07-23'),
-(34, 'ko ngon', 45, 'admin', '2023-07-24');
+(34, 'ko ngon', 45, 'admin', '2023-07-24'),
+(35, 'good', 1, 'admin', '2023-07-31'),
+(36, '213', 4, 'admin', '2023-08-01'),
+(37, 'asd', 4, 'admin', '2023-08-01'),
+(38, '213', 4, 'admin', '2023-08-01'),
+(39, '123453vvvbhkbjsdvnovsdo', 4, 'admin', '2023-08-01'),
+(40, '123', 4, 'admin', '2023-08-01'),
+(41, 'hgfdsa', 4, 'admin', '2023-08-01'),
+(42, 'gh', 4, 'admin', '2023-08-01'),
+(43, 'ad', 1, 'admin', '2023-08-01'),
+(44, 'aadc', 9, 'admin', '2023-08-01');
 
 -- --------------------------------------------------------
 
@@ -84,7 +94,14 @@ INSERT INTO `chi_tiet_don_hang` (`ma_ctdh`, `ma_dh`, `ma_cthh`, `so_luong`) VALU
 (10, 1, 134, 2),
 (11, 1, 68, 4),
 (12, 1, 67, 1),
-(24, 13, 56, 1);
+(24, 13, 56, 1),
+(25, 14, 35, 2),
+(26, 14, 20, 2),
+(27, 14, 41, 2),
+(28, 15, 21, 1),
+(29, 16, 24, 1),
+(30, 16, 130, 1),
+(33, 18, 132, 21);
 
 -- --------------------------------------------------------
 
@@ -254,7 +271,8 @@ INSERT INTO `danh_gia` (`ma_danh_gia`, `noi_dung_danh_gia`, `xep_hang`, `ma_hh`,
 (41, 'Est porro expedita ', 2, 7, 'admin'),
 (42, 'Excepteur qui corpor', 3, 24, 'admin'),
 (43, 'Fugiat reiciendis f', 4, 72, 'admin'),
-(44, 'Proident deserunt n', 5, 48, 'admin');
+(44, 'Proident deserunt n', 5, 48, 'admin'),
+(45, '2131', 3, 2, 'admin');
 
 -- --------------------------------------------------------
 
@@ -281,10 +299,14 @@ CREATE TABLE `don_hang` (
 --
 
 INSERT INTO `don_hang` (`ma_dh`, `ma_kh`, `ngay_dat`, `ma_trang_thai`, `ten_nguoi_nhan`, `sdt_nguoi_nhan`, `dia_chi_nhan`, `tong_tien`, `ma_van_chuyen`, `ghi_chu`, `danh_gia_don_hang`) VALUES
-(1, 'admin', '2023-06-29', 8, 'Nguyễn Văn A', '0971111111', 'P. Trịnh Văn Bô, Xuân Phương, Nam Từ Liêm, Hà Nội', 302000, 5, 'mau den', 1),
-(2, 'admin', '2023-06-29', 5, 'Đỗ VĂn Long', '0999999999', 'Thanh Dương, Thành Đô, Tứ Xuyên, Trung Quốc', 1232000, 3, '12345678910jqka', 0),
+(1, 'admin', '2023-06-29', 3, 'Nguyễn Văn A', '0971111111', 'P. Trịnh Văn Bô, Xuân Phương, Nam Từ Liêm, Hà Nội', 302000, 5, 'mau den', 1),
+(2, 'admin', '2023-06-29', 4, 'Đỗ VĂn Long', '0999999999', 'Thanh Dương, Thành Đô, Tứ Xuyên, Trung Quốc', 1232000, 3, '12345678910jqka', 0),
 (3, 'user', '2023-07-01', 5, 'Nguyễn Khắc Cường', '0366666666', 'Liễu Giai, Phường Ngọc Khánh, Quận Ba Đình, Thành phố Hà Nội, Việt Nam.', 2321000, 5, 'Việt Nam', 0),
-(13, 'admin', '2023-07-24', 1, 'adminsssssss', '0323456789', 'haha', 47000, 2, '', 0);
+(13, 'admin', '2023-07-24', 1, 'adminsssssss', '0323456789', 'haha', 47000, 2, '', 0),
+(14, 'admin', '2023-08-01', 8, 'adminsssssss', '0999999999', 'ha noi', 1187000, 1, '', 0),
+(15, 'admin', '2023-08-01', 8, 'adminsssssss', '0999999999', '123312', 130000, 2, '2scscdcsdscd', 1),
+(16, 'admin', '2023-08-01', 1, 'adminss', '0999999888', 'haooiiii', 213000, 1, '', 0),
+(18, 'a', '2023-08-01', 2, 'Nguyễn Văn A', '21', '21', 21, 2, '21', 0);
 
 -- --------------------------------------------------------
 
@@ -328,8 +350,7 @@ CREATE TABLE `gio_hang` (
 --
 
 INSERT INTO `gio_hang` (`ma_gh`, `ma_kh`, `ma_cthh`, `so_luong`) VALUES
-(51, 'admin', 130, 1),
-(52, 'admin', 20, 1);
+(64, 'admin', 23, 1);
 
 -- --------------------------------------------------------
 
@@ -344,7 +365,7 @@ CREATE TABLE `hang_hoa` (
   `mo_ta` text NOT NULL COMMENT 'mô tả hàng hoá',
   `dac_biet` tinyint(1) NOT NULL COMMENT 'tràng thái đặc biệt',
   `so_luot_xem` int(11) NOT NULL DEFAULT 0 COMMENT 'số lượt xem',
-  `ma_loai` int(11) NOT NULL COMMENT 'mã loại'
+  `ma_loai` int(11) DEFAULT NULL COMMENT 'mã loại'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -352,15 +373,15 @@ CREATE TABLE `hang_hoa` (
 --
 
 INSERT INTO `hang_hoa` (`ma_hh`, `ten_hh`, `ngay_nhap`, `mo_ta`, `dac_biet`, `so_luot_xem`, `ma_loai`) VALUES
-(1, 'Thịt ba rọi heo', '2023-06-03', 'Thịt ba chỉ (hay còn gọi là ba rọi) là phần thịt heo được cắt ra từ bụng, không có xương và nhiều mỡ. Sỡ dĩ người ta thường gọi thịt ba chỉ là bởi khi cắt ngang sẽ thấy được phần thịt và mỡ xen kẽ 3 lớp với nhau theo thứ tự lớp thịt, mỡ rồi lại đến lớp thịt', 0, 73, 1),
-(2, 'Móng giò', '2023-06-03', 'Phần móng giò trắng nõn được sơ chế và pha lóc khéo léo, mang trọn hương vị của phần da dẻo mềm mềm, lớp gân giòn và thịt ngọt thơm ngon. Móng giò rất giàu Protit, sau khi đưa vào cơ thể sẽ có tác dụng hiệu quả trong việc cải thiện chức năng sinh lý của các cơ quan nội tạng, làm cho các tế bào da giữ được nước nên đỡ bị khô nhăn, khiến cho da bóng và căng', 1, 33, 1),
-(3, 'Thịt heo xay', '2023-06-03', 'Loại thịt rất quen thuộc với mỗi bà nội trợ nhờ độ linh hoạt cao trong chế biến, lại nhanh thấm gia vị và có khả năng kết hợp hài hòa với hầu hết các loại rau củ, cho các đầu bếp tại gia thỏa sức biến tấu. Sản phẩm được kết hợp từ thịt nạc và mỡ tươi sạch tạo sự hài hòa cho hương vị và sự an tâm tuyệt đối về chất lượng cho các món ăn', 0, 1, 1),
-(4, 'Sườn heo', '2023-06-03', 'Sườn hồng tươi với sụn giòn rụm cùng thịt mềm căng mọng được tuyển chọn kỹ lưỡng từ tảng sườn ngon nhất. Là nguyên liệ hảo hạng cho món ngon đúng điệu. Sườn heo là bộ phận chứa nhiều các chất dinh dưỡng như protein, vitamin B12, kẽm, sắt và chất béo không bão hòa như Omega-3 giúp cung cấp cho cơ thể loạt các vi chất cần thiết', 1, 6, 1),
+(1, 'Thịt ba rọi heo', '2023-06-03', 'Thịt ba chỉ (hay còn gọi là ba rọi) là phần thịt heo được cắt ra từ bụng, không có xương và nhiều mỡ. Sỡ dĩ người ta thường gọi thịt ba chỉ là bởi khi cắt ngang sẽ thấy được phần thịt và mỡ xen kẽ 3 lớp với nhau theo thứ tự lớp thịt, mỡ rồi lại đến lớp thịt', 0, 84, 1),
+(2, 'Móng giò', '2023-06-03', 'Phần móng giò trắng nõn được sơ chế và pha lóc khéo léo, mang trọn hương vị của phần da dẻo mềm mềm, lớp gân giòn và thịt ngọt thơm ngon. Móng giò rất giàu Protit, sau khi đưa vào cơ thể sẽ có tác dụng hiệu quả trong việc cải thiện chức năng sinh lý của các cơ quan nội tạng, làm cho các tế bào da giữ được nước nên đỡ bị khô nhăn, khiến cho da bóng và căng', 1, 34, 1),
+(3, 'Thịt heo xay', '2023-06-03', 'Loại thịt rất quen thuộc với mỗi bà nội trợ nhờ độ linh hoạt cao trong chế biến, lại nhanh thấm gia vị và có khả năng kết hợp hài hòa với hầu hết các loại rau củ, cho các đầu bếp tại gia thỏa sức biến tấu. Sản phẩm được kết hợp từ thịt nạc và mỡ tươi sạch tạo sự hài hòa cho hương vị và sự an tâm tuyệt đối về chất lượng cho các món ăn', 0, 2, 1),
+(4, 'Sườn heo', '2023-06-03', 'Sườn hồng tươi với sụn giòn rụm cùng thịt mềm căng mọng được tuyển chọn kỹ lưỡng từ tảng sườn ngon nhất. Là nguyên liệ hảo hạng cho món ngon đúng điệu. Sườn heo là bộ phận chứa nhiều các chất dinh dưỡng như protein, vitamin B12, kẽm, sắt và chất béo không bão hòa như Omega-3 giúp cung cấp cho cơ thể loạt các vi chất cần thiết', 1, 33, 1),
 (5, 'Bắp giò heo', '2023-06-03', 'Chân giò heo tiêu chuẩn về an toàn toàn thực phẩm. Giò heo săn chắc, thịt có sự kết hợp với gân mỡ nên ăn béo ngậy và thơm, thích hợp để hầm canh, nấu các món nước như hủ tiếu, bánh canh. Do chân hoạt động nhiều nên phần thịt sẽ mỏng, mềm, ngọt và có nhiều gân hơn vì vậy mà khi chế biến các món hầm, giả cầy, luộc,... sẽ mềm, thấm gia vị và ngon hơn', 1, 57, 1),
 (6, 'Đuôi heo', '2023-06-03', 'Đuôi heo bao gồm cả phần xương đuôi. Phần đuôi gồm chủ yếu là thịt và mỡ, được bao quanh bởi da. Xương và các mẩu sụn nhỏ ở các đầu khớp nối tạo độ giòn khi thưởng thức. Trong thực đơn gia đình thì đây là nguyên liệu lý tưởng cho các món hầm, ninh nhừ để đem lại những món ăn thơm ngon, hương vị đậm đà nhưng không hề béo', 0, 1, 1),
 (7, 'Nạc vai heo', '2023-06-03', 'Nạc vai heo là phần thịt đặc trưng được lấy từ đùi trước (vai) của heo. Nạc vai còn bao gồm một phần đầu của thăn ngoại heo (đầu mềm). Chất lượng thịt heo đạt chất lượng cao nhất, thịt heo đều được Cơ quan thú y nhà nước kiểm tra, đóng dấu trước khi đưa ra thị trường tiêu thụ', 1, 0, 1),
 (8, 'Bắp bò Úc', '2023-06-03', 'Bắp bò Úc luôn là được xếp trong danh sách dòng sản phẩm best seller ở mọi cửa hàng trong hệ thống. Với thực đơn chế biến đa dạng như bò kho, bò hầm, bò sốt vang, bò luộc, bò xào, bò nướng, bò hấp, sản phẩm đáp ứng nhu cầu ẩm thực phong phú của nhiều gia đình Việt. Hãy đến với Food Market ngay hôm nay để được mua hàng với mức giá tốt nhất', 1, 1, 1),
-(9, 'Ba chỉ bò nhập khẩu', '2023-06-03', 'Ba chỉ bò là phần thịt được lấy từ phần bụng của con bò, là phần thịt với những dải thịt nạc và thịt mỡ xen kẽ nhau tạo nên độ mềm, ngậy, ngọt nhưng hoàn toàn không ngấy. Bò nhập khẩu rất dễ chế biến. Những món ăn nấu từ thịt ba chỉ bò cũng rất đơn giản như xào, lẩu, cuốn cải nướng, cuốn nấm kim châm nướng, nhúng giấm hay làm salat', 1, 34, 1),
+(9, 'Ba chỉ bò nhập khẩu', '2023-06-03', 'Ba chỉ bò là phần thịt được lấy từ phần bụng của con bò, là phần thịt với những dải thịt nạc và thịt mỡ xen kẽ nhau tạo nên độ mềm, ngậy, ngọt nhưng hoàn toàn không ngấy. Bò nhập khẩu rất dễ chế biến. Những món ăn nấu từ thịt ba chỉ bò cũng rất đơn giản như xào, lẩu, cuốn cải nướng, cuốn nấm kim châm nướng, nhúng giấm hay làm salat', 1, 37, 1),
 (10, 'Thăn ngoại bò Úc', '2023-06-03', 'Là sự xen kẽ hoàn hảo giữa lớp thịt và lớp mỡ trên miếng thịt bò tạo nên những hình vân cẩm thạch đẹp mắt.Thịt bò mềm, mọng nước, hợp để làm steak hoặc nhúng lẩu. Thăn ngoại bò vốn nổi tiếng là loại thịt bò cao cấp nhất trên thế giới. Các đường vân mỡ – nạc đan xen đều đặn tựa như đường vân cẩm thạch', 0, 3, 1),
 (11, 'Gầu bò Úc', '2023-06-03', 'Gầu bò Úc hay còn gọi là nạm bò, ức bò (Brisket) là sản phẩm nhập khẩu trực tiếp từ các thương hiệu thịt bò hàng đầu của Úc với đầy đủ tem nhãn của nhà sản xuất và dấu kiểm định của Chi Cục Thú Y. Quá trình sơ chế, đóng khay, cấp đông Bò Úc vệ sinh sạch sẽ đảm bảo chất lượng, an toàn cho sức khỏe người tiêu dùng. Gầu Bò Úc được pha cắt bằng máy bào công nghiệp, bào lẩu theo tiêu chuẩn độ dày 1,5mm cho món lẩu.', 1, 13, 1),
 (12, 'Gà đồi cao lãnh', '2023-06-03', 'Thịt gà đồi thường có cấu trúc cơ bắp chắc chắn và mềm mại, với một lượng mỡ ít hơn so với các loại gà nuôi công nghiệp. Do được nuôi trong môi trường tự nhiên, gà đồi thường có cơ bắp phát triển tự nhiên hơn và thường được cho ăn các nguồn thức ăn tự nhiên như cỏ, hạt, sâu, giun và côn trùng. Thịt gà đồi là một nguồn cung cấp protein chất lượng cao, vitamin B6, vitamin B12, selen và các khoáng chất khác. Nó là một lựa chọn ăn uống lành mạnh và giàu dinh dưỡng', 0, 1, 1),
@@ -373,7 +394,7 @@ INSERT INTO `hang_hoa` (`ma_hh`, `ten_hh`, `ngay_nhap`, `mo_ta`, `dac_biet`, `so
 (19, 'Cá Hồi Nguyên Con Cao Lãnh', '2023-06-11', 'Cá hồi Nauy là loại thực phẩm giàu dinh dưỡng cho sức khỏe của chúng ta. Chúng được chế biến thành nhiều món ăn ngon, đặc biệt là các món ăn tươi sống như sushi hay sashimi rất được ưa chuộng ở khắp nơi.', 1, 0, 2),
 (20, 'Cá Trích Phi Lê', '2023-06-11', 'Cá Trích đặc sản nổi tiếng ở vùng biển Bình Thuận, cá có đặc điểm màu xanh nhẹ, thân dẹp và xương nhỏ. Cá trích Phile được sơ chế từ những con cá trích tươi sống, loại bỏ xương chỉ lấy phần thịt ở 2 bên thân cá.', 0, 0, 2),
 (21, 'Cá Tuyết Alaska', '2023-06-11', 'Là khúc gần cuối đuôi được xẻ làm đôi ( như hình). Khúc này có thịt nhiều thích hợp làm nhiều món như: nấu canh chua, nấu cháo, phi lê thịt cá ra chiên hoặc áp chảo. Ngoài ra, khách có thể để nguyên khúc đuôi kho tiêu rất hấp dẫn.', 1, 0, 2),
-(22, 'Cá Dìa Bông Làm Sạch', '2023-06-11', 'Cá Dìa Bông là hải sản nổi tiếng ở Nha Trang, Cam Ranh được nhiều khách yêu thích. Cá chỉ có theo mùa nên được bán chạy khi có hàng tại Đảo, khách Sài Gòn rất thích ăn cá biển bơi thịt tươi ngon, ngọt và siêu béo.', 1, 0, 2),
+(22, 'Cá Dìa Bông Làm Sạch', '2023-06-11', 'Cá Dìa Bông là hải sản nổi tiếng ở Nha Trang, Cam Ranh được nhiều khách yêu thích. Cá chỉ có theo mùa nên được bán chạy khi có hàng tại Đảo, khách Sài Gòn rất thích ăn cá biển bơi thịt tươi ngon, ngọt và siêu béo.', 1, 6, 2),
 (23, 'Cá Dứa 1 Nắng', '2023-06-11', 'Cá dứa 1 nắng là một món ăn rất quen thuộc với người Việt Nam. Vì từ lâu, loại khô cá này đã có mặt trong mọi bữa ăn của người dân ở khắp các vùng miền. Khô cá dứa được chế biến bằng cách sấy khô cá dứa và trộn các gia vị như đường, muối, tỏi, hành, ớt và dầu ăn để tạo nên hương vị đặc trưng.', 1, 0, 2),
 (24, 'Cá Chỉ Vàng 2 Nắng', '2023-06-11', 'Cá chỉ vàng ( hay còn gọi là cá ngân chỉ ) cá sống tập trung nhiều ở vùng biển ven Phan Thiết - Bình Thuận vì vậy nên khu vực biển này khá nổi tiếng với khô cá chỉ vàng 2 nắng, và là vùng có khô ngon nhất hiện nay.', 1, 0, 2),
 (25, 'Cá Chép Sông Đà', '2023-06-11', 'Cá chép có thể chế biến thành nhiều món ăn hấp dẫn cả thị giác lẫn khứu giác và vị giác. Các món ăn chế biến ngon nhất với nguyên liệu cá chép giòn đó là cá chép giòn nướng muối ớt và cá chép giòn om dưa chua, nướng muối ớt, bạn chỉ cần làm thịt cá chép giòn như hướng dẫn ở trên, sau đó giã một chén muối ớt tùy theo khẩu vị của bạn rồi ướp cá với chút dầu ăn nữa và nướng. Mách nhỏ các bạn ở món này là với phần muối nếu cho thêm ít đường vào sẽ dịu vị cá nướng và ngon hơn.', 1, 0, 2),
@@ -421,8 +442,8 @@ INSERT INTO `hang_hoa` (`ma_hh`, `ten_hh`, `ngay_nhap`, `mo_ta`, `dac_biet`, `so
 (67, 'Coca-Cola', '2023-06-12', 'Từ thương hiệu nước ngọt có gas nổi tiếng toàn cầu với mùi vị thơm ngon với hỗn hợp hương tự nhiên cùng chất tạo ngọt tổng hợp, giúp xua tan cơn khát và cảm giác mệt mỏi.  Nước ngọt bổ sung năng lượng làm việc mỗi ngày. Cam kết sản phẩm chính hãng, chất lượng và an toàn', 1, 3, 8),
 (68, 'Nước Cam Ép Teppi', '2023-06-12', 'Chiết xuất từ những quả cam mọng nước cùng với những tép cam tươi hấp dẫn tự nhiên. Và được sản xuất theo công nghệ hiện đại, không chất độc hại không ảnh hưởng đến sức khỏe người tiêu dùng. Nước ép cam Teppy nguyên tép chứa nhiều vitamin C hỗ trợ cung cấp năng lượng cho cơ thể.', 0, 0, 8),
 (69, 'Nước Dừa Cocoxim Sen', '2023-06-12', 'Sản phẩm được làm từ 100% nước dừa nguyên chất tại \'Thủ phủ dừa\' Bến Tre, sẽ là thức uống đồng hành cùng bạn mỗi ngày. Chỉ với một ly nước dừa Cocoxim mỗi ngày cơ thể bạn sẽ có sự thay đổi rõ rệt: làn da căng mịn hơn, cơ thể thon gọn và tràn đầy năng lượng hơn.', 1, 1, 8),
-(70, 'Nước Tăng Lực Sting', '2023-06-12', 'Sản phẩm nước tăng lực với mùi vị thơm ngon, sảng khoái, bổ sung hồng sâm chất lượng. Sting giúp cơ thể bù đắp nước, bổ sung năng lượng, vitamin C và E, giúp xua tan cơn khát và cảm giác mệt mỏi cùng dâu cho nhẹ nhàng và dễ chịu. Cam kết chính hãng, chất lượng và an toàn.', 1, 0, 8),
-(71, 'Nước gạo OKF No Sugar', '2023-06-12', 'Nước gạo OKF No Sugar là một lựa chọn tốt cho những người muốn hạn chế tiêu thụ đường hoặc theo chế độ ăn ít đường. Nó là một nguồn cung cấp năng lượng và chứa nhiều chất xơ và vitamin B. Nước gạo OKF No Sugar không chỉ giúp giải khát mà còn mang lại lợi ích cho sức khỏe. Nước gạo OKF No Sugar thích hợp cho mọi lứa tuổi và có thể uống ngay từ chai mà không cần thêm đường. Nó là một sự lựa chọn tuyệt vời cho một loại nước giải khát tự nhiên, không có chất bảo quản hay hương liệu nhân tạo.', 0, 95, 8),
+(70, 'Nước Tăng Lực Sting', '2023-06-12', 'Sản phẩm nước tăng lực với mùi vị thơm ngon, sảng khoái, bổ sung hồng sâm chất lượng. Sting giúp cơ thể bù đắp nước, bổ sung năng lượng, vitamin C và E, giúp xua tan cơn khát và cảm giác mệt mỏi cùng dâu cho nhẹ nhàng và dễ chịu. Cam kết chính hãng, chất lượng và an toàn.', 1, 4, 8),
+(71, 'Nước gạo OKF No Sugar', '2023-06-12', 'Nước gạo OKF No Sugar là một lựa chọn tốt cho những người muốn hạn chế tiêu thụ đường hoặc theo chế độ ăn ít đường. Nó là một nguồn cung cấp năng lượng và chứa nhiều chất xơ và vitamin B. Nước gạo OKF No Sugar không chỉ giúp giải khát mà còn mang lại lợi ích cho sức khỏe. Nước gạo OKF No Sugar thích hợp cho mọi lứa tuổi và có thể uống ngay từ chai mà không cần thêm đường. Nó là một sự lựa chọn tuyệt vời cho một loại nước giải khát tự nhiên, không có chất bảo quản hay hương liệu nhân tạo.', 0, 97, 8),
 (72, 'Nước trái cây Nutriboots Cam', '2023-06-12', 'Sự kết hợp hoàn hảo từ sữa và nước trái cây vị cam. Sữa trái cây Nutri Boost hương cam chai 297ml giúp bù đắp nước, bổ sung năng lượng, vitamin B3, B6, E, C rất có lợi cho cơ thể,xua tan cơn khát và cảm giác mệt mỏi. Sản phẩm sữa trái cây chất lượng từ thương hiệu Nutriboost', 0, 5, 8),
 (122, 'gaga', '2023-07-27', 'Veniam quaerat sit', 0, 0, 1);
 
@@ -515,11 +536,222 @@ INSERT INTO `hinh_hang_hoa` (`ma_hinh`, `ma_hh`, `ten_hinh`) VALUES
 (70, 70, 'douong_sting.png'),
 (71, 71, 'douong_nuoc-gao.png'),
 (72, 72, 'douong_nutri.png'),
-(74, 16, 'thit_ba-roi-heo.png'),
-(75, 16, 'thit_suon-cuu.png'),
-(76, 16, 'rau_cai-bo-xoi.png'),
-(77, 67, 'thit_heo-xay.png'),
-(91, 9, 'sac');
+(98, 1, '1.1.jpg'),
+(99, 1, '1.2.jpg'),
+(100, 1, '1.3.jpg'),
+(106, 2, '2.1.jpg'),
+(108, 2, '2.2.jpg'),
+(109, 2, '2.3jpg.jpg'),
+(110, 3, '3.1.jpg'),
+(111, 3, '3.2.jpg'),
+(112, 3, '3.3.jpg'),
+(113, 4, '4.1.jpg'),
+(114, 4, '4.2.jpg'),
+(115, 4, '4.3.jpg'),
+(116, 5, '5.1.jpg'),
+(117, 5, '5.2.jpg'),
+(118, 5, '5.3.jpg'),
+(119, 6, '6.1.jpg'),
+(120, 6, '6.3.jpg'),
+(121, 6, '6.2.jpg'),
+(122, 7, '7.1.jpg'),
+(123, 7, '7.2.jpg'),
+(124, 7, '7.3.jpg'),
+(125, 8, '8.1.png'),
+(126, 8, '8.2.jpg'),
+(127, 8, '8.3.jpg'),
+(128, 9, '9.1.webp'),
+(129, 9, '9.2.jpg'),
+(130, 9, '9.3.jpg'),
+(131, 10, '10.1.jpg'),
+(132, 10, '10.2.jpg'),
+(133, 10, '10.3.jpg'),
+(134, 11, '11.1.jpg'),
+(135, 11, '11.2.jpg'),
+(136, 11, '11.3.jpg'),
+(137, 12, '12.1.jpg'),
+(138, 12, '12.2.jpg'),
+(139, 12, '12.3.jpg'),
+(140, 13, '13.1.jpg'),
+(141, 13, '13.2.jpg'),
+(142, 13, '13.3.jpg'),
+(143, 14, '14.1.jpg'),
+(144, 14, '14.2.jpg'),
+(145, 14, '14.3.jpg'),
+(146, 15, '15.1.jpg'),
+(147, 15, '15.2.jpg'),
+(148, 15, '15.3.jpg'),
+(149, 16, '16.1.jpg'),
+(150, 16, '16.2.jpg'),
+(151, 16, '16.3.jpg'),
+(152, 17, '17.1.jpg'),
+(153, 17, '17.2.jpg'),
+(154, 17, '17.3.jpg'),
+(155, 18, '18.1.jpg'),
+(156, 18, '18.2.jpg'),
+(157, 18, '18.3.jpg'),
+(161, 19, '19.1.jpg'),
+(162, 19, '19.2.jpg'),
+(163, 19, '19.3.jpg'),
+(164, 20, '20.1.jpg'),
+(165, 20, '20.2.jpg'),
+(166, 20, '20.3.jpg'),
+(167, 21, '21.1.jpg'),
+(168, 21, '21.2.jpg'),
+(169, 21, '21.3.jpg'),
+(170, 22, '22.1.jpg'),
+(171, 22, '22.2.jpg'),
+(173, 22, '22.3.jpg'),
+(174, 23, '23.1.jpg'),
+(175, 23, '23.2.jpg'),
+(176, 23, '23.3.jpeg'),
+(177, 24, '24.1.jpg'),
+(178, 24, '24.2.jpg'),
+(179, 24, '24.3.jpg'),
+(180, 25, '25.1.jpg'),
+(181, 25, '25.2.jpg'),
+(182, 25, '25.3.jpg'),
+(183, 26, '26.1.jpg'),
+(184, 26, '26.2.jpg'),
+(185, 26, '26.3.jpg'),
+(186, 27, '27.1.jpg'),
+(187, 27, '27.2.jpg'),
+(189, 27, '27.3.jpg'),
+(190, 28, '28.1.jpg'),
+(191, 28, '28.2.jpg'),
+(192, 28, '28.3.jpg'),
+(193, 29, '29.1.jpg'),
+(194, 29, '29.2.jpg'),
+(195, 29, '29.3.jpg'),
+(196, 30, '30.1.jpg'),
+(197, 30, '30.2.jpg'),
+(198, 30, '30.3.jpg'),
+(199, 31, '31.1.jpg'),
+(200, 31, '31.2.jpg'),
+(201, 31, '31.3.jpg'),
+(202, 32, '32.1.jpg'),
+(203, 32, '32.2.jpg'),
+(204, 32, '32.3.jpg'),
+(205, 33, '33.1.jpg'),
+(206, 33, '33.2.jpg'),
+(208, 33, '33.3.jpg'),
+(209, 34, '34.1.jpg'),
+(210, 34, '34.2.jpg'),
+(211, 34, '34.3.jpg'),
+(212, 35, '35.1.jpg'),
+(213, 35, '35.2.jpg'),
+(214, 35, '35.3.jpg'),
+(215, 36, '36.1.jpg'),
+(216, 36, '36.2.jpg'),
+(217, 36, '36.3.jpg'),
+(218, 37, '37.1.jpg'),
+(219, 37, '37.2.jpg'),
+(220, 37, '37.3.jpg'),
+(221, 38, '38.1.jpg'),
+(222, 38, '38.2.jpg'),
+(223, 38, '38.3.jpg'),
+(224, 39, '39.1.jpg'),
+(225, 39, '39.2.jpg'),
+(226, 39, '39.3.jpg'),
+(227, 40, '40.1.jpg'),
+(228, 40, '40.2.jpg'),
+(229, 40, '40.3.jpg'),
+(230, 41, '41..1.jpg'),
+(231, 41, '41.2.jpg'),
+(232, 41, '41.3.jpg'),
+(233, 42, '42.1.jpg'),
+(234, 42, '42.2.jpg'),
+(235, 42, '42.3.jpg'),
+(236, 43, '43.1.jpg'),
+(237, 43, '43.2.jpg'),
+(238, 43, '43.3.jpg'),
+(239, 44, '44.1.jpg'),
+(240, 44, '44.2.jpg'),
+(241, 44, '44.3.jpeg'),
+(242, 45, '45.1.jpg'),
+(243, 45, '45.2.jpg'),
+(244, 45, '45.3.jpg'),
+(245, 46, '46.1.jpg'),
+(246, 46, '46.2.jpg'),
+(247, 46, '46.3.jpg'),
+(248, 47, '47.1.jpg'),
+(249, 47, '47.2.jpg'),
+(250, 47, '47.3.jpg'),
+(251, 48, '48.1.jpg'),
+(252, 48, '48.2.jpg'),
+(253, 48, '48.3.jpg'),
+(254, 49, '49.1.jpg'),
+(255, 49, '49.2.jpg'),
+(256, 49, '49.3.jpg'),
+(257, 50, '50.1.jpg'),
+(258, 50, '50.2.jpg'),
+(259, 50, '50.3.jpg'),
+(260, 51, '51.1.jpg'),
+(261, 51, '51.2.jpg'),
+(262, 51, '51.3.jpg'),
+(263, 52, '52.1.jpg'),
+(264, 52, '52.2.jpg'),
+(265, 52, '52.3.jpg'),
+(266, 53, '53.1.jpg'),
+(267, 53, '53.2.jpg'),
+(268, 53, '53.3.jpg'),
+(269, 54, '54.1.jpg'),
+(270, 54, '54.2.jpg'),
+(271, 54, '54.3.jpg'),
+(272, 55, '55.1.jpg'),
+(273, 55, '55.2.jpg'),
+(274, 55, '55.3.jpg'),
+(275, 56, '56.1.jpg'),
+(276, 56, '56.2.jpg'),
+(277, 56, '56.3.jpg'),
+(278, 57, '57.1.jpg'),
+(279, 57, '57.2.jpg'),
+(280, 57, '57.3.jpg'),
+(281, 58, '58.1.jpg'),
+(282, 58, '58.2.jpg'),
+(283, 58, '58.3.jpg'),
+(284, 59, '59.1.jpg'),
+(285, 59, '59.2.jpg'),
+(286, 59, '59.3.jpg'),
+(287, 60, '60.2.jpg'),
+(288, 60, '60.3.jpg'),
+(289, 61, '61.1.jpg'),
+(290, 61, '61.2.jpg'),
+(291, 61, '61.3.jpg'),
+(292, 62, '62.1.jpg'),
+(293, 62, '62.2.jpg'),
+(294, 62, '62.3.jpg'),
+(295, 63, '63.1.jpg'),
+(296, 63, '63.2.jpg'),
+(297, 63, '63.3.jpg'),
+(298, 64, '64.2.jpg'),
+(299, 64, '64.1.jpg'),
+(300, 64, '64.3.jpg'),
+(301, 66, '66.1.jpg'),
+(302, 66, '66.2.jpg'),
+(303, 66, '66.3.jpg'),
+(304, 67, '67.1.jpg'),
+(305, 67, '67.2.jpeg'),
+(306, 67, '67.3.jpg'),
+(307, 65, '65.1.jpg'),
+(308, 65, '65.2.jpg'),
+(309, 65, '65.3.jpg'),
+(310, 68, '68.1.jpg'),
+(311, 68, '68.2.jpg'),
+(312, 68, '68.3.jpg'),
+(313, 69, '69.1.jpg'),
+(314, 69, '69.2.jpg'),
+(315, 69, '69.3.jpg'),
+(316, 70, '70.1.jpg'),
+(317, 70, '70.2.jpg'),
+(318, 70, '70.3.jpg'),
+(319, 71, '71.1.jpg'),
+(320, 71, '71.2.jpg'),
+(321, 71, '71.3.jpg'),
+(322, 72, '72.1.jpg'),
+(323, 72, '72.2.jpg'),
+(324, 72, '72.3.jpg'),
+(332, 70, '2_3.jpeg');
 
 -- --------------------------------------------------------
 
@@ -542,9 +774,9 @@ CREATE TABLE `khach_hang` (
 --
 
 INSERT INTO `khach_hang` (`ma_kh`, `mat_khau`, `ho_ten`, `hinh`, `sdt`, `email`, `vai_tro`) VALUES
-('111111', '111111', 'Aliquid praesentium ', '2_1.png', '77', 'hijuga@mailinator.com', 0),
-('222222', '222222', '222222', '1.1-removebg-preview.png', '222222', 'longdvph29867@fpt.edu.vn', 0),
-('admin', 'admin', 'adminsssssss', 'user2.jpeg', '0123456789', 'admin@gmail.coms', 1),
+('a', '2', 'a', 'a', '2', '2', 1),
+('admin', 'adminn', 'adminss', 'user2.jpeg', '0999999888', 'admin@gmail.comm', 1),
+('Estdcsc', 'Pa$$w0rd!', 'Aut repellendus Non', '2_2-2.jpeg', '0999999999', 'gotoliveri@mailinator.com', 0),
 ('user', 'user', 'mungloli', 'Avatar Image (3).png', '0999999999', 'mykikox@mailinator.com', 0),
 ('user2', 'user2', 'hien', 'Avatar Image (1).png', '0978888888', 'user2@gmail.com', 1);
 
@@ -573,7 +805,9 @@ INSERT INTO `loai` (`ma_loai`, `ten_loai`, `hinh_loai`, `hoat_dong_loai`) VALUES
 (5, 'Hoa quả', 'category-fruit.png', 1),
 (6, 'Sữa', 'category-milk.png', 1),
 (7, 'Gia vị', 'category-spice.png', 1),
-(8, 'Đồ uống', 'category-water.png', 1);
+(8, 'Đồ uống', 'category-water.png', 1),
+(48, '2132aa', '2_3.jpeg', 0),
+(49, '21', '2_2.jpeg', 0);
 
 -- --------------------------------------------------------
 
@@ -597,7 +831,6 @@ INSERT INTO `trang_thai` (`ma_trang_thai`, `ten_trang_thai`, `hoat_dong_tt`) VAL
 (3, 'Đang giao hàng', 1),
 (4, 'Đã giao hàng', 1),
 (5, 'Đã huỷ', 1),
-(6, 'Trả hàng', 1),
 (8, 'Đã nhận hàng', 1);
 
 --
@@ -698,31 +931,31 @@ ALTER TABLE `trang_thai`
 -- AUTO_INCREMENT cho bảng `binh_luan`
 --
 ALTER TABLE `binh_luan`
-  MODIFY `ma_bl` int(10) NOT NULL AUTO_INCREMENT COMMENT 'mã bình luận', AUTO_INCREMENT=35;
+  MODIFY `ma_bl` int(10) NOT NULL AUTO_INCREMENT COMMENT 'mã bình luận', AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT cho bảng `chi_tiet_don_hang`
 --
 ALTER TABLE `chi_tiet_don_hang`
-  MODIFY `ma_ctdh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `ma_ctdh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT cho bảng `chi_tiet_hang_hoa`
 --
 ALTER TABLE `chi_tiet_hang_hoa`
-  MODIFY `ma_cthh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
+  MODIFY `ma_cthh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
 
 --
 -- AUTO_INCREMENT cho bảng `danh_gia`
 --
 ALTER TABLE `danh_gia`
-  MODIFY `ma_danh_gia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `ma_danh_gia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT cho bảng `don_hang`
 --
 ALTER TABLE `don_hang`
-  MODIFY `ma_dh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `ma_dh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT cho bảng `don_vi_van_chuyen`
@@ -734,25 +967,25 @@ ALTER TABLE `don_vi_van_chuyen`
 -- AUTO_INCREMENT cho bảng `gio_hang`
 --
 ALTER TABLE `gio_hang`
-  MODIFY `ma_gh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `ma_gh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT cho bảng `hang_hoa`
 --
 ALTER TABLE `hang_hoa`
-  MODIFY `ma_hh` int(11) NOT NULL AUTO_INCREMENT COMMENT 'mã hàng hoá', AUTO_INCREMENT=123;
+  MODIFY `ma_hh` int(11) NOT NULL AUTO_INCREMENT COMMENT 'mã hàng hoá', AUTO_INCREMENT=128;
 
 --
 -- AUTO_INCREMENT cho bảng `hinh_hang_hoa`
 --
 ALTER TABLE `hinh_hang_hoa`
-  MODIFY `ma_hinh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
+  MODIFY `ma_hinh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=334;
 
 --
 -- AUTO_INCREMENT cho bảng `loai`
 --
 ALTER TABLE `loai`
-  MODIFY `ma_loai` int(11) NOT NULL AUTO_INCREMENT COMMENT 'mã loại hàng', AUTO_INCREMENT=46;
+  MODIFY `ma_loai` int(11) NOT NULL AUTO_INCREMENT COMMENT 'mã loại hàng', AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT cho bảng `trang_thai`
@@ -782,7 +1015,7 @@ ALTER TABLE `chi_tiet_don_hang`
 -- Các ràng buộc cho bảng `chi_tiet_hang_hoa`
 --
 ALTER TABLE `chi_tiet_hang_hoa`
-  ADD CONSTRAINT `chi_tiet_hang_hoa_ibfk_1` FOREIGN KEY (`ma_hh`) REFERENCES `hang_hoa` (`ma_hh`);
+  ADD CONSTRAINT `chi_tiet_hang_hoa_ibfk_1` FOREIGN KEY (`ma_hh`) REFERENCES `hang_hoa` (`ma_hh`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `danh_gia`
@@ -795,7 +1028,7 @@ ALTER TABLE `danh_gia`
 -- Các ràng buộc cho bảng `don_hang`
 --
 ALTER TABLE `don_hang`
-  ADD CONSTRAINT `ma_kh` FOREIGN KEY (`ma_kh`) REFERENCES `khach_hang` (`ma_kh`),
+  ADD CONSTRAINT `ma_kh` FOREIGN KEY (`ma_kh`) REFERENCES `khach_hang` (`ma_kh`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `ma_trang_thai` FOREIGN KEY (`ma_trang_thai`) REFERENCES `trang_thai` (`ma_trang_thai`),
   ADD CONSTRAINT `ma_van_chuyen` FOREIGN KEY (`ma_van_chuyen`) REFERENCES `don_vi_van_chuyen` (`ma_van_chuyen`);
 
@@ -810,13 +1043,13 @@ ALTER TABLE `gio_hang`
 -- Các ràng buộc cho bảng `hang_hoa`
 --
 ALTER TABLE `hang_hoa`
-  ADD CONSTRAINT `ma loai` FOREIGN KEY (`ma_loai`) REFERENCES `loai` (`ma_loai`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `hang_hoa_ibfk_1` FOREIGN KEY (`ma_loai`) REFERENCES `loai` (`ma_loai`) ON DELETE SET NULL;
 
 --
 -- Các ràng buộc cho bảng `hinh_hang_hoa`
 --
 ALTER TABLE `hinh_hang_hoa`
-  ADD CONSTRAINT `hinh_hang_hoa_ibfk_1` FOREIGN KEY (`ma_hh`) REFERENCES `hang_hoa` (`ma_hh`);
+  ADD CONSTRAINT `hinh_hang_hoa_ibfk_1` FOREIGN KEY (`ma_hh`) REFERENCES `hang_hoa` (`ma_hh`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

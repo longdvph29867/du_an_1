@@ -106,12 +106,12 @@
                         </small>
 
                     </div>
-                    <a href="#" class=" w-10 h-10 border-gray-300 border-[1px] rounded-full text-gray-500  hover:bg-[#62d2a2] hover:text-white hover:border-[#62d2a2] duration-300  flex justify-center items-center ">
+                    <!-- <a href="#" class=" w-10 h-10 border-gray-300 border-[1px] rounded-full text-gray-500  hover:bg-[#62d2a2] hover:text-white hover:border-[#62d2a2] duration-300  flex justify-center items-center ">
                         <i class="fa-regular fa-heart"></i>
                     </a>
                     <a href="#" class=" w-10 h-10 border-gray-300 border-[1px] rounded-full text-gray-500  hover:bg-[#62d2a2] hover:text-white hover:border-[#62d2a2] duration-300  flex justify-center items-center ">
                         <i class="fa-solid fa-shuffle"></i>
-                    </a>
+                    </a> -->
                 </div>
 
             </form>
