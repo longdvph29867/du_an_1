@@ -42,19 +42,28 @@ function ad_insert_khachhang() {
     $errors = validateInsertKH_ad($_POST) + validateFileImg('file');
     
     if(empty($errors)) {
-        $hinh = save_file('file', "$image_dir/users/");
-        $data = [
-            'ma_kh' => $_POST['ma_kh'],
-            'ho_ten' => $_POST['ho_ten'],
-            'mat_khau' => $_POST['mat_khau'],
-            'sdt' => $_POST['sdt'],
-            'email' => $_POST['email'],
-            'vai_tro' => $_POST['vai_tro'],
-            'hinh' => $hinh,
-        ];
-        khachhang_insert_ad($data);
-        addMesssage(true, "Thêm thành công");
-        header('location: ?ctl=ad-list-kh');
+        $user = khachhang_select_by_id($_POST['ma_kh']);
+        if(!$user) {
+            $hinh = save_file('file', "$image_dir/users/");
+            $data = [
+                'ma_kh' => $_POST['ma_kh'],
+                'ho_ten' => $_POST['ho_ten'],
+                'mat_khau' => $_POST['mat_khau'],
+                'sdt' => $_POST['sdt'],
+                'email' => $_POST['email'],
+                'vai_tro' => $_POST['vai_tro'],
+                'hinh' => $hinh,
+            ];
+            khachhang_insert_ad($data);
+            addMesssage(true, "Thêm thành công");
+            header('location: ?ctl=ad-list-kh');
+        }
+        else {
+            $listkhachhang = khachhang_all();
+            $view_name = "add.php";
+            view('layout/layout-admin', ['view_name' => $view_name, 'listkhachhang' => $listkhachhang], $errors, $_POST);
+            echoMesssage(false, "Tài khản đã tồn tại!");
+        }
     }
     else {
         $listkhachhang = khachhang_all();

@@ -12,7 +12,7 @@ if(isset($_GET['search'])) {
 };
 switch ($ctl) {
     case '':
-    case 'ad-list-kh':
+    case 'ad-list':
         ad_list_kh();
         break;
     case 'ad-add':

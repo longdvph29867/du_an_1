@@ -62,6 +62,9 @@ function validateInsertThuocTinh($data) {
     if (strlen($don_vi) == 0) {
         $errors['don_vi'] = "Vui lòng nhập trường này!";
     }
+    else if (strlen($don_vi) > 20) {
+        $errors['don_vi'] = "Đơn vị tối đa 20 ký tự!";
+    }
 
     if (strlen($don_gia) == 0) {
         $errors['don_gia'] = "Vui lòng nhập trường này!";
@@ -72,13 +75,13 @@ function validateInsertThuocTinh($data) {
     if (strlen($giam_gia) == 0) {
         $errors['giam_gia'] = "Vui lòng nhập trường này!";
     } else if ($giam_gia < 0) {
-        $errors['giam_gia'] = "Giảm giá không nhỏ hon 0!";
+        $errors['giam_gia'] = "Giảm giá không nhỏ hơn 0!";
     }
 
     if (strlen($so_luong) == 0) {
         $errors['so_luong'] = "Vui lòng nhập trường này!";
-    } else if ($so_luong < 1) {
-        $errors['so_luong'] = "Số lượng phải lớn hơn 0!";
+    } else if ($so_luong < 0) {
+        $errors['so_luong'] = "Số lượng không nhỏ hơn 0!";
     }
     
     return $errors;
@@ -89,6 +92,8 @@ function validateUpdateThongTin($data) {
     extract($data);
     if (strlen($ten_hh) == 0) {
         $errors['ten_hh'] = "Vui lòng nhập trường này!";
+    } else if (strlen($ten_hh) > 50) {
+        $errors['ten_hh'] = "Tên hàng hoá tối đa 50 ký tự!";
     }
 
     if (!isset($dac_biet)) {
@@ -112,6 +117,9 @@ function validateInsertHH($data) {
     if (strlen($ten_hh) == 0) {
         $errors['ten_hh'] = "Vui lòng nhập trường này!";
     }
+    else if (strlen($ten_hh) > 49) {
+        $errors['ten_hh'] = "Tên hàng hoá tối đa 50 ký tự!";
+    } 
 
     if (!isset($dac_biet)) {
         $errors['dac_biet'] = "Vui lòng nhập trường này!";
@@ -128,6 +136,9 @@ function validateInsertHH($data) {
     for($i = 0; $i < count($don_vi); $i++) {
         if (strlen($don_vi[$i]) == 0) {
             $errors['thuoc_tinh'] = "Vui lòng nhập đầy đủ thuộc tính!";
+        }
+        else if (strlen($don_vi[$i]) > 20) {
+            $errors['thuoc_tinh'] = "Đơn vị không quá 20 ký tự!";
         }
 
         if (strlen($don_gia[$i]) == 0) {
@@ -148,7 +159,7 @@ function validateInsertHH($data) {
         if (strlen($so_luong[$i]) == 0) {
             $errors['thuoc_tinh'] = "Vui lòng nhập đủ thuộc tính!";
         }
-        else if ($so_luong[$i] < 1) {
+        else if ($so_luong[$i] < 0) {
             $errors['thuoc_tinh'] = "Số lượng phải lớn hơn 0!";
         }
 

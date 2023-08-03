@@ -2,19 +2,19 @@
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Cập nhật thông tin</h1>
     <div>
-        <a href="?ctl=ad-list" class="btn btn-primary">Trở về <i class="fa-solid fa-chevron-right"></i></i></a>
+        <a href="?ctl=ad-detail-hh&ma_hh=<?=$_GET['ma_hh']?>" class="btn btn-primary">Trở về <i class="fa-solid fa-chevron-right"></i></i></a>
     </div>
 </div>
 <div>
     <form action="?ctl=ad-update-thongtin&ma_hh=<?=$data['ma_hh']?>" method="POST" enctype="multipart/form-data">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="form-group">
                     <label for="ma_loai">Mã sản phẩm <span class="text-danger"></span></label>
                     <input id="ma_loai" type="text" name="ma_hh" class="form-control" value="<?php if(!empty($data['ma_hh'])) echo $data['ma_hh']; ?>" readonly>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="form-group">
                     <label for="ten_hh">Tên sản phẩm <span class="text-danger">*</span></label>
                     <input id="ten_hh" type="text" name="ten_hh" class="form-control" value="<?php if(!empty($data['ten_hh'])) echo $data['ten_hh']; ?>">
@@ -27,9 +27,7 @@
                     </small>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="form-group">
                     <label for="" class="">Loại hàng <span class="text-danger">*</span></label>
                     <div class="input-group">
@@ -57,7 +55,10 @@
                     </small>
                 </div>
             </div>
-            <div class="col-md-6">
+        </div>
+        <div class="row">
+
+            <div class="col-md-6 d-none">
                 <div class="form-group">
                     <label for="" class="d-block">Hàng đặc biệt <span class="text-danger">*</span></label>
                     <div>

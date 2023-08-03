@@ -58,41 +58,6 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="" class="d-block">Hàng đặc biệt <span class="text-danger">*</span></label>
-                    <div>
-                        <label>
-                            <input type="radio" name="dac_biet" value="1" <?php if (isset($dac_biet) && $dac_biet == 1) echo "checked" ?>> Đặc biệt
-                        </label>
-                        <label>
-                            <input type="radio" name="dac_biet" value="0" <?php if (isset($dac_biet) && $dac_biet == 0) echo "checked" ?>> Bình tường
-                        </label>
-                    </div>
-                    <small id="helpId" class="error-dacbiet text-danger d-block">
-                        <?php
-                        if (!empty($errors['dac_biet'])) {
-                            echo $errors['dac_biet'];
-                        }
-                        ?>
-                    </small>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="mo_ta">Mô tả <span class="text-danger">*</span></label>
-                    <textarea name="mo_ta" id="mo_ta" cols="30" class="w-100" rows="5"><?php if (isset($mo_ta)) echo $mo_ta ?></textarea>
-                    <small id="helpId" class="text-danger">
-                        <?php
-                        if (!empty($errors['mo_ta'])) {
-                            echo $errors['mo_ta'];
-                        }
-                        ?>
-                    </small>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
                     <label for="files">Hình hàng hoá <span class="text-danger">*</span></label>
                     <input onchange="displaySelectedFiles()" type="file" class="form-control-file" id="files" name="files[]" multiple>
                     <div id="fileNames"></div>
@@ -105,6 +70,43 @@
                     ?>
                 </small>
             </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="mo_ta">Mô tả <span class="text-danger">*</span></label>
+                    <textarea name="mo_ta" id="mo_ta" cols="30" class="w-100" rows="5"><?php if (isset($mo_ta)) echo $mo_ta ?></textarea>
+                    <small id="helpId" class="text-danger">
+                        <?php
+                        if (!empty($errors['mo_ta'])) {
+                            echo $errors['mo_ta'];
+                        }
+                        ?>
+                    </small>
+                </div>
+            </div>
+            <div class="col-md-6 d-none">
+                <div class="form-group">
+                    <label for="" class="d-block">Hàng đặc biệt <span class="text-danger">*</span></label>
+                    <div>
+                        <label>
+                            <input type="radio" name="dac_biet" value="1"> Đặc biệt
+                        </label>
+                        <label>
+                            <input type="radio" name="dac_biet" value="0" checked> Bình tường
+                        </label>
+                    </div>
+                    <small id="helpId" class="error-dacbiet text-danger d-block">
+                        <?php
+                        if (!empty($errors['dac_biet'])) {
+                            echo $errors['dac_biet'];
+                        }
+                        ?>
+                    </small>
+                </div>
+            </div>
+
         </div>
         <div id="list-thuoc-tinh">
             <h5>Thuộc tính sản phẩm:</h5>

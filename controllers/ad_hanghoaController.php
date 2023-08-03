@@ -6,7 +6,7 @@
 function ad_hanghoa_list() {
     $listSanPhamAll = hanghoa_all();
     $thisPage= $_GET['page'] ?? 1;
-    $arrListByPage = array_chunk($listSanPhamAll, 10);
+    $arrListByPage = array_chunk(array_reverse($listSanPhamAll), 10);
     $pageTotal = ceil(count($arrListByPage));
     $listSanPham = $arrListByPage[$thisPage-1];
     $view_name = "list.php";
@@ -30,9 +30,7 @@ function ad_hanghoa_add_hinh() {
             'ma_hh' => $ma_hh,
             'ten_hinh' => $ten_hinh,
         ];
-        echo '<pre>';
-        print_r($data);
-        echo '</pre>';
+
         hanghoa_insert_hinh($data);
         addMesssage(true, "Thêm thành công");
         header("location: ?ctl=ad-detail-hh&ma_hh=$ma_hh");

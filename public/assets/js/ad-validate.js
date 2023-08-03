@@ -14,13 +14,9 @@ if(document.getElementById("form-insert-hh")) {
       isValid = false;
       tenSpInput.nextElementSibling.innerText = 'Vui lòng nhập tên sản phẩm';
     }
-    else {
-      tenSpInput.nextElementSibling.innerText = '';
-    }
-  
-    if (tenSpInput.value.trim() === "") {
+    else if (tenSpInput.value.trim().length > 50) {
       isValid = false;
-      tenSpInput.nextElementSibling.innerText = 'Vui lòng nhập tên sản phẩm';
+      tenSpInput.nextElementSibling.innerText = 'Tên hàng hoá tối đa 50 ký tự!';
     }
     else {
       tenSpInput.nextElementSibling.innerText = '';
@@ -68,6 +64,10 @@ if(document.getElementById("form-insert-hh")) {
         isValid = false;
         donViInput.nextElementSibling.innerText = 'Vui lòng nhập đơn vị';
       }
+      else if (donViInput.value.trim().length > 20) {
+        isValid = false;
+        donViInput.nextElementSibling.innerText = 'Đơn vị tối đa 20 ký tự!';
+      }
       else {
         donViInput.nextElementSibling.innerText = '';
       }
@@ -75,6 +75,10 @@ if(document.getElementById("form-insert-hh")) {
       if (donGiaInput.value.trim() === "" || isNaN(donGiaInput.value)) {
         isValid = false;
         donGiaInput.nextElementSibling.innerText = 'Vui lòng nhập đơn giá hợp lệ';
+      }
+      else if (donGiaInput.value <= 0) {
+        isValid = false;
+        donGiaInput.nextElementSibling.innerText = 'Đơn giá phải lớn hơn 0!';
       }
       else {
         donGiaInput.nextElementSibling.innerText = '';
@@ -84,6 +88,10 @@ if(document.getElementById("form-insert-hh")) {
         isValid = false;
         giamGiaInput.nextElementSibling.innerText = 'Vui lòng nhập giảm giá hợp lệ';
       }
+      else if (giamGiaInput.value < 0) {
+        isValid = false;
+        giamGiaInput.nextElementSibling.innerText = 'Giảm giá lớn hơn hoặc bằng 0!';
+      }
       else {
         giamGiaInput.nextElementSibling.innerText = '';
       }
@@ -91,6 +99,10 @@ if(document.getElementById("form-insert-hh")) {
       if (soLuongInput.value.trim() === "" || isNaN(soLuongInput.value)) {
         isValid = false;
         soLuongInput.nextElementSibling.innerText = 'Vui lòng nhập số lượng hợp lệ';
+      }
+      else if (soLuongInput.value < 0) {
+        isValid = false;
+        soLuongInput.nextElementSibling.innerText = 'Số lượng lớn hơn hoặc bằng 0!';
       }
       else {
         soLuongInput.nextElementSibling.innerText = '';
