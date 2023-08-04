@@ -1,6 +1,6 @@
 <section class="top_products py-8">
     <div class="container mx-auto">
-        <div class="title font-['Berkshire_Swash']">
+        <div class="title">
             <h2>Top Sản Phẩm Hot</h2>
         </div>
         <div class="top_products_carousel">

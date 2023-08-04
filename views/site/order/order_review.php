@@ -1,4 +1,4 @@
-<h3 class="text-2xl font-['Berkshire_Swash'] mb-4">Đánh giá đơn hàng</h3>
+<h3 class="text-2xl mb-4">Đánh giá đơn hàng</h3>
 <!--  -->
 <div class="shadow">
     <div class="p-4 flex justify-between items-center" style="border-bottom: 1px dotted rgba(0,0,0,.09);">
@@ -33,23 +33,23 @@
 
                         <!--  -->
                         <div>
-                            <label>
+                            <label class="cursor-pointer">
                                 <input type="radio" name="rating[<?= $item['ma_hh'] ?>]" value="1" class="appearance-none" onchange="handleRadioChange(<?= $item['ma_hh'] ?>)">
                                 <i class="fa-solid fa-star"></i>
                             </label>
-                            <label>
+                            <label class="cursor-pointer">
                                 <input type="radio" name="rating[<?= $item['ma_hh'] ?>]" value="2" class="appearance-none" onchange="handleRadioChange(<?= $item['ma_hh'] ?>)">
                                 <i class="fa-solid fa-star"></i>
                             </label>
-                            <label>
+                            <label class="cursor-pointer">
                                 <input type="radio" name="rating[<?= $item['ma_hh'] ?>]" value="3" class="appearance-none" onchange="handleRadioChange(<?= $item['ma_hh'] ?>)">
                                 <i class="fa-solid fa-star"></i>
                             </label>
-                            <label>
+                            <label class="cursor-pointer">
                                 <input type="radio" name="rating[<?= $item['ma_hh'] ?>]" value="4" class="appearance-none" onchange="handleRadioChange(<?= $item['ma_hh'] ?>)">
                                 <i class="fa-solid fa-star"></i>
                             </label>
-                            <label>
+                            <label class="cursor-pointer">
                                 <input type="radio" name="rating[<?= $item['ma_hh'] ?>]" value="5" class="appearance-none" onchange="handleRadioChange(<?= $item['ma_hh'] ?>)">
                                 <i class="fa-solid fa-star"></i>
                             </label>

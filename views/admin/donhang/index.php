@@ -22,20 +22,6 @@ switch ($ctl) {
     case 'ad-update-trangthai':
         ad_update_trangthai();
         break;
-
-
-    case 'ad-add':
-        ad_add_loai();
-        break;
-    case 'loai-insert':
-        ad_insert_loai();
-        break;
-    case 'loai-update':
-        ad_loai_update();
-        break;
-    case 'loai-delete':
-        ad_loai_delete();
-        break;
     case 'search':
         ad_loai_search();
         break;

@@ -76,10 +76,10 @@ function gh_delete($ma_gh)
 }
 
 
-function gh_delete_all()
+function gh_delete_all_by_ma_kh($ma_kh)
 {
     $conn = connection();
-    $sql = "DELETE FROM gio_hang";
+    $sql = "DELETE FROM gio_hang WHERE ma_kh = '$ma_kh'";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
 }

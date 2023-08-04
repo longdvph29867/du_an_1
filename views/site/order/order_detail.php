@@ -1,4 +1,4 @@
-<h3 class="text-2xl font-['Berkshire_Swash'] mb-4">Chi tiết đơn hàng</h3>
+<h3 class="text-2xl mb-4">Chi tiết đơn hàng</h3>
 <!--  -->
 
 <div class="shadow">

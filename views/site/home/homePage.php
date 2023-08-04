@@ -17,7 +17,7 @@
     <?php require "danh-muc-home.php"?>
 
     <!-- banner 2 -->
-    <section>
+    <section class="pt-6">
         <div class="filter brightness-90">
             <img src="<?=url_public?>/assets/images/banner14.webp" alt="">
         </div>
@@ -46,7 +46,7 @@
     <!-- blog -->
     <section class="blogs py-8">
         <div class="container mx-auto">
-            <div class="title font-['Berkshire_Swash']">
+            <div class="title">
                 <h2>Tin tức nổi bật</h2>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 text-white">
@@ -105,7 +105,7 @@
     <!-- partner -->
     <section class="py-8">
         <div class="container mx-auto">
-            <div class="title font-['Berkshire_Swash']">
+            <div class="title">
                 <h2>Đối tác của chúng tôi</h2>
             </div>
             <div class="grid grid-cols-5 gap-16">

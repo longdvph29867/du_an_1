@@ -17,10 +17,10 @@
         $tong_so_luong += $item['so_luong'];
     }
     ?>
-    <section class="banner relative flex items-center justify-center h-40 w-full bg-cover bg-center">
+    <section class="banner relative flex items-center justify-center h-40 w-full bg-cover bg-center border-t-2 border-gray-200">
         <img class="w-full h-full object-cover absolute  mix-blend-overlay" src="<?= url_public ?>/assets/images/breadcrumb-banner.webp" alt="">
         <div class="text-center text-black py-24">
-            <h2 class="pb-5  font-['Berkshire_Swash'] text-4xl">Cửa hàng</h2>
+            <h2 class="pb-5 text-4xl">Cửa hàng</h2>
             <p class="">Trang chủ / Chi tiết sản phẩm</p>
         </div>
     </section>
@@ -57,7 +57,14 @@
         <div class=" font-['Raleway'] w-[60%]  py-3 sm:text-center md:text-left ">
             <h3 class="text-3xl font-bold hover:text-[#62d2a2]"><?= $hanghoact['ten_hh'] ?></h3>
             <div class="md:w-28 md:ml-2 h-[1px] bg-gray-300 my-3 md:duration-300  sm:w-[500px] sm:mx-auto"></div>
-            <p class="don_gia_ct text-[#62d2a2] text-xl font-bold"><?= number_format($min) ?> - <?= number_format($max) ?></p>
+            <p class=" text-[#62d2a2] text-xl font-bold">
+                <span class="don_gia_ct"><?php
+            if($min != $max) {
+                echo number_format($min) . " - " . number_format($max);
+            }
+            else {
+                echo number_format($min);
+            }?></span> đ</p>
             <p class="py-5 text-[#666] font-[16px]"><?= $hanghoact['mo_ta'] ?>
             </p>
 
@@ -65,6 +72,7 @@
                 <div class="buttons_group mb-5">
                     <h3 class="title_btn text-[15px] font-bold my-3">Khối lượng:</h3>
                     <div class="buttons mt-5 flex gap-[10px]">
+                        <input type="text" name="so_luong_kho" value="0" class="so_luong_kho hidden">
                         <?php
                         foreach ($hanghoact['chi_tiet_sp'] as $item) {
                         ?>
@@ -93,7 +101,7 @@
                             <button <?php
                                 if (!isset($_SESSION['user'])) {
                                 ?> 
-                                    onclick="alert('Vui lòng đăng nhập!')" type="button" <?php
+                                    onclick="showMesssage(false, 'Vui lòng đăng nhập!')" type="button" <?php
                                 }
                                 ?> class="text-white border-[1px] hover:text-[#62d2a2] hover:bg-white  duration-300 font-bold border-[#62d2a2] rounded-full h-10 p-3  py-1 bg-[#62d2a2]">Thêm vào giỏ hàng</button>
                         </div>
@@ -219,7 +227,7 @@
                         <div class="flex items-start flex-col sm:flex-row sm:space-x-3 space-y-3 sm:space-y-0">
                             <img class="w-16" src="<?= url_public . '/images/users/' . $dg['hinh'] ?>" alt="">
                             <div class="px-6 py-5 border-gray-300 w-full" style="border-width: 1px;">
-                                <p class="text-lg font-bold"> <?= $dg['ho_ten'] ?>-
+                                <p class="text-lg font-bold"> <?= $dg['ho_ten'] ?>
                                     <!-- <span class="text-sm font-normal"><?= $bl['ngay_bl'] ?></span> -->
                                 </p>
                                 <p>
@@ -277,11 +285,15 @@
 
     <!-- related product-->
     <section class="related_pro my-9 w-[90%] mx-auto ">
-        <h3 class="text-3xl font-['Berkshire_Swash'] mb-7">Sản phẩm cùng loại</h3>
+        <h3 class="text-3xl mb-7">Sản phẩm cùng loại</h3>
+
         <div class="grid gap-7 xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
             <?php foreach ($sanphamcl as $spcl) {
                 $chitiet_dongia = reset($spcl['chi_tiet_sp']);
                 $link = url_site . "/chitiet/?ma_hh=" . $spcl['ma_hh'];
+                if($hanghoact['ma_hh'] == $spcl['ma_hh']) {
+                    continue;
+                }
             ?>
                 <a href="<?=$link?>">
 

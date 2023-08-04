@@ -28,6 +28,8 @@ function hanghoact_add_cart()
     $errors = validateAddCart($_POST);
     // echo "<pre>";
     // print_r($errors);
+    // echo "</pre>";
+
     if (empty($errors)) {
         giohang_insert($_POST);
         addMesssage(true, "Thêm sản phẩm thành công");

@@ -93,5 +93,31 @@ function echoMesssage($status, $messageContent) {
     echo "<script>showMesssage($statusStr, '$messageContent')</script>";
 }
 // addMesssage(true, "Bình luận thành công");
+
+function tongSLKho($data)
+{
+    $tongSLKho = 0;
+    foreach ($data as $item) {
+        $tongSLKho += $item['so_luong'];
+    };
+    return $tongSLKho;
+}
+
+function maxMinPrice($data)
+{
+    $min = reset($data)['don_gia'];
+    $max = reset($data)['don_gia'];
+
+    foreach ($data as $item) {
+        
+        if($min > $item['don_gia']) {
+            $min = $item['don_gia'];
+        };
+        if($max < $item['don_gia']) {
+            $max = $item['don_gia'];
+        };
+    };
+    return ['min' => $min, 'max' => $max];
+}
 ?>
 

@@ -3,6 +3,10 @@ function chitiet(don_gia, giam_gia, so_luong) {
   let so_luongEl = document.querySelector(".tong_so_luong");
   don_giaEl.innerText = don_gia-giam_gia;
   so_luongEl.innerText = so_luong;
+  let soLuongKhoInput = document.querySelector('#add-cart-detailPage .so_luong_kho');
+
+  soLuongKhoInput.value = so_luong;
+  document.querySelector('input[name="so_luong"]').max = so_luong;
   activeKhoiLuong();
 }
 

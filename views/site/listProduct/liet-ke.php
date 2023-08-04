@@ -1,4 +1,4 @@
-<h3 class="text-2xl font-['Berkshire_Swash'] mb-4"><?= count($items) ?> Sản phẩm</h3>
+<h3 class="text-2xl mb-4"><?= count($items) ?> Sản phẩm</h3>
 <div class="grid gap-7 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
 
     <?php
@@ -41,7 +41,7 @@
                     <h3><?= $item['ten_hh'] ?></h3>
                 </a>
                 <hr>
-                <p><span>$ <?= number_format($chitiet_dongia['don_gia'] - $chitiet_dongia['giam_gia']) ?></span>/<?=$chitiet_dongia['don_vi']?></p>
+                <p><span class="lowercase"><?= number_format($chitiet_dongia['don_gia'] - $chitiet_dongia['giam_gia']) ?> đ</span>/<?=$chitiet_dongia['don_vi']?></p>
                 <?php
                 if ($chitiet_dongia['giam_gia'] > 0) {
                 ?>
@@ -62,7 +62,7 @@
   <nav class="flex flex-row flex-nowrap justify-between md:justify-center items-center" aria-label="Pagination">
 
     <?php
-        if(!isset($_GET['ctl']) || $_GET['ctl'] == 'products') {
+        if($pageTotal != 1) {
             for($i = 0; $i < $pageTotal; $i++) {
             ?>
                 <a class="<?php 

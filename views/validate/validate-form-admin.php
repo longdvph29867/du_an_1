@@ -92,7 +92,7 @@ function validateUpdateThongTin($data) {
     extract($data);
     if (strlen($ten_hh) == 0) {
         $errors['ten_hh'] = "Vui lòng nhập trường này!";
-    } else if (strlen($ten_hh) > 50) {
+    } else if (strlen($ten_hh) > 30) {
         $errors['ten_hh'] = "Tên hàng hoá tối đa 50 ký tự!";
     }
 

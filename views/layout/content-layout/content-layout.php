@@ -6,8 +6,8 @@
     border-gray-300
     ">
         <div class="text-center py-9">
-            <h2 class="pb-5 font-['Berkshire_Swash'] text-4xl">Cửa hàng</h2>
-            <p>Trang chủ / Danh Sách Đơn Hàng</p>
+            <h2 class="pb-5 text-4xl">Cửa hàng</h2>
+            <p>Trang chủ /  <?php if(isset($name_page)) echo $name_page;?></p>
         </div>
     </section>
 

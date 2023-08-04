@@ -1,4 +1,4 @@
-<h3 class="text-2xl font-['Berkshire_Swash'] mb-4">Thông tin tài khoản</h3>
+<h3 class="text-2xl mb-4">Thông tin tài khoản</h3>
 <?php 
     if(isset($MESSAGE_SUCCESS)) {
         echo "<p><i class='fa-solid fa-circle-check text-green-500'></i> $MESSAGE_SUCCESS</p>";

@@ -145,8 +145,8 @@ $().ready(function () {
     messages: {
       ten_nguoi_nhan: {
         required: 'Vui lòng nhập tên!',
-        maxlength: 'Tài khoản phải 4 - 50 ký tự!',
-        minlength: 'Tài khoản phải 4 - 50 ký tự!'
+        maxlength: 'Họ tên phải 4 - 50 ký tự!',
+        minlength: 'Họ tên phải 4 - 50 ký tự!'
       },
       sdt: {
         required: 'Vui lòng nhập số điện thoại!',
@@ -207,7 +207,12 @@ if(document.getElementById("insert_review")) {
       if (inputs[i].value.trim() === "") {
         isValid = false;
         inputs[i].nextElementSibling.innerText = "Vui lòng nhập trường này!";
-      } else {
+      }
+      else if (inputs[i].value.length > 100) {
+        isValid = false;
+        inputs[i].nextElementSibling.innerText = "Tối đa 100 ký tự!";
+      }
+      else {
         inputs[i].nextElementSibling.innerText = "";
       }
     }

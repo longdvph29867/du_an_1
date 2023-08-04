@@ -23,17 +23,21 @@ function order() {
 function order_list() {
     $ma_kh = $_SESSION['user']['ma_kh'];
     $orders = donhang_by_kh_all($ma_kh);
+
+    $name_page = "Danh sách đơn hàng";
     $content = "order_list.php";
     $view_name = "../../layout/content-layout/content-layout.php";
-    view('layout/layout', ['view_name' => $view_name, 'content' => $content, 'orders' => $orders]);
+    view('layout/layout', ['view_name' => $view_name, 'content' => $content, 'orders' => $orders, 'name_page' => $name_page]);
 }
 
 function order_detail() {
     $id = $_GET['ma_dh'] ?? '';
     $orderDetail =  donhang_by_id($id);
+
+    $name_page = "Chi tiết đơn hàng";
     $content = "order_detail.php";
     $view_name = "../../layout/content-layout/content-layout.php";
-    view('layout/layout', ['view_name' => $view_name, 'content' => $content, 'orderDetail' => $orderDetail]);
+    view('layout/layout', ['view_name' => $view_name, 'content' => $content, 'orderDetail' => $orderDetail, 'name_page' => $name_page]);
 }
 
 function order_cancel()
@@ -48,9 +52,11 @@ function order_cancel()
 function order_review() {
     $id = $_GET['ma_dh'] ?? '';
     $orderDetail =  donhang_by_id($id);
+
+    $name_page = "Đánh giá đơn hàng";
     $content = "order_review.php";
     $view_name = "../../layout/content-layout/content-layout.php";
-    view('layout/layout', ['view_name' => $view_name, 'content' => $content, 'orderDetail' => $orderDetail]);
+    view('layout/layout', ['view_name' => $view_name, 'content' => $content, 'orderDetail' => $orderDetail, 'name_page' => $name_page]);
 }
 
 function order_da_nhan_hang() {
@@ -86,9 +92,11 @@ function order_review_insert()
     }
     else {
         $orderDetail =  donhang_by_id($id);
+
+        $name_page = "Đánh giá đơn hàng";
         $content = "order_review.php";
         $view_name = "../../layout/content-layout/content-layout.php";
-        view('layout/layout', ['view_name' => $view_name, 'content' => $content, 'orderDetail' => $orderDetail], $errors, $_POST);
+        view('layout/layout', ['view_name' => $view_name, 'content' => $content, 'orderDetail' => $orderDetail, 'name_page' => $name_page], $errors, $_POST);
     }
 }
 
@@ -122,7 +130,7 @@ function order_insert() {
         ];
         $new_ma_dh = donhang_insert($data);
         donhang_chitiet_insert($new_ma_dh, $products);
-        gh_delete_all();
+        gh_delete_all_by_ma_kh($ma_kh);
         addMesssage(true, "Đặt hàng thành công");
         header("location: ?ctl=order-list");
         die;
@@ -144,7 +152,6 @@ function order_insert() {
         // echo "<pre>";
         // print_r($errors);
         // echo "</pre>";
-
         $view_name = "order.php";
         view('layout/layout', ['view_name' => $view_name, 'data' => $data, 'listVanChuyen' => $listVanChuyen], $errors, $_POST);
     }

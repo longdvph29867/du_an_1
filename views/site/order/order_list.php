@@ -1,4 +1,4 @@
-<h3 class="text-2xl font-['Berkshire_Swash'] mb-4">Danh sách đơn hàng</h3>
+<h3 class="text-2xl mb-4">Danh sách đơn hàng</h3>
 <!--  -->
 <div class="">
     <?php

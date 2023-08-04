@@ -6,25 +6,48 @@ function products_list() {
     $arrListByPage = array_chunk($listSanPhamAll, 12);
     $pageTotal = ceil(count($arrListByPage));
     $items = $arrListByPage[$thisPage-1];
+
+    $name_page = "Danh Sách Hàng Hoá";
     $content = "liet-ke.php";
     $view_name = "../../layout/content-layout/content-layout.php";
-    view('layout/layout', ['view_name' => $view_name, 'content' => $content, 'items' => $items, 'pageTotal' => $pageTotal]);
+    view('layout/layout', ['view_name' => $view_name, 'content' => $content, 'items' => $items, 'pageTotal' => $pageTotal, 'name_page' => $name_page]);
 }
 
 function products_category() {
     $ma_loai = $_GET['ma_loai'];
-    $items = hanghoa_by_ma_loai($ma_loai);
+    $listSanPhamAll = hanghoa_by_ma_loai($ma_loai);
+
+    $thisPage= $_GET['page'] ?? 1;
+    $arrListByPage = array_chunk($listSanPhamAll, 12);
+    $pageTotal = ceil(count($arrListByPage));
+    $items = $arrListByPage[$thisPage-1];
+
+    $name_page = "Danh Sách Hàng Hoá";
     $content = "liet-ke.php";
     $view_name = "../../layout/content-layout/content-layout.php";
-    view('layout/layout', ['view_name' => $view_name, 'content' => $content, 'items' => $items]);
+    view('layout/layout', ['view_name' => $view_name, 'content' => $content, 'items' => $items, 'pageTotal' => $pageTotal, 'name_page' => $name_page]);
 }
 
 function products_search() {
+
     $key = $_GET['keywords'];
-    $items = hanghoa_search($key);
+    $listSanPhamAll = hanghoa_search($key);
+    if(count($listSanPhamAll) != 0) {
+        $thisPage= $_GET['page'] ?? 1;
+        $arrListByPage = array_chunk($listSanPhamAll, 12);
+        $pageTotal = ceil(count($arrListByPage));
+        $items = $arrListByPage[$thisPage-1];
+    }
+    else {
+        $pageTotal = 0;
+        $items = $listSanPhamAll;
+    };
+
+
+    $name_page = "Danh Sách Hàng Hoá";
     $content = "liet-ke.php";
     $view_name = "../../layout/content-layout/content-layout.php";
-    view('layout/layout', ['view_name' => $view_name, 'content' => $content, 'items' => $items]);
+    view('layout/layout', ['view_name' => $view_name, 'content' => $content, 'items' => $items, 'pageTotal' => $pageTotal, 'name_page' => $name_page]);
 }
 
 ?>

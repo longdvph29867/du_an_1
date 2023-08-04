@@ -3,8 +3,8 @@
     <section class="banner relative flex items-center justify-center h-40 w-full bg-cover bg-center border-t-2 border-gray-200">
         <img class="w-full h-full object-cover absolute  mix-blend-overlay" src="<?= url_public ?>/assets/images/breadcrumb-banner.webp" alt="">
         <div class="text-center text-black py-24">
-            <h2 class="pb-5  font-['Berkshire_Swash'] text-4xl">Cửa hàng</h2>
-            <p class="">Trang chủ / Chi tiết sản phẩm</p>
+            <h2 class="pb-5 text-4xl">Cửa hàng</h2>
+            <p class="">Trang chủ / Đặt hàng</p>
         </div>
     </section>
 

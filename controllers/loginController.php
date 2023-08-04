@@ -22,7 +22,7 @@ function register_khachhang() {
     global $image_dir;
     extract($_REQUEST);
     
-    $errors = validateRegister ($ma_kh, $mat_khau,$re_password, $ho_ten, $sdt, $email) + validateFileImg('hinh');
+    $errors = validateRegister ($ma_kh, $mat_khau,$re_password, $ho_ten, $sdt, $email) + ($_FILES['hinh']['name'] ? validateFileImg('hinh') : []);
     if(empty($errors)) {
         if (khachHang_select_by_id($ma_kh)) {
             $view_name = "register.php";
@@ -31,8 +31,14 @@ function register_khachhang() {
             
         }
         else {
-            $up_hinh = save_file('hinh', "$image_dir/users/");
-            $hinh = $up_hinh;
+            if(strlen($_FILES['hinh']['name']) != 0) {
+                $up_hinh = save_file('hinh', "$image_dir/users/");
+                $hinh = $up_hinh;
+                
+            }
+            else {
+                $hinh = 'user2.jpeg';
+            }
             khachhang_insert($ma_kh, $mat_khau, $ho_ten, $hinh, $sdt, $email);
             addMesssage(true, "Đăng ký thành công vui lòng đăng nhập!");
             header("location: ?ctl=login");

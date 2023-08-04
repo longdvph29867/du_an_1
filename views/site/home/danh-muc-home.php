@@ -1,4 +1,4 @@
-<section class="categorys py-8 font-['Berkshire_Swash']">
+<section class="categorys">
     <div class="container mx-auto">
         <div class="title">
             <h2>Danh mục</h2>
@@ -6,6 +6,9 @@
         <div class="categorys_carousel">
             <?php
             foreach ($list_loai as $loai) {
+                if($loai['hoat_dong_loai'] == 0) {
+                    continue;
+                }
                 ?>
                 <div class="px-3">
                     <a href="<?=url_site.'/listProduct/?ctl=category&ma_loai='.$loai['ma_loai']?>">

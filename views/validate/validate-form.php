@@ -175,12 +175,14 @@ function validateAddCart($data) {
     // ma kh
     if ($data['so_luong'] < 1) {
         $errors['so_luong'] = "Vui lòng nhập Số lượng!";
-    }
-    
-    // mat_khau
+    };
+    if ($data['so_luong'] > $data['so_luong_kho']) {
+        $errors['so_luong'] = "Số lượng đã quá số lượng kho!";
+    };
+    // ma_cthh
     if (!isset($data['ma_cthh'])) {
         $errors['ma_cthh'] = "Vui lòng chọn loại hàng!";
-    }
+    };
     return $errors;
 }
 
@@ -192,7 +194,6 @@ function validateAddComment($data) {
     }
     return $errors;
 }
-
 
 function validateAddOrder($data) {
     $errors = [];

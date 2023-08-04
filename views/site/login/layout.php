@@ -112,7 +112,6 @@
                         email: true
                     },
                     hinh: {
-                        required: true,
                         fileExtension: 'png,jpeg,jpg,webp',
                         fileSize: 2,
                         maxlength: 100,
@@ -148,7 +147,6 @@
                         email: 'Email chưa đúng định dạng!'
                     },
                     hinh: {
-                        required: 'Vui lòng chọn file!',
                         fileExtension: 'File phải có định dạng là png, jpg, jpeg, webp!',
                         fileSize: 'Kích thước không quá 2 MB!',
                         maxlength: 'Tên file quá dài!',
@@ -214,7 +212,7 @@
 
     <script>
         <?php
-            if($_GET['ctl'] == 'login' || $_GET['ctl'] == 'login-khachhang') {
+            if(isset($_GET['ctl']) && ($_GET['ctl'] == 'login' || $_GET['ctl'] == 'login-khachhang')) {
                 ?>
                     const jsonFilePath = '<?= url_public ?>/assets/json/animation_lkr0e7ob.json';
                 <?php

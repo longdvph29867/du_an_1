@@ -1,11 +1,11 @@
 <?php
 // echo '<pre>';
-// print_r($listLoai);
+// print_r($listSanPham );
 // echo '</pre>';
 ?>
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Danh sáchh sản phẩm</h1>
+    <h1 class="h3 mb-0 text-gray-800">Danh sách sản phẩm</h1>
     <div>
         <form action="" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
@@ -30,10 +30,11 @@
         <thead class="bg-primary text-white">
             <tr>
                 <!-- <th style="width: 5%;"></th> -->
-                <th style="width: 10%;">Mã sản phẩm</th>
+                <th style="width: 10%;">STT</th>
                 <th style="width: 15%;">Tên sản phẩm</th>
                 <th style="width: 15%;">Hình hàng hoá</th>
-                <th style="width: 25%;">Mô tả</th>
+                <th style="width: 8%;">Số Lượng</th>
+                <th style="width: 17%;">Giá</th>
                 <th style="width: 10%;">Số lượt xem</th>
                 <th style="width: 20%;">Thao tác</th>
             </tr>
@@ -41,14 +42,35 @@
 
         <tbody>
             <?php
+            if(isset($_GET['page'])) {
+                $stt = ($_GET['page']*10) -10;
+            }
+            else {
+                $stt = 0;
+            }
             foreach ($listSanPham as $item) {
+                $stt += 1;
+                // tính tổng số lượng kho
+                $tongSLKho = tongSLKho($item['chi_tiet_sp']);
+                //  lấy ra giá nhỏ nhât và lớn nhất
+                $maxMinPrice = maxMinPrice($item['chi_tiet_sp']);
+                
             ?>
                 <tr>
                     <!-- <td><input type="checkbox" name="ma_hh[]" value="<?= $item['ma_hh'] ?>"></td> -->
-                    <td><?= $item['ma_hh'] ?></td>
+                    <td><?= $stt ?></td>
                     <td><?= $item['ten_hh'] ?></td>
                     <td><img style="width: 80px;" src="<?= url_public . "/images/products/" . reset($item['hinhArr']) ?>" alt=""></td>
-                    <td class="text-container"><?= $item['mo_ta'] ?></td>
+                    <td class="text-container"><?= $tongSLKho ?></td>
+                    <td><?php 
+                    if($maxMinPrice['min'] == $maxMinPrice['max'])
+                    {
+                        echo number_format($maxMinPrice['min']) . 'đ';
+                    }
+                    else {
+                        echo number_format($maxMinPrice['min']). 'đ - ' . number_format($maxMinPrice['max']). 'đ';
+                    }
+                    ?></td>
                     <td><?= $item['so_luot_xem'] ?></td>
                     <th>
                         <a class="btn btn-primary" href="?ctl=ad-detail-hh&ma_hh=<?= $item['ma_hh'] ?>">Chi tiết</a>

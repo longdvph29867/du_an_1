@@ -4,7 +4,7 @@
 ?>
 
 <div class="p-4 lg:w-full sm:w-1/2 w-full">
-    <h3 class="text-2xl font-['Berkshire_Swash'] mb-4">Sản phẩm nổi bật</h3>
+    <h3 class="text-2xl mb-4">Sản phẩm nổi bật</h3>
     <ul class="space-y-3">
         <?php
         $stt = 0;

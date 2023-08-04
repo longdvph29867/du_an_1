@@ -1,6 +1,6 @@
-<form action="<?=url_site?>/listProduct/" class="search_header relative m-0">
+<form method="GET" action="<?=url_site?>/listProduct/" class="search_header relative m-0">
     <input type="text" name='keywords' placeholder="Tìm sản phẩm">
-    <!-- <button name='btn_search' >
+    <button >
         <i class="fa-solid fa-magnifying-glass"></i>
-    </button> -->
+    </button>
 </form>
