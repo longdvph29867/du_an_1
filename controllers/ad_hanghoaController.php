@@ -195,7 +195,11 @@ function ad_hanghoa_search() {
         header('location: ?ctl=ad-list');
     }
     else {
-        $listSanPham = hanghoa_search($key);
+        $listSanPham = hanghoa_search_ad($key);
+
+    // echo '<pre>';
+    // print_r($listSanPham);
+    // echo '</pre>';
         $view_name = "list.php";
         view('layout/layout-admin', ['view_name' => $view_name, 'listSanPham' => $listSanPham, 'key' => $key]);
     }

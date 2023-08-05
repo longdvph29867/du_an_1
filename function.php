@@ -88,7 +88,6 @@ function echoMesssage($status, $messageContent) {
     }
     else {
         $statusStr = 'false';
-
     }
     echo "<script>showMesssage($statusStr, '$messageContent')</script>";
 }

@@ -29,7 +29,7 @@
                                     <?php
                                         if($ma_kh) {
                                     ?>
-                                            onclick= "addCartItem('<?=$ma_kh?>',<?=$chitiet_dongia['ma_cthh']?>, 1)";
+                                            onclick= "addCartItem('<?=$ma_kh?>',<?=$chitiet_dongia['ma_cthh']?>, 1, <?= $chitiet_dongia['so_luong'] ?>)";
                                     <?php
                                         }
                                         else {

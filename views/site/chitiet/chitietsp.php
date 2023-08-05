@@ -29,14 +29,25 @@
     <section class="detail w-[90%] py-14  flex gap-10 items-start mx-auto">
         <div class="big-img w-[40%] mx-auto ">
             <div id="img-detail"
-            class="w-full pt-[100%] 
+            class="w-full relative pt-[100%] 
             bg-[url('<?= url_public . '/images/products/' . reset($hanghoact['hinhArr']) ?>')]
             bg-no-repeat bg-cover bg-center
             border border-gray-200
             "
-            ></div>
-            <div class="flex gap-2 mt-2 overflow-x-scroll">
+            >
+            <?php
+            if($tong_so_luong <= 0) {
+            ?>
+                <div class="absolute top-0 left-0 w-full h-full bg-black/40 flex items-center justify-center">
+                    <div class=" w-20 h-20 flex items-center justify-center rounded-full border border-[#62d2a2] text-[#62d2a2] bg-[#e8e8e8]">Hết hàng</div>
+                </div>
+            <?php
+            }
+            ?>
+            </div>
 
+
+            <div class="flex gap-2 mt-2 overflow-x-scroll">
             <?php
             foreach ($hanghoact['hinhArr'] as $item) {
             ?>
@@ -75,13 +86,25 @@
                         <input type="text" name="so_luong_kho" value="0" class="so_luong_kho hidden">
                         <?php
                         foreach ($hanghoact['chi_tiet_sp'] as $item) {
+                            if($item['so_luong'] <= 0) {
+                                ?>
+                            <label class="group cursor-pointer py-2 text-[rgb(36, 36, 36)] relative rounded bg-gray-300 opacity-30 pointer-events-none">
+                                <span class="text-center px-2"><?= $item['don_vi'] ?></span>
+                                <input type="radio" name="123321" value="<?= $item['ma_cthh'] ?>" class="don_vi appearance-none">
+                                <img class=" absolute hidden right-0  top-0 w-[20px] h-[20px]" src="<?= url_public ?>/assets/images/img-check.png" alt="Selected">
+                            </label>
+                                <?php
+                            }
+                            else {
                         ?>
-                            <label onclick="chitiet(<?= $item['don_gia'] ?>,<?= $item['giam_gia']?>, <?= $item['so_luong'] ?>)" class=" group  cursor-pointer py-2 text-[rgb(36, 36, 36)] relative rounded border border-solid bg-[#F5F5F5]  hover:border-[#62d2a2] ">
+                            <label onclick="chitiet(<?= $item['don_gia'] ?>,<?= $item['giam_gia']?>, <?= $item['so_luong'] ?>)" 
+                            class="group cursor-pointer py-2 text-[rgb(36, 36, 36)] relative rounded border border-solid bg-[#F5F5F5]  hover:border-[#62d2a2] ">
                                 <span class="text-center px-2"><?= $item['don_vi'] ?></span>
                                 <input type="radio" name="ma_cthh" value="<?= $item['ma_cthh'] ?>" class="don_vi appearance-none">
                                 <img class=" absolute hidden group-hover:inline-block right-0  top-0 w-[20px] h-[20px]" src="<?= url_public ?>/assets/images/img-check.png" alt="Selected">
                             </label>
                         <?php
+                            }
                         }
                         ?>
                     </div>

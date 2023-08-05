@@ -24,6 +24,7 @@ function giohang_by_ma_kh($ma_kh) {
                 'don_gia' => $row['don_gia'],
                 'giam_gia' => $row['giam_gia'],
                 'so_luong' => $row['so_luong'],
+                'so_luong_kho' => $row['so_luong_kho'],
                 'hinhArr' => [],
             ];
         }
@@ -119,5 +120,6 @@ function giohang_by_id($ma_gh)
     // print_r($orderDetail);
     return $itemDetail;
 }
+
 
 ?>

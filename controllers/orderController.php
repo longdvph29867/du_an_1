@@ -2,11 +2,10 @@
 function order() {
     $ma_kh = $_SESSION['user']['ma_kh'];
     $listVanChuyen = vanchuyen_all();
-    $listProduct = [];
-    
-    foreach($_POST['ma_gh'] as $item) {
-        $listProduct[] = giohang_by_id($item);
-    };
+    $listProduct = giohang_by_ma_kh($ma_kh);
+    // echo "<pre>";
+    // print_r($_POST);
+    // echo "</pre>";
     $data = [
         'ma_kh' => $ma_kh,
         'ten_nguoi_nhan' => $_SESSION['user']['ho_ten'],
@@ -43,6 +42,8 @@ function order_detail() {
 function order_cancel()
 {
     $ma_dh = $_GET['ma_dh'];
+    $detailDonHang = donhang_by_id($ma_dh);
+    hanghoa_update_so_luong($detailDonHang['products'], true);
     donhang_cancel_by_id($ma_dh);
     addMesssage(true, "Đã huỷ đơn hàng");
     header("location: ?ctl=order-list");
@@ -131,6 +132,8 @@ function order_insert() {
         $new_ma_dh = donhang_insert($data);
         donhang_chitiet_insert($new_ma_dh, $products);
         gh_delete_all_by_ma_kh($ma_kh);
+        hanghoa_update_so_luong($products, false);
+
         addMesssage(true, "Đặt hàng thành công");
         header("location: ?ctl=order-list");
         die;
@@ -149,9 +152,6 @@ function order_insert() {
             'listProduct' => $listProduct,
         ];
 
-        // echo "<pre>";
-        // print_r($errors);
-        // echo "</pre>";
         $view_name = "order.php";
         view('layout/layout', ['view_name' => $view_name, 'data' => $data, 'listVanChuyen' => $listVanChuyen], $errors, $_POST);
     }

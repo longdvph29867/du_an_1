@@ -1,5 +1,5 @@
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Thêm mới loại</h1>
+    <h1 class="h3 mb-0 text-gray-800">Thêm mới khách hàng</h1>
     <div>
         <a href="?ctl=ad-list" class="btn btn-primary">Danh sách</a>
     </div>

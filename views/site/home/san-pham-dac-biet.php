@@ -3,7 +3,12 @@
         <div class="title">
             <h2>Sản Phẩm đặc biệt của chúng tôi</h2>
         </div>
+<?php
+    // echo "<pre>";
+    // print_r($dac_biet);
+    // echo "</pre>";
 
+?>
         <div class="listProduct_carousel">
             <?php
             $stt = 0;
@@ -28,7 +33,7 @@
                                 <a href="<?= $link ?>" class="btn2 min-w-[40px] w-11 h-11 flex items-center justify-center"><i class="fa-solid fa-eye"></i></a>
                                 <a href="javascript:void(0);" <?php
                                 if ($ma_kh) {
-                                ?> onclick="addCartItem('<?= $ma_kh ?>',<?= $chitiet_dongia['ma_cthh'] ?>, 1)" ; <?php
+                                ?> onclick="addCartItem('<?= $ma_kh ?>',<?= $chitiet_dongia['ma_cthh'] ?>, 1, <?= $chitiet_dongia['so_luong'] ?>)" ; <?php
                                 } else {
                                     ?> onclick="alert('Vui lòng đăng nhập!')" ; <?php
                                 }

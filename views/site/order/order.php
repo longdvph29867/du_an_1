@@ -14,7 +14,7 @@
             <div>
                 <h2
                     class="text-[#333333] pb-4 border-b mb-8 font-bold border-solid border-[#ccc] text-xl">
-                    Billing Details</h2>
+                    Địa chỉ nhận hàng</h2>
                 <div class="billing-form-wrap">
                     <form action="#">
                         <div class="flex flex-col mb-3">
@@ -104,7 +104,7 @@
             <!-- order_summary -->
             <div>
                 <h2 class="text-[#333333] pb-4 border-b mb-8 font-bold border-solid border-[#ccc] text-xl">
-                    Billing Details
+                    Danh sách sản phẩm
                 </h2>
                 <div>
                     <table class="table w-full">
@@ -138,7 +138,7 @@
                                             <p class="text-xs text-[#717171]">x <span class="text-black text-base"><?=$item['so_luong']?></span></p>
                                         </div>
                                     </td>
-                                    <td class="border py-3 px-2 font-normal text-center"><?=$tongTienSP?> đ</td>
+                                    <td class="border py-3 px-2 font-normal text-center"><?=number_format($tongTienSP)?> đ</td>
                                 </tr>
                                 <?php
                                 }
@@ -148,7 +148,7 @@
                         <tfoot>
                             <tr>
                                 <td class="border py-3 px-2 font-normal">Tổng tiền hàng</td>
-                                <td class="border py-3 px-2 font-normal text-center"><strong><span id="tong-tien-sp"><?=$tongTien?></span> đ</strong></td>
+                                <td class="border py-3 px-2 font-normal text-center"><strong><span id="tong-tien-sp" class="hidden"><?=$tongTien?></span><span><?=number_format($tongTien)?></span> đ</strong></td>
                             </tr>
                             <tr>
                                 <td class="border py-3 px-2 font-normal">Phí vận chuyển</td>
@@ -159,7 +159,7 @@
                             <tr>
                                 <td class="border py-3 px-2 font-semibold">Thành tiền</td>
                                 <td class="border py-3 px-2 font-normal text-center text-xl text-[#62d2a2]">
-                                    <strong><span id="thanh-toan"><?=$tongTien?></span> đ</strong>
+                                    <strong><span id="thanh-toan"><?=number_format($tongTien)?></span> đ</strong>
                                     <input id="input-thanh-toan" class="hidden" type="text" name="thanh_toan" value="<?=$tongTien?>">
                                 </td>
                             </tr>
@@ -178,11 +178,9 @@
                             src="<?= url_public ?>/assets/images/img-check.png" alt="">
                         </label>
                         <label class="relative flex items-center justify-center p-3 border border-gray-300 rounded-xl overflow-hidden">
-                            <img class="w-16 h-16" src="<?= url_public ?>/assets/images/logo VNPAY-02.png" alt="">
-                            <span class="pl-3">
-                                Thanh Toán Online
-                            </span>
-                            <div class="absolute w-full h-full top-0 left-0 bg-gray-500/80 text-white/80 flex items-center justify-center pt-8">
+                            <img class="" src="<?= url_public ?>/assets/images/Logo-VNPAY-QR-1.png" alt="">
+                            
+                            <div class="absolute w-full h-full top-0 left-0 bg-gray-500/80 text-white/80 flex items-center justify-center">
                                 Chức năng đang cập nhật...
                             </div>
                         </label>

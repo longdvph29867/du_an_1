@@ -13,9 +13,6 @@ switch ($ctl) {
     case 'gio-hang':
         giohang_page();
         break;
-    case 'about':
-        echo "about";
-        break;
     case 'gh-delete':
         delete_giohang();
         break;

@@ -58,7 +58,7 @@ function donhang_by_id($ma_dh)
 {
     $arr = func_get_args();
     $conn = connection();
-    $sql = "SELECT don_hang.ma_dh, don_hang.ngay_dat, don_hang.ten_nguoi_nhan, don_hang.sdt_nguoi_nhan, don_hang.dia_chi_nhan, don_hang.tong_tien, don_hang.ghi_chu, trang_thai.ma_trang_thai, trang_thai.ten_trang_thai, don_vi_van_chuyen.ten_van_chuyen, don_vi_van_chuyen.gia_van_chuyen, hang_hoa.ma_hh, hang_hoa.ten_hh, chi_tiet_hang_hoa.don_gia, chi_tiet_hang_hoa.giam_gia, chi_tiet_hang_hoa.don_vi, hinh_hang_hoa.ma_hinh, hinh_hang_hoa.ten_hinh, chi_tiet_don_hang.so_luong
+    $sql = "SELECT don_hang.ma_dh, don_hang.ngay_dat, don_hang.ten_nguoi_nhan, don_hang.sdt_nguoi_nhan, don_hang.dia_chi_nhan, don_hang.tong_tien, don_hang.ghi_chu, trang_thai.ma_trang_thai, trang_thai.ten_trang_thai, don_vi_van_chuyen.ten_van_chuyen, don_vi_van_chuyen.gia_van_chuyen, hang_hoa.ma_hh, chi_tiet_hang_hoa.ma_cthh, hang_hoa.ten_hh, chi_tiet_hang_hoa.don_gia, chi_tiet_hang_hoa.giam_gia, chi_tiet_hang_hoa.don_vi, hinh_hang_hoa.ma_hinh, hinh_hang_hoa.ten_hinh, chi_tiet_don_hang.so_luong
     FROM don_hang 
     JOIN chi_tiet_don_hang ON don_hang.ma_dh = chi_tiet_don_hang.ma_dh 
     JOIN trang_thai ON don_hang.ma_trang_thai = trang_thai.ma_trang_thai 
@@ -90,6 +90,7 @@ function donhang_by_id($ma_dh)
         $ma_hinh = $item['ma_hinh'];
         if(!isset($orderDetail['products'][$ma_hh])) {
             $orderDetail['products'][$ma_hh] = [
+                'ma_cthh' => $item['ma_cthh'],
                 'ma_hh' => $item['ma_hh'],
                 'ten_hh' => $item['ten_hh'],
                 'giam_gia' => $item['giam_gia'],

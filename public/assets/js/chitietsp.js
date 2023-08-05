@@ -1,7 +1,7 @@
 function chitiet(don_gia, giam_gia, so_luong) {
   let don_giaEl = document.querySelector(".don_gia_ct");
   let so_luongEl = document.querySelector(".tong_so_luong");
-  don_giaEl.innerText = don_gia-giam_gia;
+  don_giaEl.innerText = formatCurrencyVND(don_gia-giam_gia);
   so_luongEl.innerText = so_luong;
   let soLuongKhoInput = document.querySelector('#add-cart-detailPage .so_luong_kho');
 

@@ -99,18 +99,18 @@
             </li>
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="tables.html">
                     <i class="fa-solid fa-comment"></i>
                     <span>Bình luận</span></a>
-            </li>
+            </li> -->
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="tables.html">
                     <i class="fa-solid fa-face-smile"></i>
                     <span>Đánh giá</span></a>
-            </li>
+            </li> -->
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
