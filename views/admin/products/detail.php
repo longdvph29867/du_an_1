@@ -31,10 +31,10 @@
                                         <a <?php
                                             if (count($hh_detail['hinhArr']) > 1) {
                                             ?> onclick="return confirm('Bạn có chắc chắn xoá không?')" href="?ctl=hh-delete-hinh&ma_hh=<?= $hh_detail['ma_hh'] ?>&ma_hinh=<?= $key ?>" <?php
-                                                                                                                                                                                } else {
-                                                                                                                                                                                    ?> onclick="return alert('Phải có it nhất 1 ảnh?')" href="javascript:void(0);" <?php
-                                                                                                                                                                                }
-                                                                                                                        ?> class="btn btn-danger btn-circle btn-sm position-absolute top-0 end-0" style="transform: translate(-60%, -40%);"><i class="fa-solid fa-xmark"></i></a>
+                                            } else {
+                                                ?> onclick="return alert('Phải có it nhất 1 ảnh?')" href="javascript:void(0);" <?php
+                                            }
+                                            ?> class="btn btn-danger btn-circle btn-sm position-absolute top-0 end-0" style="transform: translate(-60%, -40%);"><i class="fa-solid fa-xmark"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -89,18 +89,18 @@
                             ?>
                                 <tr>
                                     <td><?= $item['don_vi'] ?></td>
-                                    <td><?= $item['don_gia'] ?></td>
-                                    <td><?= $item['giam_gia'] ?></td>
+                                    <td><?= number_format($item['don_gia'], 0, ",", ".") ?> đ</td>
+                                    <td><?= number_format($item['giam_gia'], 0, ",", ".") ?> đ</td>
                                     <td><?= $item['so_luong'] ?></td>
                                     <td>
                                         <a class="btn btn-warning" href="?ctl=ad-sua-thuoctinh&ma_hh=<?= $hh_detail['ma_hh'] ?>&ma_cthh=<?= $item['ma_cthh'] ?>">Sửa</a>
                                         <a class="btn btn-danger" <?php
-                                                                    if (count($hh_detail['chi_tiet_sp']) > 1) {
-                                                                    ?> onclick="return confirm('Bạn có chắc chắn xoá không?')" href="?ctl=ad-delete-thuoctinh&ma_hh=<?= $hh_detail['ma_hh'] ?>&ma_cthh=<?= $item['ma_cthh'] ?>" <?php
-                                                                                                                                                                                                } else {
-                                                                                                                                                                                                    ?> onclick="return alert('Hàng hoá ít nhất 1 thuộc tính?')" href="javascript:void(0);" <?php
-                                                                                                                                                                                                }
-                                                                                                                                ?>>Xóa</a>
+                                        if (count($hh_detail['chi_tiet_sp']) > 1) {
+                                        ?> onclick="return confirm('Bạn có chắc chắn xoá không?')" href="?ctl=ad-delete-thuoctinh&ma_hh=<?= $hh_detail['ma_hh'] ?>&ma_cthh=<?= $item['ma_cthh'] ?>" <?php
+                                        } else {
+                                            ?> onclick="return alert('Hàng hoá ít nhất 1 thuộc tính?')" href="javascript:void(0);" <?php
+                                        }
+                                        ?>>Xóa</a>
                                     </td>
                                 </tr>
                             <?php
