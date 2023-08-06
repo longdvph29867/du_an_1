@@ -117,23 +117,120 @@ function hanghoa_by_ma_loai($ma_loai)
 }
 
 
-function hanghoa_all($data = [])
+function hanghoa_all($data = [], $type = '')
 {
     $conn = connection();
     if(isset($data['ma_loai'])) {
-        $sql = "SELECT * FROM hang_hoa 
-        INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
-        INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
-        WHERE hang_hoa.ma_loai = $data[ma_loai]
-        GROUP BY hang_hoa.ma_hh
-        ORDER BY hang_hoa.ma_hh ASC";
+        switch ($type) {
+            case 'hot':
+                $sql = "SELECT *, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating FROM hang_hoa 
+                INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
+                INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
+                LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
+                WHERE hang_hoa.ma_loai = $data[ma_loai]
+                GROUP BY hang_hoa.ma_hh
+                ORDER BY hang_hoa.so_luot_xem DESC";
+                break;
+            case 'rating':
+                $sql = "SELECT *, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating FROM hang_hoa 
+                INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
+                INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
+                LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
+                WHERE hang_hoa.ma_loai = $data[ma_loai]
+                GROUP BY hang_hoa.ma_hh
+                ORDER BY rating DESC";
+                break;
+            case 'new':
+                $sql = "SELECT *, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating FROM hang_hoa 
+                INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
+                INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
+                LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
+                WHERE hang_hoa.ma_loai = $data[ma_loai]
+                GROUP BY hang_hoa.ma_hh
+                ORDER BY hang_hoa.ma_hh DESC";
+                break;
+            case 'low-to-high':
+                $sql = "SELECT *, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating FROM hang_hoa 
+                INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
+                INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
+                LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
+                WHERE hang_hoa.ma_loai = $data[ma_loai]
+                GROUP BY hang_hoa.ma_hh
+                ORDER BY (chi_tiet_hang_hoa.don_gia - chi_tiet_hang_hoa.giam_gia) ASC";
+                break;
+            case 'high-to-low':
+                $sql = "SELECT *, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating FROM hang_hoa 
+                INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
+                INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
+                LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
+                WHERE hang_hoa.ma_loai = $data[ma_loai]
+                GROUP BY hang_hoa.ma_hh
+                ORDER BY (chi_tiet_hang_hoa.don_gia - chi_tiet_hang_hoa.giam_gia) DESC";
+                break;
+            default:
+                $sql = "SELECT *, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating FROM hang_hoa 
+                INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
+                INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
+                LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
+                WHERE hang_hoa.ma_loai = $data[ma_loai]
+                GROUP BY hang_hoa.ma_hh
+                ORDER BY hang_hoa.ma_hh ASC";
+                break;
+        }
+        
     }
     else {
-        $sql = "SELECT * FROM hang_hoa 
-        INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
-        INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
-        GROUP BY hang_hoa.ma_hh
-        ORDER BY hang_hoa.ma_hh ASC";
+        switch ($type) {
+            case 'hot':
+                $sql = "SELECT *, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating FROM hang_hoa 
+                INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
+                INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
+                LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
+                GROUP BY hang_hoa.ma_hh
+                ORDER BY hang_hoa.so_luot_xem DESC";
+                break;
+            case 'rating':
+                $sql = "SELECT *, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating FROM hang_hoa 
+                INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
+                INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
+                LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
+                GROUP BY hang_hoa.ma_hh
+                ORDER BY rating DESC";
+                break;
+            case 'new':
+                $sql = "SELECT *, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating FROM hang_hoa 
+                INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
+                INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
+                LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
+                GROUP BY hang_hoa.ma_hh
+                ORDER BY hang_hoa.ma_hh DESC";
+                break;
+            case 'low-to-high':
+                $sql = "SELECT *, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating FROM hang_hoa 
+                INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
+                INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
+                LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
+                GROUP BY hang_hoa.ma_hh
+                ORDER BY (chi_tiet_hang_hoa.don_gia - chi_tiet_hang_hoa.giam_gia) ASC";
+                break;
+            case 'high-to-low':
+                $sql = "SELECT *, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating FROM hang_hoa 
+                INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
+                INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
+                LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
+                GROUP BY hang_hoa.ma_hh
+                ORDER BY (chi_tiet_hang_hoa.don_gia - chi_tiet_hang_hoa.giam_gia) DESC";
+                break;
+            default:
+            $sql = "SELECT *, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating FROM hang_hoa 
+                INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
+                INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
+                LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
+                GROUP BY hang_hoa.ma_hh
+                ORDER BY hang_hoa.ma_hh ASC";
+                break;
+        }
+        
 
     }
     $stmt = $conn->prepare($sql);
@@ -356,10 +453,11 @@ function hanghoa_search($keyword, $type = '')
 {
     switch ($type) {
         case 'hot':
-            $sql = "SELECT * FROM hang_hoa 
+            $sql = "SELECT *, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating FROM hang_hoa 
             INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
             INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
             INNER JOIN loai ON loai.ma_loai = hang_hoa.ma_loai
+            LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
             WHERE hang_hoa.ten_hh LIKE '%$keyword%' OR loai.ten_loai LIKE '%$keyword%'
             GROUP BY hang_hoa.ma_hh
             ORDER BY hang_hoa.so_luot_xem DESC";
@@ -374,37 +472,41 @@ function hanghoa_search($keyword, $type = '')
             ORDER BY rating DESC";
             break;
         case 'new':
-            $sql = "SELECT * FROM hang_hoa 
+            $sql = "SELECT *, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating FROM hang_hoa 
             INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
             INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
             INNER JOIN loai ON loai.ma_loai = hang_hoa.ma_loai
+            LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
             WHERE hang_hoa.ten_hh LIKE '%$keyword%' OR loai.ten_loai LIKE '%$keyword%'
             GROUP BY hang_hoa.ma_hh
             ORDER BY hang_hoa.ma_hh DESC";
             break;
         case 'low-to-high':
-            $sql = "SELECT * FROM hang_hoa 
+            $sql = "SELECT *, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating FROM hang_hoa 
             INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
             INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
             INNER JOIN loai ON loai.ma_loai = hang_hoa.ma_loai
+            LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
             WHERE hang_hoa.ten_hh LIKE '%$keyword%' OR loai.ten_loai LIKE '%$keyword%'
             GROUP BY hang_hoa.ma_hh
-            ORDER BY chi_tiet_hang_hoa.don_gia ASC";
+            ORDER BY (chi_tiet_hang_hoa.don_gia - chi_tiet_hang_hoa.giam_gia) ASC";
             break;
         case 'high-to-low':
-            $sql = "SELECT * FROM hang_hoa 
+            $sql = "SELECT *, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating FROM hang_hoa 
             INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
             INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
             INNER JOIN loai ON loai.ma_loai = hang_hoa.ma_loai
+            LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
             WHERE hang_hoa.ten_hh LIKE '%$keyword%' OR loai.ten_loai LIKE '%$keyword%'
             GROUP BY hang_hoa.ma_hh
-            ORDER BY chi_tiet_hang_hoa.don_gia DESC";
+            ORDER BY (chi_tiet_hang_hoa.don_gia - chi_tiet_hang_hoa.giam_gia) DESC";
             break;
         default:
-            $sql = "SELECT * FROM hang_hoa 
+            $sql = "SELECT *, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating FROM hang_hoa 
             INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
             INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
             INNER JOIN loai ON loai.ma_loai = hang_hoa.ma_loai
+            LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
             WHERE hang_hoa.ten_hh LIKE '%$keyword%' OR loai.ten_loai LIKE '%$keyword%'
             GROUP BY hang_hoa.ma_hh
             ORDER BY hang_hoa.ma_hh ASC";
@@ -587,67 +689,5 @@ function hanghoa_dac_biet()
     return $hangHoaArr;
 }
 
-
-function hanghoa_filter($type)
-{
-    switch ($type) {
-        case 'hot':
-            $sql = "SELECT * FROM hang_hoa 
-            INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
-            INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
-            ORDER BY hang_hoa.so_luot_xem DESC";
-            break;
-        case 'new':
-            $sql = "SELECT * FROM hang_hoa 
-            INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
-            INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
-            ORDER BY hang_hoa.ma_hh ASC";
-            break;
-        default:
-            $sql = "SELECT * FROM hang_hoa 
-            INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
-            INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
-            ORDER BY hang_hoa.ma_hh ASC";
-            break;
-    }
-
-
-    $conn = connection();
-    
-    $stmt = $conn->prepare($sql);
-    $stmt->execute();
-    // $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    $hangHoaArr = [];
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        $maHH = $row['ma_hh'];
-        $maHinh = $row['ma_hinh'];
-        $maCthh = $row['ma_cthh'];
-        if(!isset($hangHoaArr[$maHH])) {
-            $hangHoaArr[$maHH] = [
-                'ma_hh' => $row['ma_hh'],
-                'ten_hh' => $row['ten_hh'],
-                'so_luot_xem' => $row['so_luot_xem'],
-                'mo_ta' => $row['mo_ta'],
-                'hinhArr' => [],
-                'chi_tiet_sp' => []
-            ];
-        }
-        if(!isset($hangHoaArr[$maHH]['hinhArr'][$maHinh])) {
-            $hangHoaArr[$maHH]['hinhArr'][$maHinh] = $row['ten_hinh'];
-        }
-        if(!isset($hangHoaArr[$maHH]['chi_tiet_sp'][$maCthh])) {
-            $hangHoaArr[$maHH]['chi_tiet_sp'][$maCthh] = [
-                'ma_cthh' => $row['ma_cthh'],
-                'don_vi' => $row['don_vi'],
-                'don_gia' => $row['don_gia'],
-                'giam_gia' => $row['giam_gia'],
-                'so_luong' => $row['so_luong'],
-            ];
-        }
-    }
-    // echo "<pre>";
-    // print_r($hangHoaArr);
-    return $hangHoaArr;
-}
 
 ?>

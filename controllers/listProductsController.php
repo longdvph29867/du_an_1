@@ -2,9 +2,15 @@
 
 function products_list() {
 
+    if(isset($_GET['filter'])) {
+        $listSanPhamAll = hanghoa_all([],$_GET['filter']);
+    }
+    else {
+        $listSanPhamAll = hanghoa_all();
+        
+    }
 
-
-    $listSanPhamAll = hanghoa_all();
+    // $listSanPhamAll = hanghoa_all();
     // echo '<pre>';
     // print_r($listSanPhamAll);
     // echo '</pre>';
@@ -30,7 +36,15 @@ function products_list() {
 
 function products_category() {
     $ma_loai = $_GET['ma_loai'];
-    $listSanPhamAll = hanghoa_all(['ma_loai' => $ma_loai]);
+    if(isset($_GET['filter'])) {
+        $listSanPhamAll = hanghoa_all(['ma_loai' => $ma_loai], $_GET['filter']);
+    }
+    else {
+        $listSanPhamAll = hanghoa_all(['ma_loai' => $ma_loai]);
+    }
+    // echo '<pre>';
+    // print_r($listSanPhamAll);
+    // echo '</pre>';
     $productsTotal = count($listSanPhamAll);
 
     $thisPage= $_GET['page'] ?? 1;
@@ -61,7 +75,9 @@ function products_search() {
         $listSanPhamAll = hanghoa_search($key);
     }
 
-
+    // echo '<pre>';
+    // print_r($listSanPhamAll);
+    // echo '</pre>';
     $productsTotal = count($listSanPhamAll);
 
     if(count($listSanPhamAll) != 0) {

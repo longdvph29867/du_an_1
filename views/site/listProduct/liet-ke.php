@@ -9,10 +9,9 @@
         else if (isset($_GET['ma_loai'])) {
             echo "<input type='text' name='ma_loai' value='$_GET[ma_loai]' class='hidden'>";
 
-        }
-        ;
+        };
         ?> 
-        <select onchange="submitFormFilter ()" name="filter" class="px-2 py-1 border min-w-[180px] rounded mr-[2px]" >
+        <select onchange="submitFormFilter ()" name="filter" class="px-2 py-1 border min-w-[180px] rounded mr-[2px] outline-none" >
             <option value="" hidden>---Lọc--</option>
             <option <?php if(isset($_GET['filter']) && $_GET['filter'] == 'all') echo 'selected';?>  value="all">Tât cả</option>
             <option <?php if(isset($_GET['filter']) && $_GET['filter'] == 'hot') echo 'selected';?>  value="hot">Mức độ phổ biến</option>
@@ -21,7 +20,6 @@
             <option <?php if(isset($_GET['filter']) && $_GET['filter'] == 'low-to-high') echo 'selected';?>  value="low-to-high">Thấp đến cao</option>
             <option <?php if(isset($_GET['filter']) && $_GET['filter'] == 'high-to-low') echo 'selected';?>  value="high-to-low">Cao xuống thấp</option>
         </select>
-        <button>123</button>
     </form>
 
 </div>
@@ -78,6 +76,15 @@
                 ?>
             </div>
             <p class="view"><span>Đã xem </span><?= $item['so_luot_xem'] ?></p>
+            <div id="item-rating" class="absolute left-1.5 bottom-1.5 h-[24px]">
+                <!-- (<?=$item['rating']?>) -->
+                <i data-star="<?=$item['rating']?>"></i>
+                <!-- <button class="star text-[#ff9800] cursor-pointer border-none">&#9733;</button>
+                <button class="star text-[#ff9800] cursor-pointer border-none">&#9733;</button>
+                <button class="star text-[#ff9800] cursor-pointer border-none">&#9733;</button>
+                <button class="star text-[#ff9800] cursor-pointer border-none">&#9733;</button>
+                <button class="star text-[#ff9800] cursor-pointer border-none">&#9733;</button> -->
+            </div>
         </div>
     <?php
     }
