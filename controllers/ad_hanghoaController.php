@@ -4,7 +4,7 @@
     // print_r($_POST);
     // echo '</pre>';
 function ad_hanghoa_list() {
-    $listSanPhamAll = hanghoa_all();
+    $listSanPhamAll = hanghoa_all_ad();
     $thisPage= $_GET['page'] ?? 1;
     $arrListByPage = array_chunk(array_reverse($listSanPhamAll), 10);
     $pageTotal = ceil(count($arrListByPage));

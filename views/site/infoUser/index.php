@@ -3,7 +3,7 @@ require_once '../../../config.php';
 require_once "../../../function.php";
 require_once "../../../models/connection.php";
 require_once "../../../models/loai.php";
-require_once "../../../models/hanghoa2.php";
+require_once "../../../models/hanghoa.php";
 require_once "../../../models/khachhang.php";
 require_once "../../../controllers/infoUserController.php";
 require_once "../../validate/validate-form-admin.php";

@@ -1,4 +1,30 @@
-<h3 class="text-2xl mb-4"><?= count($items) ?> Sản phẩm</h3>
+<div class="flex items-center justify-between">
+    <h3 class="text-2xl mb-4"><?= $productsTotal ?> Sản phẩm</h3>
+    <form action="" method="GET" id="filter">
+        <input type="text" name="ctl" value="<?=$_GET['ctl']?>" class='hidden'>
+        <?php
+        if(isset($_GET['keywords'])) {
+            echo "<input type='text' name='keywords' value='$_GET[keywords]' class='hidden'>";
+        }
+        else if (isset($_GET['ma_loai'])) {
+            echo "<input type='text' name='ma_loai' value='$_GET[ma_loai]' class='hidden'>";
+
+        }
+        ;
+        ?> 
+        <select onchange="submitFormFilter ()" name="filter" class="px-2 py-1 border min-w-[180px] rounded mr-[2px]" >
+            <option value="" hidden>---Lọc--</option>
+            <option <?php if(isset($_GET['filter']) && $_GET['filter'] == 'all') echo 'selected';?>  value="all">Tât cả</option>
+            <option <?php if(isset($_GET['filter']) && $_GET['filter'] == 'hot') echo 'selected';?>  value="hot">Mức độ phổ biến</option>
+            <option <?php if(isset($_GET['filter']) && $_GET['filter'] == 'rating') echo 'selected';?>  value="rating">Theo điểm đánh giá</option>
+            <option <?php if(isset($_GET['filter']) && $_GET['filter'] == 'new') echo 'selected';?>  value="new">Mới nhất</option>
+            <option <?php if(isset($_GET['filter']) && $_GET['filter'] == 'low-to-high') echo 'selected';?>  value="low-to-high">Thấp đến cao</option>
+            <option <?php if(isset($_GET['filter']) && $_GET['filter'] == 'high-to-low') echo 'selected';?>  value="high-to-low">Cao xuống thấp</option>
+        </select>
+        <button>123</button>
+    </form>
+
+</div>
 <div class="grid gap-7 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
 
     <?php
@@ -9,13 +35,13 @@
         else {
             $ma_kh = false;
         }
-        $chitiet_dongia = reset($item['chi_tiet_sp']);
+        // $item = reset($item['chi_tiet_sp']);
         $link = url_site . "/chitiet/?ma_hh=" . $item['ma_hh'];
 
     ?>
         <div class="product_item">
             <div class="product_img relative">
-                <img src="<?= url_public?>/images/products/<?= reset($item['hinhArr']) ?>" alt="">
+                <img src="<?= url_public?>/images/products/<?= $item['ten_hinh'] ?>" alt="">
                 <div class="overlay absolute w-full h-full bg-white/50 top-0 left-0 flex items-center justify-center">
                     <div class="flex space-x-2">
                         <a href="<?= $link ?>" class="btn2 !min-w-[40px] w-11 h-11 flex items-center justify-center"><i class="fa-solid fa-eye"></i></a>
@@ -23,7 +49,7 @@
                         <?php
                             if($ma_kh) {
                         ?>
-                                onclick= "addCartItem('<?=$ma_kh?>',<?=$chitiet_dongia['ma_cthh']?>, 1, <?= $chitiet_dongia['so_luong'] ?>)";
+                                onclick= "addCartItem('<?=$ma_kh?>',<?=$item['ma_cthh']?>, 1, <?= $item['so_luong'] ?>)";
                         <?php
                             }
                             else {
@@ -41,16 +67,17 @@
                     <h3><?= $item['ten_hh'] ?></h3>
                 </a>
                 <hr>
-                <p><span class="lowercase"><?= number_format($chitiet_dongia['don_gia'] - $chitiet_dongia['giam_gia']) ?> đ</span>/<?=$chitiet_dongia['don_vi']?></p>
+                <p><span class="lowercase"><?= number_format($item['don_gia'] - $item['giam_gia']) ?> đ</span>/<?=$item['don_vi']?></p>
                 <?php
-                if ($chitiet_dongia['giam_gia'] > 0) {
+                if ($item['giam_gia'] > 0) {
                 ?>
-                    <div><span class="line-through text-gray-400"><?= number_format($chitiet_dongia['don_gia']) ?></span> -<?= ceil(discountPrecent($chitiet_dongia['don_gia'], $chitiet_dongia['giam_gia'])) ?>%</div>
+                    <div><span class="line-through text-gray-400"><?= number_format($item['don_gia']) ?></span> -<?= ceil(discountPrecent($item['don_gia'], $item['giam_gia'])) ?>%</div>
                 <?php
 
                 }
                 ?>
             </div>
+            <p class="view"><span>Đã xem </span><?= $item['so_luot_xem'] ?></p>
         </div>
     <?php
     }
@@ -63,6 +90,12 @@
 
     <?php
         if($pageTotal != 1) {
+            $thisURL = $_SERVER['REQUEST_URI'];
+            $params = explode('&page', $thisURL);
+            // echo $thisURL;
+            // echo '<pre>';
+            // print_r($params);
+            // echo '</pre>';
             for($i = 0; $i < $pageTotal; $i++) {
             ?>
                 <a class="<?php 
@@ -72,7 +105,7 @@
                     if((isset($_GET['page']) && $_GET['page']==$i+1)) {
                         echo 'btn_page';
                     }
-                ?> hidden md:flex w-10 h-10 mx-1 justify-center items-center rounded-full border border-[#62d2a2] text-[#62d2a2] hover:bg-[#62d2a2] hover:text-white" href="?ctl=products&page=<?=$i+1?>">
+                ?> hidden md:flex w-10 h-10 mx-1 justify-center items-center rounded-full border border-[#62d2a2] text-[#62d2a2] hover:bg-[#62d2a2] hover:text-white" href="<?=$params[0]?>&page=<?=$i+1?>">
                 <?=$i+1?>
                 </a>
             <?php

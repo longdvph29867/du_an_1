@@ -205,5 +205,9 @@ function datHang(maKH) {
     });
 }
 
+function submitFormFilter () {
+  document.getElementById('filter').submit();
+}
+
 
 
