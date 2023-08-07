@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost
--- Thời gian đã tạo: Th8 07, 2023 lúc 05:08 AM
+-- Thời gian đã tạo: Th8 07, 2023 lúc 07:13 AM
 -- Phiên bản máy phục vụ: 10.4.27-MariaDB
 -- Phiên bản PHP: 8.0.25
 
@@ -327,7 +327,7 @@ INSERT INTO `don_hang` (`ma_dh`, `ma_kh`, `ngay_dat`, `ma_trang_thai`, `ten_nguo
 (29, 'cuongbip', '2023-03-12', 1, 'Occaecat voluptas sa', '0300000072', 'Nguyễn Khắc Cường', 1040000, 4, 'nhau de', 0),
 (30, 'user2', '2023-04-12', 1, 'hien', '0978888888', 'Impedit facilis ess', 684000, 2, 'Est provident conse', 0),
 (31, 'user2', '2023-05-12', 1, 'Do illum aperiam ex', '0999999988', 'Ut est et laborum te', 49000, 1, 'Nulla reiciendis rep', 0),
-(32, 'user2', '2023-06-12', 1, 'Sit magnam ut ut qu', '0999999998', 'Porro ullamco ab atq', 545000, 5, 'Vel voluptas exercit', 0),
+(32, 'user2', '2023-06-12', 3, 'Sit magnam ut ut qu', '0999999998', 'Porro ullamco ab atq', 545000, 5, 'Vel voluptas exercit', 0),
 (33, 'admin', '2023-07-03', 8, 'Est proident volupt', '0999999998', 'Suscipit qui et adip', 123000, 4, 'Nihil sed quis ex se', 1);
 
 -- --------------------------------------------------------
@@ -781,19 +781,21 @@ CREATE TABLE `khach_hang` (
   `hinh` varchar(50) NOT NULL COMMENT 'tên hình ảnh',
   `sdt` varchar(11) NOT NULL,
   `email` varchar(50) NOT NULL COMMENT 'địa chỉ email',
-  `vai_tro` tinyint(1) NOT NULL COMMENT 'vai trò true là nhân viên'
+  `vai_tro` tinyint(1) NOT NULL COMMENT 'vai trò true là nhân viên',
+  `hoat_dong` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `khach_hang`
 --
 
-INSERT INTO `khach_hang` (`ma_kh`, `mat_khau`, `ho_ten`, `hinh`, `sdt`, `email`, `vai_tro`) VALUES
-('admin', 'adminn', 'admins', 'user2.jpeg', '0999999888', 'admin@gmail.comm', 1),
-('cuongbip', 'Pa$$w0rd!', 'Occaecat voluptas sa', 'user2.jpeg', '0300000072', 'timaz@mailinator.com', 0),
-('longlong', 'Pa$$w0rd!', 'Perferendis ut unde ', 'user2.jpeg', '0999999914', 'gatose@mailinator.com', 0),
-('user', 'user', 'mungloli', 'Avatar Image (3).png', '0999999999', 'mykikox@mailinator.com', 0),
-('user2', 'user2', 'hien', 'Avatar Image (1).png', '0978888888', 'user2@gmail.com', 1);
+INSERT INTO `khach_hang` (`ma_kh`, `mat_khau`, `ho_ten`, `hinh`, `sdt`, `email`, `vai_tro`, `hoat_dong`) VALUES
+('admin', 'adminn', 'admins', 'user2.jpeg', '0999999888', 'admin@gmail.comm', 1, 1),
+('Culpa21', '111111', 'Architecto id et inv', '2_3.jpeg', '0999999998', 'wyjiko@mailinator.com', 1, 0),
+('cuongbip', 'Pa$$w0rd!', 'Occaecat voluptas sa', 'user2.jpeg', '0300000072', 'timaz@mailinator.com', 0, 1),
+('longlong', 'Pa$$w0rd!', 'Perferendis ut unde ', 'user2.jpeg', '0999999914', 'gatose@mailinator.com', 0, 1),
+('user', 'user', 'mungloli', 'Avatar Image (3).png', '0999999999', 'mykikox@mailinator.com', 0, 1),
+('user2', 'user2', 'hien', 'Avatar Image (1).png', '0978888888', 'user2@gmail.com', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -958,7 +960,7 @@ ALTER TABLE `chi_tiet_don_hang`
 -- AUTO_INCREMENT cho bảng `chi_tiet_hang_hoa`
 --
 ALTER TABLE `chi_tiet_hang_hoa`
-  MODIFY `ma_cthh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
+  MODIFY `ma_cthh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=154;
 
 --
 -- AUTO_INCREMENT cho bảng `danh_gia`
@@ -982,19 +984,19 @@ ALTER TABLE `don_vi_van_chuyen`
 -- AUTO_INCREMENT cho bảng `gio_hang`
 --
 ALTER TABLE `gio_hang`
-  MODIFY `ma_gh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
+  MODIFY `ma_gh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
 
 --
 -- AUTO_INCREMENT cho bảng `hang_hoa`
 --
 ALTER TABLE `hang_hoa`
-  MODIFY `ma_hh` int(11) NOT NULL AUTO_INCREMENT COMMENT 'mã hàng hoá', AUTO_INCREMENT=129;
+  MODIFY `ma_hh` int(11) NOT NULL AUTO_INCREMENT COMMENT 'mã hàng hoá', AUTO_INCREMENT=130;
 
 --
 -- AUTO_INCREMENT cho bảng `hinh_hang_hoa`
 --
 ALTER TABLE `hinh_hang_hoa`
-  MODIFY `ma_hinh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=336;
+  MODIFY `ma_hinh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=337;
 
 --
 -- AUTO_INCREMENT cho bảng `loai`
@@ -1036,8 +1038,8 @@ ALTER TABLE `chi_tiet_hang_hoa`
 -- Các ràng buộc cho bảng `danh_gia`
 --
 ALTER TABLE `danh_gia`
-  ADD CONSTRAINT `danh_gia_ibfk_1` FOREIGN KEY (`ma_hh`) REFERENCES `hang_hoa` (`ma_hh`),
-  ADD CONSTRAINT `danh_gia_ibfk_2` FOREIGN KEY (`ma_kh`) REFERENCES `khach_hang` (`ma_kh`);
+  ADD CONSTRAINT `danh_gia_ibfk_1` FOREIGN KEY (`ma_hh`) REFERENCES `hang_hoa` (`ma_hh`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `danh_gia_ibfk_2` FOREIGN KEY (`ma_kh`) REFERENCES `khach_hang` (`ma_kh`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `don_hang`
@@ -1052,7 +1054,7 @@ ALTER TABLE `don_hang`
 --
 ALTER TABLE `gio_hang`
   ADD CONSTRAINT `gio_hang_ibfk_1` FOREIGN KEY (`ma_kh`) REFERENCES `khach_hang` (`ma_kh`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `gio_hang_ibfk_2` FOREIGN KEY (`ma_cthh`) REFERENCES `chi_tiet_hang_hoa` (`ma_cthh`);
+  ADD CONSTRAINT `gio_hang_ibfk_2` FOREIGN KEY (`ma_cthh`) REFERENCES `chi_tiet_hang_hoa` (`ma_cthh`) ON DELETE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `hang_hoa`

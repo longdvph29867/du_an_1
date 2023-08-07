@@ -3,7 +3,7 @@
 function khachhang_search($key)
 {
     $conn = connection();
-    $sql = "SELECT * FROM khach_hang WHERE ho_ten LIKE '%$key%'";
+    $sql = "SELECT * FROM khach_hang WHERE hoat_dong = 1 AND ho_ten LIKE '%$key%'";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -12,7 +12,7 @@ function khachhang_search($key)
 function khachhang_all()
 {
     $conn = connection();
-    $sql = "SELECT * FROM khach_hang";
+    $sql = "SELECT * FROM khach_hang WHERE hoat_dong = 1";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -49,7 +49,8 @@ function khachhang_delete($ma_kh)
 {
     $data = func_get_args();
     $conn = connection();
-    $sql = "DELETE FROM khach_hang WHERE ma_kh=?";
+    // $sql = "DELETE FROM khach_hang WHERE ma_kh=?";
+    $sql = "UPDATE `khach_hang` SET `hoat_dong` = '0' WHERE `khach_hang`.`ma_kh` = ?";
 
     $stmt = $conn->prepare($sql);
     $stmt->execute($data);

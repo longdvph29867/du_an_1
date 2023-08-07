@@ -59,14 +59,14 @@ function ad_insert_khachhang() {
             header('location: ?ctl=ad-list');
         }
         else {
-            $listkhachhang = khachhang_all();
+            $listkhachhang = [];
             $view_name = "add.php";
             view('layout/layout-admin', ['view_name' => $view_name, 'listkhachhang' => $listkhachhang], $errors, $_POST);
             echoMesssage(false, "Tài khản đã tồn tại!");
         }
     }
     else {
-        $listkhachhang = khachhang_all();
+        $listkhachhang = [];
         $view_name = "add.php";
         view('layout/layout-admin', ['view_name' => $view_name, 'listkhachhang' => $listkhachhang], $errors, $_POST);
     }
