@@ -35,7 +35,7 @@
                 <th style="width: 15%;">Hình hàng hoá</th>
                 <th style="width: 8%;">Số Lượng</th>
                 <th style="width: 17%;">Giá</th>
-                <th style="width: 10%;">Số lượt xem</th>
+                <th style="width: 10%;">Loại</th>
                 <th style="width: 20%;">Thao tác</th>
             </tr>
         </thead>
@@ -71,7 +71,7 @@
                         echo number_format($maxMinPrice['min']). 'đ - ' . number_format($maxMinPrice['max']). 'đ';
                     }
                     ?></td>
-                    <td><?= $item['so_luot_xem'] ?></td>
+                    <td><?= $item['ten_loai'] ?></td>
                     <th>
                         <a class="btn btn-primary" href="?ctl=ad-detail-hh&ma_hh=<?= $item['ma_hh'] ?>">Chi tiết</a>
                         <a onclick="return confirm('Bạn có chắc chắn xoá không?')" class="btn btn-danger" href="?ctl=ad-delete-hh&ma_hh=<?= $item['ma_hh'] ?>">Xóa</a>

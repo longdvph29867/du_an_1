@@ -187,9 +187,10 @@
                     <!-- Button trigger modal -->
                     <button
                     <?php
+                        // onclick="showMesssage(false, 'Trạng thái này không thể cập nhật')"
                     if ($data['ma_trang_thai'] == 5 || $data['ma_trang_thai'] == 8 || $data['ma_trang_thai'] == 4) {
                         ?>
-                            onclick="showMesssage(false, 'Trạng thái này không thể cập nhật')"
+                            disabled 
                         <?php
                     }
                     else {

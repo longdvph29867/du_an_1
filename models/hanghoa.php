@@ -276,6 +276,7 @@ function hanghoa_all_ad()
     $sql = "SELECT * FROM hang_hoa 
     INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
     INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh
+    INNER JOIN loai ON loai.ma_loai = hang_hoa.ma_loai
     ORDER BY hang_hoa.ma_hh ASC";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
@@ -293,6 +294,7 @@ function hanghoa_all_ad()
                 'ten_hh' => $row['ten_hh'],
                 'so_luot_xem' => $row['so_luot_xem'],
                 'mo_ta' => $row['mo_ta'],
+                'ten_loai' => $row['ten_loai'],
                 'hinhArr' => [],
                 'chi_tiet_sp' => []
             ];
@@ -571,6 +573,7 @@ function hanghoa_search_ad($keyword)
                 'ma_hh' => $row['ma_hh'],
                 'ten_hh' => $row['ten_hh'],
                 'so_luot_xem' => $row['so_luot_xem'],
+                'ten_loai' => $row['ten_loai'],
                 'hinhArr' => [],
                 'chi_tiet_sp' => []
             ];
