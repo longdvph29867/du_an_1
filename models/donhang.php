@@ -258,6 +258,92 @@ function donhang_update_trangthai($data)
     $stmt->execute();
 }
 
+
+function donhang_total($month = '')
+{
+    $conn = connection();
+
+    if(!empty($month)) {
+
+        $sql = "SELECT COUNT(*) AS tong_donhang FROM don_hang WHERE ma_trang_thai <> 5 AND MONTH(ngay_dat) = $month";
+    }
+    else {
+
+        $sql = "SELECT COUNT(*) AS tong_donhang FROM don_hang WHERE ma_trang_thai <> 5";
+    }
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $result['tong_donhang'];
+}
+
+function donhang_total_doanhso($month = '')
+{
+    $conn = connection();
+    if(!empty($month)) {
+        $sql = "SELECT SUM(tong_tien) as tong_tien  FROM don_hang WHERE ma_trang_thai <> 5 AND MONTH(ngay_dat) = $month";
+    }
+    else {
+        $sql = "SELECT SUM(tong_tien) as tong_tien  FROM don_hang WHERE ma_trang_thai <> 5";
+    }
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $result['tong_tien'];
+}
+
+function donhang_total_danhgia($month = '')
+{
+    if(!empty($month)) {
+        $sql = "SELECT COUNT(*) as total_danhgia  FROM danh_gia WHERE MONTH(ngay_danh_gia) = $month";
+    }
+    else {
+        $sql = "SELECT COUNT(*) as total_danhgia  FROM danh_gia";
+
+    }
+
+    $conn = connection();
+
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $result['total_danhgia'];
+}
+
+function donhang_comment($month = '')
+{
+    $conn = connection();
+    if(!empty($month)) {
+        $sql = "SELECT COUNT(*) AS tong_comment FROM binh_luan WHERE MONTH(ngay_bl) = $month";
+    }
+    else {
+        $sql = "SELECT COUNT(*) AS tong_comment FROM binh_luan";
+
+    }
+
+
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $result['tong_comment'];
+}
+
+function donhang_doanhthu_6thang()
+{
+    $conn = connection();
+    $sql = "SELECT 
+    DATE_FORMAT(ngay_dat, '%Y-%m') AS thang, 
+    SUM(tong_tien) AS tong_tien_theo_thang
+        FROM 
+            don_hang
+            WHERE ngay_dat >= DATE_FORMAT(NOW() - INTERVAL 5 MONTH, '%Y-%m-01') AND ma_trang_thai <> 5
+        GROUP BY 
+            DATE_FORMAT(ngay_dat, '%Y-%m');";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
+}
 ?>
 
 

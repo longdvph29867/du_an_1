@@ -77,13 +77,7 @@
             </div>
             <p class="view"><span>Đã xem </span><?= $item['so_luot_xem'] ?></p>
             <div id="item-rating" class="absolute left-1.5 bottom-1.5 h-[24px]">
-                <!-- (<?=$item['rating']?>) -->
                 <i data-star="<?=$item['rating']?>"></i>
-                <!-- <button class="star text-[#ff9800] cursor-pointer border-none">&#9733;</button>
-                <button class="star text-[#ff9800] cursor-pointer border-none">&#9733;</button>
-                <button class="star text-[#ff9800] cursor-pointer border-none">&#9733;</button>
-                <button class="star text-[#ff9800] cursor-pointer border-none">&#9733;</button>
-                <button class="star text-[#ff9800] cursor-pointer border-none">&#9733;</button> -->
             </div>
         </div>
     <?php

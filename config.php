@@ -22,4 +22,17 @@ $errors = [];
 // lấy ngày hiện tại
 date_default_timezone_set('Asia/Ho_Chi_Minh');
 $TODAY = date('Y-m-d');
+// $TODAY = '2023-7-3';
+
+$ngay_hien_tai = new DateTime();
+$danh_sach_thang = array();
+
+for ($i = 0; $i < 6; $i++) {
+    $danh_sach_thang[] = $ngay_hien_tai->format('m');
+
+    // Di chuyển đến tháng trước đó
+    $ngay_hien_tai->modify('-1 month');
+}
+// Đảo ngược mảng để có danh sách 6 tháng gần nhất từ cũ đến mới
+// $danh_sach_thang = array_reverse($danh_sach_thang);
 ?>

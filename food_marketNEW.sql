@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost
--- Thời gian đã tạo: Th8 02, 2023 lúc 06:54 AM
+-- Thời gian đã tạo: Th8 07, 2023 lúc 05:08 AM
 -- Phiên bản máy phục vụ: 10.4.27-MariaDB
 -- Phiên bản PHP: 8.0.25
 
@@ -62,7 +62,9 @@ INSERT INTO `binh_luan` (`ma_bl`, `noi_dung`, `ma_hh`, `ma_kh`, `ngay_bl`) VALUE
 (41, 'hgfdsa', 4, 'admin', '2023-08-01'),
 (42, 'gh', 4, 'admin', '2023-08-01'),
 (43, 'ad', 1, 'admin', '2023-08-01'),
-(44, 'aadc', 9, 'admin', '2023-08-01');
+(44, 'aadc', 9, 'admin', '2023-08-01'),
+(46, '222', 4, 'admin', '2023-08-03'),
+(47, 'Nó có một hương vị hài hòa, với một sự pha trộn hoàn hảo.', 64, 'admin', '2023-08-05');
 
 -- --------------------------------------------------------
 
@@ -94,14 +96,22 @@ INSERT INTO `chi_tiet_don_hang` (`ma_ctdh`, `ma_dh`, `ma_cthh`, `so_luong`) VALU
 (10, 1, 134, 2),
 (11, 1, 68, 4),
 (12, 1, 67, 1),
-(24, 13, 56, 1),
-(25, 14, 35, 2),
-(26, 14, 20, 2),
-(27, 14, 41, 2),
-(28, 15, 21, 1),
-(29, 16, 24, 1),
-(30, 16, 130, 1),
-(33, 18, 132, 21);
+(36, 21, 20, 1),
+(45, 26, 110, 2),
+(46, 26, 52, 3),
+(47, 27, 130, 1),
+(48, 27, 20, 1),
+(49, 28, 98, 1),
+(50, 28, 103, 1),
+(51, 29, 53, 1),
+(52, 29, 110, 2),
+(53, 30, 32, 2),
+(54, 30, 28, 1),
+(55, 31, 127, 1),
+(56, 31, 132, 1),
+(57, 32, 20, 4),
+(58, 33, 25, 1),
+(59, 33, 60, 1);
 
 -- --------------------------------------------------------
 
@@ -123,19 +133,19 @@ CREATE TABLE `chi_tiet_hang_hoa` (
 --
 
 INSERT INTO `chi_tiet_hang_hoa` (`ma_cthh`, `ma_hh`, `don_vi`, `don_gia`, `giam_gia`, `so_luong`) VALUES
-(20, 1, '1 Kg', 140000.00, 10000.00, 45),
+(20, 1, '1 Kg', 140000.00, 10000.00, 80),
 (21, 2, '1 Kg', 99000.00, 5000.00, 50),
 (22, 3, '1 Kg', 110000.00, 2000.00, 50),
 (23, 4, '1 Kg', 160000.00, 12000.00, 50),
 (24, 5, '1 Kg', 125000.00, 0.00, 50),
-(25, 6, '1 Kg', 75000.00, 3000.00, 45),
+(25, 6, '1 Kg', 75000.00, 3000.00, 44),
 (26, 7, '1 Kg', 105000.00, 1000.00, 55),
-(27, 8, '1 Kg', 355000.00, 19000.00, 55),
-(28, 9, '1 Kg', 515000.00, 29000.00, 55),
+(27, 8, '1 Kg', 355000.00, 19000.00, 45),
+(28, 9, '1 Kg', 515000.00, 29000.00, 54),
 (29, 10, '1 Kg', 489000.00, 22000.00, 40),
 (30, 11, '1 Kg', 348000.00, 0.00, 45),
 (31, 12, '1 Kg', 132000.00, 11000.00, 20),
-(32, 13, '1 Kg', 102000.00, 3000.00, 30),
+(32, 13, '1 Kg', 102000.00, 3000.00, 28),
 (33, 14, '1 Kg', 113000.00, 8000.00, 20),
 (34, 15, '1 Kg', 720000.00, 22000.00, 30),
 (35, 16, '1 Kg', 320000.00, 34000.00, 45),
@@ -155,15 +165,15 @@ INSERT INTO `chi_tiet_hang_hoa` (`ma_cthh`, `ma_hh`, `don_vi`, `don_gia`, `giam_
 (49, 30, '1 Kg', 543000.00, 5000.00, 40),
 (50, 31, '1 Kg', 1099000.00, 21000.00, 45),
 (51, 32, '1 Kg', 669000.00, 4000.00, 20),
-(52, 33, '1 Kg', 234000.00, 11000.00, 30),
-(53, 34, '1 Kg', 320000.00, 10000.00, 20),
+(52, 33, '1 Kg', 234000.00, 11000.00, 27),
+(53, 34, '1 Kg', 320000.00, 10000.00, 19),
 (54, 35, '1 Kg', 211000.00, 21000.00, 30),
 (55, 36, '1 Kg', 14000.00, 1000.00, 45),
 (56, 37, '1 Kg', 12000.00, 1000.00, 45),
 (57, 38, '1 Kg', 9000.00, 1000.00, 35),
 (58, 39, '1 Kg', 8000.00, 1500.00, 25),
 (59, 40, '1 Kg', 8000.00, 1000.00, 70),
-(60, 41, '1 Kg', 29000.00, 2000.00, 45),
+(60, 41, '1 Kg', 29000.00, 2000.00, 44),
 (61, 42, '1 Kg', 31000.00, 2000.00, 50),
 (62, 43, '1 Kg', 39000.00, 3000.00, 40),
 (63, 44, '1 Kg', 48000.00, 5000.00, 60),
@@ -186,11 +196,11 @@ INSERT INTO `chi_tiet_hang_hoa` (`ma_cthh`, `ma_hh`, `don_vi`, `don_gia`, `giam_
 (80, 52, 'Thùng 6 vỉ', 134000.00, 8000.00, 45),
 (81, 53, '1 vỉ', 23000.00, 0.00, 50),
 (82, 53, '4 vỉ', 87000.00, 2000.00, 40),
-(83, 54, '100g', 9200.00, 0.00, 60),
-(84, 54, '400g', 33000.00, 500.00, 30),
-(85, 54, '1Kg', 70500.00, 3000.00, 25),
-(86, 54, '2Kg', 123000.00, 6000.00, 55),
-(87, 54, '5Kg', 310000.00, 11000.00, 65),
+(83, 54, '100g', 9200.00, 0.00, 0),
+(84, 54, '400g', 33000.00, 500.00, 0),
+(85, 54, '1Kg', 70500.00, 3000.00, 0),
+(86, 54, '2Kg', 123000.00, 6000.00, 0),
+(87, 54, '5Kg', 310000.00, 11000.00, 2),
 (88, 55, 'gói 30g', 5000.00, 0.00, 25),
 (89, 55, 'chai 150g', 13000.00, 500.00, 40),
 (90, 55, 'chai 350g', 28500.00, 1000.00, 45),
@@ -201,19 +211,19 @@ INSERT INTO `chi_tiet_hang_hoa` (`ma_cthh`, `ma_hh`, `don_vi`, `don_gia`, `giam_
 (95, 59, 'Tuýp 35g', 36500.00, 2000.00, 45),
 (96, 59, 'Tuýp 48g', 4100.00, 3000.00, 45),
 (97, 60, 'Gói 50g', 8700.00, 500.00, 35),
-(98, 61, 'Gói 170g', 18500.00, 0.00, 25),
+(98, 61, 'Gói 170g', 18500.00, 0.00, 24),
 (99, 61, 'Gói 400g', 38000.00, 0.00, 70),
 (100, 61, 'Gói 900g', 86000.00, 3000.00, 45),
 (101, 61, 'Gói 1.2kg', 109000.00, 5000.00, 50),
 (102, 61, 'Gói 1.8kg', 125000.00, 7000.00, 40),
-(103, 62, 'Chai 400ml', 37000.00, 0.00, 60),
-(104, 62, 'Chai 1 Lít', 70000.00, 0.00, 30),
+(103, 62, 'Chai 400ml', 37000.00, 0.00, 59),
+(104, 62, 'Chai 1 Lít', 70000.00, 0.00, 50),
 (105, 62, 'Chai 2 Lít', 136000.00, 8000.00, 25),
 (106, 62, 'Chai 5 Lít', 320000.00, 11000.00, 55),
 (107, 63, 'Chai 500ml', 35000.00, 1000.00, 65),
 (108, 63, 'Chai 900ml', 61000.00, 2000.00, 25),
 (109, 64, 'Lon 330ml', 13000.00, 0.00, 40),
-(110, 64, 'Thùng 24 lon', 365000.00, 12000.00, 45),
+(110, 64, 'Thùng 24 lon', 365000.00, 12000.00, 41),
 (111, 65, 'Hộp 18 gói', 54000.00, 0.00, 50),
 (112, 65, 'Hộp 21 gói', 61000.00, 2000.00, 40),
 (113, 66, '1 lon 320ml', 9200.00, 0.00, 60),
@@ -230,12 +240,12 @@ INSERT INTO `chi_tiet_hang_hoa` (`ma_cthh`, `ma_hh`, `don_vi`, `don_gia`, `giam_
 (124, 69, '1 hộp 330ml', 15000.00, 0.00, 20),
 (125, 69, '6 hộp 330ml', 82000.00, 2000.00, 25),
 (126, 69, 'Thùng 12 hộp', 155000.00, 6000.00, 15),
-(127, 70, '1 lon 320ml', 9000.00, 0.00, 65),
+(127, 70, '1 lon 320ml', 9000.00, 0.00, 64),
 (128, 70, '6 lon 320ml', 49000.00, 0.00, 25),
 (129, 70, 'Thùng 24 lon', 230000.00, 9000.00, 40),
-(130, 71, 'Chai 1.5 lít', 64000.00, 5000.00, 15),
+(130, 71, 'Chai 1.5 lít', 64000.00, 5000.00, 34),
 (131, 71, 'Thùng 12 chai', 289000.00, 10000.00, 50),
-(132, 72, '1 chai 297ml', 11000.00, 0.00, 40),
+(132, 72, '1 chai 297ml', 11000.00, 0.00, 39),
 (133, 72, '6 chai 297ml', 63000.00, 0.00, 60),
 (134, 72, 'Thùng 24 chai', 245000.00, 6000.00, 30),
 (138, 122, '1kg', 20000.00, 2000.00, 20000),
@@ -252,6 +262,7 @@ CREATE TABLE `danh_gia` (
   `ma_danh_gia` int(11) NOT NULL,
   `noi_dung_danh_gia` varchar(100) NOT NULL,
   `xep_hang` int(2) NOT NULL,
+  `ngay_danh_gia` date NOT NULL,
   `ma_hh` int(11) NOT NULL,
   `ma_kh` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -260,19 +271,26 @@ CREATE TABLE `danh_gia` (
 -- Đang đổ dữ liệu cho bảng `danh_gia`
 --
 
-INSERT INTO `danh_gia` (`ma_danh_gia`, `noi_dung_danh_gia`, `xep_hang`, `ma_hh`, `ma_kh`) VALUES
-(1, 'good good!', 5, 64, 'admin'),
-(35, '1', 1, 45, 'admin'),
-(36, '2', 2, 7, 'admin'),
-(37, '3', 3, 24, 'admin'),
-(38, '4', 4, 72, 'admin'),
-(39, '5', 5, 48, 'admin'),
-(40, 'Hic officiis minus u', 1, 45, 'admin'),
-(41, 'Est porro expedita ', 2, 7, 'admin'),
-(42, 'Excepteur qui corpor', 3, 24, 'admin'),
-(43, 'Fugiat reiciendis f', 4, 72, 'admin'),
-(44, 'Proident deserunt n', 5, 48, 'admin'),
-(45, '2131', 3, 2, 'admin');
+INSERT INTO `danh_gia` (`ma_danh_gia`, `noi_dung_danh_gia`, `xep_hang`, `ngay_danh_gia`, `ma_hh`, `ma_kh`) VALUES
+(1, 'good good!', 5, '2023-08-01', 64, 'admin'),
+(35, '1', 1, '2023-07-05', 45, 'admin'),
+(36, '2', 2, '2023-08-05', 7, 'admin'),
+(37, '3', 3, '2023-08-06', 24, 'admin'),
+(38, '4', 4, '2023-07-26', 72, 'admin'),
+(39, '5', 5, '2023-06-16', 48, 'admin'),
+(40, 'Hic officiis minus u', 1, '2023-06-12', 45, 'admin'),
+(41, 'Est porro expedita ', 2, '2023-05-09', 7, 'admin'),
+(42, 'Excepteur qui corpor', 3, '2023-05-19', 24, 'admin'),
+(43, 'Fugiat reiciendis f', 4, '2023-03-17', 72, 'admin'),
+(44, 'Proident deserunt n', 5, '2023-04-11', 48, 'admin'),
+(45, '2131', 3, '2023-05-22', 2, 'admin'),
+(46, 'jgj', 4, '2023-06-04', 4, 'admin'),
+(47, 's', 4, '2023-06-23', 1, 'admin'),
+(48, 's', 5, '2023-03-30', 71, 'admin'),
+(49, 'oooo', 5, '2023-07-02', 1, 'cuongbip'),
+(50, 'ssssss', 4, '2023-08-06', 1, 'user'),
+(51, 'ui ui ui', 4, '2023-08-07', 6, 'admin'),
+(52, 'qwertyu', 3, '2023-08-07', 41, 'admin');
 
 -- --------------------------------------------------------
 
@@ -302,11 +320,15 @@ INSERT INTO `don_hang` (`ma_dh`, `ma_kh`, `ngay_dat`, `ma_trang_thai`, `ten_nguo
 (1, 'admin', '2023-06-29', 3, 'Nguyễn Văn A', '0971111111', 'P. Trịnh Văn Bô, Xuân Phương, Nam Từ Liêm, Hà Nội', 302000, 5, 'mau den', 1),
 (2, 'admin', '2023-06-29', 4, 'Đỗ VĂn Long', '0999999999', 'Thanh Dương, Thành Đô, Tứ Xuyên, Trung Quốc', 1232000, 3, '12345678910jqka', 0),
 (3, 'user', '2023-07-01', 5, 'Nguyễn Khắc Cường', '0366666666', 'Liễu Giai, Phường Ngọc Khánh, Quận Ba Đình, Thành phố Hà Nội, Việt Nam.', 2321000, 5, 'Việt Nam', 0),
-(13, 'admin', '2023-07-24', 1, 'adminsssssss', '0323456789', 'haha', 47000, 2, '', 0),
-(14, 'admin', '2023-08-01', 8, 'adminsssssss', '0999999999', 'ha noi', 1187000, 1, '', 0),
-(15, 'admin', '2023-08-01', 8, 'adminsssssss', '0999999999', '123312', 130000, 2, '2scscdcsdscd', 1),
-(16, 'admin', '2023-08-01', 1, 'adminss', '0999999888', 'haooiiii', 213000, 1, '', 0),
-(18, 'a', '2023-08-01', 2, 'Nguyễn Văn A', '21', '21', 21, 2, '21', 0);
+(21, 'admin', '2023-08-03', 2, 'Trần Văn An', '0999999888', '789 Maple Lane, Los Angeles, USA', 159000, 1, 'Giao hàng nhanh nhất có thể, cảm ơn!', 0),
+(26, 'user', '2023-08-05', 8, 'mungloli', '0999999999', 'Tòa nhà FPT Polytechnic, phố Trịnh Văn Bô, phường Phương Canh, quận Nam Từ Liêm, TP Hà Nội', 1404000, 1, 'Giao hàng nhanh nhất có thể, cảm ơn!', 0),
+(27, 'cuongbip', '2023-01-12', 1, 'Occaecat voluptas sa', '0300000072', 'Nguyễn Khắc Cường', 225000, 2, 'hanoi, vietnam', 0),
+(28, 'cuongbip', '2023-02-12', 1, 'Occaecat voluptas sa', '0300000072', 'hanoi.vietnam', 91500, 2, 'giao nhanh nhe', 0),
+(29, 'cuongbip', '2023-03-12', 1, 'Occaecat voluptas sa', '0300000072', 'Nguyễn Khắc Cường', 1040000, 4, 'nhau de', 0),
+(30, 'user2', '2023-04-12', 1, 'hien', '0978888888', 'Impedit facilis ess', 684000, 2, 'Est provident conse', 0),
+(31, 'user2', '2023-05-12', 1, 'Do illum aperiam ex', '0999999988', 'Ut est et laborum te', 49000, 1, 'Nulla reiciendis rep', 0),
+(32, 'user2', '2023-06-12', 1, 'Sit magnam ut ut qu', '0999999998', 'Porro ullamco ab atq', 545000, 5, 'Vel voluptas exercit', 0),
+(33, 'admin', '2023-07-03', 8, 'Est proident volupt', '0999999998', 'Suscipit qui et adip', 123000, 4, 'Nihil sed quis ex se', 1);
 
 -- --------------------------------------------------------
 
@@ -345,13 +367,6 @@ CREATE TABLE `gio_hang` (
   `so_luong` int(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Đang đổ dữ liệu cho bảng `gio_hang`
---
-
-INSERT INTO `gio_hang` (`ma_gh`, `ma_kh`, `ma_cthh`, `so_luong`) VALUES
-(64, 'admin', 23, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -373,22 +388,22 @@ CREATE TABLE `hang_hoa` (
 --
 
 INSERT INTO `hang_hoa` (`ma_hh`, `ten_hh`, `ngay_nhap`, `mo_ta`, `dac_biet`, `so_luot_xem`, `ma_loai`) VALUES
-(1, 'Thịt ba rọi heo', '2023-06-03', 'Thịt ba chỉ (hay còn gọi là ba rọi) là phần thịt heo được cắt ra từ bụng, không có xương và nhiều mỡ. Sỡ dĩ người ta thường gọi thịt ba chỉ là bởi khi cắt ngang sẽ thấy được phần thịt và mỡ xen kẽ 3 lớp với nhau theo thứ tự lớp thịt, mỡ rồi lại đến lớp thịt', 0, 84, 1),
-(2, 'Móng giò', '2023-06-03', 'Phần móng giò trắng nõn được sơ chế và pha lóc khéo léo, mang trọn hương vị của phần da dẻo mềm mềm, lớp gân giòn và thịt ngọt thơm ngon. Móng giò rất giàu Protit, sau khi đưa vào cơ thể sẽ có tác dụng hiệu quả trong việc cải thiện chức năng sinh lý của các cơ quan nội tạng, làm cho các tế bào da giữ được nước nên đỡ bị khô nhăn, khiến cho da bóng và căng', 1, 34, 1),
+(1, 'Thịt ba rọi heo', '2023-06-03', 'Thịt ba chỉ (hay còn gọi là ba rọi) là phần thịt heo được cắt ra từ bụng, không có xương và nhiều mỡ. Sỡ dĩ người ta thường gọi thịt ba chỉ là bởi khi cắt ngang sẽ thấy được phần thịt và mỡ xen kẽ 3 lớp với nhau theo thứ tự lớp thịt, mỡ rồi lại đến lớp thịt', 0, 110, 1),
+(2, 'Móng giò', '2023-06-03', 'Phần móng giò trắng nõn được sơ chế và pha lóc khéo léo, mang trọn hương vị của phần da dẻo mềm mềm, lớp gân giòn và thịt ngọt thơm ngon. Móng giò rất giàu Protit, sau khi đưa vào cơ thể sẽ có tác dụng hiệu quả trong việc cải thiện chức năng sinh lý của các cơ quan nội tạng, làm cho các tế bào da giữ được nước nên đỡ bị khô nhăn, khiến cho da bóng và căng', 1, 35, 1),
 (3, 'Thịt heo xay', '2023-06-03', 'Loại thịt rất quen thuộc với mỗi bà nội trợ nhờ độ linh hoạt cao trong chế biến, lại nhanh thấm gia vị và có khả năng kết hợp hài hòa với hầu hết các loại rau củ, cho các đầu bếp tại gia thỏa sức biến tấu. Sản phẩm được kết hợp từ thịt nạc và mỡ tươi sạch tạo sự hài hòa cho hương vị và sự an tâm tuyệt đối về chất lượng cho các món ăn', 0, 2, 1),
-(4, 'Sườn heo', '2023-06-03', 'Sườn hồng tươi với sụn giòn rụm cùng thịt mềm căng mọng được tuyển chọn kỹ lưỡng từ tảng sườn ngon nhất. Là nguyên liệ hảo hạng cho món ngon đúng điệu. Sườn heo là bộ phận chứa nhiều các chất dinh dưỡng như protein, vitamin B12, kẽm, sắt và chất béo không bão hòa như Omega-3 giúp cung cấp cho cơ thể loạt các vi chất cần thiết', 1, 33, 1),
-(5, 'Bắp giò heo', '2023-06-03', 'Chân giò heo tiêu chuẩn về an toàn toàn thực phẩm. Giò heo săn chắc, thịt có sự kết hợp với gân mỡ nên ăn béo ngậy và thơm, thích hợp để hầm canh, nấu các món nước như hủ tiếu, bánh canh. Do chân hoạt động nhiều nên phần thịt sẽ mỏng, mềm, ngọt và có nhiều gân hơn vì vậy mà khi chế biến các món hầm, giả cầy, luộc,... sẽ mềm, thấm gia vị và ngon hơn', 1, 57, 1),
-(6, 'Đuôi heo', '2023-06-03', 'Đuôi heo bao gồm cả phần xương đuôi. Phần đuôi gồm chủ yếu là thịt và mỡ, được bao quanh bởi da. Xương và các mẩu sụn nhỏ ở các đầu khớp nối tạo độ giòn khi thưởng thức. Trong thực đơn gia đình thì đây là nguyên liệu lý tưởng cho các món hầm, ninh nhừ để đem lại những món ăn thơm ngon, hương vị đậm đà nhưng không hề béo', 0, 1, 1),
+(4, 'Sườn heo', '2023-06-03', 'Sườn hồng tươi với sụn giòn rụm cùng thịt mềm căng mọng được tuyển chọn kỹ lưỡng từ tảng sườn ngon nhất. Là nguyên liệ hảo hạng cho món ngon đúng điệu. Sườn heo là bộ phận chứa nhiều các chất dinh dưỡng như protein, vitamin B12, kẽm, sắt và chất béo không bão hòa như Omega-3 giúp cung cấp cho cơ thể loạt các vi chất cần thiết', 1, 47, 1),
+(5, 'Bắp giò heo', '2023-06-03', 'Chân giò heo tiêu chuẩn về an toàn toàn thực phẩm. Giò heo săn chắc, thịt có sự kết hợp với gân mỡ nên ăn béo ngậy và thơm, thích hợp để hầm canh, nấu các món nước như hủ tiếu, bánh canh. Do chân hoạt động nhiều nên phần thịt sẽ mỏng, mềm, ngọt và có nhiều gân hơn vì vậy mà khi chế biến các món hầm, giả cầy, luộc,... sẽ mềm, thấm gia vị và ngon hơn', 1, 62, 1),
+(6, 'Đuôi heo', '2023-06-03', 'Đuôi heo bao gồm cả phần xương đuôi. Phần đuôi gồm chủ yếu là thịt và mỡ, được bao quanh bởi da. Xương và các mẩu sụn nhỏ ở các đầu khớp nối tạo độ giòn khi thưởng thức. Trong thực đơn gia đình thì đây là nguyên liệu lý tưởng cho các món hầm, ninh nhừ để đem lại những món ăn thơm ngon, hương vị đậm đà nhưng không hề béo', 0, 2, 1),
 (7, 'Nạc vai heo', '2023-06-03', 'Nạc vai heo là phần thịt đặc trưng được lấy từ đùi trước (vai) của heo. Nạc vai còn bao gồm một phần đầu của thăn ngoại heo (đầu mềm). Chất lượng thịt heo đạt chất lượng cao nhất, thịt heo đều được Cơ quan thú y nhà nước kiểm tra, đóng dấu trước khi đưa ra thị trường tiêu thụ', 1, 0, 1),
 (8, 'Bắp bò Úc', '2023-06-03', 'Bắp bò Úc luôn là được xếp trong danh sách dòng sản phẩm best seller ở mọi cửa hàng trong hệ thống. Với thực đơn chế biến đa dạng như bò kho, bò hầm, bò sốt vang, bò luộc, bò xào, bò nướng, bò hấp, sản phẩm đáp ứng nhu cầu ẩm thực phong phú của nhiều gia đình Việt. Hãy đến với Food Market ngay hôm nay để được mua hàng với mức giá tốt nhất', 1, 1, 1),
 (9, 'Ba chỉ bò nhập khẩu', '2023-06-03', 'Ba chỉ bò là phần thịt được lấy từ phần bụng của con bò, là phần thịt với những dải thịt nạc và thịt mỡ xen kẽ nhau tạo nên độ mềm, ngậy, ngọt nhưng hoàn toàn không ngấy. Bò nhập khẩu rất dễ chế biến. Những món ăn nấu từ thịt ba chỉ bò cũng rất đơn giản như xào, lẩu, cuốn cải nướng, cuốn nấm kim châm nướng, nhúng giấm hay làm salat', 1, 37, 1),
-(10, 'Thăn ngoại bò Úc', '2023-06-03', 'Là sự xen kẽ hoàn hảo giữa lớp thịt và lớp mỡ trên miếng thịt bò tạo nên những hình vân cẩm thạch đẹp mắt.Thịt bò mềm, mọng nước, hợp để làm steak hoặc nhúng lẩu. Thăn ngoại bò vốn nổi tiếng là loại thịt bò cao cấp nhất trên thế giới. Các đường vân mỡ – nạc đan xen đều đặn tựa như đường vân cẩm thạch', 0, 3, 1),
-(11, 'Gầu bò Úc', '2023-06-03', 'Gầu bò Úc hay còn gọi là nạm bò, ức bò (Brisket) là sản phẩm nhập khẩu trực tiếp từ các thương hiệu thịt bò hàng đầu của Úc với đầy đủ tem nhãn của nhà sản xuất và dấu kiểm định của Chi Cục Thú Y. Quá trình sơ chế, đóng khay, cấp đông Bò Úc vệ sinh sạch sẽ đảm bảo chất lượng, an toàn cho sức khỏe người tiêu dùng. Gầu Bò Úc được pha cắt bằng máy bào công nghiệp, bào lẩu theo tiêu chuẩn độ dày 1,5mm cho món lẩu.', 1, 13, 1),
+(10, 'Thăn ngoại bò Úc', '2023-06-03', 'Là sự xen kẽ hoàn hảo giữa lớp thịt và lớp mỡ trên miếng thịt bò tạo nên những hình vân cẩm thạch đẹp mắt.Thịt bò mềm, mọng nước, hợp để làm steak hoặc nhúng lẩu. Thăn ngoại bò vốn nổi tiếng là loại thịt bò cao cấp nhất trên thế giới. Các đường vân mỡ – nạc đan xen đều đặn tựa như đường vân cẩm thạch', 0, 4, 1),
+(11, 'Gầu bò Úc', '2023-06-03', 'Gầu bò Úc hay còn gọi là nạm bò, ức bò (Brisket) là sản phẩm nhập khẩu trực tiếp từ các thương hiệu thịt bò hàng đầu của Úc với đầy đủ tem nhãn của nhà sản xuất và dấu kiểm định của Chi Cục Thú Y. Quá trình sơ chế, đóng khay, cấp đông Bò Úc vệ sinh sạch sẽ đảm bảo chất lượng, an toàn cho sức khỏe người tiêu dùng. Gầu Bò Úc được pha cắt bằng máy bào công nghiệp, bào lẩu theo tiêu chuẩn độ dày 1,5mm cho món lẩu.', 1, 15, 1),
 (12, 'Gà đồi cao lãnh', '2023-06-03', 'Thịt gà đồi thường có cấu trúc cơ bắp chắc chắn và mềm mại, với một lượng mỡ ít hơn so với các loại gà nuôi công nghiệp. Do được nuôi trong môi trường tự nhiên, gà đồi thường có cơ bắp phát triển tự nhiên hơn và thường được cho ăn các nguồn thức ăn tự nhiên như cỏ, hạt, sâu, giun và côn trùng. Thịt gà đồi là một nguồn cung cấp protein chất lượng cao, vitamin B6, vitamin B12, selen và các khoáng chất khác. Nó là một lựa chọn ăn uống lành mạnh và giàu dinh dưỡng', 0, 1, 1),
 (13, 'Cánh gà', '2023-06-03', 'Cánh gà là một phần thịt được lấy từ cánh của con gà. Đây là một phần thịt thường được ưa chuộng và sử dụng phổ biến trong ẩm thực nhiều quốc gia trên thế giới. Cánh gà có cấu trúc xương và thịt cân đối. Phần thịt trên cánh gà thường là mềm mại và có một lượng mỡ nhất định, tạo ra hương vị thơm ngon và độ mềm phù hợ', 1, 5, 1),
 (14, 'Đùi gà', '2023-06-03', 'Đùi gà là một phần thịt được lấy từ phần đùi hoặc chân sau của con gà. Đây là một phần thịt gà phổ biến và được sử dụng rộng rãi trong ẩm thực. Khi chế biến, đùi gà có thể được nướng, quay, rán hoặc hấp theo nhiều phong cách khác nhau. Đùi gà thường được tẩm gia vị hoặc sốt để tăng cường hương vị và độ ngon. Đùi gà cũng thích hợp để làm món chính hoặc món ăn nhẹ', 1, 2, 1),
 (15, 'Sườn cừu mông cổ', '2023-06-03', 'Sườn cừu Mông Cổ là một sản phẩm thịt từ phần sườn của Cừu Mông Cổ, một loại gia súc được nuôi chủ yếu ở Mông Cổ. Đây là một phần thịt ngon, giàu dinh dưỡng và có một hương vị đặc trưng. Sườn cừu Mông Cổ thường có cấu trúc xương dài và thịt mềm, có nhiều mỡ ở giữa, giúp tạo ra một hương vị giàu mỡ và thơm ngon. Phần thịt được cắt từ sườn cừu thường có lớp mỡ mỏng bao quanh, làm tăng hương vị và giữ cho thịt mềm và không khô', 1, 41, 1),
-(16, 'Cá Mập Cambodia', '2023-06-03', 'Cá Mập Cambodia là một sản phẩm độc đáo được chế biến từ cá mập tươi ngon, nổi tiếng từ vùng biển Cambodia. Sản phẩm này mang đến cho bạn trải nghiệm ẩm thực độc đáo với hương vị đậm đà và thịt cá mập mềm mịn. Với sự kết hợp hoàn hảo giữa phương pháp chế biến truyền thống và công nghệ hiện đại, \"Cá Mập Cambodia\" là một món ăn tuyệt vời để khám phá hương vị biển cả và nền ẩm thực', 1, 149, 2),
+(16, 'Cá Mập Cambodia', '2023-06-03', 'Cá Mập Cambodia là một sản phẩm độc đáo được chế biến từ cá mập tươi ngon, nổi tiếng từ vùng biển Cambodia. Sản phẩm này mang đến cho bạn trải nghiệm ẩm thực độc đáo với hương vị đậm đà và thịt cá mập mềm mịn. Với sự kết hợp hoàn hảo giữa phương pháp chế biến truyền thống và công nghệ hiện đại, \"Cá Mập Cambodia\" là một món ăn tuyệt vời để khám phá hương vị biển cả và nền ẩm thực', 1, 151, 2),
 (17, 'Cá Chim Trắng Lai Châu', '2023-06-11', 'Cá chim có hai loại phổ biển là cá chim trắng và cá chim đen, tuy nhiên cá chim trắng được ưa chuộng nhất bởi cá chim trắng thịt ngon và thơm hơn rất nhiều so với cá chim đen.', 0, 0, 2),
 (18, 'Cá Saba Lào Cai', '2023-06-11', 'Cá sa ba tẩm tiêu xanh được nhiều người Việt ưa chuộng bởi độ dinh dưỡng cao và tốt cho sức khỏe. Cá sa ba tẩm tiêu xanh nhập khẩu nguyên liệu trực tiếp từ Nhật về Việt Nam và sau đó bắt đầu sơ chế đóng gói, dán tem, hàng chất lượng tươi ngon.', 0, 0, 2),
 (19, 'Cá Hồi Nguyên Con Cao Lãnh', '2023-06-11', 'Cá hồi Nauy là loại thực phẩm giàu dinh dưỡng cho sức khỏe của chúng ta. Chúng được chế biến thành nhiều món ăn ngon, đặc biệt là các món ăn tươi sống như sushi hay sashimi rất được ưa chuộng ở khắp nơi.', 1, 0, 2),
@@ -397,20 +412,20 @@ INSERT INTO `hang_hoa` (`ma_hh`, `ten_hh`, `ngay_nhap`, `mo_ta`, `dac_biet`, `so
 (22, 'Cá Dìa Bông Làm Sạch', '2023-06-11', 'Cá Dìa Bông là hải sản nổi tiếng ở Nha Trang, Cam Ranh được nhiều khách yêu thích. Cá chỉ có theo mùa nên được bán chạy khi có hàng tại Đảo, khách Sài Gòn rất thích ăn cá biển bơi thịt tươi ngon, ngọt và siêu béo.', 1, 6, 2),
 (23, 'Cá Dứa 1 Nắng', '2023-06-11', 'Cá dứa 1 nắng là một món ăn rất quen thuộc với người Việt Nam. Vì từ lâu, loại khô cá này đã có mặt trong mọi bữa ăn của người dân ở khắp các vùng miền. Khô cá dứa được chế biến bằng cách sấy khô cá dứa và trộn các gia vị như đường, muối, tỏi, hành, ớt và dầu ăn để tạo nên hương vị đặc trưng.', 1, 0, 2),
 (24, 'Cá Chỉ Vàng 2 Nắng', '2023-06-11', 'Cá chỉ vàng ( hay còn gọi là cá ngân chỉ ) cá sống tập trung nhiều ở vùng biển ven Phan Thiết - Bình Thuận vì vậy nên khu vực biển này khá nổi tiếng với khô cá chỉ vàng 2 nắng, và là vùng có khô ngon nhất hiện nay.', 1, 0, 2),
-(25, 'Cá Chép Sông Đà', '2023-06-11', 'Cá chép có thể chế biến thành nhiều món ăn hấp dẫn cả thị giác lẫn khứu giác và vị giác. Các món ăn chế biến ngon nhất với nguyên liệu cá chép giòn đó là cá chép giòn nướng muối ớt và cá chép giòn om dưa chua, nướng muối ớt, bạn chỉ cần làm thịt cá chép giòn như hướng dẫn ở trên, sau đó giã một chén muối ớt tùy theo khẩu vị của bạn rồi ướp cá với chút dầu ăn nữa và nướng. Mách nhỏ các bạn ở món này là với phần muối nếu cho thêm ít đường vào sẽ dịu vị cá nướng và ngon hơn.', 1, 0, 2),
+(25, 'Cá Chép Sông Đà', '2023-06-11', 'Cá chép có thể chế biến thành nhiều món ăn hấp dẫn cả thị giác lẫn khứu giác và vị giác. Các món ăn chế biến ngon nhất với nguyên liệu cá chép giòn đó là cá chép giòn nướng muối ớt và cá chép giòn om dưa chua, nướng muối ớt, bạn chỉ cần làm thịt cá chép giòn như hướng dẫn ở trên, sau đó giã một chén muối ớt tùy theo khẩu vị của bạn rồi ướp cá với chút dầu ăn nữa và nướng. Mách nhỏ các bạn ở món này là với phần muối nếu cho thêm ít đường vào sẽ dịu vị cá nướng và ngon hơn.', 1, 8, 2),
 (26, 'Cua King Crab', '2023-06-11', 'Cua Hoàng Đế Alaska Cái hay còn gọi là King Crab được nhiều khách hàng ưa chuộng không chỉ tại Việt Nam mà còn rất nhiều nơi trên thế giới vì chất lượng thịt cua được đánh giá là chất lượng ngon ngọt dai mà không có loại hải sản nào có thể vượt mặt được. Vậy cua King Crab cái tại Đảo Hải sản có những đặc điểm gì? Nếu mua nhầm cua kém chất lượng thì Đảo Hải Sản có chính sách gì để bảo vệ khách hàng cùng xem qua nội dung sản phẩm này nhé!', 1, 0, 3),
 (27, 'Tôm Hùm Alaska', '2023-06-11', 'So với các loại tôm hùm nội ngoại địa khác thì tôm hùm Alaska baby size nhỏ đang được Đảo Hải Sản nhập khẩu về, đây là dòng sản phẩm được ưa chuộng nhất hiện nay tại Tp Hồ Chí Minh và các tỉnh lân cận. Nếu chúng ta so sánh giá trong tầm 2.000.000đ ngoài những sản phẩm tôm hùm Việt Nam ra thì khách hàng còn có sự lựa chọn tôm hùm alaska', 1, 1, 3),
 (28, 'Bào Ngư Hàn Quốc', '2023-06-11', 'Bào ngư là một lọai hải sản nổi tiếng vì độ thơm ngon bổ dưỡng, và nguồn dinh dưỡng quý giá mà chúng mang lại. Vậy đặc điểm của bào ngư, công dụng và cũng như giá thành hiện nay của bào ngư như thế nào, hãy cùng Đảo tìm hiểm qua bài viết sau.', 1, 0, 3),
-(29, 'Hàu Nhật Bản', '2023-06-11', 'Hàu sữa Nhật Bản, hay còn gọi là hàu nước ngọt, là một loại hàu được nuôi trong môi trường nước ngọt. Nó được coi là một trong những loại hàu ngon nhất thế giới với vị ngọt tự nhiên, mềm mại và tươi mát. Hàu Nhật là một thực phẩm tuyệt vời cho sức khỏe của chúng ta', 1, 0, 3),
+(29, 'Hàu Nhật Bản', '2023-06-11', 'Hàu sữa Nhật Bản, hay còn gọi là hàu nước ngọt, là một loại hàu được nuôi trong môi trường nước ngọt. Nó được coi là một trong những loại hàu ngon nhất thế giới với vị ngọt tự nhiên, mềm mại và tươi mát. Hàu Nhật là một thực phẩm tuyệt vời cho sức khỏe của chúng ta', 1, 1, 3),
 (30, 'Sò Đỏ Canada', '2023-06-11', 'Sò đỏ sống trong môi trường sống tự nhiên có tuổi thọ đến vài thập kỷ. Nó được chôn vùi trong cát và lấy lên bằng máy đào thủy lực ngoài đại dương.Sau khi tách vỏ, sò được trải qua quá trình sơ chế và cấp đông nhanh để giữ được chất lượng tuyệt đối cùng hương vị vốn có', 0, 30, 3),
 (31, 'Tôm Hùm Úc', '2023-06-11', 'Tôm hùm Tây Úc thu hút ánh nhìn đầu tiên bởi màu sắc thật đẹp, dinh dưỡng cao và đặc biệt thịt tôm rất là thơm, săn chắc và ngọt lắm. Tôm hùm Tây Úc nổi tiếng trên thế giới. Tôm hùm Tây Úc có hình dáng tựa như tôm hùm xanh Nha Trang, chỉ khác về màu sắc đỏ sậm rất bắt mắt. Ngoài ra tôm hùm Tây Úc nhiều khách dễ nhầm lẫn là tôm hùm Nam Úc vì cả 2 chỉ khác nhau hóa văn trên thân tôm.', 1, 0, 3),
 (32, 'Cua Tuyết', '2023-06-11', 'Cua tuyết được nhập sống trực tiếp từ vùng biển nước sâu và cực lạnh khu Bắc Cực, chính vì điều kiện s.ống khắc nghiệt đã tạo nên hương vị đặc trưng của cua tuyết. Được du nhập về Việt Nam thời gian gần đây nhưng đã gây ra \'\'cơn sốt\'\' trong giới sành ăn bởi chất lượng cực đỉnh. Thịt cua chắc từng khối và rất ngọt thịt', 0, 5, 3),
-(33, 'Mực Ống 1 Nắng', '2023-06-11', 'Mực ống 1 nắng là hải sản bán chạy tại shop vào các dịp lễ , tết , tất niên hay những buổi tiệc lớn. Theo ý kiến của nhiều khách hàng , mực 1 nắng thích hợp làm quà tặng , quà biếu cho người thân , đồng nghiệp và bạn bè. Mực ống 1 nắng được làm từ mực ống câu, là loại mực ngon nhất. Những con mực từ biển xanh qua bàn tay con người lại trở nên đặc biệt và thấm đẫm cái tình biển xanh. Mực ống khi câu được ngư dân xẻ và đem đi rửa sạch để giảm bớt nước biển trong con mực, sau đó sẽ đem ra phơi nắng. Phải chọn nơi nhiều ánh nắng, nắng to để mực được ngon hơn', 1, 0, 3),
+(33, 'Mực Ống 1 Nắng', '2023-06-11', 'Mực ống 1 nắng là hải sản bán chạy tại shop vào các dịp lễ , tết , tất niên hay những buổi tiệc lớn. Theo ý kiến của nhiều khách hàng , mực 1 nắng thích hợp làm quà tặng , quà biếu cho người thân , đồng nghiệp và bạn bè. Mực ống 1 nắng được làm từ mực ống câu, là loại mực ngon nhất. Những con mực từ biển xanh qua bàn tay con người lại trở nên đặc biệt và thấm đẫm cái tình biển xanh. Mực ống khi câu được ngư dân xẻ và đem đi rửa sạch để giảm bớt nước biển trong con mực, sau đó sẽ đem ra phơi nắng. Phải chọn nơi nhiều ánh nắng, nắng to để mực được ngon hơn', 1, 2, 3),
 (34, 'Mực Lá', '2023-06-11', 'Mực lá bán chạy vào những dịp lễ , cuối tuần , tất niên...khách mua biếu tặng rất nhiều vì hải sản không những ăn ngon mà còn giàu dinh dưỡng , mang nhiều sức khỏe tốt cho mọi gia đình. Mực lá nhiều nhà dân hay xẻ và phơi qua 1 nắng , 2 nắng hay làm khô mực , mực tẩm ướp đều ngon và hấp dẫn. Ngoài ra mực lá làm nhiều món nướng , hấp hành gừng , xào rau củ hay rim me...Chấm kèm tương ớt sẽ ngon hơn . Mực lá thích hợp cho nhiều buổi tiệc liên hoan công ty, sinh nhật hay bạn bè gặp mặt cuối tuần tụ họp . Ngồi lai rai nhấm nhấp và uống chung với bia càng tuyệt vời', 0, 2, 3),
 (35, 'Bạch tuộc tươi', '2023-06-11', 'Bạch tuộc là động vật thân mềm, thịt dày, có vị ngọt mặn tự nhiên của biển và xúc tu giòn dai nên được rất nhiều người yêu thích. Thịt bạch tuộc tươi có giá trị dinh dưỡng cao, nhiều loại khoáng chất như phốt pho, canxi, sắt, đồng, kẽm, iốt, thịt bạch tuộc chứa ít chất béo, itamin thiết yếu như A, B1, B2, C,... giúp bổ máu và tăng cường hệ miễn dịch. Trong thịt bạch tuộc chứa dồi dào canxi, kali, phốt pho, vitamin và một số axit béo omega-3 tốt cho tim và giúp xương chắc khỏe', 1, 0, 3),
 (36, 'Bắp Cải Trái Tim', '2023-06-11', 'Bắp cải trái tim có thể được sử dụng trong nhiều món ăn khác nhau. Nó có thể được ăn sống trong các món salad, hoặc được nấu chín trong các món canh, xào, hấp và trộn. Với hình dáng độc đáo của mình, bắp cải trái tim thường được sử dụng để trang trí đĩa ăn và tạo điểm nhấn hấp dẫn cho bữa ăn.', 1, 0, 4),
 (37, 'Bí ngô cô tiên', '2023-06-11', 'Bí ngô cô tiên là một loại quả bí ngô có hình dáng độc đáo và thu hút sự chú ý. Nó được biết đến với tên khoa học là Cucurbita pepo var. styriaca. Quả bí ngô cô tiên có hình tròn, bề mặt mịn và màu da cam sáng hoặc vàng. Ngoài ra, bí ngô cô tiên cũng có giá trị dinh dưỡng. Nó chứa nhiều chất xơ, vitamin A, vitamin C và khoáng chất như kali, magiê và sắt. Bí ngô cô tiên có vị ngọt và hơi hạt, thích hợp để nấu chín, nướng, xào hoặc chế biến thành các món ăn như súp bí ngô, bánh bí ngô, hay nước ép bí ngô.', 1, 0, 4),
-(38, 'Cà rốt Mộc Châu', '2023-06-11', 'Đặc điểm nổi bật của cà rốt Mộc Châu là nó có hương vị ngọt tự nhiên và giữ được độ giòn sau khi nấu chín. Quả cà rốt này chứa nhiều chất xơ, vitamin A, vitamin C và khoáng chất như kali và sắt, mang lại nhiều lợi ích cho sức khỏe. Cà rốt Mộc Châu thường được sử dụng trong nhiều món ăn như xào, hấp, trộn salad, nấu súp hoặc chế biến thành nước ép cà rốt. Ngoài ra, nó còn được sử dụng trong công thức làm bánh và kem, tạo ra màu sắc và hương vị thú vị.', 1, 25, 4),
+(38, 'Cà rốt Mộc Châu', '2023-06-11', 'Đặc điểm nổi bật của cà rốt Mộc Châu là nó có hương vị ngọt tự nhiên và giữ được độ giòn sau khi nấu chín. Quả cà rốt này chứa nhiều chất xơ, vitamin A, vitamin C và khoáng chất như kali và sắt, mang lại nhiều lợi ích cho sức khỏe. Cà rốt Mộc Châu thường được sử dụng trong nhiều món ăn như xào, hấp, trộn salad, nấu súp hoặc chế biến thành nước ép cà rốt. Ngoài ra, nó còn được sử dụng trong công thức làm bánh và kem, tạo ra màu sắc và hương vị thú vị.', 1, 31, 4),
 (39, 'Cải Chíp', '2023-06-11', 'Cải Chíp có hình dạng và kích thước nhỏ gọn, thường có chiều cao khoảng 20-30 cm. Lá của nó có dạng rễ, hình thù hơi giống chiếc chìa khóa, có thể ăn được. Lá có mùi thơm đặc trưng và vị ngọt nhẹ. Rau Cải Chíp là một nguồn cung cấp chất xơ, vitamin C, vitamin K và các chất chống oxy hóa. Nó cũng cung cấp một số khoáng chất như kali, canxi và sắt. Rau này có hàm lượng calo thấp, không chứa cholesterol và có chứa chất chống vi khuẩn tự nhiên.', 0, 30, 4),
 (40, 'Cải Bó Xôi', '2023-06-11', 'Cải Bó Xôi là một nguồn cung cấp chất xơ, vitamin C, vitamin K và các chất chống oxy hóa. Nó cũng cung cấp một số khoáng chất như kali, canxi và sắt. Cải này có hàm lượng calo thấp, không chứa cholesterol và có chứa chất chống vi khuẩn tự nhiên. Cải Bó Xôi thường được sử dụng trong nhiều món ăn như xào, hấp, trộn salad, canh và nấu súp. Với lá xanh dày và cấu trúc độc đáo, nó tạo thêm sự ngon miệng và màu sắc hấp dẫn cho các món ăn.', 1, 0, 4),
 (41, 'Vải Bắc Giang', '2023-06-11', 'Vải Bắc Giang là một loại trái cây đặc sản của tỉnh Bắc Giang, Việt Nam. Loại vải này có tên khoa học là Litchi chinensis và còn được gọi là vải thiều. Vải Bắc Giang có vỏ ngoài màu đỏ tươi, bóng và có những đường nổi lồi nhỏ. Vải Bắc Giang là một loại trái cây ngọt ngào, thơm ngon và giàu dinh dưỡng. Với màu sắc đẹp mắt và vị ngọt tự nhiên, nó là một sản phẩm trái cây được ưa chuộng và thường được coi là một biểu tượng của vùng đất Bắc Giang.', 1, 35, 5),
@@ -420,30 +435,30 @@ INSERT INTO `hang_hoa` (`ma_hh`, `ten_hh`, `ngay_nhap`, `mo_ta`, `dac_biet`, `so
 (45, 'Chuối tiêu', '2023-06-11', 'Chuối tiêu có vỏ màu vàng sáng, dễ bóc và mềm hơn so với những loại chuối khác. Thịt chuối tiêu có màu trắng sữa, mềm mịn và có vị ngọt tự nhiên đặc trưng. Chuối tiêu là nguồn cung cấp vitamin C, kali và chất xơ. Nó cũng chứa một số vitamin B và các khoáng chất khác có lợi cho sức khỏe. Chuối tiêu giúp tăng cường hệ miễn dịch, cung cấp năng lượng và có tác dụng bảo vệ da và hệ tiêu hóa.', 0, 2, 5),
 (46, 'Dưa lưới xanh', '2023-06-11', 'Dưa lưới xanh màu trắng sữa, giòn và mềm mịn. Nó có hương vị ngọt tự nhiên và sảng khoái. Dưa lưới xanh thường có nhiều nước, tạo cảm giác mát lạnh khi ăn. Dưa lưới xanh là một nguồn cung cấp vitamin C, chất chống oxy hóa và chất xơ. Nó cũng chứa các khoáng chất như kali và magiê. Dưa lưới xanh có lợi cho hệ tiêu hóa, tăng cường hệ miễn dịch và giúp duy trì sức khỏe tổng thể.', 1, 0, 5),
 (47, 'Táo Envy Mỹ', '2023-06-11', 'áo Envy Mỹ có vị ngọt độc đáo, vừa chua vừa ngọt, mang lại sự cân bằng hoàn hảo của hương vị. Nó có một hương thơm đặc trưng và một cấu trúc giòn tuyệt vời. Táo Envy Mỹ là một nguồn cung cấp tốt của vitamin C, chất chống oxy hóa và chất xơ. Nó cũng chứa các chất dinh dưỡng quan trọng khác như kali và vitamin A. Táo Envy giúp tăng cường hệ miễn dịch, cung cấp năng lượng và có lợi cho sức khỏe tổng thể.', 0, 0, 5),
-(48, 'Sữa Đậu Đen - Óc Chó Hanh Nhân', '2023-06-12', 'Sản phẩm sữa đậu được làm từ 3 loại đậu vô cùng giàu dinh dưỡng: đậu đen, óc chó và hạnh nhân, sữa đậu Sahmyook mang đến cho bạn và cả gia đình nguồn dinh dưỡng dồi dào. Sữa đậu đen óc chó hạnh nhân Sahmyook hộp 950ml đóng hộp tiện dùng, bổ sung dinh dưỡng cho cơ thể.', 0, 3, 6),
-(49, 'Sữa Tươi Tiệt Trùng Có Đường Vinamilk', '2023-06-12', 'Được chế biến từ nguồn sữa tươi 100% chứa nhiều dưỡng chất như vitamin A, D3, canxi,... tốt cho xương và hệ miễn dịch. Sữa tươi Vinamilk là thương hiệu được tin dùng hàng đầu với chất lượng tuyệt vời. Được chế biến từ nguồn sữa tươi 100% chứa nhiều dưỡng chất như vitamin A, D3, canxi,... tốt cho xương và hệ miễn dịch, sữa tươi Vinamilk là thương hiệu được tin dùng hàng đầu với chất lượng tuyệt vời. Sữa tươi có đường Vinamilk 100% Sữa Tươi thơm ngon dễ uống.', 1, 25, 6),
+(48, 'Sữa Đậu Đen - Óc Chó Hanh Nhân', '2023-06-12', 'Sản phẩm sữa đậu được làm từ 3 loại đậu vô cùng giàu dinh dưỡng: đậu đen, óc chó và hạnh nhân, sữa đậu Sahmyook mang đến cho bạn và cả gia đình nguồn dinh dưỡng dồi dào. Sữa đậu đen óc chó hạnh nhân Sahmyook hộp 950ml đóng hộp tiện dùng, bổ sung dinh dưỡng cho cơ thể.', 0, 5, 6),
+(49, 'Sữa Tươi Tiệt Trùng Có Đường Vinamilk', '2023-06-12', 'Được chế biến từ nguồn sữa tươi 100% chứa nhiều dưỡng chất như vitamin A, D3, canxi,... tốt cho xương và hệ miễn dịch. Sữa tươi Vinamilk là thương hiệu được tin dùng hàng đầu với chất lượng tuyệt vời. Được chế biến từ nguồn sữa tươi 100% chứa nhiều dưỡng chất như vitamin A, D3, canxi,... tốt cho xương và hệ miễn dịch, sữa tươi Vinamilk là thương hiệu được tin dùng hàng đầu với chất lượng tuyệt vời. Sữa tươi có đường Vinamilk 100% Sữa Tươi thơm ngon dễ uống.', 1, 28, 6),
 (50, 'Sữa Milo Lúa Mạch', '2023-06-12', 'Sản phẩm sữa socola thơm ngon, giàu canxi và protein giúp cho cơ thể phát triển. Đặc biệt, thương hiệu sữa ca cao Milo nổi tiếng rất được các bé yêu thích và tin dùng. Lốc 4 hộp thức uống lúa mạch Milo Active Go 180ml thơm ngon, đầy dinh dưỡng, vị ngon kích thích vị giác. Sản phẩm thức uống lúa mạch giúp cung cấp dinh dưỡng cân bằng từ sữa và bột 3 loại ngũ cốc hoàn hảo: yến mạch, gạo lức, lúa mì. Sữa lúa mạch Milo giúp cung cấp cho bé năng lượng hoạt động cả ngày. 2 lốc sữa Milo lúa mạch ngũ cốc tiện dùng, thơm ngon, bổ sung nhiều dinh dưỡng cho bé.', 1, 0, 6),
 (51, 'Sữa Chua Nếp Cẩm Mộc Châu', '2023-06-12', 'Sữa Chua  Nếp cẩm Mộc Bắc Milk được lên men tự nhiên, là sự kết hợp giữa sữa và gạo nếp cẩm với công thức truyền thống lâu đời không chỉ mang đến cho bạn một hương vị hấp dẫn và khó quên, mà còn cung cấp rất nhiều chất dinh dưỡng cho cơ thể năng lượng, chất đạm, hydrat cacbon,… giúp tăng cường hệ tiêu hóa và hệ miễn dịch cho cả gia đình.', 0, 1, 6),
-(52, 'Sữa Vinamilk Susu Táo Chuối', '2023-06-12', 'Vị ngọt béo, chua chua thơm ngon tuyệt vời. Bổ sung vitamin A giúp bé mắt sáng tinh anh.Chất xơ hòa tan (Prebiotic) hỗ trợ hệ tiêu hóa để bé luôn khỏe mạnh và năng động mỗi ngày. Sữa chua uống SuSu với vị ngọt béo, chua chua thơm ngon tuyệt vời. Sữa chua uống giúp bổ sung vitamin A giúp bé mắt sáng tinh anh, chất xơ hòa tan (Prebiotic) hỗ trợ hệ tiêu hóa để bé luôn khỏe mạnh và năng động mỗi ngày. Lốc 6 chai sữa chua uống dâu SuSu 80ml đóng lốc tiện dùng, tiết kiệm.', 1, 3, 6),
+(52, 'Sữa Vinamilk Susu Táo Chuối', '2023-06-12', 'Vị ngọt béo, chua chua thơm ngon tuyệt vời. Bổ sung vitamin A giúp bé mắt sáng tinh anh.Chất xơ hòa tan (Prebiotic) hỗ trợ hệ tiêu hóa để bé luôn khỏe mạnh và năng động mỗi ngày. Sữa chua uống SuSu với vị ngọt béo, chua chua thơm ngon tuyệt vời. Sữa chua uống giúp bổ sung vitamin A giúp bé mắt sáng tinh anh, chất xơ hòa tan (Prebiotic) hỗ trợ hệ tiêu hóa để bé luôn khỏe mạnh và năng động mỗi ngày. Lốc 6 chai sữa chua uống dâu SuSu 80ml đóng lốc tiện dùng, tiết kiệm.', 1, 25, 6),
 (53, 'Sữa Chua ít đường Vinamilk', '2023-06-12', 'Được sản xuất từ các nguyên liệu cao cấp, đảm bảo việc tạo ra sản phẩm có chất lượng cao, an toàn cho người sử dụng. Sản phẩm giúp tăng cường hệ vi sinh trong đường ruột, giúp hoạt động tiêu hóa được tốt hơn, tăng cường sức đề kháng và phòng ngừa mắc các bệnh cảm cúm thông thường. Sữa chua Vinamilk chứa nhiều canxi, vitamin, khoáng chất ở dạng dễ hấp thu, kích thích vị giác, tăng cường sức khỏe hệ tiêu hóa, miễn dịch. Lốc 4 hộp sữa chua ít đường Vinamilk 100g là loại sữa chua có hương vị thơm ngon tinh khiết, ngọt dịu và giàu dưỡng chất, thích hợp cho mọi người.', 1, 0, 6),
-(54, 'Bột ngọt Ajinomoto', '2023-06-12', 'Được sản xuất bằng phương pháp lên men tự nhiên từ nguyên liệu thiên nhiên như mật mía đường và tinh bột khoai mì. Bột ngọt hạt lớn Ajinomoto 545g là một gia vị được sử dụng rộng rãi trong chế biến món ăn ở gia đình, quán ăn, nhà hàng và trong công nghiệp chế biến thực phẩm, giúp món ăn hấp dẫn hơn.', 1, 6, 7),
-(55, 'Dầu hào Maggi', '2023-06-12', 'Dầu hào Maggi có thể sử dụng trong nhiều món ăn khác nhau, bao gồm mì xào, thịt nướng, salad, xôi, và nhiều món ngon khác. Nó là một loại gia vị đa năng và được ưa chuộng trong ẩm thực nhiều quốc gia. Dầu hào Maggi mang đến sự cân bằng vị mặn, ngọt và chua, giúp làm nổi bật hương vị và tăng cường trải nghiệm ẩm thực. Nó là một lựa chọn phổ biến trong bếp và được sử dụng để gia vị các món ăn hàng ngày.', 1, 5, 7),
-(56, 'Sốt kho hoàn hảo', '2023-06-12', 'Sốt kho hoàn hảo là một loại sốt gia vị đậm đà và cân bằng, được sử dụng trong ẩm thực Việt Nam để gia vị và tạo hương vị cho các món ăn kho truyền thống. Với màu sắc và hương vị đặc trưng, sốt kho hoàn hảo là một lựa chọn phổ biến để tăng cường hương vị và độ ngon của các món ăn', 1, 0, 7),
-(57, 'Sốt Bơ Cay', '2023-06-12', 'Sốt Chế Biến YOChef độc quyền Đảo Hải Sản, sốt chế biến hoàn chỉnh để chế biến nhanh chóng, tiện lợi chuẩn vị nhà hàng. Sản phẩm kết hợp đa dạng với các loại hải sản khác nhau từ tôm, cua, các loại ốc...Các loại xốt được Các Đầu Bếp chuyên nghiệp Đảo Hải Sản điều chỉnh nguyên liệu cũng như hương vị cực kì gần gũi, giúp khách hàng chế biến một món ăn đậm đà ngon chuẩn vị Nhà Hàng.', 1, 0, 7),
+(54, 'Bột ngọt Ajinomoto', '2023-06-12', 'Được sản xuất bằng phương pháp lên men tự nhiên từ nguyên liệu thiên nhiên như mật mía đường và tinh bột khoai mì. Bột ngọt hạt lớn Ajinomoto 545g là một gia vị được sử dụng rộng rãi trong chế biến món ăn ở gia đình, quán ăn, nhà hàng và trong công nghiệp chế biến thực phẩm, giúp món ăn hấp dẫn hơn.', 1, 123, 7),
+(55, 'Dầu hào Maggi', '2023-06-12', 'Dầu hào Maggi có thể sử dụng trong nhiều món ăn khác nhau, bao gồm mì xào, thịt nướng, salad, xôi, và nhiều món ngon khác. Nó là một loại gia vị đa năng và được ưa chuộng trong ẩm thực nhiều quốc gia. Dầu hào Maggi mang đến sự cân bằng vị mặn, ngọt và chua, giúp làm nổi bật hương vị và tăng cường trải nghiệm ẩm thực. Nó là một lựa chọn phổ biến trong bếp và được sử dụng để gia vị các món ăn hàng ngày.', 1, 8, 7),
+(56, 'Sốt kho hoàn hảo', '2023-06-12', 'Sốt kho hoàn hảo là một loại sốt gia vị đậm đà và cân bằng, được sử dụng trong ẩm thực Việt Nam để gia vị và tạo hương vị cho các món ăn kho truyền thống. Với màu sắc và hương vị đặc trưng, sốt kho hoàn hảo là một lựa chọn phổ biến để tăng cường hương vị và độ ngon của các món ăn', 1, 1, 7),
+(57, 'Sốt Bơ Cay', '2023-06-12', 'Sốt Chế Biến YOChef độc quyền Đảo Hải Sản, sốt chế biến hoàn chỉnh để chế biến nhanh chóng, tiện lợi chuẩn vị nhà hàng. Sản phẩm kết hợp đa dạng với các loại hải sản khác nhau từ tôm, cua, các loại ốc...Các loại xốt được Các Đầu Bếp chuyên nghiệp Đảo Hải Sản điều chỉnh nguyên liệu cũng như hương vị cực kì gần gũi, giúp khách hàng chế biến một món ăn đậm đà ngon chuẩn vị Nhà Hàng.', 1, 3, 7),
 (58, 'Sốt Tiêu Đen', '2023-06-12', 'Sốt tiêu đen ngon đúng điệu là phải có vị thơm nồng, cay nhẹ trong miệng làm giảm đi vị tanh của hải sản, tăng vị ngon và kích thích vị giác khi ăn. Hãy tham khảo nhanh một vài hải sản chế biến với sốt tiêu đen nhé.', 0, 0, 7),
 (59, 'Mù Tạt (わさび)', '2023-06-12', 'Muốn giảm bớt vị tanh của hải sản sống chỉ cần chấm với wasabi thơm nồng nàn sẽ át vị tanh - tăng vị ngon của hải sản lên gấp nhiều lần. Đặc biệt khi dùng với món ăn sống như: cồi sò điệp sushi, cá ngừ sushi, cá cờ kiếm sushi hoặc hàu sống... sẽ rất là tuyệt nhé. Wasabi tuýp dạng sệt rất tiện lợi cho các cuộc picnic ngoài trời, vô cùng gọn nhẹ mang theo bên mình. Nếu sử dụng không hết có thể đậy kín và bảo quản trong ngăn mát tủ lạnh nhé.', 1, 30, 7),
 (60, 'Lẩu thái Aji-Quick', '2023-06-12', 'Là loại gia vị nêm sẵn đến từ thương hiệu Aji-Quick quen thuộc trong mỗi gia đình Việt Nam. Gia vị nêm sẵn nấu lẩu Thái Aji-Quick gói 55g là sự kết hợp hài hòa của tất cả các loại gia vị cần thiết dành cho lẩu thái chua cay đậm vì như ở nhà hàng ngay tại nhà vào bất cứ khi nào mà bạn muốn.', 0, 0, 7),
 (61, 'Hạt nêm Knorr', '2023-06-12', 'Hạt nêm Knorr là thương hiệu hạt nêm nổi tiếng toàn cầu, hơn 1.7 tỷ người dùng. Hạt nêm thịt thăn, xương ống, tủy Knorr gói 170g làm từ nước cốt thịt thăn, xương ống và tủy cho vị ngon đậm đà, thơm lừng, hấp dẫn, món ăn chuẩn vị và kích thích vị giác hơn. Nước cốt thịt thăn xương ống, tủy cho món ăn thơm ngon đậm đà như nước dùng thịt thật sự, đảm bảo cung cấp các giá trị dinh dưỡng thiết yếu như: năng lượng, chất đạm, carbohydrate, chất béo, chất xơ,...', 0, 0, 7),
-(62, 'Dầu đậu nành', '2023-06-12', 'Dầu đậu nành nguyên chất Simply chai 1 lít chứa tới 80% axit béo chưa bão hoà cùng lượng lớn chất chống oxy hoá giúp làm giảm lượng cholesterol xấu trong máu và cho bạn một trái tim khoẻ mạnh. Dầu ăn Simply là nhãn hiệu dầu ăn duy nhất được Hội Tim Mạch Học Việt Nam khuyên dùng. Dầu đậu nành nguyên chất Simply sử dụng nguyên liệu chọn lọc, không chứa chất bảo quản, chất tạo màu hay cholesterol, hoàn toàn thân thiện cho sức khỏe.', 0, 0, 7),
+(62, 'Dầu đậu nành', '2023-06-12', 'Dầu đậu nành nguyên chất Simply chai 1 lít chứa tới 80% axit béo chưa bão hoà cùng lượng lớn chất chống oxy hoá giúp làm giảm lượng cholesterol xấu trong máu và cho bạn một trái tim khoẻ mạnh. Dầu ăn Simply là nhãn hiệu dầu ăn duy nhất được Hội Tim Mạch Học Việt Nam khuyên dùng. Dầu đậu nành nguyên chất Simply sử dụng nguyên liệu chọn lọc, không chứa chất bảo quản, chất tạo màu hay cholesterol, hoàn toàn thân thiện cho sức khỏe.', 0, 10, 7),
 (63, 'Nước mắm Nam Ngư', '2023-06-12', 'Nước mắm Nam Ngư đem đến cho người tiêu dùng Việt Nam những giọt nước mắm thơm ngon, sự lựa chọn hàng đầu của người Việt. Nước mắm Nam Ngư 10 độ đạm chai 500ml với dây chuyền khép kín với thành phần cá cơm tươi ngon tạo nên hương vị thơm ngon, đậm đà, màu sắc hấp dẫn. Nhắc đến thương hiệu nước mắm được nhiều người tiêu dùng Việt sử dụng nhất, chúng ta không thể không nhắc đến cái tên Nam Ngư. Với chất lượng sản phẩm tốt, cùng quy trình chế biến và tuyển chọn nguyên liệu kỹ càng, cho ra những sản phẩm nước mắm tuyệt hảo đến tay người tiêu dùng', 0, 0, 7),
-(64, 'Bia Hà Nội', '2023-06-12', 'Với một hợp chất chất lượng cao, bia Hà Nội mang đến trải nghiệm uống mượt mà, mềm mại và dễ uống. Nó có một hương vị hài hòa, với một sự pha trộn hoàn hảo giữa vị đắng nhẹ và vị ngọt tự nhiên, tạo cảm giác sảng khoái và thỏa mãn. Bia Hà Nội thường được uống lạnh và là một lựa chọn phổ biến trong các cuộc gặp gỡ bạn bè, tiệc tùng hoặc thưởng thức trong những ngày nóng. Nó cũng thường được kết hợp với các món ăn truyền thống và món ăn vặt như bánh mỳ, hải sản, thịt nướng và nhiều món khác.', 1, 4, 8),
-(65, 'Cà phê G7 - 3 In 1', '2023-06-12', 'Cà phê G7 3 in 1 được chiết xuất từ những phần tinh túy nhất có trong từng hạt cà phê, trên công nghệ hàng đầu và bí quyết không thể sao chép để cho ra đời sản phẩm cà phê hòa tan thượng hạng, với hương vị khác biệt, đậm đà, hương thơm độc đáo quyến rũ mà không một sản phẩm cà phê hòa tan nào khác đạt được. Trong suốt 12 năm liên tục cà phê G7 được người tiêu dùng bình chọn là hàng Việt Nam chất lượng cao.', 0, 0, 8),
+(64, 'Bia Hà Nội', '2023-06-12', 'Với một hợp chất chất lượng cao, bia Hà Nội mang đến trải nghiệm uống mượt mà, mềm mại và dễ uống. Nó có một hương vị hài hòa, với một sự pha trộn hoàn hảo giữa vị đắng nhẹ và vị ngọt tự nhiên, tạo cảm giác sảng khoái và thỏa mãn. Bia Hà Nội thường được uống lạnh và là một lựa chọn phổ biến trong các cuộc gặp gỡ bạn bè, tiệc tùng hoặc thưởng thức trong những ngày nóng. Nó cũng thường được kết hợp với các món ăn truyền thống và món ăn vặt như bánh mỳ, hải sản, thịt nướng và nhiều món khác.', 1, 14, 8),
+(65, 'Cà phê G7 - 3 In 1', '2023-06-12', 'Cà phê G7 3 in 1 được chiết xuất từ những phần tinh túy nhất có trong từng hạt cà phê, trên công nghệ hàng đầu và bí quyết không thể sao chép để cho ra đời sản phẩm cà phê hòa tan thượng hạng, với hương vị khác biệt, đậm đà, hương thơm độc đáo quyến rũ mà không một sản phẩm cà phê hòa tan nào khác đạt được. Trong suốt 12 năm liên tục cà phê G7 được người tiêu dùng bình chọn là hàng Việt Nam chất lượng cao.', 0, 3, 8),
 (66, 'Fanta Cam', '2023-06-12', 'Từ thương hiệu nước ngọt có gas nổi tiếng toàn cầu với mùi vị thơm ngon với hỗn hợp hương tự nhiên cùng chất tạo ngọt tổng hợp, giúp xua tan cơn khát và cảm giác mệt mỏi.  Nước ngọt bổ sung năng lượng làm việc mỗi ngày. Cam kết sản phẩm chính hãng, chất lượng và an toàn', 0, 0, 8),
-(67, 'Coca-Cola', '2023-06-12', 'Từ thương hiệu nước ngọt có gas nổi tiếng toàn cầu với mùi vị thơm ngon với hỗn hợp hương tự nhiên cùng chất tạo ngọt tổng hợp, giúp xua tan cơn khát và cảm giác mệt mỏi.  Nước ngọt bổ sung năng lượng làm việc mỗi ngày. Cam kết sản phẩm chính hãng, chất lượng và an toàn', 1, 3, 8),
-(68, 'Nước Cam Ép Teppi', '2023-06-12', 'Chiết xuất từ những quả cam mọng nước cùng với những tép cam tươi hấp dẫn tự nhiên. Và được sản xuất theo công nghệ hiện đại, không chất độc hại không ảnh hưởng đến sức khỏe người tiêu dùng. Nước ép cam Teppy nguyên tép chứa nhiều vitamin C hỗ trợ cung cấp năng lượng cho cơ thể.', 0, 0, 8),
+(67, 'Coca-Cola', '2023-06-12', 'Từ thương hiệu nước ngọt có gas nổi tiếng toàn cầu với mùi vị thơm ngon với hỗn hợp hương tự nhiên cùng chất tạo ngọt tổng hợp, giúp xua tan cơn khát và cảm giác mệt mỏi.  Nước ngọt bổ sung năng lượng làm việc mỗi ngày. Cam kết sản phẩm chính hãng, chất lượng và an toàn', 1, 4, 8),
+(68, 'Nước Cam Ép Teppi', '2023-06-12', 'Chiết xuất từ những quả cam mọng nước cùng với những tép cam tươi hấp dẫn tự nhiên. Và được sản xuất theo công nghệ hiện đại, không chất độc hại không ảnh hưởng đến sức khỏe người tiêu dùng. Nước ép cam Teppy nguyên tép chứa nhiều vitamin C hỗ trợ cung cấp năng lượng cho cơ thể.', 0, 1, 8),
 (69, 'Nước Dừa Cocoxim Sen', '2023-06-12', 'Sản phẩm được làm từ 100% nước dừa nguyên chất tại \'Thủ phủ dừa\' Bến Tre, sẽ là thức uống đồng hành cùng bạn mỗi ngày. Chỉ với một ly nước dừa Cocoxim mỗi ngày cơ thể bạn sẽ có sự thay đổi rõ rệt: làn da căng mịn hơn, cơ thể thon gọn và tràn đầy năng lượng hơn.', 1, 1, 8),
-(70, 'Nước Tăng Lực Sting', '2023-06-12', 'Sản phẩm nước tăng lực với mùi vị thơm ngon, sảng khoái, bổ sung hồng sâm chất lượng. Sting giúp cơ thể bù đắp nước, bổ sung năng lượng, vitamin C và E, giúp xua tan cơn khát và cảm giác mệt mỏi cùng dâu cho nhẹ nhàng và dễ chịu. Cam kết chính hãng, chất lượng và an toàn.', 1, 4, 8),
-(71, 'Nước gạo OKF No Sugar', '2023-06-12', 'Nước gạo OKF No Sugar là một lựa chọn tốt cho những người muốn hạn chế tiêu thụ đường hoặc theo chế độ ăn ít đường. Nó là một nguồn cung cấp năng lượng và chứa nhiều chất xơ và vitamin B. Nước gạo OKF No Sugar không chỉ giúp giải khát mà còn mang lại lợi ích cho sức khỏe. Nước gạo OKF No Sugar thích hợp cho mọi lứa tuổi và có thể uống ngay từ chai mà không cần thêm đường. Nó là một sự lựa chọn tuyệt vời cho một loại nước giải khát tự nhiên, không có chất bảo quản hay hương liệu nhân tạo.', 0, 97, 8),
+(70, 'Nước Tăng Lực Sting', '2023-06-12', 'Sản phẩm nước tăng lực với mùi vị thơm ngon, sảng khoái, bổ sung hồng sâm chất lượng. Sting giúp cơ thể bù đắp nước, bổ sung năng lượng, vitamin C và E, giúp xua tan cơn khát và cảm giác mệt mỏi cùng dâu cho nhẹ nhàng và dễ chịu. Cam kết chính hãng, chất lượng và an toàn.', 1, 5, 8),
+(71, 'Nước gạo OKF No Sugar', '2023-06-12', 'Nước gạo OKF No Sugar là một lựa chọn tốt cho những người muốn hạn chế tiêu thụ đường hoặc theo chế độ ăn ít đường. Nó là một nguồn cung cấp năng lượng và chứa nhiều chất xơ và vitamin B. Nước gạo OKF No Sugar không chỉ giúp giải khát mà còn mang lại lợi ích cho sức khỏe. Nước gạo OKF No Sugar thích hợp cho mọi lứa tuổi và có thể uống ngay từ chai mà không cần thêm đường. Nó là một sự lựa chọn tuyệt vời cho một loại nước giải khát tự nhiên, không có chất bảo quản hay hương liệu nhân tạo.', 0, 101, 8),
 (72, 'Nước trái cây Nutriboots Cam', '2023-06-12', 'Sự kết hợp hoàn hảo từ sữa và nước trái cây vị cam. Sữa trái cây Nutri Boost hương cam chai 297ml giúp bù đắp nước, bổ sung năng lượng, vitamin B3, B6, E, C rất có lợi cho cơ thể,xua tan cơn khát và cảm giác mệt mỏi. Sản phẩm sữa trái cây chất lượng từ thương hiệu Nutriboost', 0, 5, 8),
 (122, 'gaga', '2023-07-27', 'Veniam quaerat sit', 0, 0, 1);
 
@@ -774,9 +789,9 @@ CREATE TABLE `khach_hang` (
 --
 
 INSERT INTO `khach_hang` (`ma_kh`, `mat_khau`, `ho_ten`, `hinh`, `sdt`, `email`, `vai_tro`) VALUES
-('a', '2', 'a', 'a', '2', '2', 1),
-('admin', 'adminn', 'adminss', 'user2.jpeg', '0999999888', 'admin@gmail.comm', 1),
-('Estdcsc', 'Pa$$w0rd!', 'Aut repellendus Non', '2_2-2.jpeg', '0999999999', 'gotoliveri@mailinator.com', 0),
+('admin', 'adminn', 'admins', 'user2.jpeg', '0999999888', 'admin@gmail.comm', 1),
+('cuongbip', 'Pa$$w0rd!', 'Occaecat voluptas sa', 'user2.jpeg', '0300000072', 'timaz@mailinator.com', 0),
+('longlong', 'Pa$$w0rd!', 'Perferendis ut unde ', 'user2.jpeg', '0999999914', 'gatose@mailinator.com', 0),
 ('user', 'user', 'mungloli', 'Avatar Image (3).png', '0999999999', 'mykikox@mailinator.com', 0),
 ('user2', 'user2', 'hien', 'Avatar Image (1).png', '0978888888', 'user2@gmail.com', 1);
 
@@ -931,31 +946,31 @@ ALTER TABLE `trang_thai`
 -- AUTO_INCREMENT cho bảng `binh_luan`
 --
 ALTER TABLE `binh_luan`
-  MODIFY `ma_bl` int(10) NOT NULL AUTO_INCREMENT COMMENT 'mã bình luận', AUTO_INCREMENT=46;
+  MODIFY `ma_bl` int(10) NOT NULL AUTO_INCREMENT COMMENT 'mã bình luận', AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT cho bảng `chi_tiet_don_hang`
 --
 ALTER TABLE `chi_tiet_don_hang`
-  MODIFY `ma_ctdh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `ma_ctdh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT cho bảng `chi_tiet_hang_hoa`
 --
 ALTER TABLE `chi_tiet_hang_hoa`
-  MODIFY `ma_cthh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
+  MODIFY `ma_cthh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
 
 --
 -- AUTO_INCREMENT cho bảng `danh_gia`
 --
 ALTER TABLE `danh_gia`
-  MODIFY `ma_danh_gia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `ma_danh_gia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT cho bảng `don_hang`
 --
 ALTER TABLE `don_hang`
-  MODIFY `ma_dh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `ma_dh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT cho bảng `don_vi_van_chuyen`
@@ -967,19 +982,19 @@ ALTER TABLE `don_vi_van_chuyen`
 -- AUTO_INCREMENT cho bảng `gio_hang`
 --
 ALTER TABLE `gio_hang`
-  MODIFY `ma_gh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `ma_gh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
 
 --
 -- AUTO_INCREMENT cho bảng `hang_hoa`
 --
 ALTER TABLE `hang_hoa`
-  MODIFY `ma_hh` int(11) NOT NULL AUTO_INCREMENT COMMENT 'mã hàng hoá', AUTO_INCREMENT=128;
+  MODIFY `ma_hh` int(11) NOT NULL AUTO_INCREMENT COMMENT 'mã hàng hoá', AUTO_INCREMENT=129;
 
 --
 -- AUTO_INCREMENT cho bảng `hinh_hang_hoa`
 --
 ALTER TABLE `hinh_hang_hoa`
-  MODIFY `ma_hinh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=334;
+  MODIFY `ma_hinh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=336;
 
 --
 -- AUTO_INCREMENT cho bảng `loai`

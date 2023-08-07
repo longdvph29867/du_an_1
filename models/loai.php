@@ -55,3 +55,19 @@ function loai_search($key)
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $result;
 }
+
+function loai_thongke_sp()
+{
+    $conn = connection();
+    $sql = "SELECT loai.ten_loai, 
+    COUNT(*) as so_luong,
+    COUNT(*) * 100.0 / total.so_luong_tong AS phan_tram
+    FROM hang_hoa 
+    INNER JOIN loai ON hang_hoa.ma_loai = loai.ma_loai
+    CROSS JOIN (SELECT COUNT(*) as so_luong_tong FROM hang_hoa) AS total
+    GROUP BY hang_hoa.ma_loai, total.so_luong_tong;";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
+}
