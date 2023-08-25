@@ -320,8 +320,6 @@ function donhang_comment($month = '')
         $sql = "SELECT COUNT(*) AS tong_comment FROM binh_luan";
 
     }
-
-
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetch(PDO::FETCH_ASSOC);

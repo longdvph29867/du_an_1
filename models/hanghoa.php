@@ -123,7 +123,9 @@ function hanghoa_all($data = [], $type = '')
     if(isset($data['ma_loai'])) {
         switch ($type) {
             case 'hot':
-                $sql = "SELECT *, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating FROM hang_hoa 
+                $sql = "SELECT 
+                hang_hoa.*, hinh_hang_hoa.ma_hinh, hinh_hang_hoa.ten_hinh, hinh_hang_hoa.ma_hinh, chi_tiet_hang_hoa.ma_cthh, chi_tiet_hang_hoa.don_vi, chi_tiet_hang_hoa.don_gia, chi_tiet_hang_hoa.giam_gia, chi_tiet_hang_hoa.so_luong, danh_gia.ma_danh_gia, danh_gia.noi_dung_danh_gia, danh_gia.xep_hang, danh_gia.ngay_danh_gia, danh_gia.ma_kh, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating
+                FROM hang_hoa 
                 INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
@@ -132,7 +134,9 @@ function hanghoa_all($data = [], $type = '')
                 ORDER BY hang_hoa.so_luot_xem DESC";
                 break;
             case 'rating':
-                $sql = "SELECT *, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating FROM hang_hoa 
+                $sql = "SELECT 
+                hang_hoa.*, hinh_hang_hoa.ma_hinh, hinh_hang_hoa.ten_hinh, hinh_hang_hoa.ma_hinh, chi_tiet_hang_hoa.ma_cthh, chi_tiet_hang_hoa.don_vi, chi_tiet_hang_hoa.don_gia, chi_tiet_hang_hoa.giam_gia, chi_tiet_hang_hoa.so_luong, danh_gia.ma_danh_gia, danh_gia.noi_dung_danh_gia, danh_gia.xep_hang, danh_gia.ngay_danh_gia, danh_gia.ma_kh, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating
+                FROM hang_hoa 
                 INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
@@ -141,7 +145,9 @@ function hanghoa_all($data = [], $type = '')
                 ORDER BY rating DESC";
                 break;
             case 'new':
-                $sql = "SELECT *, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating FROM hang_hoa 
+                $sql = "SELECT 
+                hang_hoa.*, hinh_hang_hoa.ma_hinh, hinh_hang_hoa.ten_hinh, hinh_hang_hoa.ma_hinh, chi_tiet_hang_hoa.ma_cthh, chi_tiet_hang_hoa.don_vi, chi_tiet_hang_hoa.don_gia, chi_tiet_hang_hoa.giam_gia, chi_tiet_hang_hoa.so_luong, danh_gia.ma_danh_gia, danh_gia.noi_dung_danh_gia, danh_gia.xep_hang, danh_gia.ngay_danh_gia, danh_gia.ma_kh, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating
+                FROM hang_hoa 
                 INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
@@ -150,7 +156,9 @@ function hanghoa_all($data = [], $type = '')
                 ORDER BY hang_hoa.ma_hh DESC";
                 break;
             case 'low-to-high':
-                $sql = "SELECT *, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating FROM hang_hoa 
+                $sql = "SELECT 
+                hang_hoa.*, hinh_hang_hoa.ma_hinh, hinh_hang_hoa.ten_hinh, hinh_hang_hoa.ma_hinh, chi_tiet_hang_hoa.ma_cthh, chi_tiet_hang_hoa.don_vi, chi_tiet_hang_hoa.don_gia, chi_tiet_hang_hoa.giam_gia, chi_tiet_hang_hoa.so_luong, danh_gia.ma_danh_gia, danh_gia.noi_dung_danh_gia, danh_gia.xep_hang, danh_gia.ngay_danh_gia, danh_gia.ma_kh, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating
+                FROM hang_hoa 
                 INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
@@ -159,7 +167,9 @@ function hanghoa_all($data = [], $type = '')
                 ORDER BY (chi_tiet_hang_hoa.don_gia - chi_tiet_hang_hoa.giam_gia) ASC";
                 break;
             case 'high-to-low':
-                $sql = "SELECT *, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating FROM hang_hoa 
+                $sql = "SELECT 
+                hang_hoa.*, hinh_hang_hoa.ma_hinh, hinh_hang_hoa.ten_hinh, hinh_hang_hoa.ma_hinh, chi_tiet_hang_hoa.ma_cthh, chi_tiet_hang_hoa.don_vi, chi_tiet_hang_hoa.don_gia, chi_tiet_hang_hoa.giam_gia, chi_tiet_hang_hoa.so_luong, danh_gia.ma_danh_gia, danh_gia.noi_dung_danh_gia, danh_gia.xep_hang, danh_gia.ngay_danh_gia, danh_gia.ma_kh, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating
+                FROM hang_hoa 
                 INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
@@ -168,7 +178,9 @@ function hanghoa_all($data = [], $type = '')
                 ORDER BY (chi_tiet_hang_hoa.don_gia - chi_tiet_hang_hoa.giam_gia) DESC";
                 break;
             default:
-                $sql = "SELECT *, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating FROM hang_hoa 
+                $sql = "SELECT 
+                hang_hoa.*, hinh_hang_hoa.ma_hinh, hinh_hang_hoa.ten_hinh, hinh_hang_hoa.ma_hinh, chi_tiet_hang_hoa.ma_cthh, chi_tiet_hang_hoa.don_vi, chi_tiet_hang_hoa.don_gia, chi_tiet_hang_hoa.giam_gia, chi_tiet_hang_hoa.so_luong, danh_gia.ma_danh_gia, danh_gia.noi_dung_danh_gia, danh_gia.xep_hang, danh_gia.ngay_danh_gia, danh_gia.ma_kh, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating
+                FROM hang_hoa 
                 INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
@@ -182,7 +194,9 @@ function hanghoa_all($data = [], $type = '')
     else {
         switch ($type) {
             case 'hot':
-                $sql = "SELECT *, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating FROM hang_hoa 
+                $sql = "SELECT 
+                hang_hoa.*, hinh_hang_hoa.ma_hinh, hinh_hang_hoa.ten_hinh, hinh_hang_hoa.ma_hinh, chi_tiet_hang_hoa.ma_cthh, chi_tiet_hang_hoa.don_vi, chi_tiet_hang_hoa.don_gia, chi_tiet_hang_hoa.giam_gia, chi_tiet_hang_hoa.so_luong, danh_gia.ma_danh_gia, danh_gia.noi_dung_danh_gia, danh_gia.xep_hang, danh_gia.ngay_danh_gia, danh_gia.ma_kh, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating
+                FROM hang_hoa 
                 INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
@@ -190,7 +204,9 @@ function hanghoa_all($data = [], $type = '')
                 ORDER BY hang_hoa.so_luot_xem DESC";
                 break;
             case 'rating':
-                $sql = "SELECT *, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating FROM hang_hoa 
+                $sql = "SELECT 
+                hang_hoa.*, hinh_hang_hoa.ma_hinh, hinh_hang_hoa.ten_hinh, hinh_hang_hoa.ma_hinh, chi_tiet_hang_hoa.ma_cthh, chi_tiet_hang_hoa.don_vi, chi_tiet_hang_hoa.don_gia, chi_tiet_hang_hoa.giam_gia, chi_tiet_hang_hoa.so_luong, danh_gia.ma_danh_gia, danh_gia.noi_dung_danh_gia, danh_gia.xep_hang, danh_gia.ngay_danh_gia, danh_gia.ma_kh, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating
+                FROM hang_hoa 
                 INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
@@ -198,7 +214,9 @@ function hanghoa_all($data = [], $type = '')
                 ORDER BY rating DESC";
                 break;
             case 'new':
-                $sql = "SELECT *, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating FROM hang_hoa 
+                $sql = "SELECT 
+                hang_hoa.*, hinh_hang_hoa.ma_hinh, hinh_hang_hoa.ten_hinh, hinh_hang_hoa.ma_hinh, chi_tiet_hang_hoa.ma_cthh, chi_tiet_hang_hoa.don_vi, chi_tiet_hang_hoa.don_gia, chi_tiet_hang_hoa.giam_gia, chi_tiet_hang_hoa.so_luong, danh_gia.ma_danh_gia, danh_gia.noi_dung_danh_gia, danh_gia.xep_hang, danh_gia.ngay_danh_gia, danh_gia.ma_kh, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating
+                FROM hang_hoa 
                 INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
@@ -206,7 +224,9 @@ function hanghoa_all($data = [], $type = '')
                 ORDER BY hang_hoa.ma_hh DESC";
                 break;
             case 'low-to-high':
-                $sql = "SELECT *, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating FROM hang_hoa 
+                $sql = "SELECT 
+                hang_hoa.*, hinh_hang_hoa.ma_hinh, hinh_hang_hoa.ten_hinh, hinh_hang_hoa.ma_hinh, chi_tiet_hang_hoa.ma_cthh, chi_tiet_hang_hoa.don_vi, chi_tiet_hang_hoa.don_gia, chi_tiet_hang_hoa.giam_gia, chi_tiet_hang_hoa.so_luong, danh_gia.ma_danh_gia, danh_gia.noi_dung_danh_gia, danh_gia.xep_hang, danh_gia.ngay_danh_gia, danh_gia.ma_kh, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating
+                FROM hang_hoa 
                 INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
@@ -214,7 +234,9 @@ function hanghoa_all($data = [], $type = '')
                 ORDER BY (chi_tiet_hang_hoa.don_gia - chi_tiet_hang_hoa.giam_gia) ASC";
                 break;
             case 'high-to-low':
-                $sql = "SELECT *, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating FROM hang_hoa 
+                $sql = "SELECT 
+                hang_hoa.*, hinh_hang_hoa.ma_hinh, hinh_hang_hoa.ten_hinh, hinh_hang_hoa.ma_hinh, chi_tiet_hang_hoa.ma_cthh, chi_tiet_hang_hoa.don_vi, chi_tiet_hang_hoa.don_gia, chi_tiet_hang_hoa.giam_gia, chi_tiet_hang_hoa.so_luong, danh_gia.ma_danh_gia, danh_gia.noi_dung_danh_gia, danh_gia.xep_hang, danh_gia.ngay_danh_gia, danh_gia.ma_kh, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating
+                FROM hang_hoa 
                 INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
@@ -222,7 +244,9 @@ function hanghoa_all($data = [], $type = '')
                 ORDER BY (chi_tiet_hang_hoa.don_gia - chi_tiet_hang_hoa.giam_gia) DESC";
                 break;
             default:
-            $sql = "SELECT *, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating FROM hang_hoa 
+            $sql = "SELECT 
+            hang_hoa.*, hinh_hang_hoa.ma_hinh, hinh_hang_hoa.ten_hinh, hinh_hang_hoa.ma_hinh, chi_tiet_hang_hoa.ma_cthh, chi_tiet_hang_hoa.don_vi, chi_tiet_hang_hoa.don_gia, chi_tiet_hang_hoa.giam_gia, chi_tiet_hang_hoa.so_luong, danh_gia.ma_danh_gia, danh_gia.noi_dung_danh_gia, danh_gia.xep_hang, danh_gia.ngay_danh_gia, danh_gia.ma_kh, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating
+            FROM hang_hoa 
                 INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
@@ -238,7 +262,9 @@ function hanghoa_all($data = [], $type = '')
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $hangHoaArr = [];
     
-    
+        // echo '<pre>';
+        // print_r($result);
+        // echo '</pre>';
     // while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     //     $maHH = $row['ma_hh'];
     //     $maHinh = $row['ma_hinh'];
@@ -455,7 +481,9 @@ function hanghoa_search($keyword, $type = '')
 {
     switch ($type) {
         case 'hot':
-            $sql = "SELECT *, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating FROM hang_hoa 
+            $sql = "SELECT 
+            hang_hoa.*, hinh_hang_hoa.ma_hinh, hinh_hang_hoa.ten_hinh, hinh_hang_hoa.ma_hinh, chi_tiet_hang_hoa.ma_cthh, chi_tiet_hang_hoa.don_vi, chi_tiet_hang_hoa.don_gia, chi_tiet_hang_hoa.giam_gia, chi_tiet_hang_hoa.so_luong, danh_gia.ma_danh_gia, danh_gia.noi_dung_danh_gia, danh_gia.xep_hang, danh_gia.ngay_danh_gia, danh_gia.ma_kh, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating
+            FROM hang_hoa 
             INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
             INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
             INNER JOIN loai ON loai.ma_loai = hang_hoa.ma_loai
@@ -465,7 +493,9 @@ function hanghoa_search($keyword, $type = '')
             ORDER BY hang_hoa.so_luot_xem DESC";
             break;
         case 'rating':
-            $sql = "SELECT *, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating FROM hang_hoa 
+            $sql = "SELECT 
+            hang_hoa.*, hinh_hang_hoa.ma_hinh, hinh_hang_hoa.ten_hinh, hinh_hang_hoa.ma_hinh, chi_tiet_hang_hoa.ma_cthh, chi_tiet_hang_hoa.don_vi, chi_tiet_hang_hoa.don_gia, chi_tiet_hang_hoa.giam_gia, chi_tiet_hang_hoa.so_luong, danh_gia.ma_danh_gia, danh_gia.noi_dung_danh_gia, danh_gia.xep_hang, danh_gia.ngay_danh_gia, danh_gia.ma_kh, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating
+            FROM hang_hoa 
             INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
             INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
             INNER JOIN loai ON loai.ma_loai = hang_hoa.ma_loai
@@ -474,7 +504,9 @@ function hanghoa_search($keyword, $type = '')
             ORDER BY rating DESC";
             break;
         case 'new':
-            $sql = "SELECT *, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating FROM hang_hoa 
+            $sql = "SELECT 
+            hang_hoa.*, hinh_hang_hoa.ma_hinh, hinh_hang_hoa.ten_hinh, hinh_hang_hoa.ma_hinh, chi_tiet_hang_hoa.ma_cthh, chi_tiet_hang_hoa.don_vi, chi_tiet_hang_hoa.don_gia, chi_tiet_hang_hoa.giam_gia, chi_tiet_hang_hoa.so_luong, danh_gia.ma_danh_gia, danh_gia.noi_dung_danh_gia, danh_gia.xep_hang, danh_gia.ngay_danh_gia, danh_gia.ma_kh, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating
+            FROM hang_hoa 
             INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
             INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
             INNER JOIN loai ON loai.ma_loai = hang_hoa.ma_loai
@@ -484,7 +516,9 @@ function hanghoa_search($keyword, $type = '')
             ORDER BY hang_hoa.ma_hh DESC";
             break;
         case 'low-to-high':
-            $sql = "SELECT *, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating FROM hang_hoa 
+            $sql = "SELECT 
+            hang_hoa.*, hinh_hang_hoa.ma_hinh, hinh_hang_hoa.ten_hinh, hinh_hang_hoa.ma_hinh, chi_tiet_hang_hoa.ma_cthh, chi_tiet_hang_hoa.don_vi, chi_tiet_hang_hoa.don_gia, chi_tiet_hang_hoa.giam_gia, chi_tiet_hang_hoa.so_luong, danh_gia.ma_danh_gia, danh_gia.noi_dung_danh_gia, danh_gia.xep_hang, danh_gia.ngay_danh_gia, danh_gia.ma_kh, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating
+            FROM hang_hoa 
             INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
             INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
             INNER JOIN loai ON loai.ma_loai = hang_hoa.ma_loai
@@ -494,7 +528,9 @@ function hanghoa_search($keyword, $type = '')
             ORDER BY (chi_tiet_hang_hoa.don_gia - chi_tiet_hang_hoa.giam_gia) ASC";
             break;
         case 'high-to-low':
-            $sql = "SELECT *, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating FROM hang_hoa 
+            $sql = "SELECT 
+            hang_hoa.*, hinh_hang_hoa.ma_hinh, hinh_hang_hoa.ten_hinh, hinh_hang_hoa.ma_hinh, chi_tiet_hang_hoa.ma_cthh, chi_tiet_hang_hoa.don_vi, chi_tiet_hang_hoa.don_gia, chi_tiet_hang_hoa.giam_gia, chi_tiet_hang_hoa.so_luong, danh_gia.ma_danh_gia, danh_gia.noi_dung_danh_gia, danh_gia.xep_hang, danh_gia.ngay_danh_gia, danh_gia.ma_kh, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating
+            FROM hang_hoa 
             INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
             INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
             INNER JOIN loai ON loai.ma_loai = hang_hoa.ma_loai
@@ -504,7 +540,9 @@ function hanghoa_search($keyword, $type = '')
             ORDER BY (chi_tiet_hang_hoa.don_gia - chi_tiet_hang_hoa.giam_gia) DESC";
             break;
         default:
-            $sql = "SELECT *, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating FROM hang_hoa 
+            $sql = "SELECT 
+            hang_hoa.*, hinh_hang_hoa.ma_hinh, hinh_hang_hoa.ten_hinh, hinh_hang_hoa.ma_hinh, chi_tiet_hang_hoa.ma_cthh, chi_tiet_hang_hoa.don_vi, chi_tiet_hang_hoa.don_gia, chi_tiet_hang_hoa.giam_gia, chi_tiet_hang_hoa.so_luong, danh_gia.ma_danh_gia, danh_gia.noi_dung_danh_gia, danh_gia.xep_hang, danh_gia.ngay_danh_gia, danh_gia.ma_kh, COALESCE(AVG(danh_gia.xep_hang), 0) AS rating
+            FROM hang_hoa 
             INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
             INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
             INNER JOIN loai ON loai.ma_loai = hang_hoa.ma_loai

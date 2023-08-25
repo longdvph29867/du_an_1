@@ -1,0 +1,1 @@
+Thư mục du_an_1_API để ngoài htdocs song song cùng vs thư mục du_an_1
