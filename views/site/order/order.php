@@ -138,7 +138,7 @@
                                             <p class="text-xs text-[#717171]">x <span class="text-black text-base"><?=$item['so_luong']?></span></p>
                                         </div>
                                     </td>
-                                    <td class="border py-3 px-2 font-normal text-center"><?=number_format($tongTienSP)?> đ</td>
+                                    <td class="border py-3 px-2 font-normal text-center"><?=number_format($tongTienSP, 0, ',', '.')?> đ</td>
                                 </tr>
                                 <?php
                                 }
@@ -148,7 +148,7 @@
                         <tfoot>
                             <tr>
                                 <td class="border py-3 px-2 font-normal">Tổng tiền hàng</td>
-                                <td class="border py-3 px-2 font-normal text-center"><strong><span id="tong-tien-sp" class="hidden"><?=$tongTien?></span><span><?=number_format($tongTien)?></span> đ</strong></td>
+                                <td class="border py-3 px-2 font-normal text-center"><strong><span id="tong-tien-sp" class="hidden"><?=$tongTien?></span><span><?=number_format($tongTien, 0, ',', '.')?></span> đ</strong></td>
                             </tr>
                             <tr>
                                 <td class="border py-3 px-2 font-normal">Phí vận chuyển</td>
@@ -159,7 +159,7 @@
                             <tr>
                                 <td class="border py-3 px-2 font-semibold">Thành tiền</td>
                                 <td class="border py-3 px-2 font-normal text-center text-xl text-[#62d2a2]">
-                                    <strong><span id="thanh-toan"><?=number_format($tongTien)?></span> đ</strong>
+                                    <strong><span id="thanh-toan"><?=number_format($tongTien, 0, ',', '.')?></span> đ</strong>
                                     <input id="input-thanh-toan" class="hidden" type="text" name="thanh_toan" value="<?=$tongTien?>">
                                 </td>
                             </tr>

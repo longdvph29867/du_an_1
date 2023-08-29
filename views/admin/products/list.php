@@ -65,10 +65,10 @@
                     <td><?php 
                     if($maxMinPrice['min'] == $maxMinPrice['max'])
                     {
-                        echo number_format($maxMinPrice['min']) . 'đ';
+                        echo number_format($maxMinPrice['min'], 0, ',', '.') . 'đ';
                     }
                     else {
-                        echo number_format($maxMinPrice['min']). 'đ - ' . number_format($maxMinPrice['max']). 'đ';
+                        echo number_format($maxMinPrice['min'], 0, ',', '.'). 'đ - ' . number_format($maxMinPrice['max'], 0, ',', '.'). 'đ';
                     }
                     ?></td>
                     <td><?= $item['ten_loai'] ?></td>

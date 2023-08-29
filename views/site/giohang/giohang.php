@@ -29,7 +29,7 @@
                 <td><img src="<?= url_public . '/images/products/' . reset($item['hinhArr']) ?>" alt=""></td>
                 <td><?=$item['ten_hh']?></td>
                 <td><?=$item['don_vi']?></td>
-                <td><?=number_format($item['don_gia'] - $item['giam_gia'])?></td>
+                <td><?=number_format($item['don_gia'] - $item['giam_gia'], 0, ',', '.')?></td>
                 <td class="relative"> 
                     <div class="flex h-full justify-between md:flex-row flex-col">
                         <button type="button" id="giam_so_luong_<?=$item['ma_gh']?>" onclick="updateCartItem(<?=$item['ma_gh']?>, -1)"

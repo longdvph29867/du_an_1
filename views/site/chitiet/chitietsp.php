@@ -71,10 +71,10 @@
             <p class=" text-[#62d2a2] text-xl font-bold">
                 <span class="don_gia_ct"><?php
             if($min != $max) {
-                echo number_format($min) . " - " . number_format($max);
+                echo number_format($min, 0, ',', '.') . " - " . number_format($max, 0, ',', '.');
             }
             else {
-                echo number_format($min);
+                echo number_format($min, 0, ',', '.');
             }?></span> đ</p>
             <p class="py-5 text-[#666] font-[16px]"><?= $hanghoact['mo_ta'] ?>
             </p>
@@ -327,7 +327,7 @@
                         <div class="pl-4 w-auto">
                             <h4 class="text-lg hover:text-[#62d2a2]"><?= $spcl['ten_hh'] ?></h4>
                             <div class="w-14 h-[1px] bg-gray-300 my-1"></div>
-                            <p class="text-[#62d2a2] font-bold "><?= number_format($chitiet_dongia['don_gia'] - $chitiet_dongia['giam_gia']) ?> đ</p>
+                            <p class="text-[#62d2a2] font-bold "><?= number_format($chitiet_dongia['don_gia'] - $chitiet_dongia['giam_gia'], 0, ',', '.') ?> đ</p>
                         </div>
                     </div>
                 </a>

@@ -33,7 +33,7 @@
                 <div class="d-flex align-items-center justify-content-between">
                     <div>
                         <p class="m-0 text-success text-sm font-weight-bold">Doanh số</p>
-                        <h4 class=" font-weight-bold"><?=number_format($tongDoanhSo,0,'.',',')?></h4>
+                        <h4 class=" font-weight-bold"><?=number_format($tongDoanhSo, 0, ',', '.')?></h4>
                     </div>
                     <div class="text-success" style="font-size: 38px;">
                         ₫

@@ -58,19 +58,26 @@ function login_khachhang() {
         if(empty($errors)) {
             $user = khachHang_select_by_id($ma_kh);
             if($user) {
-                if($user['mat_khau'] == $mat_khau) {
-                    // 
-                    if(exsist_param("ghi_nho")) {
-                        add_cookie('info-user', serialize($user), 30);
+                if($user['hoat_dong'] == 1) {
+                    if($user['mat_khau'] == $mat_khau) {
+                        // 
+                        if(exsist_param("ghi_nho")) {
+                            add_cookie('info-user', serialize($user), 30);
+                        }
+                        $_SESSION['user'] = $user;
+                        addMesssage(true, "Đăng nhập thành công!");
+                        header("location: ".url);
                     }
-                    $_SESSION['user'] = $user;
-                    addMesssage(true, "Đăng nhập thành công!");
-                    header("location: ".url);
+                    else {
+                        $view_name="login.php";
+                        view('site/login/layout', ['view_name' => $view_name], [], $_POST);
+                        echoMesssage(false, "Tài khoản hoặc mật khẩu không đúng!");
+                    }
                 }
                 else {
                     $view_name="login.php";
                     view('site/login/layout', ['view_name' => $view_name], [], $_POST);
-                    echoMesssage(false, "Tài khoản hoặc mật khẩu không đúng!");
+                    echoMesssage(false, "Tài khoản đã bị xoá!");
                 }
             }
             else {

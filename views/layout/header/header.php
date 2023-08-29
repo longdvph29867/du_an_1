@@ -74,7 +74,7 @@
                 <?php 
                 if(!isset($_SESSION['user'])) {
                     ?>
-                    onclick="alert('Vui lòng đăng nhập!')";
+                    onclick="showMesssage(false, 'Vui lòng đăng nhập!')";
                     <?php
                 }
                 

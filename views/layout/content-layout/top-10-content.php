@@ -21,11 +21,11 @@
                     <div class="pl-5">
                         <h4 class="text-lg"><?= $item['ten_hh'] ?></h4>
                         <div class="w-14 h-[1px] bg-gray-300 my-1"></div>
-                        <p class="text-[#62d2a2] font-bold "><?= number_format($chitiet_dongia['don_gia'] - $chitiet_dongia['giam_gia']) ?> đ/<?=$chitiet_dongia['don_vi']?></p>
+                        <p class="text-[#62d2a2] font-bold "><?= number_format($chitiet_dongia['don_gia'] - $chitiet_dongia['giam_gia'], 0, ',', '.') ?> đ/<?=$chitiet_dongia['don_vi']?></p>
                         <?php
                         if ($chitiet_dongia['giam_gia'] > 0) {
                         ?>
-                            <div class="text-sm"><span class="line-through text-gray-400"><?= number_format($chitiet_dongia['don_gia']) ?> đ</span> -<?= ceil(discountPrecent($chitiet_dongia['don_gia'], $chitiet_dongia['giam_gia'])) ?>%</div>
+                            <div class="text-sm"><span class="line-through text-gray-400"><?= number_format($chitiet_dongia['don_gia'], 0, ',', '.') ?> đ</span> -<?= ceil(discountPrecent($chitiet_dongia['don_gia'], $chitiet_dongia['giam_gia'])) ?>%</div>
                         <?php
                         }
                         ?>

@@ -223,7 +223,7 @@
                         }
                         ?>
                     </div>
-                    <h5 class="mb-0 mt-3">Tổng tiền: <span class="font-weight-bold text-success"><?= number_format($data['tong_tien']) ?> đ</span></h5>
+                    <h5 class="mb-0 mt-3">Tổng tiền: <span class="font-weight-bold text-success"><?= number_format($data['tong_tien'], 0, ',', '.') ?> đ</span></h5>
                 </div>
 
             </div>

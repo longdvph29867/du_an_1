@@ -34,7 +34,7 @@
                                         }
                                         else {
                                     ?>
-                                        onclick = "alert('Vui lòng đăng nhập!')";
+                                        onclick = "showMesssage(false, 'Vui lòng đăng nhập!')";
                                     <?php
                                         }
                                     ?>
@@ -47,13 +47,13 @@
                                 <h3><?= $item['ten_hh'] ?></h3>
                             </a>
                             <hr>
-                            <p><span><?= number_format($chitiet_dongia['don_gia'] - $chitiet_dongia['giam_gia']) ?> đ</span>/<?=$chitiet_dongia['don_vi']?></p>
+                            <p><span><?= number_format($chitiet_dongia['don_gia'] - $chitiet_dongia['giam_gia'], 0, ',', '.') ?> đ</span>/<?=$chitiet_dongia['don_vi']?></p>
                             <div class="min-h-[24px]">
 
                                 <?php
                                 if($chitiet_dongia['giam_gia'] > 0) {
                                     ?>
-                                    <div><span class="line-through text-gray-400"><?= number_format($chitiet_dongia['don_gia']) ?> đ</span> -<?=ceil(discountPrecent ($chitiet_dongia['don_gia'], $chitiet_dongia['giam_gia']))?>%</div>
+                                    <div><span class="line-through text-gray-400"><?= number_format($chitiet_dongia['don_gia'], 0, ',', '.') ?> đ</span> -<?=ceil(discountPrecent ($chitiet_dongia['don_gia'], $chitiet_dongia['giam_gia']))?>%</div>
                                     <?php
                                     
                                 }

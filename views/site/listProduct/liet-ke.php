@@ -52,7 +52,7 @@
                             }
                             else {
                         ?>
-                            onclick = "alert('Vui lòng đăng nhập!')";
+                            onclick = "showMesssage(false, 'Vui lòng đăng nhập!')";
                         <?php
                             }
                         ?>
@@ -65,11 +65,11 @@
                     <h3><?= $item['ten_hh'] ?></h3>
                 </a>
                 <hr>
-                <p><span class="lowercase"><?= number_format($item['don_gia'] - $item['giam_gia']) ?> đ</span>/<?=$item['don_vi']?></p>
+                <p><span class="lowercase"><?= number_format($item['don_gia'] - $item['giam_gia'], 0, ',', '.') ?> đ</span>/<?=$item['don_vi']?></p>
                 <?php
                 if ($item['giam_gia'] > 0) {
                 ?>
-                    <div><span class="line-through text-gray-400"><?= number_format($item['don_gia']) ?></span> -<?= ceil(discountPrecent($item['don_gia'], $item['giam_gia'])) ?>%</div>
+                    <div><span class="line-through text-gray-400"><?= number_format($item['don_gia'], 0, ',', '.') ?></span> -<?= ceil(discountPrecent($item['don_gia'], $item['giam_gia'])) ?>%</div>
                 <?php
 
                 }

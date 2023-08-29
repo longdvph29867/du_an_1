@@ -33,8 +33,8 @@
                     </div>
                 </div>
                 <p class="normal-case">
-                    <span class="line-through">₫<?=number_format($product['don_gia'])?></span>
-                    <span class="text-lg text-[#62d2a2]">₫<?=number_format($product['don_gia'] - $product['giam_gia'])?></span>
+                    <span class="line-through">₫<?=number_format($product['don_gia'], 0, ',', '.')?></span>
+                    <span class="text-lg text-[#62d2a2]">₫<?=number_format($product['don_gia'] - $product['giam_gia'], 0, ',', '.')?></span>
                 </p>
             </div>
             <div class=" h-[1px] bg-gray-300 my-2"></div>
@@ -79,19 +79,15 @@
             <div class="w-3/5 pl-5 text-sm text-gray-500 normal-case">
                 <div class="flex justify-between items-center py-3 border-gray-200" style="border-bottom-width: 1px;">
                     <p>Tổng tiền hàng</p>
-                    <p>₫<?= number_format($orderDetail['tong_tien'] - $orderDetail['gia_van_chuyen']) ?></p>
+                    <p>₫<?= number_format($orderDetail['tong_tien'] - $orderDetail['gia_van_chuyen'], 0, ',', '.') ?></p>
                 </div>
                 <div class="flex justify-between items-center py-3 border-gray-200" style="border-bottom-width: 1px;">
                     <p>Phí vận chuyển</p>
-                    <p>₫<?= number_format($orderDetail['gia_van_chuyen']) ?></p>
-                </div>
-                <div class="flex justify-between items-center py-3 border-gray-200" style="border-bottom-width: 1px;">
-                    <p>Giảm giá phí vận chuyển</p>
-                    <p>- 0₫</p>
+                    <p>₫<?= number_format($orderDetail['gia_van_chuyen'], 0, ',', '.') ?></p>
                 </div>
                 <div class="flex justify-between items-center py-2 border-gray-300" style="border-bottom-width: 1px;">
                     <p>Thành tiền</p>
-                    <p class="text-2xl text-[#62d2a2] font-semibold">₫<?= number_format(($orderDetail['tong_tien'] + $orderDetail['gia_van_chuyen']) - $orderDetail['gia_van_chuyen']) ?></p>
+                    <p class="text-2xl text-[#62d2a2] font-semibold">₫<?= number_format(($orderDetail['tong_tien'] + $orderDetail['gia_van_chuyen']) - $orderDetail['gia_van_chuyen'], 0, ',', '.') ?></p>
                 </div>
                 <div class="flex justify-between items-center py-3 border-gray-200">
                     <p>

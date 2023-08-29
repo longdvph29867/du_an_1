@@ -22,8 +22,8 @@
                         </div>
                     </div>
                     <p class="normal-case">
-                        <span class="line-through">₫<?= number_format($product['don_gia']) ?></span>
-                        <span class="text-lg text-[#62d2a2]">₫<?= number_format($product['don_gia'] - $product['giam_gia']) ?></span>
+                        <span class="line-through">₫<?= number_format($product['don_gia'], 0, ',', '.') ?></span>
+                        <span class="text-lg text-[#62d2a2]">₫<?= number_format($product['don_gia'] - $product['giam_gia'], 0, ',', '.') ?></span>
                     </p>
                 </div>
                 <div class=" h-[1px] bg-gray-300 my-2"></div>
@@ -40,7 +40,7 @@
                     <div class="pb-4 text-right">
                         <i class="fa-solid fa-file-invoice-dollar text-[#62d2a2]"></i>
                         <span>Thành tiền: </span>
-                        <span class="text-2xl text-[#62d2a2] font-semibold">₫<?= number_format($order['tong_tien']) ?></span>
+                        <span class="text-2xl text-[#62d2a2] font-semibold">₫<?= number_format($order['tong_tien'], 0, ',', '.') ?></span>
                     </div>
                     <div class="flex space-x-2">
                         <a href="?ctl=order-detail&ma_dh=<?= $order['ma_dh'] ?>" class="btn1 block text-center rounded min-w-[150px] py-2" style="border-width: 1px;">Chi tiết</a>

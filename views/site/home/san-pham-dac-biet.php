@@ -35,7 +35,7 @@
                                 if ($ma_kh) {
                                 ?> onclick="addCartItem('<?= $ma_kh ?>',<?= $chitiet_dongia['ma_cthh'] ?>, 1, <?= $chitiet_dongia['so_luong'] ?>)" ; <?php
                                 } else {
-                                    ?> onclick="alert('Vui lòng đăng nhập!')" ; <?php
+                                    ?> onclick="showMesssage(false, 'Vui lòng đăng nhập!')" ; <?php
                                 }
                                 ?> class="btn2 min-w-[40px] w-11 h-11 flex items-center justify-center"><i class="fa-solid fa-cart-shopping"></i></a>
                             </div>
@@ -46,12 +46,12 @@
                             <h3><?= $item['ten_hh'] ?></h3>
                         </a>
                         <hr>
-                        <p><span><?= number_format($chitiet_dongia['don_gia'] - $chitiet_dongia['giam_gia']) ?> đ</span>/<?= $chitiet_dongia['don_vi'] ?></p>
+                        <p><span><?= number_format($chitiet_dongia['don_gia'] - $chitiet_dongia['giam_gia'], 0, ',', '.') ?> đ</span>/<?= $chitiet_dongia['don_vi'] ?></p>
                         <div class="min-h-[24px]">
                             <?php
                             if ($chitiet_dongia['giam_gia'] > 0) {
                             ?>
-                                <div><span class="line-through text-gray-400"><?= number_format($chitiet_dongia['don_gia']) ?> đ/<?= $chitiet_dongia['don_vi'] ?></span> -<?= ceil(discountPrecent($chitiet_dongia['don_gia'], $chitiet_dongia['giam_gia'])) ?>%</div>
+                                <div><span class="line-through text-gray-400"><?= number_format($chitiet_dongia['don_gia'], 0, ',', '.') ?> đ/<?= $chitiet_dongia['don_vi'] ?></span> -<?= ceil(discountPrecent($chitiet_dongia['don_gia'], $chitiet_dongia['giam_gia'])) ?>%</div>
                             <?php
 
                             }
