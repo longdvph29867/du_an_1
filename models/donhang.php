@@ -166,7 +166,7 @@ function donhang_chitiet_insert($ma_dh, $data)
 
 
 
-function donhang_all($key = '')
+function donhang_all($key = '', $ma_trang_thai = '')
 {
     $conn = connection();
     if(!empty($key)) {
@@ -179,6 +179,17 @@ function donhang_all($key = '')
         JOIN hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh
         JOIN hinh_hang_hoa ON hang_hoa.ma_hh = hinh_hang_hoa.ma_hh
         WHERE don_hang.ma_dh = $key";
+    }
+    else if(!empty($ma_trang_thai)) {
+        $sql = "SELECT don_hang.ma_dh, don_hang.ngay_dat, don_hang.tong_tien, don_hang.ma_kh as 'tk_dat', don_hang.ten_nguoi_nhan, don_hang.sdt_nguoi_nhan, don_hang.dia_chi_nhan, don_hang.danh_gia_don_hang, trang_thai.ma_trang_thai, trang_thai.ten_trang_thai, don_vi_van_chuyen.ten_van_chuyen, chi_tiet_don_hang.so_luong, hang_hoa.ten_hh, chi_tiet_hang_hoa.ma_cthh, chi_tiet_hang_hoa.giam_gia, chi_tiet_hang_hoa.don_gia, chi_tiet_hang_hoa.don_vi, hinh_hang_hoa.ma_hinh, hinh_hang_hoa.ten_hinh
+        FROM don_hang 
+        JOIN chi_tiet_don_hang ON don_hang.ma_dh = chi_tiet_don_hang.ma_dh 
+        JOIN trang_thai ON don_hang.ma_trang_thai = trang_thai.ma_trang_thai 
+        JOIN don_vi_van_chuyen ON don_hang.ma_van_chuyen = don_vi_van_chuyen.ma_van_chuyen 
+        JOIN chi_tiet_hang_hoa ON chi_tiet_don_hang.ma_cthh = chi_tiet_hang_hoa.ma_cthh
+        JOIN hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh
+        JOIN hinh_hang_hoa ON hang_hoa.ma_hh = hinh_hang_hoa.ma_hh
+        WHERE don_hang.ma_trang_thai = $ma_trang_thai";
     }
     else {
         $sql = "SELECT don_hang.ma_dh, don_hang.ngay_dat, don_hang.tong_tien, don_hang.ma_kh as 'tk_dat', don_hang.ten_nguoi_nhan, don_hang.sdt_nguoi_nhan, don_hang.dia_chi_nhan, don_hang.danh_gia_don_hang, trang_thai.ma_trang_thai, trang_thai.ten_trang_thai, don_vi_van_chuyen.ten_van_chuyen, chi_tiet_don_hang.so_luong, hang_hoa.ten_hh, chi_tiet_hang_hoa.ma_cthh, chi_tiet_hang_hoa.giam_gia, chi_tiet_hang_hoa.don_gia, chi_tiet_hang_hoa.don_vi, hinh_hang_hoa.ma_hinh, hinh_hang_hoa.ten_hinh

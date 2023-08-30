@@ -3,7 +3,7 @@
 function loai_all()
 {
     $conn = connection();
-    $sql = "SELECT * FROM loai";
+    $sql = "SELECT * FROM loai WHERE hoat_dong_loai = 1";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);

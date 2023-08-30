@@ -1,7 +1,6 @@
 <?php
 function hanghoact()
 {
-    // $hanghoacl = hanghoa_cl();
     $ma_hh = $_GET['ma_hh'];
     hanghoa_tang_so_luot_xem($ma_hh);
     $hanghoact =  hanghoa_by_ma_hanghoa($ma_hh);

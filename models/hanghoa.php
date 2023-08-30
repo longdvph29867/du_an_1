@@ -20,16 +20,6 @@ function hanghoa_tang_so_luot_xem($ma_hh)
     $stmt->execute();
 }
 
-function hanghoa_cl($ma_hh){
-    $data[] = $ma_hh;
-    $conn = connection();
-    $sql="select * from hang_hoa where  ma_hh =".$ma_hh;
-    $stmt = $conn->prepare($sql);
-    $stmt->execute($data);
-    $hanghoa = $stmt->fetchAll();
-    return $hanghoa;
-}
-
 function hanghoa_by_ma_hanghoa($ma_hh)
 {
     $conn = connection();
@@ -80,7 +70,7 @@ function hanghoa_by_ma_loai($ma_loai)
     $sql = "SELECT * FROM hang_hoa 
     INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
     INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
-    WHERE hang_hoa.ma_loai = $ma_loai
+    WHERE hang_hoa.ma_loai = $ma_loai AND hang_hoa.hoat_dong_hh = 1 
     ORDER BY hang_hoa.ma_hh ASC";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
@@ -129,7 +119,7 @@ function hanghoa_all($data = [], $type = '')
                 INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
-                WHERE hang_hoa.ma_loai = $data[ma_loai]
+                WHERE hang_hoa.ma_loai = $data[ma_loai] AND hang_hoa.hoat_dong_hh = 1
                 GROUP BY hang_hoa.ma_hh
                 ORDER BY hang_hoa.so_luot_xem DESC";
                 break;
@@ -140,7 +130,7 @@ function hanghoa_all($data = [], $type = '')
                 INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
-                WHERE hang_hoa.ma_loai = $data[ma_loai]
+                WHERE hang_hoa.ma_loai = $data[ma_loai] AND hang_hoa.hoat_dong_hh = 1
                 GROUP BY hang_hoa.ma_hh
                 ORDER BY rating DESC";
                 break;
@@ -151,7 +141,7 @@ function hanghoa_all($data = [], $type = '')
                 INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
-                WHERE hang_hoa.ma_loai = $data[ma_loai]
+                WHERE hang_hoa.ma_loai = $data[ma_loai] AND hang_hoa.hoat_dong_hh = 1
                 GROUP BY hang_hoa.ma_hh
                 ORDER BY hang_hoa.ma_hh DESC";
                 break;
@@ -162,7 +152,7 @@ function hanghoa_all($data = [], $type = '')
                 INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
-                WHERE hang_hoa.ma_loai = $data[ma_loai]
+                WHERE hang_hoa.ma_loai = $data[ma_loai] AND hang_hoa.hoat_dong_hh = 1
                 GROUP BY hang_hoa.ma_hh
                 ORDER BY (chi_tiet_hang_hoa.don_gia - chi_tiet_hang_hoa.giam_gia) ASC";
                 break;
@@ -173,7 +163,7 @@ function hanghoa_all($data = [], $type = '')
                 INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
-                WHERE hang_hoa.ma_loai = $data[ma_loai]
+                WHERE hang_hoa.ma_loai = $data[ma_loai] AND hang_hoa.hoat_dong_hh = 1
                 GROUP BY hang_hoa.ma_hh
                 ORDER BY (chi_tiet_hang_hoa.don_gia - chi_tiet_hang_hoa.giam_gia) DESC";
                 break;
@@ -184,7 +174,7 @@ function hanghoa_all($data = [], $type = '')
                 INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
-                WHERE hang_hoa.ma_loai = $data[ma_loai]
+                WHERE hang_hoa.ma_loai = $data[ma_loai] AND hang_hoa.hoat_dong_hh = 1
                 GROUP BY hang_hoa.ma_hh
                 ORDER BY hang_hoa.ma_hh ASC";
                 break;
@@ -200,6 +190,7 @@ function hanghoa_all($data = [], $type = '')
                 INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
+                WHERE hang_hoa.hoat_dong_hh = 1
                 GROUP BY hang_hoa.ma_hh
                 ORDER BY hang_hoa.so_luot_xem DESC";
                 break;
@@ -210,6 +201,7 @@ function hanghoa_all($data = [], $type = '')
                 INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
+                WHERE hang_hoa.hoat_dong_hh = 1
                 GROUP BY hang_hoa.ma_hh
                 ORDER BY rating DESC";
                 break;
@@ -220,6 +212,7 @@ function hanghoa_all($data = [], $type = '')
                 INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
+                WHERE hang_hoa.hoat_dong_hh = 1
                 GROUP BY hang_hoa.ma_hh
                 ORDER BY hang_hoa.ma_hh DESC";
                 break;
@@ -230,6 +223,7 @@ function hanghoa_all($data = [], $type = '')
                 INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
+                WHERE hang_hoa.hoat_dong_hh = 1
                 GROUP BY hang_hoa.ma_hh
                 ORDER BY (chi_tiet_hang_hoa.don_gia - chi_tiet_hang_hoa.giam_gia) ASC";
                 break;
@@ -240,6 +234,7 @@ function hanghoa_all($data = [], $type = '')
                 INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
+                WHERE hang_hoa.hoat_dong_hh = 1
                 GROUP BY hang_hoa.ma_hh
                 ORDER BY (chi_tiet_hang_hoa.don_gia - chi_tiet_hang_hoa.giam_gia) DESC";
                 break;
@@ -250,6 +245,7 @@ function hanghoa_all($data = [], $type = '')
                 INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
                 LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
+                WHERE hang_hoa.hoat_dong_hh = 1
                 GROUP BY hang_hoa.ma_hh
                 ORDER BY hang_hoa.ma_hh ASC";
                 break;
@@ -303,6 +299,7 @@ function hanghoa_all_ad()
     INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
     INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh
     INNER JOIN loai ON loai.ma_loai = hang_hoa.ma_loai
+    WHERE hang_hoa.hoat_dong_hh = 1
     ORDER BY hang_hoa.ma_hh ASC";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
@@ -440,7 +437,7 @@ function hanghoa_update_thongin($data)
 function hanghoa_delete_hh($ma_hh)
 {
     $conn = connection();
-    $sql = "DELETE FROM hang_hoa WHERE `hang_hoa`.`ma_hh` = $ma_hh";
+    $sql = "UPDATE hang_hoa SET hoat_dong_hh = '0' WHERE hang_hoa.ma_hh = $ma_hh";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
 }
@@ -487,8 +484,8 @@ function hanghoa_search($keyword, $type = '')
             INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
             INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
             INNER JOIN loai ON loai.ma_loai = hang_hoa.ma_loai
-            LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
-            WHERE hang_hoa.ten_hh LIKE '%$keyword%' OR loai.ten_loai LIKE '%$keyword%'
+            LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh 
+            WHERE (hang_hoa.ten_hh LIKE '%$keyword%' OR loai.ten_loai LIKE '%$keyword%') AND hang_hoa.hoat_dong_hh = 1
             GROUP BY hang_hoa.ma_hh
             ORDER BY hang_hoa.so_luot_xem DESC";
             break;
@@ -500,8 +497,9 @@ function hanghoa_search($keyword, $type = '')
             INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
             INNER JOIN loai ON loai.ma_loai = hang_hoa.ma_loai
             LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
+            WHERE (hang_hoa.ten_hh LIKE '%$keyword%' OR loai.ten_loai LIKE '%$keyword%') AND hang_hoa.hoat_dong_hh = 1
             GROUP BY hang_hoa.ma_hh
-            ORDER BY rating DESC";
+            ORDER BY  rating DESC";
             break;
         case 'new':
             $sql = "SELECT 
@@ -511,7 +509,7 @@ function hanghoa_search($keyword, $type = '')
             INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
             INNER JOIN loai ON loai.ma_loai = hang_hoa.ma_loai
             LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
-            WHERE hang_hoa.ten_hh LIKE '%$keyword%' OR loai.ten_loai LIKE '%$keyword%'
+            WHERE (hang_hoa.ten_hh LIKE '%$keyword%' OR loai.ten_loai LIKE '%$keyword%') AND hang_hoa.hoat_dong_hh = 1
             GROUP BY hang_hoa.ma_hh
             ORDER BY hang_hoa.ma_hh DESC";
             break;
@@ -523,7 +521,7 @@ function hanghoa_search($keyword, $type = '')
             INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
             INNER JOIN loai ON loai.ma_loai = hang_hoa.ma_loai
             LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
-            WHERE hang_hoa.ten_hh LIKE '%$keyword%' OR loai.ten_loai LIKE '%$keyword%'
+            WHERE (hang_hoa.ten_hh LIKE '%$keyword%' OR loai.ten_loai LIKE '%$keyword%') AND hang_hoa.hoat_dong_hh = 1
             GROUP BY hang_hoa.ma_hh
             ORDER BY (chi_tiet_hang_hoa.don_gia - chi_tiet_hang_hoa.giam_gia) ASC";
             break;
@@ -535,7 +533,7 @@ function hanghoa_search($keyword, $type = '')
             INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
             INNER JOIN loai ON loai.ma_loai = hang_hoa.ma_loai
             LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
-            WHERE hang_hoa.ten_hh LIKE '%$keyword%' OR loai.ten_loai LIKE '%$keyword%'
+            WHERE (hang_hoa.ten_hh LIKE '%$keyword%' OR loai.ten_loai LIKE '%$keyword%') AND hang_hoa.hoat_dong_hh = 1
             GROUP BY hang_hoa.ma_hh
             ORDER BY (chi_tiet_hang_hoa.don_gia - chi_tiet_hang_hoa.giam_gia) DESC";
             break;
@@ -547,7 +545,7 @@ function hanghoa_search($keyword, $type = '')
             INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
             INNER JOIN loai ON loai.ma_loai = hang_hoa.ma_loai
             LEFT JOIN danh_gia ON danh_gia.ma_hh = hang_hoa.ma_hh
-            WHERE hang_hoa.ten_hh LIKE '%$keyword%' OR loai.ten_loai LIKE '%$keyword%'
+            WHERE (hang_hoa.ten_hh LIKE '%$keyword%' OR loai.ten_loai LIKE '%$keyword%') AND hang_hoa.hoat_dong_hh = 1
             GROUP BY hang_hoa.ma_hh
             ORDER BY hang_hoa.ma_hh ASC";
             break;
@@ -596,7 +594,7 @@ function hanghoa_search_ad($keyword)
     INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
     INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
     INNER JOIN loai ON loai.ma_loai = hang_hoa.ma_loai
-    WHERE hang_hoa.ten_hh LIKE '%$keyword%' OR loai.ten_loai LIKE '%$keyword%'
+    WHERE (hang_hoa.ten_hh LIKE '%$keyword%' OR loai.ten_loai LIKE '%$keyword%') AND hang_hoa.hoat_dong_hh = 1
     ORDER BY hang_hoa.ma_hh ASC";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
@@ -656,7 +654,7 @@ function hanghoa_top_10()
 {
     $conn = connection();
     $sql = "SELECT * FROM hang_hoa INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
-    INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh ORDER BY hang_hoa.so_luot_xem DESC";
+    INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh WHERE hang_hoa.hoat_dong_hh = 1 ORDER BY hang_hoa.so_luot_xem DESC";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     // $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -697,7 +695,7 @@ function hanghoa_dac_biet()
 {
     $conn = connection();
     $sql = "SELECT * FROM hang_hoa INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
-    INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh WHERE hang_hoa.dac_biet = 1";
+    INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh WHERE hang_hoa.dac_biet = 1 AND hang_hoa.hoat_dong_hh = 1";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     // $result = $stmt->fetchAll(PDO::FETCH_ASSOC);

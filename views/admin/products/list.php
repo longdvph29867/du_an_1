@@ -9,7 +9,7 @@
     <div>
         <form action="" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
-                <input type="text" class="form-control bg-white border-1 small" name="search" placeholder="Search..." value="<?php if (!empty($key)) echo $key; ?>">
+                <input type="text" class="form-control bg-white border-1 small" name="search" placeholder="Tên sản phẩm..." value="<?php if (!empty($key)) echo $key; ?>">
                 <div class="input-group-append">
                     <button class="btn btn-primary" type="submit">
                         <i class="fas fa-search fa-sm"></i>
@@ -85,18 +85,34 @@
     <nav aria-label="Page navigation example">
         <ul class="pagination">
             <?php
-                if((!isset($_GET['ctl']) || $_GET['ctl'] == 'ad-list') && !isset($_GET['search'])) {
-                    for($i = 0; $i < $pageTotal; $i++) {
-                    ?>
-                        <li class="page-item"><a class="page-link <?php 
-                            if(!isset($_GET['page']) && $i == 0) {
-                                echo 'bg-primary text-white';
-                            };
-                            if((isset($_GET['page']) && $_GET['page']==$i+1)) {
-                                echo 'bg-primary text-white';
-                            }
-                        ?>" href="?ctl=ad-list&page=<?=$i+1?>"><?=$i+1?></a></li>
-                    <?php
+                if($pageTotal > 1) {
+                    if(((!isset($_GET['ctl']) || $_GET['ctl'] == 'ad-list')) && !isset($_GET['search'])) {
+                        for($i = 0; $i < $pageTotal; $i++) {
+                        ?>
+                            <li class="page-item"><a class="page-link <?php 
+                                if(!isset($_GET['page']) && $i == 0) {
+                                    echo 'bg-primary text-white';
+                                };
+                                if((isset($_GET['page']) && $_GET['page']==$i+1)) {
+                                    echo 'bg-primary text-white';
+                                }
+                            ?>" href="?ctl=ad-list&page=<?=$i+1?>"><?=$i+1?></a></li>
+                        <?php
+                        }
+                    }
+                    else if(isset($_GET['search'])) {
+                        for($i = 0; $i < $pageTotal; $i++) {
+                            ?>
+                                <li class="page-item"><a class="page-link <?php 
+                                    if(!isset($_GET['page']) && $i == 0) {
+                                        echo 'bg-primary text-white';
+                                    };
+                                    if((isset($_GET['page']) && $_GET['page']==$i+1)) {
+                                        echo 'bg-primary text-white';
+                                    }
+                                ?>" href="?search=<?=$_GET['search']?>&page=<?=$i+1?>"><?=$i+1?></a></li>
+                            <?php
+                        }
                     }
                 }
             ?>

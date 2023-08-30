@@ -196,12 +196,15 @@ function ad_hanghoa_search() {
     }
     else {
         $listSanPham = hanghoa_search_ad($key);
-
+        $thisPage= $_GET['page'] ?? 1;
+        $arrListByPage = array_chunk(array_reverse($listSanPham), 10);
+        $pageTotal = ceil(count($arrListByPage));
+        $listSanPham = $arrListByPage[$thisPage-1];
     // echo '<pre>';
     // print_r($listSanPham);
     // echo '</pre>';
         $view_name = "list.php";
-        view('layout/layout-admin', ['view_name' => $view_name, 'listSanPham' => $listSanPham, 'key' => $key]);
+        view('layout/layout-admin', ['view_name' => $view_name, 'listSanPham' => $listSanPham, 'key' => $key, 'pageTotal' => $pageTotal]);
     }
 }
 

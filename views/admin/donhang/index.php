@@ -23,7 +23,10 @@ switch ($ctl) {
         ad_update_trangthai();
         break;
     case 'search':
-        ad_loai_search();
+        ad_donhang_search();
+        break;
+    case 'trang-thai':
+        ad_donhang_by_trangthai();
         break;
     default:
         echo "404 NOT FOUND!";

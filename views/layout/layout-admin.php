@@ -447,6 +447,12 @@
                 document.getElementById('filterThongKe').submit();
             }
         }
+        if(document.getElementById('ad-filter-hh')) {
+            console.log('123321');
+            function submitFormSelectAdminHH () {
+                document.getElementById('ad-filter-hh').submit();
+            }
+        }
     </script>
 </body>
 

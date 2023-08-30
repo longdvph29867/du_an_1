@@ -1,5 +1,4 @@
 
-
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Danh sách đơn hàng</h1>
     <div>
@@ -17,11 +16,27 @@
     </div>
 </div>
 <div>
-    <div class="mb-3">
+    <div class="mb-3 d-flex align-items-center justify-content-end">
         <!-- <button class="btn btn-primary" id="check-all" type="button">Chọn tất cả</button>
         <button class="btn btn-secondary" id="clear-all" type="button">Bỏ chọn tất cả</button>
         <button class="btn btn-danger" name="btn-delete-all" onclick="return confirm('Bạn có chắc chắn xoá không?')">Xóa các mục đã chọn</button> -->
-        <a href="?ctl=ad-add" class="btn btn-success">Thêm mới</a>
+        <form action="" method="GET" id="ad-filter-hh">
+            <input type='text' name='ctl' value='trang-thai' class='d-none'>
+        <?php
+        
+        ?> 
+        <select onchange="submitFormSelectAdminHH()" name="ma_trang_thai" class="px-2 py-1 border min-w-[180px] rounded mr-[2px] outline-none" >
+            <option value="" hidden>---Lọc--</option>
+            <option <?php if(isset($_GET['ma_trang_thai']) && $_GET['ma_trang_thai'] == 'all') echo 'selected';?>  value="all">Tất cả</option>
+            <?php
+                foreach($listTrangThai as $item) {
+                ?>
+                    <option <?php if(isset($_GET['ma_trang_thai']) && $_GET['ma_trang_thai'] == $item['ma_trang_thai']) echo 'selected';?>  value="<?=$item['ma_trang_thai']?>"><?=$item['ten_trang_thai']?></option>
+                <?php
+                }
+            ?>
+        </select>
+    </form>
     </div>
     <table class="table bg-white">
         <thead class="bg-primary text-white">
@@ -45,7 +60,7 @@
                     <!-- <td><input type="checkbox" name="ma_dh[]" value="<?= $item['ma_dh'] ?>"></td> -->
                     <td><?=$item['ma_dh'] ?></td>
                     <td><?=$item['ngay_dat'] ?></td>
-                    <td><?=$item['tong_tien'] ?> đ</td>
+                    <td><?=number_format($item['tong_tien'], 0, ',', '.') ?> đ</td>
                     <td><?=$dia_chi ?></td>
                     <td class="d-flex justify-content-center align-items-center">
                         <span class="p-1 rounded"
