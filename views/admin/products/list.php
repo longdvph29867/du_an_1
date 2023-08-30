@@ -20,11 +20,28 @@
     </div>
 </div>
 <div>
-    <div class="mb-3">
+    <div class="mb-3 d-flex align-items-center justify-content-between">
         <!-- <button class="btn btn-primary" id="check-all" type="button">Chọn tất cả</button>
         <button class="btn btn-secondary" id="clear-all" type="button">Bỏ chọn tất cả</button>
         <button class="btn btn-danger" name="btn-delete-all" onclick="return confirm('Bạn có chắc chắn xoá không?')">Xóa các mục đã chọn</button> -->
         <a href="?ctl=ad-add" class="btn btn-success">Thêm mới</a>
+        <form action="" method="GET" id="ad-filter-hh">
+            <!-- <input type='text' name='ctl' value='ad-filter-hh' class='d-none'> -->
+        <?php
+        
+        ?> 
+        <select onchange="submitFormSelectAdminHH()" name="ma_loai" class="px-2 py-1 border min-w-[180px] rounded mr-[2px] outline-none" >
+            <option value="" hidden>---Lọc--</option>
+            <option <?php if(isset($_GET['ma_loai']) && $_GET['ma_loai'] == 'all') echo 'selected';?>  value="all">Tất cả</option>
+            <?php
+                foreach($listLoai as $item) {
+                ?>
+                    <option <?php if(isset($_GET['ma_loai']) && $_GET['ma_loai'] == $item['ma_loai']) echo 'selected';?>  value="<?=$item['ma_loai']?>"><?=$item['ten_loai']?></option>
+                <?php
+                }
+            ?>
+        </select>
+    </form>
     </div>
     <table class="table bg-white">
         <thead class="bg-primary text-white">
@@ -86,7 +103,7 @@
         <ul class="pagination">
             <?php
                 if($pageTotal > 1) {
-                    if(((!isset($_GET['ctl']) || $_GET['ctl'] == 'ad-list')) && !isset($_GET['search'])) {
+                    if(((!isset($_GET['ctl']) || $_GET['ctl'] == 'ad-list')) && !isset($_GET['search']) && !isset($_GET['ma_loai'])) {
                         for($i = 0; $i < $pageTotal; $i++) {
                         ?>
                             <li class="page-item"><a class="page-link <?php 
@@ -100,7 +117,7 @@
                         <?php
                         }
                     }
-                    else if(isset($_GET['search'])) {
+                    else if(isset($_GET['search']) && !isset($_GET['ma_loai'])) {
                         for($i = 0; $i < $pageTotal; $i++) {
                             ?>
                                 <li class="page-item"><a class="page-link <?php 
@@ -111,6 +128,20 @@
                                         echo 'bg-primary text-white';
                                     }
                                 ?>" href="?search=<?=$_GET['search']?>&page=<?=$i+1?>"><?=$i+1?></a></li>
+                            <?php
+                        }
+                    }
+                    else if(isset($_GET['ma_loai'])) {
+                        for($i = 0; $i < $pageTotal; $i++) {
+                            ?>
+                                <li class="page-item"><a class="page-link <?php 
+                                    if(!isset($_GET['page']) && $i == 0) {
+                                        echo 'bg-primary text-white';
+                                    };
+                                    if((isset($_GET['page']) && $_GET['page']==$i+1)) {
+                                        echo 'bg-primary text-white';
+                                    }
+                                ?>" href="?ma_loai=<?=$_GET['ma_loai']?>&page=<?=$i+1?>"><?=$i+1?></a></li>
                             <?php
                         }
                     }

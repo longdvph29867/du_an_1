@@ -4,13 +4,28 @@
     // print_r($_POST);
     // echo '</pre>';
 function ad_hanghoa_list() {
-    $listSanPhamAll = hanghoa_all_ad();
+    if(isset($_GET['ma_loai'])) {
+        if($_GET['ma_loai'] == 'all') {
+            header("location: ?ctl=ad-list");
+        }
+        else {
+            $listSanPhamAll = hanghoa_by_ma_loai($_GET['ma_loai']);
+        }
+    }
+    else {
+        $listSanPhamAll = hanghoa_all_ad();
+    }
     $thisPage= $_GET['page'] ?? 1;
     $arrListByPage = array_chunk(array_reverse($listSanPhamAll), 10);
     $pageTotal = ceil(count($arrListByPage));
     $listSanPham = $arrListByPage[$thisPage-1];
+
+    $listLoai = loai_all();
+    // echo '<pre>';
+    // print_r($listLoai);
+    // echo '</pre>';
     $view_name = "list.php";
-    view('layout/layout-admin', ['view_name' => $view_name, 'listSanPham' => $listSanPham, 'pageTotal' => $pageTotal]);
+    view('layout/layout-admin', ['view_name' => $view_name, 'listSanPham' => $listSanPham, 'pageTotal' => $pageTotal, 'listLoai' => $listLoai]);
 }
 
 function ad_add_hanghoa() {
@@ -200,11 +215,11 @@ function ad_hanghoa_search() {
         $arrListByPage = array_chunk(array_reverse($listSanPham), 10);
         $pageTotal = ceil(count($arrListByPage));
         $listSanPham = $arrListByPage[$thisPage-1];
-    // echo '<pre>';
-    // print_r($listSanPham);
-    // echo '</pre>';
+
+        $listLoai = loai_all();
+
         $view_name = "list.php";
-        view('layout/layout-admin', ['view_name' => $view_name, 'listSanPham' => $listSanPham, 'key' => $key, 'pageTotal' => $pageTotal]);
+        view('layout/layout-admin', ['view_name' => $view_name, 'listSanPham' => $listSanPham, 'key' => $key, 'pageTotal' => $pageTotal, 'listLoai' => $listLoai]);
     }
 }
 
