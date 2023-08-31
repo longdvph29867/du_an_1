@@ -11,21 +11,23 @@
             <?php
             foreach ($order['products'] as $product) {
             ?>
-                <div class="flex justify-between items-center mb-2">
-                    <div class="flex">
-                        <div class="border-gray-400 mr-3" style="border-width: 1px;">
-                            <img class="w-20 h-20 object-cover" src="<?= url_public . "/images/products/". reset($product['hinhArr']) ?>" alt="">
+                <a href="<?=url_site . '/chitiet/?ma_hh=' . $product['ma_hh']?>">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="flex">
+                            <div class="border-gray-400 mr-3" style="border-width: 1px;">
+                                <img class="w-20 h-20 object-cover" src="<?= url_public . "/images/products/". reset($product['hinhArr']) ?>" alt="">
+                            </div>
+                            <div>
+                                <h3 class="text-lg"><?= $product['ten_hh'] ?></h3>
+                                <p class="normal-case">Số lượng: <span class="text-xl"><?= $product['so_luong'] ?> x </span> <?= $product['don_vi'] ?></p>
+                            </div>
                         </div>
-                        <div>
-                            <h3 class="text-lg"><?= $product['ten_hh'] ?></h3>
-                            <p class="normal-case">Số lượng: <span class="text-xl"><?= $product['so_luong'] ?> x </span> <?= $product['don_vi'] ?></p>
-                        </div>
+                        <p class="normal-case">
+                            <span class="line-through">₫<?= number_format($product['don_gia'], 0, ',', '.') ?></span>
+                            <span class="text-lg text-[#62d2a2]">₫<?= number_format($product['don_gia'] - $product['giam_gia'], 0, ',', '.') ?></span>
+                        </p>
                     </div>
-                    <p class="normal-case">
-                        <span class="line-through">₫<?= number_format($product['don_gia'], 0, ',', '.') ?></span>
-                        <span class="text-lg text-[#62d2a2]">₫<?= number_format($product['don_gia'] - $product['giam_gia'], 0, ',', '.') ?></span>
-                    </p>
-                </div>
+                </a>
                 <div class=" h-[1px] bg-gray-300 my-2"></div>
             <?php
             }

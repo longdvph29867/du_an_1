@@ -26,7 +26,7 @@ function hanghoa_by_ma_hanghoa($ma_hh)
     $sql = "SELECT * FROM hang_hoa 
     INNER JOIN hinh_hang_hoa ON hinh_hang_hoa.ma_hh = hang_hoa.ma_hh 
     INNER JOIN chi_tiet_hang_hoa ON chi_tiet_hang_hoa.ma_hh = hang_hoa.ma_hh 
-    INNER JOIN loai ON hang_hoa.ma_loai = loai.ma_loai 
+    INNER JOIN loai ON hang_hoa.ma_loai = loai.ma_loai
     WHERE hang_hoa.ma_hh = $ma_hh";
     $stmt = $conn->prepare($sql);
     $stmt->execute();

@@ -118,7 +118,6 @@ $().ready(function () {
       form.submit();
     },
   });
-  console.log(document.getElementById('form-insert-order'));
   $('#form-insert-order').validate({
     rules: {
       ten_nguoi_nhan: {

@@ -60,7 +60,7 @@
     <p class="py-5 text-center border-t-2 border-gray-300 bg-[#f3f6f5]">
         Created By
         <a href="#" class="text-[#459573] font-semibold">Team 5</a> /
-        <a href="#" class="text-[#459573] font-semibold">WEB18201</a>
+        <a href="#" class="text-[#459573] font-semibold">WD18201</a>
         | &copy; 2023 FPT Polytechnic. All rights reserved.
     </p>
 </footer>

@@ -8,6 +8,10 @@ function hanghoact()
     $danhgia = danhgia_by_mahh($ma_hh);
     $sanphamcl = hanghoa_by_ma_loai($hanghoact['ma_loai']);
 
+    // echo '<pre>';
+    // print_r($hanghoact);
+    // echo '</pre>';
+
     $view_name = "chitietsp.php";
     view(
         'layout/layout',
@@ -50,7 +54,6 @@ function hanghoact_add_cart()
             giohang_insert($_POST);
             addMesssage(true, "Thêm sản phẩm thành công!");
             header("location: ?ma_hh=$ma_hh");
-
         }
         
 

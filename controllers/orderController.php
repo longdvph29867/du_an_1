@@ -23,6 +23,10 @@ function order_list() {
     $ma_kh = $_SESSION['user']['ma_kh'];
     $orders = donhang_by_kh_all($ma_kh);
 
+    // echo "<pre>";
+    // print_r($orders);
+    // echo "</pre>";
+
     $name_page = "Danh sách đơn hàng";
     $content = "order_list.php";
     $view_name = "../../layout/content-layout/content-layout.php";
