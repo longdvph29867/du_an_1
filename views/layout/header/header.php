@@ -131,7 +131,7 @@
         <!--  -->
         <nav class="lg:hidden flex flex-col items-center menu menu_mobile">
             <ul class="flex flex-col w-full text-center">
-                <li><a href="index.php">Trang chủ</a></li>
+                <li><a href="<?=url?>?ctl=home">Trang chủ</a></li>
                 <!-- show -->
                 <li class="menu_item_mobile ">
                     <a id="showMenuChildMobile" href="javascript:void(0);">Danh mục <i class="fa-solid fa-chevron-down"></i></a>
@@ -141,8 +141,8 @@
                     </ul>
                 </li>
                 <li><a href="<?=url_site?>/listProduct/?ctl=products">Sản phẩm</a></li>
-                <li><a href="?ctl=about">Giới thiệu</a></li>
-                <li><a href="?ctl=contact">Liên hệ</a></li>
+                <li><a href="<?=url?>?ctl=about">Giới thiệu</a></li>
+                <li><a href="<?=url?>?ctl=contact">Liên hệ</a></li>
                 <li class="flex justify-center pb-2 items-center flex-wrap">
                     <!-- tai khoan mobile -->
                         <?php
@@ -160,11 +160,11 @@
                                 <img class="h-12 w-12 object-cover" src="<?=url_public."/images/users/$info_user[hinh]"; ?>" alt="">
                             </div>
                             <a href="#" class="btn2 ml-2">Thông tin</a>
-                            <?php
+                            <!-- <?php
                             if (true) {
                                 echo "<a href='#' class='btn2 mx-2 '>Quản lý</a>";
                             }
-                            ?>
+                            ?> -->
                             <?php
                             if ($info_user['vai_tro']) {
                                 ?>
