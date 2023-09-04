@@ -176,22 +176,32 @@ function datHang(maKH) {
     url: `http://localhost/du_an_1_API/giohang?ma_kh=${maKH}`,
   })
     .then((res) => {
+      console.log("🚀 ~ file: script.js:179 ~ .then ~ res:", res)
       let listCart = res.data;
-      let isValid = true;
+      let isValidSl = true;
       for(let i = 0; i < listCart.length; i++) {
         let itemCart = listCart[i];
         if(itemCart['so_luong'] > itemCart['so_luong_kho']) {
-          isValid = false;
+          isValidSl = false;
           break;
         }
       }
+      let total = 0;
+      for(let i = 0; i < listCart.length; i++) {
+        total += listCart[i]['so_luong'];
+      }
 
-      if(isValid) {
-        var currentURL = window.location.href;
-        // Thay đổi URL thành dạng mới
-        var newURL = currentURL.replace("giohang", "order/?ctl=order");
-        // Chuyển hướng trang đến URL mới
-        window.location.href = newURL.slice(0, -1);
+      if(isValidSl) {
+        if(total == 0) {
+          showMesssage(false, 'Vui lòng thêm sản phẩm!');
+        }
+        else {
+          var currentURL = window.location.href;
+          // Thay đổi URL thành dạng mới
+          var newURL = currentURL.replace("giohang", "order/?ctl=order");
+          // Chuyển hướng trang đến URL mới
+          window.location.href = newURL.slice(0, -1);
+        }
         
       }
       else {

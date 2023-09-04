@@ -26,8 +26,8 @@
     </section>
 
     <!-- detail_description -->
-    <section class="detail w-[90%] py-14  flex gap-10 items-start mx-auto">
-        <div class="big-img w-[40%] mx-auto ">
+    <section class="detail container py-14  flex gap-10 items-start mx-auto md:flex-row flex-col">
+        <div class="big-img md:w-[40%] w-full mx-auto ">
             <div id="img-detail"
             class="w-full relative pt-[100%] 
             bg-[url('<?= url_public . '/images/products/' . reset($hanghoact['hinhArr']) ?>')]
@@ -64,10 +64,9 @@
             </div>
         </div>
 
-
-        <div class=" font-['Raleway'] w-[60%]  py-3 sm:text-center md:text-left ">
+        <div class=" font-['Raleway'] md:w-[60%] w-full  py-3">
             <h3 class="text-3xl font-bold hover:text-[#62d2a2]"><?= $hanghoact['ten_hh'] ?></h3>
-            <div class="md:w-28 md:ml-2 h-[1px] bg-gray-300 my-3 md:duration-300  sm:w-[500px] sm:mx-auto"></div>
+            <div class="md:w-28 md:ml-2 h-[1px] bg-gray-300 my-3 md:duration-300"></div>
             <p class=" text-[#62d2a2] text-xl font-bold">
                 <span class="don_gia_ct"><?php
             if($min != $max) {
@@ -117,7 +116,7 @@
                     </small>
                 </div>
 
-                <div class=" sm:w-[70%] md:w-[90%] md:mx-0 sm:mx-auto sm:gap-4 flex md:gap-2 ">
+                <div class="sm:w-[70%] sm:gap-4 flex md:gap-2 gap-1 ">
                     <div>
                         <div class=" sm:gap-6 flex md:gap-2">
                             <input name="so_luong" type="number" value="1" min="1" max="200" class="border-[1px] border-[#62d2a2] rounded-lg px-2 py-1 w-16 h-10 outline-none">
@@ -126,7 +125,7 @@
                                 ?> 
                                     onclick="showMesssage(false, 'Vui lòng đăng nhập!')" type="button" <?php
                                 }
-                                ?> class="text-white border-[1px] hover:text-[#62d2a2] hover:bg-white  duration-300 font-bold border-[#62d2a2] rounded-full h-10 p-3  py-1 bg-[#62d2a2]">Thêm vào giỏ hàng</button>
+                                ?> class="text-white sm:ml-0 ml-1 border-[1px] hover:text-[#62d2a2] hover:bg-white  duration-300 font-bold border-[#62d2a2] rounded-full h-10 p-3  py-1 bg-[#62d2a2]">Thêm vào giỏ hàng</button>
                         </div>
                         <small class="text-sm text-red-500">
                             <?php
@@ -153,9 +152,9 @@
             <h3 class="text-[15px] font-bold my-3">
                 Số lượng: <span class="text-[#62d2a2] font-semibold text-[18px] tong_so_luong"><?= $tong_so_luong ?></span>
             </h3>
-            <div class=" sm:w-[60%] md:mx-0 sm:mx-auto flex gap-2 items-center  ">
+            <div class=" sm:w-[60%] flex gap-2 items-center  ">
                 <h5 class="font-bold"> Chia sẻ: </h5>
-                <div class="flex items-center md:gap-2 sm:gap-6">
+                <div class="flex items-center md:gap-2 sm:gap-6 gap-1">
                     <a href="#" class=" w-10 h-10 border-gray-300 border-[1px] rounded-full text-gray-500  hover:bg-[#62d2a2] hover:text-white hover:border-[#62d2a2] duration-300  flex justify-center items-center ">
                         <i class="fa-brands fa-facebook-f"></i>
                     </a>
@@ -179,7 +178,7 @@
             <div class="relative">
                 <h3 class="w-72 text-white text-xl bg-[#62d2a2] px-4 py-3 rounded-tr-2xl">Bình Luận(<?= count($binhluan) ?>)</h3>
                 <!-- 123 -->
-                <div class="px-12 pt-8 pb-20 border-[#62d2a2] space-y-6 max-h-[600px] overflow-y-scroll" style="border-width: 1px;">
+                <div class="sm:px-12 px-3 sm:pt-8 pt-2 pb-20 border-[#62d2a2] space-y-6 max-h-[600px] overflow-y-scroll" style="border-width: 1px;">
                     <?php
 
                     foreach ($binhluan as $bl) {
@@ -202,7 +201,7 @@
                     ?>
                 </div>
 
-                <div class="absolute bottom-0 left-0 w-full px-12 py-3  bg-green-100 border-[#62d2a2] border-t-transparent" style="border-width: 1px;">
+                <div class="absolute bottom-0 left-0 w-full sm:px-12 px-3 sm:py-3 py-2  bg-green-100 border-[#62d2a2] border-t-transparent" style="border-width: 1px;">
                 <?php
                 if (isset($_SESSION['user'])) {
                 ?>
@@ -240,7 +239,7 @@
             <div class="relative">
                 <h3 class="w-72 text-white text-xl bg-[#62d2a2] px-4 py-3 rounded-tr-2xl">Đánh giá(<?= count($danhgia) ?>)</h3>
                 <!-- 123 -->
-                <div class="px-12 py-8 border-[#62d2a2] space-y-6 max-h-[600px] overflow-y-scroll" style="border-width: 1px;">
+                <div class="sm:px-12 px-3 sm:py-8 py-2 border-[#62d2a2] space-y-6 max-h-[600px] overflow-y-scroll" style="border-width: 1px;">
                     <?php
 
 
